@@ -9,5 +9,10 @@ export {
   errorMiddleware,
   notFoundMiddleware,
   ApiError,
-  asyncHandler,
 } from './error.js'
+export {
+  asyncHandler,
+  asyncHandlerWithTransform,
+  wrapMiddlewares,
+  type AsyncRequestHandler,
+} from './asyncHandler.js'

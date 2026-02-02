@@ -11,6 +11,7 @@ import {
   errorMiddleware,
   notFoundMiddleware,
 } from './middleware/index.js'
+import { healthRouter } from './routes/index.js'
 
 // Create Express application
 const app: Express = express()
@@ -29,16 +30,12 @@ app.use(loggerMiddleware)
 app.use(express.json({ limit: '50mb' }))
 app.use(express.urlencoded({ extended: true, limit: '50mb' }))
 
-// Health check endpoint
-app.get('/api/health', (_req: Request, res: Response) => {
-  res.json({
-    status: 'ok',
-    timestamp: new Date().toISOString(),
-    uptime: process.uptime(),
-    environment: env.NODE_ENV,
-    version: '0.1.0',
-  })
-})
+// =============================================================================
+// Routes
+// =============================================================================
+
+// Health check routes
+app.use('/api/health', healthRouter)
 
 // API root endpoint
 app.get('/api', (_req: Request, res: Response) => {

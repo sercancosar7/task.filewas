@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 13,
+  "currentPhase": 14,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -706,25 +706,25 @@
       "id": 13,
       "name": "Backend Health & Utils",
       "description": "Health endpoint ve utility fonksiyonlar",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "13.1",
           "title": "backend/src/routes/health.ts",
           "description": "GET /api/health - {status: 'ok', timestamp}",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "13.2",
           "title": "backend/src/utils/apiResponse.ts",
           "description": "success(), error(), paginated() helper functions",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "13.3",
           "title": "backend/src/middleware/asyncHandler.ts",
           "description": "Async error catching wrapper",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [
