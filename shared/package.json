@@ -6,14 +6,22 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "echo 'Shared build script - Faz 3 ile aktif olacak'",
-    "lint": "echo 'Shared lint script - Faz sonrasi aktif olacak'",
-    "lint:fix": "echo 'Shared lint:fix script - Faz sonrasi aktif olacak'",
-    "format": "echo 'Shared format script - Faz sonrasi aktif olacak'",
-    "format:check": "echo 'Shared format:check script - Faz sonrasi aktif olacak'",
-    "test": "echo 'Shared test script - Faz sonrasi aktif olacak'",
-    "typecheck": "echo 'Shared typecheck script - Faz sonrasi aktif olacak'",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\"",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist node_modules"
+  },
+  "dependencies": {
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
   },
   "engines": {
     "node": ">=22.0.0"
