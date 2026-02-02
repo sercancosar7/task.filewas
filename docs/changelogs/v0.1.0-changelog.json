@@ -457,6 +457,63 @@
         "backend/src/storage/index.ts",
         "backend/src/index.ts"
       ]
+    },
+    {
+      "phase": 15,
+      "date": "2026-02-02",
+      "title": "Storage Schema & Utils",
+      "changes": [
+        "backend/src/storage/sessions.ts olusturuldu - Session JSONL storage servisi",
+        "SessionEntryType union type tanimlandi (header, message, overview, roadmap, phase, tool, summary)",
+        "SessionHeaderEntry interface tanimlandi - Session metadata (id, projectId, version, title, status, mode, processingState, permissionMode, thinkingLevel, modelProvider, labels, phaseProgress, tokenUsage)",
+        "SessionMessageEntry interface tanimlandi - Mesaj kayitlari (id, role, content, contentType, metadata)",
+        "SessionToolEntry interface tanimlandi - Tool kullanim kayitlari (name, input, output, file, duration)",
+        "SessionPhaseEntry interface tanimlandi - Faz event kayitlari (id, name, status, agent, model)",
+        "SessionOverviewEntry, SessionRoadmapEntry, SessionSummaryEntry interface'leri tanimlandi",
+        "SessionCreateInput, SessionUpdateInput, SessionFilterOptions interface'leri tanimlandi",
+        "getSessionFilename() fonksiyonu eklendi - {projectId}--{sessionId}.jsonl formatinda dosya adi",
+        "getSessionPath() fonksiyonu eklendi - Session dosya yolu cozumleme",
+        "generateSessionId() fonksiyonu eklendi - sess-{timestamp}-{uuid} formatinda ID uretme",
+        "createSession() fonksiyonu eklendi - Yeni session JSONL dosyasi olusturma",
+        "getSession() fonksiyonu eklendi - Session header okuma",
+        "updateSession() fonksiyonu eklendi - Session header guncelleme",
+        "deleteSession() fonksiyonu eklendi - Session JSONL dosyasini silme",
+        "listSessions() fonksiyonu eklendi - Proje session'larini listeleme (filter destegi)",
+        "countSessions() fonksiyonu eklendi - Session sayisi",
+        "addMessage() fonksiyonu eklendi - Session'a mesaj ekleme",
+        "getMessages() fonksiyonu eklendi - Session mesajlarini okuma",
+        "addEntry() fonksiyonu eklendi - Herhangi bir entry tipi ekleme",
+        "getEntries() fonksiyonu eklendi - Tum entry'leri okuma",
+        "getEntriesByType() fonksiyonu eklendi - Tip bazinda entry filtreleme",
+        "backend/src/storage/projects.ts olusturuldu - Project JSON storage servisi",
+        "ProjectStatus, ProjectType type'lari tanimlandi",
+        "ProjectVersion, GitHubInfo, ProjectSettings, TechStack interface'leri tanimlandi",
+        "Project interface tanimlandi - Tam proje bilgisi (id, name, type, status, path, github, techStack, versions, activeVersion, settings, sessionCount)",
+        "ProjectCreateInput, ProjectUpdateInput interface'leri tanimlandi",
+        "getProjectsIndexPath() fonksiyonu eklendi - projects.json yolu",
+        "getProjectDirPath() fonksiyonu eklendi - Proje dizin yolu",
+        "generateProjectId() fonksiyonu eklendi - proj-{timestamp}-{uuid} formatinda ID uretme",
+        "generateProjectPath() fonksiyonu eklendi - Proje slug'indan path uretme",
+        "createProject() fonksiyonu eklendi - Yeni proje olusturma (index'e ekleme)",
+        "getProject() fonksiyonu eklendi - Proje bilgisi okuma",
+        "updateProject() fonksiyonu eklendi - Proje guncelleme",
+        "deleteProject() fonksiyonu eklendi - Soft delete (status: deleted)",
+        "hardDeleteProject() fonksiyonu eklendi - Index'ten tamamen silme",
+        "listProjects() fonksiyonu eklendi - Proje listeleme (filter destegi)",
+        "countProjects() fonksiyonu eklendi - Proje sayisi",
+        "addProjectVersion() fonksiyonu eklendi - Projeye yeni versiyon ekleme",
+        "updateProjectVersion() fonksiyonu eklendi - Versiyon guncelleme",
+        "updateSessionCount() fonksiyonu eklendi - Session sayisi senkronizasyonu",
+        "projectExists() fonksiyonu eklendi - Proje varlik kontrolu",
+        "backend/src/storage/index.ts guncellendi - sessions.ts ve projects.ts export'lari eklendi",
+        "Tum yeni type'lar ve fonksiyonlar barrel export'a eklendi",
+        "npm run build basariyla test edildi - hata yok"
+      ],
+      "files": [
+        "backend/src/storage/sessions.ts",
+        "backend/src/storage/projects.ts",
+        "backend/src/storage/index.ts"
+      ]
     }
   ]
 }

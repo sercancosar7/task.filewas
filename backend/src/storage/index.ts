@@ -49,3 +49,76 @@ export type { JsonReadOptions, JsonWriteOptions } from './json.js'
 export { initStorage, getStorageStatus } from './init.js'
 
 export type { PlatformSettings, SourcesConfig, StatusesConfig } from './init.js'
+
+// Session storage
+export {
+  createSession,
+  getSession,
+  updateSession,
+  deleteSession,
+  listSessions,
+  countSessions,
+  addMessage,
+  getMessages,
+  addEntry,
+  getEntries,
+  getEntriesByType,
+  getSessionFilename,
+  getSessionPath,
+  generateSessionId,
+} from './sessions.js'
+
+export type {
+  SessionEntryType,
+  SessionHeaderEntry,
+  SessionMessageEntry,
+  SessionToolEntry,
+  SessionPhaseEntry,
+  SessionOverviewEntry,
+  SessionRoadmapEntry,
+  SessionSummaryEntry,
+  SessionEntry,
+  SessionStatus,
+  SessionMode,
+  SessionProcessingState,
+  PermissionMode,
+  ThinkingLevel,
+  ModelProvider,
+  SessionLabelEntry,
+  PhaseProgressEntry,
+  TokenUsageEntry,
+  SessionCreateInput,
+  SessionUpdateInput,
+  SessionFilterOptions,
+} from './sessions.js'
+
+// Project storage
+export {
+  createProject,
+  getProject,
+  updateProject,
+  deleteProject,
+  hardDeleteProject,
+  listProjects,
+  countProjects,
+  addProjectVersion,
+  updateProjectVersion,
+  updateSessionCount,
+  projectExists,
+  getProjectsIndexPath,
+  getProjectDirPath,
+  generateProjectId,
+  generateProjectPath,
+} from './projects.js'
+
+export type {
+  ProjectStatus,
+  ProjectType,
+  ProjectVersion,
+  GitHubInfo,
+  ProjectSettings,
+  TechStack,
+  Project,
+  ProjectCreateInput,
+  ProjectUpdateInput,
+} from './projects.js'

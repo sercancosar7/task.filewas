@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 15,
+  "currentPhase": 16,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -777,37 +777,37 @@
       "id": 15,
       "name": "Storage Schema & Utils",
       "description": "Storage dosya formatlari ve yardimci fonksiyonlar",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "15.1",
           "title": "data/settings.json",
           "description": "Platform ayarlari: defaultModel, fallback, permission defaults",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "15.2",
           "title": "data/sources.json",
           "description": "MCP, API, Local kaynak tanimlari",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "15.3",
           "title": "data/statuses.json",
           "description": "Custom session status tanimlari",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "15.4",
           "title": "backend/src/storage/sessions.ts",
           "description": "Session JSONL read/write/query fonksiyonlari",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "15.5",
           "title": "backend/src/storage/projects.ts",
           "description": "Project JSON read/write fonksiyonlari",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [
