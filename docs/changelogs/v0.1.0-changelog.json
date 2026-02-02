@@ -2,7 +2,7 @@
   "version": "0.1.0",
   "name": "Otonom AI Proje Gelistirme Platformu",
   "startDate": "2026-02-02",
-  "lastUpdated": "2026-02-02T21:52:17Z",
+  "lastUpdated": "2026-02-02T22:15:00Z",
   "entries": [
     {
       "phase": 1,
@@ -234,6 +234,44 @@
         "shared/src/types/api.ts",
         "shared/src/types/websocket.ts",
         "shared/src/types/index.ts",
+        "shared/dist/"
+      ]
+    },
+    {
+      "phase": 10,
+      "date": "2026-02-02",
+      "title": "Shared Zod Schemas",
+      "changes": [
+        "shared/src/schemas/project.ts olusturuldu - Project validation schemalari",
+        "projectStatusSchema, projectTypeSchema, versionStatusSchema enum schemalari tanimlandi",
+        "gitHubInfoSchema, techStackSchema, projectSettingsSchema sub-schema'lari olusturuldu",
+        "projectVersionSchema (semantic version validation ile) tanimlandi",
+        "projectCreateSchema olusturuldu (name, description, type, path, githubUrl, techStack, settings, icon, color, tags)",
+        "projectUpdateSchema olusturuldu (partial update destegi ile)",
+        "projectSchema (full validation) ve projectSummarySchema tanimlandi",
+        "shared/src/schemas/session.ts olusturuldu - Session ve Message validation schemalari",
+        "sessionModeSchema (quick-chat/planning/tdd/debug/code-review) tanimlandi",
+        "sessionProcessingStateSchema (idle/starting/running/paused/stopping/completed/error) tanimlandi",
+        "tokenUsageSchema, sessionPhaseProgressSchema, sessionLabelSchema, sessionAgentSchema sub-schema'lari eklendi",
+        "sessionCreateSchema olusturuldu (projectId, title, description, mode, permissionMode, thinkingLevel, modelProvider, version, labels, isFlagged)",
+        "sessionUpdateSchema olusturuldu (partial update destegi ile)",
+        "sessionSchema (full validation) ve sessionSummarySchema tanimlandi",
+        "sessionFilterSchema ve sessionSortSchema eklendi (liste filtreleme/siralama)",
+        "messageContentTypeSchema, toolNameSchema (15 tool), toolStatusSchema tanimlandi",
+        "messageMetadataSchema, messageSchema, messageCreateSchema, messageChunkSchema olusturuldu",
+        "todoItemSchema, todoListSchema, planSchema eklendi (TodoWrite ve Plan destegi)",
+        "shared/src/schemas/index.ts guncellendi - tum schema'lar re-export edildi",
+        "Base schema'lar eklendi: idSchema, timestampSchema, paginationSchema",
+        "Common status schema'lar eklendi: sessionStatusSchema, phaseStatusSchema, agentStatusSchema",
+        "API response schema'lar eklendi: apiResponseSchema, successResponseSchema, errorResponseSchema",
+        "Tum inferred type export'lar eklendi (ProjectCreateSchemaType, SessionCreateSchemaType, vb.)",
+        "npm run build -w shared basariyla test edildi",
+        "npm run typecheck -w shared basariyla test edildi"
+      ],
+      "files": [
+        "shared/src/schemas/project.ts",
+        "shared/src/schemas/session.ts",
+        "shared/src/schemas/index.ts",
         "shared/dist/"
       ]
     }
