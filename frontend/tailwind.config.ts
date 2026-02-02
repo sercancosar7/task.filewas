@@ -6,51 +6,102 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
+        /* ==========================================
+           Ana Renkler (CSS Variables - hex values)
+           ========================================== */
+        background: 'var(--background)',
+        foreground: {
+          DEFAULT: 'var(--foreground)',
+          /* Foreground varyasyonlari (color-mix ile) */
+          '1.5': 'var(--foreground-1-5)',
+          '2': 'var(--foreground-2)',
+          '5': 'var(--foreground-5)',
+          '7': 'var(--foreground-7)',
+          '10': 'var(--foreground-10)',
+          '30': 'var(--foreground-30)',
+          '40': 'var(--foreground-40)',
+          '60': 'var(--foreground-60)',
+          '95': 'var(--foreground-95)',
+        },
+
+        /* ==========================================
+           Card & Popover
+           ========================================== */
         card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))',
+          DEFAULT: 'var(--card)',
+          foreground: 'var(--card-foreground)',
         },
         popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))',
+          DEFAULT: 'var(--popover)',
+          foreground: 'var(--popover-foreground)',
         },
+
+        /* ==========================================
+           Primary & Secondary
+           ========================================== */
         primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
+          DEFAULT: 'var(--primary)',
+          foreground: 'var(--primary-foreground)',
         },
         secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
+          DEFAULT: 'var(--secondary)',
+          foreground: 'var(--secondary-foreground)',
         },
+
+        /* ==========================================
+           Muted
+           ========================================== */
         muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))',
+          DEFAULT: 'var(--muted)',
+          foreground: 'var(--muted-foreground)',
         },
+
+        /* ==========================================
+           Accent (Violet)
+           ========================================== */
         accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--primary-foreground))',
+          DEFAULT: 'var(--accent)',
+          foreground: 'var(--primary-foreground)',
+          '10': 'var(--accent-10)',
+          '15': 'var(--accent-15)',
         },
+
+        /* ==========================================
+           Status Renkleri
+           ========================================== */
         destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--primary-foreground))',
+          DEFAULT: 'var(--destructive)',
+          foreground: 'var(--primary-foreground)',
+          '10': 'var(--destructive-10)',
+          '15': 'var(--destructive-15)',
         },
         success: {
-          DEFAULT: 'hsl(var(--success))',
-          foreground: 'hsl(var(--primary-foreground))',
+          DEFAULT: 'var(--success)',
+          foreground: 'var(--primary-foreground)',
+          '10': 'var(--success-10)',
+          '15': 'var(--success-15)',
         },
         info: {
-          DEFAULT: 'hsl(var(--info))',
-          foreground: 'hsl(var(--primary-foreground))',
+          DEFAULT: 'var(--info)',
+          foreground: 'var(--primary-foreground)',
+          '10': 'var(--info-10)',
+          '15': 'var(--info-15)',
         },
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
+
+        /* ==========================================
+           Border, Input, Ring
+           ========================================== */
+        border: 'var(--border)',
+        input: 'var(--input)',
+        ring: 'var(--ring)',
+
+        /* ==========================================
+           Sidebar (Craft Agents specific)
+           ========================================== */
         sidebar: {
-          DEFAULT: 'hsl(var(--sidebar))',
-          foreground: 'hsl(var(--sidebar-foreground))',
-          hover: 'hsl(var(--sidebar-hover))',
+          DEFAULT: 'var(--sidebar)',
+          foreground: 'var(--sidebar-foreground)',
+          hover: 'var(--sidebar-hover)',
         },
       },
       borderRadius: {
@@ -97,11 +148,11 @@ const config: Config = {
         'spinner-grid': 'spinner-grid 1s ease-in-out infinite',
       },
       boxShadow: {
-        thin: '0 1px 2px rgba(0,0,0,0.05)',
-        minimal: '0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)',
-        middle: '0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06)',
-        strong: '0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05)',
-        'modal-small': '0 4px 12px rgba(0,0,0,0.15)',
+        thin: 'var(--shadow-thin)',
+        minimal: 'var(--shadow-minimal)',
+        middle: 'var(--shadow-middle)',
+        strong: 'var(--shadow-strong)',
+        'modal-small': 'var(--shadow-modal-small)',
       },
       spacing: {
         18: '4.5rem',

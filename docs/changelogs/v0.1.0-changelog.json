@@ -616,6 +616,32 @@
         "frontend/src/styles/globals.css",
         "frontend/src/main.tsx"
       ]
+    },
+    {
+      "phase": 18,
+      "date": "2026-02-02",
+      "title": "Theme & CSS Variables",
+      "changes": [
+        "Craft Agents dark theme OKLCH renk sistemine gecildi",
+        "Ana renkler hex olarak tanimlandi: --background: #1e1d21, --foreground: #f5f5f7, --accent: #a78bfa",
+        "Status renkleri tanimlandi: --success: #22c55e, --destructive: #ef4444, --info: #fbbf24",
+        "Foreground varyasyonlari eklendi (color-mix ile): foreground-1.5, foreground-2, foreground-5, foreground-7, foreground-10, foreground-30, foreground-40, foreground-60, foreground-95",
+        "Status renk varyasyonlari eklendi: accent-10, accent-15, success-10, success-15, destructive-10, destructive-15, info-10, info-15",
+        "Shadow CSS degiskenleri eklendi: --shadow-thin, --shadow-minimal, --shadow-middle, --shadow-strong, --shadow-modal-small",
+        "Tailwind config guncellendi - CSS variables dogrudan referans edildi (hsl() wrapper kaldirildi)",
+        "Tailwind foreground renk varyasyonlari eklendi: foreground-1.5, foreground-2, foreground-5, foreground-7, foreground-10, foreground-30, foreground-40, foreground-60, foreground-95",
+        "Tailwind status renk varyasyonlari eklendi: accent-10, accent-15, success-10, success-15, destructive-10, destructive-15, info-10, info-15",
+        "Tailwind boxShadow CSS variable'lara baglandirildi",
+        "globals.css'deki @apply kurallari foreground varyasyonlarini kullanacak sekilde guncellendi",
+        "Sonner toast renkleri yeni CSS variable'lari kullanacak sekilde guncellendi",
+        "color-scheme: dark html ve .dark class'ina eklendi",
+        "npm run build basariyla test edildi - hata yok"
+      ],
+      "files": [
+        "frontend/src/styles/globals.css",
+        "frontend/tailwind.config.ts",
+        "frontend/src/App.tsx"
+      ]
     }
   ]
 }

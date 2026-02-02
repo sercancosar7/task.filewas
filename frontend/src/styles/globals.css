@@ -4,62 +4,149 @@
 
 /* ============================================
    Craft Agents Dark Theme - OKLCH Color System
-   ============================================ */
+   ============================================
+
+   Renk Sistemi: OKLCH (daha iyi renk gecisleri icin)
+   Kaynak: Craft Agents OSS - apps/electron/resources/themes/default.json
+
+   OKLCH degerleri:
+   - background: oklch(0.2 0.005 270) = #1e1d21
+   - foreground: oklch(0.92 0.005 270) = #f5f5f7
+   - accent: oklch(0.68 0.13 293) = #a78bfa (violet)
+   - info: oklch(0.70 0.16 70) = #fbbf24 (amber)
+   - success: oklch(0.60 0.17 145) = #22c55e (green)
+   - destructive: oklch(0.70 0.19 22) = #ef4444 (red)
+*/
 
 :root {
-  /* Base colors */
-  --background: 20 0.5% 12%;
-  --foreground: 0 0% 96%;
+  /* ==========================================
+     Ana Renkler (OKLCH hex equivalents)
+     ========================================== */
 
-  /* Accent colors (Craft Agents palette) */
-  --accent: 267 84% 77%;
-  --info: 38 92% 56%;
-  --success: 142 71% 45%;
-  --destructive: 0 84% 60%;
+  /* Base colors - Craft Agents Dark Theme */
+  --background: #1e1d21;
+  --foreground: #f5f5f7;
 
-  /* Muted colors */
-  --muted: 240 4% 16%;
-  --muted-foreground: 240 4% 46%;
+  /* Primary accent - Violet */
+  --accent: #a78bfa;
 
-  /* Border and ring */
-  --border: 240 4% 20%;
+  /* Status colors */
+  --info: #fbbf24;      /* Amber - warning/info */
+  --success: #22c55e;   /* Green - success */
+  --destructive: #ef4444; /* Red - error/danger */
+
+  /* ==========================================
+     Foreground Varyasyonlari (color-mix)
+     ==========================================
+
+     Kullanim ornekleri:
+     - bg-foreground-1.5: Button default bg
+     - bg-foreground-2: Card hover (unselected)
+     - bg-foreground-5: Badge background
+     - bg-foreground-7: Card hover (selected)
+     - bg-foreground-10: Vertical line (nested items)
+     - text-foreground-30: Label/badge text
+     - text-foreground-40: Timestamp text
+     - text-foreground-60: Icon default color
+  */
+  --foreground-1-5: color-mix(in oklch, var(--foreground) 1.5%, var(--background));
+  --foreground-2: color-mix(in oklch, var(--foreground) 2%, var(--background));
+  --foreground-5: color-mix(in oklch, var(--foreground) 5%, var(--background));
+  --foreground-7: color-mix(in oklch, var(--foreground) 7%, var(--background));
+  --foreground-10: color-mix(in oklch, var(--foreground) 10%, var(--background));
+  --foreground-30: color-mix(in oklch, var(--foreground) 30%, var(--background));
+  --foreground-40: color-mix(in oklch, var(--foreground) 40%, var(--background));
+  --foreground-60: color-mix(in oklch, var(--foreground) 60%, var(--background));
+  --foreground-95: color-mix(in oklch, var(--foreground) 95%, var(--background));
+
+  /* ==========================================
+     Status Renk Varyasyonlari (tinted backgrounds)
+     ========================================== */
+  --accent-10: color-mix(in oklch, var(--accent) 10%, var(--background));
+  --accent-15: color-mix(in oklch, var(--accent) 15%, var(--background));
+  --success-10: color-mix(in oklch, var(--success) 10%, var(--background));
+  --success-15: color-mix(in oklch, var(--success) 15%, var(--background));
+  --destructive-10: color-mix(in oklch, var(--destructive) 10%, var(--background));
+  --destructive-15: color-mix(in oklch, var(--destructive) 15%, var(--background));
+  --info-10: color-mix(in oklch, var(--info) 10%, var(--background));
+  --info-15: color-mix(in oklch, var(--info) 15%, var(--background));
+
+  /* ==========================================
+     Muted Renkler
+     ========================================== */
+  --muted: #27272a;
+  --muted-foreground: #71717a;
+
+  /* ==========================================
+     Border ve Ring
+     ========================================== */
+  --border: #3f3f46;
   --ring: var(--accent);
 
-  /* Card and popover */
-  --card: 240 4% 14%;
+  /* ==========================================
+     Card ve Popover
+     ========================================== */
+  --card: #27272a;
   --card-foreground: var(--foreground);
   --popover: var(--card);
   --popover-foreground: var(--foreground);
 
-  /* Primary (same as accent for dark theme) */
+  /* ==========================================
+     Primary (accent ile ayni - dark theme icin)
+     ========================================== */
   --primary: var(--accent);
-  --primary-foreground: 0 0% 100%;
+  --primary-foreground: #ffffff;
 
-  /* Secondary */
-  --secondary: 240 4% 18%;
+  /* ==========================================
+     Secondary
+     ========================================== */
+  --secondary: #3f3f46;
   --secondary-foreground: var(--foreground);
 
-  /* Input */
-  --input: 240 4% 20%;
+  /* ==========================================
+     Input
+     ========================================== */
+  --input: #3f3f46;
 
-  /* Radius */
+  /* ==========================================
+     Radius
+     ========================================== */
   --radius: 0.5rem;
 
-  /* Sidebar (Craft Agents specific) */
-  --sidebar: 240 4% 10%;
+  /* ==========================================
+     Sidebar (Craft Agents specific)
+     ========================================== */
+  --sidebar: #18181b;
   --sidebar-foreground: var(--foreground);
-  --sidebar-hover: 240 4% 16%;
+  --sidebar-hover: var(--foreground-5);
 
-  /* Panel spacing (Craft Agents layout) */
+  /* ==========================================
+     Panel Spacing (Craft Agents layout)
+     ========================================== */
   --panel-window-edge-spacing: 6px;
   --panel-spacing: 5px;
 
-  /* Font families */
+  /* ==========================================
+     Font Families
+     ========================================== */
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* ==========================================
+     Shadows (Craft Agents)
+     ========================================== */
+  --shadow-thin: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-minimal: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-middle: 0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06);
+  --shadow-strong: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
+  --shadow-modal-small: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 /* Dark theme is default - Craft Agents only supports dark mode */
+html {
+  color-scheme: dark;
+}
+
 .dark {
   color-scheme: dark;
 }
@@ -70,7 +157,7 @@
 
 @layer base {
   * {
-    border-color: hsl(var(--border));
+    border-color: var(--border);
   }
 
   html {
@@ -82,8 +169,8 @@
   }
 
   body {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
+    background-color: var(--background);
+    color: var(--foreground);
     font-family: var(--font-sans);
     font-size: 15px;
     line-height: 1.5;
@@ -102,7 +189,7 @@
 
   /* Links */
   a {
-    color: hsl(var(--accent));
+    color: var(--accent);
     text-decoration: none;
   }
 
@@ -121,14 +208,14 @@
 
   /* Focus visible outline */
   :focus-visible {
-    outline: 2px solid hsl(var(--ring));
+    outline: 2px solid var(--ring);
     outline-offset: 2px;
   }
 
   /* Selection */
   ::selection {
-    background-color: hsl(var(--accent) / 0.3);
-    color: hsl(var(--foreground));
+    background-color: color-mix(in oklch, var(--accent) 30%, transparent);
+    color: var(--foreground);
   }
 }
 
@@ -148,18 +235,18 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--foreground) / 0.1);
+    background: var(--foreground-10);
     border-radius: 9999px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--foreground) / 0.2);
+    background: color-mix(in oklch, var(--foreground) 20%, transparent);
   }
 
   /* Firefox scrollbar */
   * {
     scrollbar-width: thin;
-    scrollbar-color: hsl(var(--foreground) / 0.1) transparent;
+    scrollbar-color: var(--foreground-10) transparent;
   }
 }
 
@@ -193,9 +280,9 @@
   .animate-shimmer-text {
     background: linear-gradient(
       90deg,
-      hsl(var(--foreground)) 0%,
-      hsl(var(--foreground) / 0.5) 50%,
-      hsl(var(--foreground)) 100%
+      var(--foreground) 0%,
+      color-mix(in oklch, var(--foreground) 50%, transparent) 50%,
+      var(--foreground) 100%
     );
     background-size: 200% 100%;
     -webkit-background-clip: text;
@@ -242,26 +329,29 @@
   }
 
   .card-hover:hover {
-    background-color: hsl(var(--foreground) / 0.02);
+    background-color: var(--foreground-2);
   }
 
   .card-hover[data-selected='true'] {
-    background-color: hsl(var(--foreground) / 0.05);
+    background-color: var(--foreground-5);
   }
 
   .card-hover[data-selected='true']:hover {
-    background-color: hsl(var(--foreground) / 0.07);
+    background-color: var(--foreground-7);
   }
 
   /* Nav item styles (Craft Agents sidebar) */
   .nav-item {
     @apply flex items-center gap-2 rounded-md px-2 py-[5px] text-[13px] transition-colors;
-    @apply hover:bg-foreground/5;
+  }
+
+  .nav-item:hover {
+    background-color: var(--foreground-5);
   }
 
   .nav-item[data-state='open'],
   .nav-item[data-active='true'] {
-    @apply bg-foreground/[0.07];
+    background-color: var(--foreground-7);
   }
 
   /* Badge styles */
@@ -285,27 +375,27 @@
    ============================================ */
 
 [data-sonner-toast] {
-  --normal-bg: hsl(var(--background));
-  --normal-text: hsl(var(--foreground));
-  --normal-border: hsl(var(--border));
+  --normal-bg: var(--background);
+  --normal-text: var(--foreground);
+  --normal-border: var(--border);
 }
 
 [data-sonner-toast][data-type='success'] {
-  --success-bg: color-mix(in oklch, hsl(var(--success)) 15%, hsl(var(--background)));
-  --success-text: hsl(var(--foreground));
-  --success-border: hsl(var(--success) / 0.3);
+  --success-bg: var(--success-15);
+  --success-text: var(--foreground);
+  --success-border: color-mix(in oklch, var(--success) 30%, transparent);
 }
 
 [data-sonner-toast][data-type='error'] {
-  --error-bg: color-mix(in oklch, hsl(var(--destructive)) 15%, hsl(var(--background)));
-  --error-text: hsl(var(--foreground));
-  --error-border: hsl(var(--destructive) / 0.3);
+  --error-bg: var(--destructive-15);
+  --error-text: var(--foreground);
+  --error-border: color-mix(in oklch, var(--destructive) 30%, transparent);
 }
 
 [data-sonner-toast][data-type='info'] {
-  --info-bg: color-mix(in oklch, hsl(var(--info)) 15%, hsl(var(--background)));
-  --info-text: hsl(var(--foreground));
-  --info-border: hsl(var(--info) / 0.3);
+  --info-bg: var(--info-15);
+  --info-text: var(--foreground);
+  --info-border: color-mix(in oklch, var(--info) 30%, transparent);
 }
 
 /* ============================================
@@ -342,7 +432,7 @@
 }
 
 .markdown-content code:not(pre code) {
-  @apply bg-foreground/10 rounded px-1.5 py-0.5 text-[13px];
+  @apply bg-foreground-10 rounded px-1.5 py-0.5 text-[13px];
 }
 
 .markdown-content pre {
@@ -367,7 +457,7 @@
 }
 
 .markdown-content th {
-  @apply bg-foreground/5 font-medium;
+  @apply bg-foreground-5 font-medium;
 }
 
 /* ============================================
@@ -376,7 +466,7 @@
 
 .shiki {
   @apply text-[13px] font-mono rounded-lg p-4 overflow-x-auto;
-  background-color: hsl(var(--background)) !important;
+  background-color: var(--background) !important;
 }
 
 /* GitHub Dark theme adjustments */
