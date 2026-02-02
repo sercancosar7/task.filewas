@@ -206,6 +206,20 @@ html {
     font-size: 13px;
   }
 
+  /* Small text */
+  small,
+  .text-small {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  /* Badge/Label text */
+  .text-badge {
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
   /* Focus visible outline */
   :focus-visible {
     outline: 2px solid var(--ring);

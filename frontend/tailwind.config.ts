@@ -121,7 +121,10 @@ const config: Config = {
         mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
       },
       fontSize: {
-        '2xs': ['0.625rem', { lineHeight: '0.875rem' }], // 10px
+        '2xs': ['0.625rem', { lineHeight: '0.875rem' }], // 10px - badges
+        'small': ['0.6875rem', { lineHeight: '1rem' }],  // 11px - small text
+        'body': ['0.9375rem', { lineHeight: '1.5' }],    // 15px - body text
+        'code': ['0.8125rem', { lineHeight: '1.4' }],    // 13px - code text
       },
       keyframes: {
         'accordion-down': {
