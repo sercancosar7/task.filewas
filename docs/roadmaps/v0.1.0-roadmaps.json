@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 14,
+  "currentPhase": 15,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -738,31 +738,31 @@
       "id": 14,
       "name": "JSONL Storage Setup",
       "description": "File-based JSONL storage altyapisi",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "14.1",
           "title": "backend/src/storage/jsonl.ts",
           "description": "JSONL read/write/append utility fonksiyonlari",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "14.2",
           "title": "backend/src/storage/json.ts",
           "description": "JSON read/write utility fonksiyonlari (settings, sources)",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "14.3",
           "title": "backend/src/storage/init.ts",
           "description": "data/ klasoru yoksa olustur, default dosyalari yaz",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "14.4",
           "title": "Storage init on startup",
           "description": "index.ts'de initStorage() cagir",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [

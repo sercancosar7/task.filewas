@@ -12,6 +12,7 @@ import {
   notFoundMiddleware,
 } from './middleware/index.js'
 import { healthRouter } from './routes/index.js'
+import { initStorage } from './storage/index.js'
 
 // Create Express application
 const app: Express = express()
@@ -56,9 +57,18 @@ app.use(notFoundMiddleware)
 // Global error handler - catches all errors
 app.use(errorMiddleware)
 
-// Start server
-const server = app.listen(env.PORT, () => {
-  console.log(`
+// =============================================================================
+// Bootstrap Application
+// =============================================================================
+
+async function bootstrap(): Promise<void> {
+  try {
+    // Initialize storage (creates data/ directories and default files)
+    await initStorage()
+
+    // Start server
+    const server = app.listen(env.PORT, () => {
+      console.log(`
 ╔══════════════════════════════════════════════════════╗
 ║          Task.filewas Backend Server                 ║
 ╠══════════════════════════════════════════════════════╣
@@ -67,26 +77,34 @@ const server = app.listen(env.PORT, () => {
 ║  Data Path:   ${env.DATA_PATH.padEnd(40)}║
 ║  CORS Origin: ${env.CORS_ORIGIN.padEnd(40)}║
 ╚══════════════════════════════════════════════════════╝
-  `)
-})
+      `)
+    })
 
-// Graceful shutdown
-const gracefulShutdown = (signal: string) => {
-  console.log(`\n[${signal}] Shutting down gracefully...`)
-  server.close(() => {
-    console.log('[Server] Closed')
-    process.exit(0)
-  })
+    // Graceful shutdown
+    const gracefulShutdown = (signal: string) => {
+      console.log(`\n[${signal}] Shutting down gracefully...`)
+      server.close(() => {
+        console.log('[Server] Closed')
+        process.exit(0)
+      })
 
-  // Force close after 10s
-  setTimeout(() => {
-    console.error('[Server] Forcing shutdown')
+      // Force close after 10s
+      setTimeout(() => {
+        console.error('[Server] Forcing shutdown')
+        process.exit(1)
+      }, 10000)
+    }
+
+    process.on('SIGTERM', () => gracefulShutdown('SIGTERM'))
+    process.on('SIGINT', () => gracefulShutdown('SIGINT'))
+  } catch (error) {
+    console.error('[Bootstrap] Failed to start server:', error)
     process.exit(1)
-  }, 10000)
+  }
 }
 
-process.on('SIGTERM', () => gracefulShutdown('SIGTERM'))
-process.on('SIGINT', () => gracefulShutdown('SIGINT'))
+// Start the application
+bootstrap()
 
-export { app, server }
+export { app }
 export default app
