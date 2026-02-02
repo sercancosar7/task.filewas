@@ -109,6 +109,30 @@
         "tsconfig.json",
         "shared/tsconfig.json"
       ]
+    },
+    {
+      "phase": 6,
+      "date": "2026-02-02",
+      "title": "Backend & Frontend TypeScript Config",
+      "changes": [
+        "Backend tsconfig.json olusturuldu (module: NodeNext, moduleResolution: NodeNext)",
+        "Backend path alias eklendi: @shared/* -> ../shared/src/*",
+        "Backend project references eklendi (shared'a referans)",
+        "Frontend tsconfig.json olusturuldu (jsx: react-jsx, lib: DOM, DOM.Iterable)",
+        "Frontend path alias'lar eklendi: @/* -> ./src/*, @shared/* -> ../shared/src/*",
+        "Frontend vite/client types dahil edildi",
+        "Frontend project references eklendi (shared'a referans)",
+        "Frontend tsconfig.node.json olusturuldu (Vite config icin ayri tsconfig)",
+        "Shared tsconfig.json guncellendi (module: ESNext, bundler moduleResolution)",
+        "Tum workspace'lerde npx tsc --noEmit basariyla test edildi",
+        "npm run typecheck root komutlari basariyla calisti"
+      ],
+      "files": [
+        "backend/tsconfig.json",
+        "frontend/tsconfig.json",
+        "frontend/tsconfig.node.json",
+        "shared/tsconfig.json"
+      ]
     }
   ]
 }
