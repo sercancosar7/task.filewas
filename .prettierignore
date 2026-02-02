@@ -1,0 +1,10 @@
+node_modules/
+dist/
+build/
+coverage/
+*.db
+*.sqlite
+*.log
+.git/
+package-lock.json
+pnpm-lock.yaml

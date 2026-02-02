@@ -133,6 +133,29 @@
         "frontend/tsconfig.node.json",
         "shared/tsconfig.json"
       ]
+    },
+    {
+      "phase": 7,
+      "date": "2026-02-02",
+      "title": "ESLint, Prettier & Git",
+      "changes": [
+        "eslint.config.js olusturuldu (ESLint v9 flat config)",
+        "typescript-eslint entegrasyonu eklendi (type-aware linting)",
+        "eslint-plugin-react ve eslint-plugin-react-hooks eklendi",
+        "eslint-plugin-react-refresh eklendi (Vite HMR destegi)",
+        "Backend, frontend ve shared icin ayri ESLint konfigurasyonlari tanimlandi",
+        ".prettierrc olusturuldu (singleQuote: true, semi: false, tabWidth: 2, printWidth: 100)",
+        ".prettierignore olusturuldu (node_modules, dist, build, coverage vb.)",
+        ".gitignore guncellendi (data/*.jsonl, data/logs/ eklendi)",
+        ".env.example guncellendi (DATA_PATH eklendi)"
+      ],
+      "files": [
+        "eslint.config.js",
+        ".prettierrc",
+        ".prettierignore",
+        ".gitignore",
+        ".env.example"
+      ]
     }
   ]
 }
