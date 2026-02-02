@@ -1,0 +1,21 @@
+{
+  "name": "@task-filewas/frontend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Task.filewas Frontend UI",
+  "type": "module",
+  "scripts": {
+    "dev": "echo 'Frontend dev script - Faz 7 ile aktif olacak'",
+    "build": "echo 'Frontend build script - Faz 7 ile aktif olacak'",
+    "lint": "echo 'Frontend lint script - Faz sonrasi aktif olacak'",
+    "lint:fix": "echo 'Frontend lint:fix script - Faz sonrasi aktif olacak'",
+    "format": "echo 'Frontend format script - Faz sonrasi aktif olacak'",
+    "format:check": "echo 'Frontend format:check script - Faz sonrasi aktif olacak'",
+    "test": "echo 'Frontend test script - Faz sonrasi aktif olacak'",
+    "typecheck": "echo 'Frontend typecheck script - Faz sonrasi aktif olacak'",
+    "clean": "rm -rf dist node_modules"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

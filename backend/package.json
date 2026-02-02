@@ -1,0 +1,21 @@
+{
+  "name": "@task-filewas/backend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Task.filewas Backend API",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "echo 'Backend dev script - Faz 4 ile aktif olacak'",
+    "build": "echo 'Backend build script - Faz 4 ile aktif olacak'",
+    "lint": "echo 'Backend lint script - Faz sonrasi aktif olacak'",
+    "lint:fix": "echo 'Backend lint:fix script - Faz sonrasi aktif olacak'",
+    "format": "echo 'Backend format script - Faz sonrasi aktif olacak'",
+    "format:check": "echo 'Backend format:check script - Faz sonrasi aktif olacak'",
+    "test": "echo 'Backend test script - Faz sonrasi aktif olacak'",
+    "typecheck": "echo 'Backend typecheck script - Faz sonrasi aktif olacak'",
+    "clean": "rm -rf dist node_modules"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

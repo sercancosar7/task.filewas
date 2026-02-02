@@ -1,0 +1,17 @@
+{
+  "lastUpdated": "2026-02-02T21:26:06.126Z",
+  "documents": [],
+  "healthMetrics": {
+    "totalDocuments": 0,
+    "totalOriginalSize": 0,
+    "totalCompressedSize": 0,
+    "compressionRatio": 0,
+    "averageRelevanceScore": 0,
+    "contextUsagePercent": 0,
+    "documentsCompressed": 0,
+    "lastCompressionDate": "",
+    "healthStatus": "healthy",
+    "recommendations": []
+  },
+  "compressionHistory": []
+}

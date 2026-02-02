@@ -1,0 +1,21 @@
+{
+  "name": "@task-filewas/shared",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Task.filewas Shared Types and Utilities",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "echo 'Shared build script - Faz 3 ile aktif olacak'",
+    "lint": "echo 'Shared lint script - Faz sonrasi aktif olacak'",
+    "lint:fix": "echo 'Shared lint:fix script - Faz sonrasi aktif olacak'",
+    "format": "echo 'Shared format script - Faz sonrasi aktif olacak'",
+    "format:check": "echo 'Shared format:check script - Faz sonrasi aktif olacak'",
+    "test": "echo 'Shared test script - Faz sonrasi aktif olacak'",
+    "typecheck": "echo 'Shared typecheck script - Faz sonrasi aktif olacak'",
+    "clean": "rm -rf dist node_modules"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}
