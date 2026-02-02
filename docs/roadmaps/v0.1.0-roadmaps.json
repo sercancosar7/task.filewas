@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 8,
+  "currentPhase": 9,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -527,25 +527,25 @@
       "id": 8,
       "name": "Shared Types - Project & Session",
       "description": "Project ve Session type tanimlari",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "8.1",
           "title": "shared/src/types/project.ts",
           "description": "Project, ProjectCreate, ProjectUpdate, ProjectStatus interfaces",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "8.2",
           "title": "shared/src/types/session.ts",
           "description": "Session, SessionStatus (todo/in-progress/needs-review/done/cancelled), SessionMode",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "8.3",
           "title": "shared/src/types/message.ts",
           "description": "Message, MessageRole (user/assistant), Turn, Activity interfaces",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [

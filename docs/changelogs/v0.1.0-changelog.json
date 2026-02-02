@@ -2,7 +2,7 @@
   "version": "0.1.0",
   "name": "Otonom AI Proje Gelistirme Platformu",
   "startDate": "2026-02-02",
-  "lastUpdated": "2026-02-02T21:55:00Z",
+  "lastUpdated": "2026-02-02T23:30:00Z",
   "entries": [
     {
       "phase": 1,
@@ -155,6 +155,36 @@
         ".prettierignore",
         ".gitignore",
         ".env.example"
+      ]
+    },
+    {
+      "phase": 8,
+      "date": "2026-02-02",
+      "title": "Shared Types - Project & Session",
+      "changes": [
+        "shared/src/types/project.ts olusturuldu - Project, ProjectCreate, ProjectUpdate, ProjectSummary interfaces",
+        "ProjectStatus (active/archived/deleted), ProjectType (web/backend/fullstack/mobile/cli/library/monorepo/other) tanimlandi",
+        "ProjectVersion, GitHubInfo, ProjectSettings, TechStack interfaces tanimlandi",
+        "shared/src/types/session.ts olusturuldu - Session, SessionCreate, SessionUpdate, SessionSummary interfaces",
+        "SessionStatus (todo/in-progress/needs-review/done/cancelled) tanimlandi",
+        "SessionMode (quick-chat/planning/tdd/debug/code-review) tanimlandi",
+        "SessionProcessingState, TokenUsage, SessionPhaseProgress, SessionLabel, SessionAgent interfaces tanimlandi",
+        "SessionFilter ve SessionSort interfaces eklendi (liste filtreleme ve siralama)",
+        "shared/src/types/message.ts olusturuldu - Message, MessageCreate, Turn, Activity interfaces",
+        "MessageRole (user/assistant/system), MessageContentType, ToolName, ToolStatus tanimlandi",
+        "ToolUseActivity, ToolResultActivity, Activity interfaces tanimlandi",
+        "TodoItem, TodoList, Plan interfaces eklendi (TodoWrite ve Plan modu destegi)",
+        "MessageChunk interface eklendi (streaming mesaj destegi)",
+        "WSMessage, WSOutputMessage, WSStatusMessage, WSErrorMessage interfaces eklendi (WebSocket tipleri)",
+        "shared/src/types/index.ts guncellendi - tum yeni tipler re-export edildi",
+        "npm run build basariyla test edildi - TypeScript derleme hatasiz tamamlandi"
+      ],
+      "files": [
+        "shared/src/types/project.ts",
+        "shared/src/types/session.ts",
+        "shared/src/types/message.ts",
+        "shared/src/types/index.ts",
+        "shared/dist/"
       ]
     }
   ]
