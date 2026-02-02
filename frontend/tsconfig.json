@@ -20,15 +20,15 @@
       "@/*": ["./src/*"],
       "@shared/*": ["../shared/src/*"]
     },
-    "types": ["node", "vite/client"]
+    "types": ["node"]
   },
   "include": [
     "src/**/*",
-    "src/**/*.tsx",
-    "vite.config.ts"
+    "src/**/*.tsx"
   ],
   "exclude": ["node_modules", "dist"],
   "references": [
-    { "path": "../shared" }
+    { "path": "../shared" },
+    { "path": "./tsconfig.node.json" }
   ]
 }
