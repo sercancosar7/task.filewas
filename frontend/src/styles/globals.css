@@ -1,0 +1,387 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   Craft Agents Dark Theme - OKLCH Color System
+   ============================================ */
+
+:root {
+  /* Base colors */
+  --background: 20 0.5% 12%;
+  --foreground: 0 0% 96%;
+
+  /* Accent colors (Craft Agents palette) */
+  --accent: 267 84% 77%;
+  --info: 38 92% 56%;
+  --success: 142 71% 45%;
+  --destructive: 0 84% 60%;
+
+  /* Muted colors */
+  --muted: 240 4% 16%;
+  --muted-foreground: 240 4% 46%;
+
+  /* Border and ring */
+  --border: 240 4% 20%;
+  --ring: var(--accent);
+
+  /* Card and popover */
+  --card: 240 4% 14%;
+  --card-foreground: var(--foreground);
+  --popover: var(--card);
+  --popover-foreground: var(--foreground);
+
+  /* Primary (same as accent for dark theme) */
+  --primary: var(--accent);
+  --primary-foreground: 0 0% 100%;
+
+  /* Secondary */
+  --secondary: 240 4% 18%;
+  --secondary-foreground: var(--foreground);
+
+  /* Input */
+  --input: 240 4% 20%;
+
+  /* Radius */
+  --radius: 0.5rem;
+
+  /* Sidebar (Craft Agents specific) */
+  --sidebar: 240 4% 10%;
+  --sidebar-foreground: var(--foreground);
+  --sidebar-hover: 240 4% 16%;
+
+  /* Panel spacing (Craft Agents layout) */
+  --panel-window-edge-spacing: 6px;
+  --panel-spacing: 5px;
+
+  /* Font families */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* Dark theme is default - Craft Agents only supports dark mode */
+.dark {
+  color-scheme: dark;
+}
+
+/* ============================================
+   Base Layer - Global Reset & Defaults
+   ============================================ */
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings:
+      'liga' 1,
+      'kern' 1;
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  /* Headings */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  /* Links */
+  a {
+    color: hsl(var(--accent));
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Code font */
+  code,
+  pre,
+  kbd,
+  .font-mono {
+    font-family: var(--font-mono);
+    font-size: 13px;
+  }
+
+  /* Focus visible outline */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: hsl(var(--accent) / 0.3);
+    color: hsl(var(--foreground));
+  }
+}
+
+/* ============================================
+   Scrollbar Styles (Craft Agents)
+   ============================================ */
+
+@layer base {
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--foreground) / 0.1);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--foreground) / 0.2);
+  }
+
+  /* Firefox scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--foreground) / 0.1) transparent;
+  }
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+@layer utilities {
+  /* Hide scrollbar utility */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Thin scrollbar utility */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+
+  /* Fade mask for scrollable badge rows */
+  .fade-mask-right {
+    mask: linear-gradient(to right, black calc(100% - 16px), transparent 100%);
+    -webkit-mask: linear-gradient(to right, black calc(100% - 16px), transparent 100%);
+  }
+
+  /* Text shimmer animation (for processing state) */
+  .animate-shimmer-text {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--foreground)) 0%,
+      hsl(var(--foreground) / 0.5) 50%,
+      hsl(var(--foreground)) 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shimmer 2s linear infinite;
+  }
+
+  /* Line clamp utilities */
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* ============================================
+   Component Layer - Reusable Patterns
+   ============================================ */
+
+@layer components {
+  /* Panel base style (Craft Agents 3-panel layout) */
+  .panel {
+    @apply bg-background rounded-lg border border-border;
+  }
+
+  /* Card hover states */
+  .card-hover {
+    @apply transition-colors duration-150;
+  }
+
+  .card-hover:hover {
+    background-color: hsl(var(--foreground) / 0.02);
+  }
+
+  .card-hover[data-selected='true'] {
+    background-color: hsl(var(--foreground) / 0.05);
+  }
+
+  .card-hover[data-selected='true']:hover {
+    background-color: hsl(var(--foreground) / 0.07);
+  }
+
+  /* Nav item styles (Craft Agents sidebar) */
+  .nav-item {
+    @apply flex items-center gap-2 rounded-md px-2 py-[5px] text-[13px] transition-colors;
+    @apply hover:bg-foreground/5;
+  }
+
+  .nav-item[data-state='open'],
+  .nav-item[data-active='true'] {
+    @apply bg-foreground/[0.07];
+  }
+
+  /* Badge styles */
+  .badge-status {
+    @apply inline-flex h-[18px] items-center rounded px-1.5 text-[10px] font-medium;
+  }
+
+  /* Activity row (tool visualization) */
+  .activity-row {
+    @apply flex items-center gap-2 py-0.5 text-[13px];
+  }
+
+  /* Session item */
+  .session-item {
+    @apply relative select-none pl-2 mr-2;
+  }
+}
+
+/* ============================================
+   Sonner Toast Customization (Craft Agents)
+   ============================================ */
+
+[data-sonner-toast] {
+  --normal-bg: hsl(var(--background));
+  --normal-text: hsl(var(--foreground));
+  --normal-border: hsl(var(--border));
+}
+
+[data-sonner-toast][data-type='success'] {
+  --success-bg: color-mix(in oklch, hsl(var(--success)) 15%, hsl(var(--background)));
+  --success-text: hsl(var(--foreground));
+  --success-border: hsl(var(--success) / 0.3);
+}
+
+[data-sonner-toast][data-type='error'] {
+  --error-bg: color-mix(in oklch, hsl(var(--destructive)) 15%, hsl(var(--background)));
+  --error-text: hsl(var(--foreground));
+  --error-border: hsl(var(--destructive) / 0.3);
+}
+
+[data-sonner-toast][data-type='info'] {
+  --info-bg: color-mix(in oklch, hsl(var(--info)) 15%, hsl(var(--background)));
+  --info-text: hsl(var(--foreground));
+  --info-border: hsl(var(--info) / 0.3);
+}
+
+/* ============================================
+   Markdown Content Styles
+   ============================================ */
+
+.markdown-content {
+  @apply text-[15px] leading-relaxed;
+}
+
+.markdown-content h1 {
+  @apply text-2xl font-semibold mt-6 mb-4;
+}
+
+.markdown-content h2 {
+  @apply text-xl font-semibold mt-5 mb-3;
+}
+
+.markdown-content h3 {
+  @apply text-lg font-semibold mt-4 mb-2;
+}
+
+.markdown-content p {
+  @apply mb-4;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  @apply mb-4 pl-6;
+}
+
+.markdown-content li {
+  @apply mb-1;
+}
+
+.markdown-content code:not(pre code) {
+  @apply bg-foreground/10 rounded px-1.5 py-0.5 text-[13px];
+}
+
+.markdown-content pre {
+  @apply bg-background border border-border rounded-lg p-4 overflow-x-auto mb-4;
+}
+
+.markdown-content blockquote {
+  @apply border-l-2 border-accent pl-4 italic text-muted-foreground;
+}
+
+.markdown-content a {
+  @apply text-accent hover:underline;
+}
+
+.markdown-content table {
+  @apply w-full border-collapse mb-4;
+}
+
+.markdown-content th,
+.markdown-content td {
+  @apply border border-border px-3 py-2 text-left;
+}
+
+.markdown-content th {
+  @apply bg-foreground/5 font-medium;
+}
+
+/* ============================================
+   Code Block Syntax Highlighting (Shiki)
+   ============================================ */
+
+.shiki {
+  @apply text-[13px] font-mono rounded-lg p-4 overflow-x-auto;
+  background-color: hsl(var(--background)) !important;
+}
+
+/* GitHub Dark theme adjustments */
+.shiki,
+.shiki span {
+  color: var(--shiki-dark, inherit) !important;
+  background-color: var(--shiki-dark-bg, transparent) !important;
+}

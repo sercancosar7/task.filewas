@@ -1,5 +1,6 @@
-/** @type {import('tailwindcss').Config} */
-export default {
+import type { Config } from 'tailwindcss'
+
+const config: Config = {
   darkMode: ['class'],
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
@@ -84,13 +85,38 @@ export default {
           '0%': { backgroundPosition: '-200% 0' },
           '100%': { backgroundPosition: '200% 0' },
         },
+        'spinner-grid': {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.5' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         shimmer: 'shimmer 2s linear infinite',
+        'spinner-grid': 'spinner-grid 1s ease-in-out infinite',
+      },
+      boxShadow: {
+        thin: '0 1px 2px rgba(0,0,0,0.05)',
+        minimal: '0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)',
+        middle: '0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06)',
+        strong: '0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05)',
+        'modal-small': '0 4px 12px rgba(0,0,0,0.15)',
+      },
+      spacing: {
+        18: '4.5rem',
+        88: '22rem',
+      },
+      zIndex: {
+        panel: '50',
+        modal: '200',
+        overlay: '300',
+        'floating-menu': '400',
+        splash: '600',
       },
     },
   },
   plugins: [require('tailwindcss-animate')],
 }
+
+export default config
