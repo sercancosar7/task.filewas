@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 12,
+  "currentPhase": 13,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -668,31 +668,31 @@
       "id": 12,
       "name": "Backend Middleware - Core",
       "description": "Temel Express middleware'ler",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "12.1",
           "title": "backend/src/middleware/cors.ts",
           "description": "CORS - origin: frontend URL, credentials: true",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "12.2",
           "title": "backend/src/middleware/logger.ts",
           "description": "Request logger - method, path, status, duration",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "12.3",
           "title": "backend/src/middleware/error.ts",
           "description": "Global error handler, ApiError class",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "12.4",
           "title": "Middleware'leri app'e ekle",
           "description": "index.ts'de middleware'leri use et",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [

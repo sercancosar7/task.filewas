@@ -3,29 +3,31 @@
  * Express application entry point
  */
 
-import express, { type Express, type Request, type Response, type NextFunction } from 'express'
-import cors from 'cors'
-import { env, isDevelopment } from './config/env.js'
+import express, { type Express, type Request, type Response } from 'express'
+import { env } from './config/env.js'
+import {
+  corsMiddleware,
+  loggerMiddleware,
+  errorMiddleware,
+  notFoundMiddleware,
+} from './middleware/index.js'
 
 // Create Express application
 const app: Express = express()
 
-// Middleware
-app.use(cors({
-  origin: env.CORS_ORIGIN,
-  credentials: true,
-}))
+// =============================================================================
+// Core Middleware (order matters!)
+// =============================================================================
+
+// 1. CORS - must be first to handle preflight requests
+app.use(corsMiddleware)
+
+// 2. Request logging - log all incoming requests
+app.use(loggerMiddleware)
+
+// 3. Body parsers
 app.use(express.json({ limit: '50mb' }))
 app.use(express.urlencoded({ extended: true, limit: '50mb' }))
-
-// Request logging middleware (development only)
-if (isDevelopment) {
-  app.use((req: Request, _res: Response, next: NextFunction) => {
-    const timestamp = new Date().toISOString()
-    console.log(`[${timestamp}] ${req.method} ${req.url}`)
-    next()
-  })
-}
 
 // Health check endpoint
 app.get('/api/health', (_req: Request, res: Response) => {
@@ -47,29 +49,15 @@ app.get('/api', (_req: Request, res: Response) => {
   })
 })
 
-// 404 handler
-app.use((_req: Request, res: Response) => {
-  res.status(404).json({
-    success: false,
-    error: 'Not Found',
-    message: 'The requested endpoint does not exist',
-  })
-})
+// =============================================================================
+// Error Handling Middleware (must be last!)
+// =============================================================================
 
-// Global error handler
-app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
-  console.error('[Error]', err.message)
+// 404 handler - catches all undefined routes
+app.use(notFoundMiddleware)
 
-  if (isDevelopment) {
-    console.error(err.stack)
-  }
-
-  res.status(500).json({
-    success: false,
-    error: 'Internal Server Error',
-    message: isDevelopment ? err.message : 'An unexpected error occurred',
-  })
-})
+// Global error handler - catches all errors
+app.use(errorMiddleware)
 
 // Start server
 const server = app.listen(env.PORT, () => {
