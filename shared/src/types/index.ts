@@ -20,56 +20,6 @@ export interface BaseEntity {
 }
 
 // =============================================================================
-// API Response Types
-// =============================================================================
-
-/**
- * Standard API response wrapper
- */
-export interface ApiResponse<T> {
-  /** Whether the request was successful */
-  success: boolean;
-  /** Response data */
-  data?: T;
-  /** Error message if unsuccessful */
-  error?: string;
-  /** Additional metadata */
-  meta?: {
-    total?: number;
-    page?: number;
-    limit?: number;
-  };
-}
-
-/**
- * Pagination parameters for list requests
- */
-export interface PaginationParams {
-  /** Page number (1-indexed) */
-  page?: number;
-  /** Items per page */
-  limit?: number;
-  /** Items to skip (alternative to page) */
-  offset?: number;
-}
-
-/**
- * Paginated response with metadata
- */
-export interface PaginatedResponse<T> extends ApiResponse<T[]> {
-  meta: {
-    /** Total number of items */
-    total: number;
-    /** Current page number */
-    page: number;
-    /** Items per page */
-    limit: number;
-    /** Total number of pages */
-    totalPages: number;
-  };
-}
-
-// =============================================================================
 // Common Enums / Types
 // =============================================================================
 
@@ -79,7 +29,7 @@ export interface PaginatedResponse<T> extends ApiResponse<T[]> {
 export type PhaseStatus = 'pending' | 'in_progress' | 'completed';
 
 /**
- * Agent runtime status
+ * Agent runtime status (legacy, use AgentRuntimeStatus from agent.ts)
  */
 export type AgentStatus = 'idle' | 'running' | 'paused' | 'error' | 'completed';
 
@@ -101,6 +51,33 @@ export type ModelProvider = 'claude' | 'glm';
 // =============================================================================
 // Re-exports from module files
 // =============================================================================
+
+// API types
+export type {
+  ApiResponse,
+  ApiMeta,
+  PaginatedResponse,
+  PaginationMeta,
+  ApiErrorCode,
+  ApiError,
+  FieldError,
+  ApiErrorResponse,
+  PaginationParams,
+  SortParams,
+  ListParams,
+  DateRangeFilter,
+  HealthCheckResponse,
+  ServiceStatus,
+  LoginRequest,
+  LoginResponse,
+  VerifyTokenResponse,
+  BatchRequest,
+  BatchResult,
+  BatchDeleteRequest,
+  BatchUpdateRequest,
+  SSEMessage,
+  StreamStatus,
+} from './api';
 
 // Project types
 export type {
@@ -159,3 +136,104 @@ export type {
   WSStatusMessage,
   WSErrorMessage,
 } from './message';
+
+// Agent types
+export type {
+  AgentRuntimeStatus,
+  AgentType,
+  AgentCapabilities,
+  AgentConfig,
+  AgentModelMapping,
+  Agent,
+  AgentTokenUsage,
+  AgentSummary,
+  ToolInput,
+  ToolCall,
+  ToolResult,
+  AgentHandoff,
+  TaskPriority,
+  TaskType,
+  AgentTask,
+  TaskQueue,
+  OrchestratorConfig,
+  OrchestrationState,
+  AgentEventType,
+  AgentEvent,
+  AgentSpawnedEvent,
+  AgentProgressEvent,
+  AgentCompletedEvent,
+  AgentErrorEvent,
+} from './agent';
+
+// WebSocket event types
+export type {
+  WSDirection,
+  WSBaseMessage,
+  ServerEventType,
+  ServerMessage,
+  ConnectedEvent,
+  PingEvent,
+  SessionCreatedEvent,
+  SessionUpdatedEvent,
+  SessionDeletedEvent,
+  SessionStartedEvent,
+  SessionPausedEvent,
+  SessionResumedEvent,
+  SessionStoppedEvent,
+  SessionEndedEvent,
+  SessionErrorEvent,
+  SessionRefreshingEvent,
+  SessionRefreshedEvent,
+  SessionRefreshFailedEvent,
+  MessageNewEvent,
+  MessageChunkEvent,
+  MessageCompleteEvent,
+  MessageErrorEvent,
+  AgentSpawnedEventWS,
+  AgentStartedEvent,
+  AgentProgressEventWS,
+  AgentPausedEvent,
+  AgentResumedEvent,
+  AgentCompletedEventWS,
+  AgentErrorEventWS,
+  AgentStoppedEvent,
+  ToolCalledEvent,
+  ToolProgressEvent,
+  ToolResultEvent,
+  ToolErrorEvent,
+  PhaseStartedEvent,
+  PhaseProgressEvent,
+  PhaseCompletedEvent,
+  PhaseErrorEvent,
+  ContextWarningEvent,
+  ContextOverflowEvent,
+  TokenUsageEvent,
+  FileChange,
+  DiffUpdateEvent,
+  TestStartedEvent,
+  TestProgressEvent,
+  TestResultEvent,
+  OutputEvent,
+  ClientEventType,
+  ClientMessage,
+  PongEvent,
+  SubscribeEvent,
+  UnsubscribeEvent,
+  TypingEvent,
+  StopEvent,
+  PauseEvent,
+  ResumeEvent,
+  ServerEvents,
+  ClientEvents,
+  WSEvents,
+} from './websocket';
+
+// WebSocket type guards
+export {
+  isServerEvent,
+  isClientEvent,
+  isSessionEvent,
+  isAgentEvent,
+  isToolEvent,
+  isPhaseEvent,
+} from './websocket';
