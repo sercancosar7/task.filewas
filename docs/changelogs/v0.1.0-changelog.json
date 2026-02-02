@@ -686,6 +686,34 @@
         "frontend/src/components/ui/button.tsx",
         "frontend/src/components/ui/input.tsx"
       ]
+    },
+    {
+      "phase": 21,
+      "date": "2026-02-02",
+      "title": "Radix UI - Dialog & Dropdown",
+      "changes": [
+        "@radix-ui/react-dialog zaten kurulu (v1.1.4) - dogrulandi",
+        "@radix-ui/react-dropdown-menu zaten kurulu (v2.1.4) - dogrulandi",
+        "frontend/src/components/ui/dialog.tsx olusturuldu - Dialog component (Radix UI primitives ile)",
+        "Dialog, DialogTrigger, DialogPortal, DialogOverlay, DialogClose export edildi",
+        "DialogContent olusturuldu - modal penceresi (animate-in/out, slide, zoom efektleri)",
+        "DialogHeader, DialogFooter helper componentleri eklendi",
+        "DialogTitle, DialogDescription olusturuldu (Radix primitives wrapper)",
+        "X ikonu ile kapat butonu eklendi (accessibility: sr-only span)",
+        "Craft Agents tarzi stiller eklendi: rounded-[8px], border-foreground/10, bg-background",
+        "frontend/src/components/ui/dropdown-menu.tsx olusturuldu - DropdownMenu component",
+        "DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem export edildi",
+        "DropdownMenuCheckboxItem, DropdownMenuRadioItem olusturuldu (Check, Circle ikonlari)",
+        "DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuShortcut helper componentleri",
+        "DropdownMenuSub, DropdownMenuSubTrigger, DropdownMenuSubContent (nested menu destegi)",
+        "DropdownMenuGroup, DropdownMenuPortal, DropdownMenuRadioGroup export edildi",
+        "Craft Agents tarzi stiller eklendi: rounded-[6px], focus:bg-foreground/5, text-[13px]",
+        "npm run build basariyla test edildi"
+      ],
+      "files": [
+        "frontend/src/components/ui/dialog.tsx",
+        "frontend/src/components/ui/dropdown-menu.tsx"
+      ]
     }
   ]
 }

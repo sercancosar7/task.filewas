@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 21,
+  "currentPhase": 22,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -1008,31 +1008,31 @@
       "id": 21,
       "name": "Radix UI - Dialog & Dropdown",
       "description": "Modal ve dropdown componentleri",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "21.1",
           "title": "@radix-ui/react-dialog install",
           "description": "Dialog primitive yukle",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "21.2",
           "title": "frontend/src/components/ui/dialog.tsx",
           "description": "Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle wrapper",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "21.3",
           "title": "@radix-ui/react-dropdown-menu install",
           "description": "Dropdown primitive yukle",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "21.4",
           "title": "frontend/src/components/ui/dropdown-menu.tsx",
           "description": "DropdownMenu wrapper components",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [
