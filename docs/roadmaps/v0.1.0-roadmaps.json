@@ -1,0 +1,1631 @@
+{
+  "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
+  "version": "0.1.0",
+  "currentPhase": 1,
+  "totalPhases": 108,
+  "startDate": null,
+  "estimatedEndDate": null,
+  "description": "Craft Agents UI tasarimi + Everything Claude Code entegrasyonu ile otonom proje gelistirme platformu",
+  "overviewFile": "v0.1.0-overview.md",
+  "changelogFile": "v0.1.0-changelog.json",
+  "memoryFile": "v0.1.0-memory.json",
+  "prerequisites": [
+    "Node.js 22+ kurulu",
+    "Claude CLI auth yapilmis",
+    "Playwright kurulu",
+    "GitHub CLI (gh) kurulu"
+  ],
+  "milestones": [
+    {
+      "id": 1,
+      "name": "Proje Altyapisi",
+      "description": "Monorepo, TypeScript, ESLint, Shared types",
+      "phases": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      "color": "#6366F1"
+    },
+    {
+      "id": 2,
+      "name": "Backend Temelleri",
+      "description": "Express, JSONL Storage, File-based database",
+      "phases": [11, 12, 13, 14, 15],
+      "color": "#8B5CF6"
+    },
+    {
+      "id": 3,
+      "name": "Frontend Temelleri",
+      "description": "Vite, Tailwind, Radix UI, Router",
+      "phases": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+      "color": "#A855F7"
+    },
+    {
+      "id": 4,
+      "name": "UI Layout",
+      "description": "3 panel layout, sidebar, navigation",
+      "phases": [26, 27, 28, 29, 30, 31],
+      "color": "#D946EF"
+    },
+    {
+      "id": 5,
+      "name": "Backend API",
+      "description": "Repository, WebSocket, JWT Auth",
+      "phases": [32, 33, 34, 35, 36],
+      "color": "#EC4899"
+    },
+    {
+      "id": 6,
+      "name": "Session & Project",
+      "description": "Session API/UI, Project API/UI",
+      "phases": [37, 38, 39, 40, 41, 42, 43],
+      "color": "#F43F5E"
+    },
+    {
+      "id": 7,
+      "name": "Chat Arayuzu",
+      "description": "Chat display, TurnCard, Markdown, Input",
+      "phases": [44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54],
+      "color": "#FB7185"
+    },
+    {
+      "id": 8,
+      "name": "ECC Entegrasyonu",
+      "description": "Everything Claude Code dosya yapisi",
+      "phases": [55, 56, 57, 58, 59, 60],
+      "color": "#F97316"
+    },
+    {
+      "id": 9,
+      "name": "CLI & Agent",
+      "description": "CLI subprocess, agent spawn, prompt builder",
+      "phases": [61, 62, 63, 64, 65],
+      "color": "#FBBF24"
+    },
+    {
+      "id": 10,
+      "name": "Orchestration",
+      "description": "Task queue, paralel execution, fallback",
+      "phases": [66, 67, 68],
+      "color": "#EAB308"
+    },
+    {
+      "id": 11,
+      "name": "Otonom Calisma",
+      "description": "Roadmap execution, self-healing, context",
+      "phases": [69, 70, 71, 72, 73],
+      "color": "#A3E635"
+    },
+    {
+      "id": 12,
+      "name": "Settings & Dashboard",
+      "description": "Ayarlar, dashboard, toast, shortcuts",
+      "phases": [74, 75, 76, 77, 78],
+      "color": "#22C55E"
+    },
+    {
+      "id": 13,
+      "name": "Proje Yonetimi",
+      "description": "Proje secim ekrani, GitHub entegrasyonu",
+      "phases": [79, 80, 81, 82],
+      "color": "#14B8A6"
+    },
+    {
+      "id": 14,
+      "name": "Gelismis UI",
+      "description": "Diff viewer, File browser, Drag&drop, Background tasks",
+      "phases": [83, 84, 85, 86, 87, 88],
+      "color": "#06B6D4"
+    },
+    {
+      "id": 15,
+      "name": "Ek Sayfalar",
+      "description": "Sources, Agents, Skills, Logs, Changelog, Roadmap UI",
+      "phases": [89, 90, 91, 92, 93, 94],
+      "color": "#0EA5E9"
+    },
+    {
+      "id": 16,
+      "name": "Context & Memory",
+      "description": "Context summarization, Memory MCP entegrasyonu",
+      "phases": [95, 96, 97],
+      "color": "#3B82F6"
+    },
+    {
+      "id": 17,
+      "name": "Deploy",
+      "description": "Bug fix, dokumantasyon, production build",
+      "phases": [98, 99, 100],
+      "color": "#6366F1"
+    },
+    {
+      "id": 18,
+      "name": "Test & QA",
+      "description": "Unit test, E2E test, security review",
+      "phases": [101, 102, 103, 104, 105, 106, 107, 108],
+      "color": "#8B5CF6"
+    }
+  ],
+  "phases": [
+    {
+      "id": 1,
+      "name": "Root Monorepo Kurulumu",
+      "description": "npm workspaces ile root package.json olustur",
+      "status": "pending",
+      "tasks": [
+        {"id": "1.1", "title": "Root package.json", "description": "workspaces: ['backend', 'frontend', 'shared'], name: task-filewas", "status": "pending"},
+        {"id": "1.2", "title": "Root scripts", "description": "dev, build, lint, format, test scripts tanimla", "status": "pending"},
+        {"id": "1.3", "title": "Klasor yapisi", "description": "backend/, frontend/, shared/ klasorlerini olustur", "status": "pending"}
+      ],
+      "acceptance": ["Root package.json mevcut", "Klasorler olusturuldu"],
+      "tests": ["ls -la && cat package.json"]
+    },
+    {
+      "id": 2,
+      "name": "Backend Package Kurulumu",
+      "description": "Backend package.json ve dependencies",
+      "status": "pending",
+      "tasks": [
+        {"id": "2.1", "title": "Backend package.json", "description": "name: @task-filewas/backend, type: module", "status": "pending"},
+        {"id": "2.2", "title": "Runtime dependencies", "description": "express, socket.io, jsonwebtoken, bcryptjs, zod, cors, uuid", "status": "pending"},
+        {"id": "2.3", "title": "Dev dependencies", "description": "typescript, @types/*, tsx, nodemon", "status": "pending"},
+        {"id": "2.4", "title": "Backend scripts", "description": "dev, build, start scripts", "status": "pending"}
+      ],
+      "acceptance": ["Backend package.json mevcut", "Dependencies tanimli"],
+      "tests": ["cat backend/package.json"]
+    },
+    {
+      "id": 3,
+      "name": "Frontend Package Kurulumu",
+      "description": "Frontend package.json ve dependencies",
+      "status": "pending",
+      "tasks": [
+        {"id": "3.1", "title": "Frontend package.json", "description": "name: @task-filewas/frontend, type: module", "status": "pending"},
+        {"id": "3.2", "title": "React dependencies", "description": "react, react-dom, react-router-dom", "status": "pending"},
+        {"id": "3.3", "title": "UI dependencies", "description": "tailwindcss, @radix-ui/*, lucide-react, framer-motion, zustand", "status": "pending"},
+        {"id": "3.4", "title": "Build dependencies", "description": "vite, @vitejs/plugin-react, typescript", "status": "pending"}
+      ],
+      "acceptance": ["Frontend package.json mevcut", "Dependencies tanimli"],
+      "tests": ["cat frontend/package.json"]
+    },
+    {
+      "id": 4,
+      "name": "Shared Package Kurulumu",
+      "description": "Shared types paketi",
+      "status": "pending",
+      "tasks": [
+        {"id": "4.1", "title": "Shared package.json", "description": "name: @task-filewas/shared, main: dist/index.js, types: dist/index.d.ts", "status": "pending"},
+        {"id": "4.2", "title": "Shared dependencies", "description": "typescript, zod", "status": "pending"},
+        {"id": "4.3", "title": "npm install", "description": "Root dizinde npm install calistir", "status": "pending"}
+      ],
+      "acceptance": ["npm install basarili", "node_modules olusturuldu"],
+      "tests": ["npm install && ls node_modules"]
+    },
+    {
+      "id": 5,
+      "name": "TypeScript Base Config",
+      "description": "Root ve shared TypeScript konfigurasyonu",
+      "status": "pending",
+      "tasks": [
+        {"id": "5.1", "title": "Root tsconfig.json", "description": "Base config - strict: true, target: ES2022, moduleResolution: bundler", "status": "pending"},
+        {"id": "5.2", "title": "Shared tsconfig.json", "description": "extends root, declaration: true, composite: true, outDir: dist", "status": "pending"},
+        {"id": "5.3", "title": "shared/src/index.ts", "description": "Bos export dosyasi olustur", "status": "pending"}
+      ],
+      "acceptance": ["TypeScript config dosyalari mevcut"],
+      "tests": ["cat tsconfig.json && cat shared/tsconfig.json"]
+    },
+    {
+      "id": 6,
+      "name": "Backend & Frontend TypeScript Config",
+      "description": "Backend ve frontend icin TypeScript ayarlari",
+      "status": "pending",
+      "tasks": [
+        {"id": "6.1", "title": "Backend tsconfig.json", "description": "extends root, module: NodeNext, outDir: dist, rootDir: src", "status": "pending"},
+        {"id": "6.2", "title": "Frontend tsconfig.json", "description": "extends root, jsx: react-jsx, include vite types", "status": "pending"},
+        {"id": "6.3", "title": "Path aliases", "description": "@shared/* path mapping tum projelerde", "status": "pending"},
+        {"id": "6.4", "title": "tsc test", "description": "npx tsc --noEmit ile hata kontrolu", "status": "pending"}
+      ],
+      "acceptance": ["TypeScript hatasiz derleniyor"],
+      "tests": ["cd shared && npx tsc --noEmit"]
+    },
+    {
+      "id": 7,
+      "name": "ESLint, Prettier & Git",
+      "description": "Kod kalitesi araclari ve git ayarlari",
+      "status": "pending",
+      "tasks": [
+        {"id": "7.1", "title": "eslint.config.js", "description": "Flat config, typescript-eslint, react plugin", "status": "pending"},
+        {"id": "7.2", "title": ".prettierrc", "description": "singleQuote: true, semi: false, tabWidth: 2, printWidth: 100", "status": "pending"},
+        {"id": "7.3", "title": ".gitignore", "description": "node_modules, dist, .env*, *.db, .DS_Store", "status": "pending"},
+        {"id": "7.4", "title": ".env.example", "description": "PORT, JWT_SECRET, DATA_PATH, NODE_ENV template", "status": "pending"}
+      ],
+      "acceptance": ["Lint ve format calisyor", "Git ignore dogru"],
+      "tests": ["npm run lint"]
+    },
+    {
+      "id": 8,
+      "name": "Shared Types - Project & Session",
+      "description": "Project ve Session type tanimlari",
+      "status": "pending",
+      "tasks": [
+        {"id": "8.1", "title": "shared/src/types/project.ts", "description": "Project, ProjectCreate, ProjectUpdate, ProjectStatus interfaces", "status": "pending"},
+        {"id": "8.2", "title": "shared/src/types/session.ts", "description": "Session, SessionStatus (todo/in-progress/needs-review/done/cancelled), SessionMode", "status": "pending"},
+        {"id": "8.3", "title": "shared/src/types/message.ts", "description": "Message, MessageRole (user/assistant), Turn, Activity interfaces", "status": "pending"}
+      ],
+      "acceptance": ["Type dosyalari olusturuldu"],
+      "tests": ["cat shared/src/types/project.ts"]
+    },
+    {
+      "id": 9,
+      "name": "Shared Types - Agent & API",
+      "description": "Agent ve API response type tanimlari",
+      "status": "pending",
+      "tasks": [
+        {"id": "9.1", "title": "shared/src/types/agent.ts", "description": "Agent, AgentConfig, AgentStatus, ToolCall, ToolResult interfaces", "status": "pending"},
+        {"id": "9.2", "title": "shared/src/types/api.ts", "description": "ApiResponse<T>, ApiError, PaginatedResponse<T> interfaces", "status": "pending"},
+        {"id": "9.3", "title": "shared/src/types/websocket.ts", "description": "WebSocket event types - SessionEvent, MessageEvent, AgentEvent, ToolEvent", "status": "pending"},
+        {"id": "9.4", "title": "shared/src/index.ts", "description": "Tum type'lari export et", "status": "pending"}
+      ],
+      "acceptance": ["Tum types export ediliyor"],
+      "tests": ["npm run build -w shared"]
+    },
+    {
+      "id": 10,
+      "name": "Shared Zod Schemas",
+      "description": "Validation icin Zod schemalari",
+      "status": "pending",
+      "tasks": [
+        {"id": "10.1", "title": "shared/src/schemas/project.ts", "description": "projectCreateSchema, projectUpdateSchema", "status": "pending"},
+        {"id": "10.2", "title": "shared/src/schemas/session.ts", "description": "sessionCreateSchema, sessionUpdateSchema, messageSchema", "status": "pending"},
+        {"id": "10.3", "title": "shared/src/schemas/index.ts", "description": "Tum schemalari export et", "status": "pending"},
+        {"id": "10.4", "title": "Shared build test", "description": "npm run build -w shared && import test", "status": "pending"}
+      ],
+      "acceptance": ["Schemas calisiyor", "Build basarili"],
+      "tests": ["npm run build -w shared"]
+    },
+    {
+      "id": 11,
+      "name": "Backend Express Kurulumu",
+      "description": "Express server temel kurulum",
+      "status": "pending",
+      "tasks": [
+        {"id": "11.1", "title": "backend/src/index.ts", "description": "Express app olustur, listen on PORT", "status": "pending"},
+        {"id": "11.2", "title": "backend/src/config/env.ts", "description": "dotenv ile PORT, JWT_SECRET, DATA_PATH oku", "status": "pending"},
+        {"id": "11.3", "title": "backend/.env", "description": "PORT=3001, JWT_SECRET=dev-secret-change-in-prod, DATA_PATH=./data", "status": "pending"}
+      ],
+      "acceptance": ["Server basliyor"],
+      "tests": ["npm run dev -w backend"]
+    },
+    {
+      "id": 12,
+      "name": "Backend Middleware - Core",
+      "description": "Temel Express middleware'ler",
+      "status": "pending",
+      "tasks": [
+        {"id": "12.1", "title": "backend/src/middleware/cors.ts", "description": "CORS - origin: frontend URL, credentials: true", "status": "pending"},
+        {"id": "12.2", "title": "backend/src/middleware/logger.ts", "description": "Request logger - method, path, status, duration", "status": "pending"},
+        {"id": "12.3", "title": "backend/src/middleware/error.ts", "description": "Global error handler, ApiError class", "status": "pending"},
+        {"id": "12.4", "title": "Middleware'leri app'e ekle", "description": "index.ts'de middleware'leri use et", "status": "pending"}
+      ],
+      "acceptance": ["Middleware'ler calisiyor"],
+      "tests": ["curl http://localhost:3001/api/health"]
+    },
+    {
+      "id": 13,
+      "name": "Backend Health & Utils",
+      "description": "Health endpoint ve utility fonksiyonlar",
+      "status": "pending",
+      "tasks": [
+        {"id": "13.1", "title": "backend/src/routes/health.ts", "description": "GET /api/health - {status: 'ok', timestamp}", "status": "pending"},
+        {"id": "13.2", "title": "backend/src/utils/apiResponse.ts", "description": "success(), error(), paginated() helper functions", "status": "pending"},
+        {"id": "13.3", "title": "backend/src/middleware/asyncHandler.ts", "description": "Async error catching wrapper", "status": "pending"}
+      ],
+      "acceptance": ["Health endpoint 200 donuyor"],
+      "tests": ["curl http://localhost:3001/api/health"]
+    },
+    {
+      "id": 14,
+      "name": "JSONL Storage Setup",
+      "description": "File-based JSONL storage altyapisi",
+      "status": "pending",
+      "tasks": [
+        {"id": "14.1", "title": "backend/src/storage/jsonl.ts", "description": "JSONL read/write/append utility fonksiyonlari", "status": "pending"},
+        {"id": "14.2", "title": "backend/src/storage/json.ts", "description": "JSON read/write utility fonksiyonlari (settings, sources)", "status": "pending"},
+        {"id": "14.3", "title": "backend/src/storage/init.ts", "description": "data/ klasoru yoksa olustur, default dosyalari yaz", "status": "pending"},
+        {"id": "14.4", "title": "Storage init on startup", "description": "index.ts'de initStorage() cagir", "status": "pending"}
+      ],
+      "acceptance": ["data/ klasoru olusturuluyor", "JSONL okuma/yazma calisiyor"],
+      "tests": ["ls data/ && cat data/settings.json"]
+    },
+    {
+      "id": 15,
+      "name": "Storage Schema & Utils",
+      "description": "Storage dosya formatlari ve yardimci fonksiyonlar",
+      "status": "pending",
+      "tasks": [
+        {"id": "15.1", "title": "data/settings.json", "description": "Platform ayarlari: defaultModel, fallback, permission defaults", "status": "pending"},
+        {"id": "15.2", "title": "data/sources.json", "description": "MCP, API, Local kaynak tanimlari", "status": "pending"},
+        {"id": "15.3", "title": "data/statuses.json", "description": "Custom session status tanimlari", "status": "pending"},
+        {"id": "15.4", "title": "backend/src/storage/sessions.ts", "description": "Session JSONL read/write/query fonksiyonlari", "status": "pending"},
+        {"id": "15.5", "title": "backend/src/storage/projects.ts", "description": "Project JSON read/write fonksiyonlari", "status": "pending"}
+      ],
+      "acceptance": ["Storage dosyalari olusturuluyor", "CRUD islemleri calisiyor"],
+      "tests": ["cat data/settings.json"]
+    },
+    {
+      "id": 16,
+      "name": "Frontend Vite Kurulumu",
+      "description": "React + Vite temel setup",
+      "status": "pending",
+      "tasks": [
+        {"id": "16.1", "title": "frontend/vite.config.ts", "description": "React plugin, resolve aliases, server port 3000", "status": "pending"},
+        {"id": "16.2", "title": "frontend/index.html", "description": "Root HTML, div#root, font preload", "status": "pending"},
+        {"id": "16.3", "title": "frontend/src/main.tsx", "description": "ReactDOM.createRoot, StrictMode", "status": "pending"},
+        {"id": "16.4", "title": "frontend/src/App.tsx", "description": "Basit 'Hello World' component", "status": "pending"}
+      ],
+      "acceptance": ["Frontend dev server calisiyor"],
+      "tests": ["npm run dev -w frontend"]
+    },
+    {
+      "id": 17,
+      "name": "Tailwind CSS Kurulumu",
+      "description": "Tailwind ve PostCSS setup",
+      "status": "pending",
+      "tasks": [
+        {"id": "17.1", "title": "frontend/tailwind.config.ts", "description": "content paths, darkMode: 'class'", "status": "pending"},
+        {"id": "17.2", "title": "frontend/postcss.config.js", "description": "tailwindcss, autoprefixer plugins", "status": "pending"},
+        {"id": "17.3", "title": "frontend/src/styles/globals.css", "description": "@tailwind base, components, utilities directives", "status": "pending"},
+        {"id": "17.4", "title": "Import CSS in main.tsx", "description": "import './styles/globals.css'", "status": "pending"}
+      ],
+      "acceptance": ["Tailwind classes calisiyor"],
+      "tests": ["Frontend'de bg-red-500 test et"]
+    },
+    {
+      "id": 18,
+      "name": "Theme & CSS Variables",
+      "description": "Craft Agents dark theme ve OKLCH renkleri",
+      "status": "pending",
+      "tasks": [
+        {"id": "18.1", "title": "CSS Variables - Ana renkler", "description": "--background: #1e1d21, --foreground: #f5f5f7, --accent: #a78bfa", "status": "pending"},
+        {"id": "18.2", "title": "CSS Variables - Status renkler", "description": "--success: #22c55e, --destructive: #ef4444, --info: #fbbf24", "status": "pending"},
+        {"id": "18.3", "title": "Foreground varyasyonlari", "description": "color-mix ile foreground-5, foreground-10, foreground-30 etc.", "status": "pending"},
+        {"id": "18.4", "title": "Tailwind theme extend", "description": "colors: CSS variables referanslari", "status": "pending"}
+      ],
+      "acceptance": ["Custom colors calisiyor", "Dark mode aktif"],
+      "tests": ["bg-background, text-foreground test"]
+    },
+    {
+      "id": 19,
+      "name": "Typography & Fonts",
+      "description": "Font ailesi ve typography ayarlari",
+      "status": "pending",
+      "tasks": [
+        {"id": "19.1", "title": "Google Fonts import", "description": "Inter (400, 500, 600), JetBrains Mono (400)", "status": "pending"},
+        {"id": "19.2", "title": "Font family CSS variables", "description": "--font-sans: Inter, system-ui. --font-mono: JetBrains Mono", "status": "pending"},
+        {"id": "19.3", "title": "Base typography", "description": "body: text-[15px], code: text-[13px], small: text-[11px]", "status": "pending"}
+      ],
+      "acceptance": ["Fontlar yukleniyor", "Typography dogru"],
+      "tests": ["Font render kontrolu"]
+    },
+    {
+      "id": 20,
+      "name": "Radix UI - Button & Input",
+      "description": "Temel UI componentleri",
+      "status": "pending",
+      "tasks": [
+        {"id": "20.1", "title": "Radix packages install", "description": "@radix-ui/react-slot, class-variance-authority, clsx, tailwind-merge", "status": "pending"},
+        {"id": "20.2", "title": "frontend/src/lib/utils.ts", "description": "cn() utility - clsx + tailwind-merge", "status": "pending"},
+        {"id": "20.3", "title": "frontend/src/components/ui/button.tsx", "description": "Button variants: default, ghost, outline, destructive. Sizes: sm, md, lg", "status": "pending"},
+        {"id": "20.4", "title": "frontend/src/components/ui/input.tsx", "description": "Input component with forwardRef", "status": "pending"}
+      ],
+      "acceptance": ["Button ve Input render ediliyor"],
+      "tests": ["Component render testi"]
+    },
+    {
+      "id": 21,
+      "name": "Radix UI - Dialog & Dropdown",
+      "description": "Modal ve dropdown componentleri",
+      "status": "pending",
+      "tasks": [
+        {"id": "21.1", "title": "@radix-ui/react-dialog install", "description": "Dialog primitive yukle", "status": "pending"},
+        {"id": "21.2", "title": "frontend/src/components/ui/dialog.tsx", "description": "Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle wrapper", "status": "pending"},
+        {"id": "21.3", "title": "@radix-ui/react-dropdown-menu install", "description": "Dropdown primitive yukle", "status": "pending"},
+        {"id": "21.4", "title": "frontend/src/components/ui/dropdown-menu.tsx", "description": "DropdownMenu wrapper components", "status": "pending"}
+      ],
+      "acceptance": ["Dialog ve Dropdown calisiyor"],
+      "tests": ["Component interaction testi"]
+    },
+    {
+      "id": 22,
+      "name": "Radix UI - Tooltip, Select, ScrollArea",
+      "description": "Diger Radix componentleri",
+      "status": "pending",
+      "tasks": [
+        {"id": "22.1", "title": "frontend/src/components/ui/tooltip.tsx", "description": "Tooltip wrapper - @radix-ui/react-tooltip", "status": "pending"},
+        {"id": "22.2", "title": "frontend/src/components/ui/select.tsx", "description": "Select wrapper - @radix-ui/react-select", "status": "pending"},
+        {"id": "22.3", "title": "frontend/src/components/ui/scroll-area.tsx", "description": "ScrollArea wrapper - @radix-ui/react-scroll-area", "status": "pending"},
+        {"id": "22.4", "title": "frontend/src/components/ui/separator.tsx", "description": "Separator - @radix-ui/react-separator", "status": "pending"}
+      ],
+      "acceptance": ["Tum Radix componentleri calisiyor"],
+      "tests": ["Component render testleri"]
+    },
+    {
+      "id": 23,
+      "name": "Lucide Icons & Animations",
+      "description": "Icon kutuphanesi ve Framer Motion",
+      "status": "pending",
+      "tasks": [
+        {"id": "23.1", "title": "lucide-react install", "description": "npm install lucide-react", "status": "pending"},
+        {"id": "23.2", "title": "framer-motion install", "description": "npm install framer-motion", "status": "pending"},
+        {"id": "23.3", "title": "frontend/src/components/ui/spinner.tsx", "description": "Loading spinner with animation", "status": "pending"},
+        {"id": "23.4", "title": "frontend/src/lib/animations.ts", "description": "Framer variants: fadeIn, slideIn, stagger, collapse", "status": "pending"}
+      ],
+      "acceptance": ["Icons render ediliyor", "Animasyonlar calisiyor"],
+      "tests": ["Lucide icon + animation testi"]
+    },
+    {
+      "id": 24,
+      "name": "React Router Setup",
+      "description": "Routing yapisi",
+      "status": "pending",
+      "tasks": [
+        {"id": "24.1", "title": "react-router-dom import", "description": "createBrowserRouter, RouterProvider", "status": "pending"},
+        {"id": "24.2", "title": "frontend/src/router/routes.ts", "description": "Route path sabitleri: ROUTES.HOME, ROUTES.PROJECTS, etc.", "status": "pending"},
+        {"id": "24.3", "title": "frontend/src/router/index.tsx", "description": "Router configuration, lazy loading", "status": "pending"},
+        {"id": "24.4", "title": "App.tsx router entegrasyonu", "description": "RouterProvider ile wrap et", "status": "pending"}
+      ],
+      "acceptance": ["Routing calisiyor"],
+      "tests": ["Sayfa gecisleri testi"]
+    },
+    {
+      "id": 25,
+      "name": "Zustand State Management",
+      "description": "Global state yonetimi",
+      "status": "pending",
+      "tasks": [
+        {"id": "25.1", "title": "zustand install", "description": "npm install zustand", "status": "pending"},
+        {"id": "25.2", "title": "frontend/src/stores/app.ts", "description": "useAppStore: sidebarWidth, inboxWidth, currentProjectId", "status": "pending"},
+        {"id": "25.3", "title": "frontend/src/stores/session.ts", "description": "useSessionStore: currentSessionId, messages, isStreaming", "status": "pending"},
+        {"id": "25.4", "title": "Persist middleware", "description": "Panel boyutlarini localStorage'a kaydet", "status": "pending"}
+      ],
+      "acceptance": ["State management calisiyor"],
+      "tests": ["Store update testi"]
+    },
+    {
+      "id": 26,
+      "name": "3 Panel Layout Base",
+      "description": "Ana layout yapisi",
+      "status": "pending",
+      "tasks": [
+        {"id": "26.1", "title": "frontend/src/components/layout/AppLayout.tsx", "description": "Flex container, 3 panel, full height", "status": "pending"},
+        {"id": "26.2", "title": "frontend/src/components/layout/LeftSidebar.tsx", "description": "Sol sidebar placeholder - width from store", "status": "pending"},
+        {"id": "26.3", "title": "frontend/src/components/layout/SessionInbox.tsx", "description": "Orta panel placeholder - width from store", "status": "pending"},
+        {"id": "26.4", "title": "frontend/src/components/layout/MainContent.tsx", "description": "Sag panel placeholder - flex-1", "status": "pending"}
+      ],
+      "acceptance": ["3 panel gorunuyor"],
+      "tests": ["Layout render testi"]
+    },
+    {
+      "id": 27,
+      "name": "Resizable Panels",
+      "description": "Panel resize fonksiyonalitesi",
+      "status": "pending",
+      "tasks": [
+        {"id": "27.1", "title": "frontend/src/hooks/useResizable.ts", "description": "Mouse event handlers, min/max constraints", "status": "pending"},
+        {"id": "27.2", "title": "frontend/src/components/layout/ResizeHandle.tsx", "description": "Vertical resize bar, cursor-col-resize", "status": "pending"},
+        {"id": "27.3", "title": "Sidebar resize limits", "description": "min: 180px, default: 220px, max: 320px", "status": "pending"},
+        {"id": "27.4", "title": "Inbox resize limits", "description": "min: 240px, default: 300px, max: 480px", "status": "pending"}
+      ],
+      "acceptance": ["Panel resize calisiyor", "Limitler dogru"],
+      "tests": ["Manuel resize testi"]
+    },
+    {
+      "id": 28,
+      "name": "Spacing & Layout Constants",
+      "description": "Layout sabitleri ve responsive",
+      "status": "pending",
+      "tasks": [
+        {"id": "28.1", "title": "frontend/src/lib/constants.ts", "description": "PANEL_WINDOW_EDGE_SPACING: 6, PANEL_PANEL_SPACING: 5", "status": "pending"},
+        {"id": "28.2", "title": "Z-index scale", "description": "z-base: 0, z-panel: 50, z-modal: 200, z-overlay: 300", "status": "pending"},
+        {"id": "28.3", "title": "Shadow variables", "description": "--shadow-thin, --shadow-minimal, --shadow-modal-small", "status": "pending"}
+      ],
+      "acceptance": ["Constants tanimli", "Shadows calisiyor"],
+      "tests": ["Constant import testi"]
+    },
+    {
+      "id": 29,
+      "name": "Sidebar Navigation Structure",
+      "description": "Sol sidebar navigasyon yapisi",
+      "status": "pending",
+      "tasks": [
+        {"id": "29.1", "title": "frontend/src/components/sidebar/Sidebar.tsx", "description": "Sidebar container - flex col, pt-[50px] for title bar", "status": "pending"},
+        {"id": "29.2", "title": "frontend/src/components/sidebar/NavItem.tsx", "description": "Nav item: icon, label, count badge, hover state", "status": "pending"},
+        {"id": "29.3", "title": "frontend/src/components/sidebar/NavSection.tsx", "description": "Collapsible section with chevron toggle", "status": "pending"}
+      ],
+      "acceptance": ["Sidebar yapisi gorunuyor"],
+      "tests": ["Sidebar render testi"]
+    },
+    {
+      "id": 30,
+      "name": "Sidebar Content",
+      "description": "Sidebar icerigi - nav items, status filters",
+      "status": "pending",
+      "tasks": [
+        {"id": "30.1", "title": "New Chat button", "description": "Primary action button en ustte", "status": "pending"},
+        {"id": "30.2", "title": "Status nav items", "description": "All Chats, Backlog, Todo, In Progress, Needs Review, Done, Cancelled", "status": "pending"},
+        {"id": "30.3", "title": "Flagged filter", "description": "Flagged sessions filter item", "status": "pending"},
+        {"id": "30.4", "title": "Settings button", "description": "mt-auto ile alta sabitlenmis settings", "status": "pending"}
+      ],
+      "acceptance": ["Sidebar nav items calisiyor"],
+      "tests": ["Navigation testi"]
+    },
+    {
+      "id": 31,
+      "name": "Status Icons & Badge Component",
+      "description": "Session status gorselleri",
+      "status": "pending",
+      "tasks": [
+        {"id": "31.1", "title": "frontend/src/components/ui/status-icon.tsx", "description": "StatusIcon: status prop'a gore icon ve renk", "status": "pending"},
+        {"id": "31.2", "title": "frontend/src/components/ui/badge.tsx", "description": "Badge component: variants (default, success, destructive, info)", "status": "pending"},
+        {"id": "31.3", "title": "Status color mapping", "description": "backlog: muted, todo: secondary, in-progress: accent, done: success", "status": "pending"}
+      ],
+      "acceptance": ["Status icons dogru gorunuyor"],
+      "tests": ["Status icon render testi"]
+    },
+    {
+      "id": 32,
+      "name": "Backend Storage Service - Base",
+      "description": "Base storage service pattern",
+      "status": "pending",
+      "tasks": [
+        {"id": "32.1", "title": "backend/src/services/base-storage.ts", "description": "BaseStorageService<T> generic class", "status": "pending"},
+        {"id": "32.2", "title": "findAll method", "description": "JSONL/JSON okuma ile tum kayitlari getir", "status": "pending"},
+        {"id": "32.3", "title": "findById method", "description": "ID ile kayit bul", "status": "pending"},
+        {"id": "32.4", "title": "create, update, delete methods", "description": "JSONL append / JSON write islemleri", "status": "pending"}
+      ],
+      "acceptance": ["Base storage service calisiyor"],
+      "tests": ["Storage service unit testi"]
+    },
+    {
+      "id": 33,
+      "name": "Backend Storage Service - Project & Session",
+      "description": "Project ve Session storage servisleri",
+      "status": "pending",
+      "tasks": [
+        {"id": "33.1", "title": "backend/src/services/project-storage.ts", "description": "ProjectStorageService extends BaseStorageService", "status": "pending"},
+        {"id": "33.2", "title": "findActive method", "description": "Aktif projeyi getir", "status": "pending"},
+        {"id": "33.3", "title": "backend/src/services/session-storage.ts", "description": "SessionStorageService - JSONL based", "status": "pending"},
+        {"id": "33.4", "title": "findByProject method", "description": "Projeye ait sessionlari getir", "status": "pending"}
+      ],
+      "acceptance": ["Storage servisleri calisiyor"],
+      "tests": ["Storage query testleri"]
+    },
+    {
+      "id": 34,
+      "name": "WebSocket Server Setup",
+      "description": "Socket.io server kurulumu",
+      "status": "pending",
+      "tasks": [
+        {"id": "34.1", "title": "backend/src/socket/index.ts", "description": "Socket.io server, cors ayarlari", "status": "pending"},
+        {"id": "34.2", "title": "HTTP server entegrasyonu", "description": "Express app'i HTTP server ile wrap et", "status": "pending"},
+        {"id": "34.3", "title": "Connection handling", "description": "connection, disconnect event handlers", "status": "pending"},
+        {"id": "34.4", "title": "Room management", "description": "Session bazli room'lar", "status": "pending"}
+      ],
+      "acceptance": ["WebSocket server calisiyor"],
+      "tests": ["Socket connection testi"]
+    },
+    {
+      "id": 35,
+      "name": "WebSocket Client Setup",
+      "description": "Frontend socket.io client",
+      "status": "pending",
+      "tasks": [
+        {"id": "35.1", "title": "socket.io-client install", "description": "npm install socket.io-client -w frontend", "status": "pending"},
+        {"id": "35.2", "title": "frontend/src/lib/socket.ts", "description": "Socket singleton, connect(), disconnect()", "status": "pending"},
+        {"id": "35.3", "title": "frontend/src/hooks/useSocket.ts", "description": "useSocket hook - auto connect on mount", "status": "pending"},
+        {"id": "35.4", "title": "frontend/src/hooks/useSocketEvent.ts", "description": "Event listener hook with cleanup", "status": "pending"}
+      ],
+      "acceptance": ["Client socket baglaniyor"],
+      "tests": ["Socket baglanti testi"]
+    },
+    {
+      "id": 36,
+      "name": "JWT Authentication",
+      "description": "Token based auth sistemi",
+      "status": "pending",
+      "tasks": [
+        {"id": "36.1", "title": "backend/src/services/auth.ts", "description": "generateToken, verifyToken fonksiyonlari", "status": "pending"},
+        {"id": "36.2", "title": "backend/src/middleware/auth.ts", "description": "authMiddleware - Bearer token check", "status": "pending"},
+        {"id": "36.3", "title": "backend/src/routes/auth.ts", "description": "POST /api/auth/login - password check, token dondur", "status": "pending"},
+        {"id": "36.4", "title": "Settings password", "description": "Ilk kurulumda default password hash'i kaydet", "status": "pending"}
+      ],
+      "acceptance": ["Login calisiyor", "Token valid"],
+      "tests": ["curl -X POST /api/auth/login"]
+    },
+    {
+      "id": 37,
+      "name": "Session API - List & Create",
+      "description": "Session listeleme ve olusturma",
+      "status": "pending",
+      "tasks": [
+        {"id": "37.1", "title": "backend/src/routes/sessions.ts", "description": "Router dosyasi olustur", "status": "pending"},
+        {"id": "37.2", "title": "GET /api/sessions", "description": "List sessions with filters (status, projectId), pagination", "status": "pending"},
+        {"id": "37.3", "title": "POST /api/sessions", "description": "Create new session, validation with zod", "status": "pending"},
+        {"id": "37.4", "title": "Route'u app'e ekle", "description": "index.ts'de /api/sessions mount et", "status": "pending"}
+      ],
+      "acceptance": ["Session list ve create calisiyor"],
+      "tests": ["curl /api/sessions"]
+    },
+    {
+      "id": 38,
+      "name": "Session API - CRUD Complete",
+      "description": "Session read, update, delete",
+      "status": "pending",
+      "tasks": [
+        {"id": "38.1", "title": "GET /api/sessions/:id", "description": "Get session with messages", "status": "pending"},
+        {"id": "38.2", "title": "PATCH /api/sessions/:id", "description": "Update session (title, status, mode)", "status": "pending"},
+        {"id": "38.3", "title": "DELETE /api/sessions/:id", "description": "Soft delete session", "status": "pending"},
+        {"id": "38.4", "title": "POST /api/sessions/:id/flag", "description": "Toggle flagged status", "status": "pending"}
+      ],
+      "acceptance": ["Tum CRUD islemleri calisiyor"],
+      "tests": ["Session API tam test"]
+    },
+    {
+      "id": 39,
+      "name": "Session Inbox UI - List",
+      "description": "Session listesi UI",
+      "status": "pending",
+      "tasks": [
+        {"id": "39.1", "title": "frontend/src/hooks/useSessions.ts", "description": "Sessions fetch hook, react-query veya SWR", "status": "pending"},
+        {"id": "39.2", "title": "frontend/src/components/session/SessionList.tsx", "description": "Session listesi container, scroll area", "status": "pending"},
+        {"id": "39.3", "title": "frontend/src/components/session/SessionHeader.tsx", "description": "Panel header - title, filter icon", "status": "pending"},
+        {"id": "39.4", "title": "frontend/src/components/session/SessionSearch.tsx", "description": "Search input with icon", "status": "pending"}
+      ],
+      "acceptance": ["Session listesi gorunuyor"],
+      "tests": ["Session list render testi"]
+    },
+    {
+      "id": 40,
+      "name": "Session Item Card",
+      "description": "Session kart componenti",
+      "status": "pending",
+      "tasks": [
+        {"id": "40.1", "title": "frontend/src/components/session/SessionItem.tsx", "description": "Session card - status icon, title, timestamp", "status": "pending"},
+        {"id": "40.2", "title": "frontend/src/components/session/BadgeRow.tsx", "description": "Scrollable badge container with fade mask", "status": "pending"},
+        {"id": "40.3", "title": "frontend/src/components/session/DateGroup.tsx", "description": "TODAY, YESTERDAY, date headers", "status": "pending"},
+        {"id": "40.4", "title": "Selection state", "description": "Selected session highlighting", "status": "pending"}
+      ],
+      "acceptance": ["Session cards dogru gorunuyor"],
+      "tests": ["Session item render testi"]
+    },
+    {
+      "id": 41,
+      "name": "Session Badges",
+      "description": "Session kart badge'leri",
+      "status": "pending",
+      "tasks": [
+        {"id": "41.1", "title": "Processing spinner", "description": "isProcessing durumunda animated spinner", "status": "pending"},
+        {"id": "41.2", "title": "Permission mode badge", "description": "Safe: accent, Ask: info, Auto: success", "status": "pending"},
+        {"id": "41.3", "title": "Flag indicator", "description": "Flag icon when isFlagged", "status": "pending"},
+        {"id": "41.4", "title": "Model badge", "description": "claude/glm model badge", "status": "pending"}
+      ],
+      "acceptance": ["Badge'ler dogru render ediliyor"],
+      "tests": ["Badge render testleri"]
+    },
+    {
+      "id": 42,
+      "name": "Project API",
+      "description": "Project CRUD API'lari",
+      "status": "pending",
+      "tasks": [
+        {"id": "42.1", "title": "backend/src/routes/projects.ts", "description": "Router dosyasi olustur", "status": "pending"},
+        {"id": "42.2", "title": "GET /api/projects", "description": "List all projects", "status": "pending"},
+        {"id": "42.3", "title": "POST /api/projects", "description": "Create project", "status": "pending"},
+        {"id": "42.4", "title": "GET/PATCH/DELETE /api/projects/:id", "description": "Project CRUD tamamla", "status": "pending"}
+      ],
+      "acceptance": ["Project API calisiyor"],
+      "tests": ["curl /api/projects"]
+    },
+    {
+      "id": 43,
+      "name": "Project UI",
+      "description": "Proje listesi ve detay sayfasi",
+      "status": "pending",
+      "tasks": [
+        {"id": "43.1", "title": "frontend/src/pages/Projects.tsx", "description": "Proje listesi sayfasi", "status": "pending"},
+        {"id": "43.2", "title": "frontend/src/components/project/ProjectCard.tsx", "description": "Proje kart componenti", "status": "pending"},
+        {"id": "43.3", "title": "frontend/src/components/project/NewProjectDialog.tsx", "description": "Yeni proje olusturma modal", "status": "pending"},
+        {"id": "43.4", "title": "frontend/src/hooks/useProjects.ts", "description": "Projects fetch hook", "status": "pending"}
+      ],
+      "acceptance": ["Proje listesi gorunuyor", "Yeni proje olusturulabiliyor"],
+      "tests": ["Project UI testi"]
+    },
+    {
+      "id": 44,
+      "name": "Chat Display Base",
+      "description": "Chat alani temel yapisi",
+      "status": "pending",
+      "tasks": [
+        {"id": "44.1", "title": "frontend/src/components/chat/ChatDisplay.tsx", "description": "Chat container, scroll area, auto-scroll", "status": "pending"},
+        {"id": "44.2", "title": "frontend/src/components/chat/ChatHeader.tsx", "description": "Session title, dropdown menu", "status": "pending"},
+        {"id": "44.3", "title": "frontend/src/components/chat/MessageList.tsx", "description": "Message mapping container", "status": "pending"}
+      ],
+      "acceptance": ["Chat area gorunuyor"],
+      "tests": ["Chat display render testi"]
+    },
+    {
+      "id": 45,
+      "name": "User Message Component",
+      "description": "Kullanici mesaj komponenti",
+      "status": "pending",
+      "tasks": [
+        {"id": "45.1", "title": "frontend/src/components/chat/UserMessage.tsx", "description": "User message card - bg-foreground/5 rounded", "status": "pending"},
+        {"id": "45.2", "title": "Edit button", "description": "Hover'da edit button goster", "status": "pending"},
+        {"id": "45.3", "title": "Timestamp", "description": "Mesaj zamani goster", "status": "pending"}
+      ],
+      "acceptance": ["User mesajlari gorunuyor"],
+      "tests": ["User message render testi"]
+    },
+    {
+      "id": 46,
+      "name": "TurnCard Component",
+      "description": "Assistant turn kart yapisi",
+      "status": "pending",
+      "tasks": [
+        {"id": "46.1", "title": "frontend/src/components/chat/TurnCard.tsx", "description": "Turn container - activity + response sections", "status": "pending"},
+        {"id": "46.2", "title": "frontend/src/components/chat/ActivitySection.tsx", "description": "Collapsible activity list header", "status": "pending"},
+        {"id": "46.3", "title": "Collapse animation", "description": "Framer motion collapse/expand", "status": "pending"}
+      ],
+      "acceptance": ["TurnCard render ediliyor"],
+      "tests": ["TurnCard render testi"]
+    },
+    {
+      "id": 47,
+      "name": "Activity Row & Tool Icons",
+      "description": "Tool call visualizasyonu",
+      "status": "pending",
+      "tasks": [
+        {"id": "47.1", "title": "frontend/src/components/chat/ActivityRow.tsx", "description": "Tool row - icon, name, path, duration", "status": "pending"},
+        {"id": "47.2", "title": "frontend/src/components/chat/ToolIcon.tsx", "description": "Tool'a gore icon mapping", "status": "pending"},
+        {"id": "47.3", "title": "Tool colors", "description": "Read: accent, Write: success, Edit: info, Bash: accent", "status": "pending"},
+        {"id": "47.4", "title": "Stagger animation", "description": "Activity items 30ms stagger", "status": "pending"}
+      ],
+      "acceptance": ["Tool calls dogru gorunuyor"],
+      "tests": ["Activity row render testi"]
+    },
+    {
+      "id": 48,
+      "name": "Markdown Renderer",
+      "description": "Response markdown gosterimi",
+      "status": "pending",
+      "tasks": [
+        {"id": "48.1", "title": "react-markdown install", "description": "npm install react-markdown remark-gfm", "status": "pending"},
+        {"id": "48.2", "title": "frontend/src/components/chat/MarkdownRenderer.tsx", "description": "Markdown renderer with custom components", "status": "pending"},
+        {"id": "48.3", "title": "Prose styling", "description": "prose prose-sm prose-invert classes", "status": "pending"}
+      ],
+      "acceptance": ["Markdown render ediliyor"],
+      "tests": ["Markdown render testi"]
+    },
+    {
+      "id": 49,
+      "name": "Code Block & Syntax Highlighting",
+      "description": "Kod bloklari ve syntax highlight",
+      "status": "pending",
+      "tasks": [
+        {"id": "49.1", "title": "shiki install", "description": "npm install shiki", "status": "pending"},
+        {"id": "49.2", "title": "frontend/src/components/chat/CodeBlock.tsx", "description": "Shiki highlighted code block", "status": "pending"},
+        {"id": "49.3", "title": "Copy button", "description": "Kod kopyalama butonu", "status": "pending"},
+        {"id": "49.4", "title": "Language badge", "description": "Dil gostergesi badge", "status": "pending"}
+      ],
+      "acceptance": ["Syntax highlighting calisiyor"],
+      "tests": ["Code block render testi"]
+    },
+    {
+      "id": 50,
+      "name": "Response Card",
+      "description": "Assistant response kart yapisi",
+      "status": "pending",
+      "tasks": [
+        {"id": "50.1", "title": "frontend/src/components/chat/ResponseCard.tsx", "description": "Response container with markdown", "status": "pending"},
+        {"id": "50.2", "title": "Copy response button", "description": "Tum response'u kopyala", "status": "pending"},
+        {"id": "50.3", "title": "Feedback buttons", "description": "Thumbs up/down feedback", "status": "pending"}
+      ],
+      "acceptance": ["Response card gorunuyor"],
+      "tests": ["Response card render testi"]
+    },
+    {
+      "id": 51,
+      "name": "Chat Input Area",
+      "description": "Mesaj gonderme alani",
+      "status": "pending",
+      "tasks": [
+        {"id": "51.1", "title": "frontend/src/components/chat/ChatInput.tsx", "description": "Input container - textarea, send button", "status": "pending"},
+        {"id": "51.2", "title": "Auto-resize textarea", "description": "min-h-[44px] max-h-[200px] auto resize", "status": "pending"},
+        {"id": "51.3", "title": "Send button", "description": "Disabled when empty, accent color", "status": "pending"},
+        {"id": "51.4", "title": "Cmd+Enter shortcut", "description": "Keyboard shortcut ile gonder", "status": "pending"}
+      ],
+      "acceptance": ["Input calisiyor", "Gonderme calisiyor"],
+      "tests": ["Chat input testi"]
+    },
+    {
+      "id": 52,
+      "name": "Input Toolbar",
+      "description": "Chat input toolbar",
+      "status": "pending",
+      "tasks": [
+        {"id": "52.1", "title": "frontend/src/components/chat/InputToolbar.tsx", "description": "Toolbar container", "status": "pending"},
+        {"id": "52.2", "title": "frontend/src/components/chat/PermissionDropdown.tsx", "description": "Safe/Ask/Auto mode secimi", "status": "pending"},
+        {"id": "52.3", "title": "frontend/src/components/chat/ModeDropdown.tsx", "description": "Quick Chat, Planning, TDD, Debug dropdown", "status": "pending"},
+        {"id": "52.4", "title": "Attach button", "description": "Dosya ekleme butonu (placeholder)", "status": "pending"}
+      ],
+      "acceptance": ["Toolbar dropdownlar calisiyor"],
+      "tests": ["Toolbar render testi"]
+    },
+    {
+      "id": 53,
+      "name": "Thinking Toggle",
+      "description": "Thinking level secimi",
+      "status": "pending",
+      "tasks": [
+        {"id": "53.1", "title": "frontend/src/components/chat/ThinkingToggle.tsx", "description": "Off/Think/Max toggle button", "status": "pending"},
+        {"id": "53.2", "title": "Shift+click for Max", "description": "Shift ile Max thinking sec", "status": "pending"},
+        {"id": "53.3", "title": "Visual indicator", "description": "Aktif level gostergesi", "status": "pending"}
+      ],
+      "acceptance": ["Thinking toggle calisiyor"],
+      "tests": ["Toggle state testi"]
+    },
+    {
+      "id": 54,
+      "name": "Streaming Indicator",
+      "description": "AI calisirken gosterge",
+      "status": "pending",
+      "tasks": [
+        {"id": "54.1", "title": "frontend/src/components/chat/StreamingIndicator.tsx", "description": "Calisiyor... timer gostergesi", "status": "pending"},
+        {"id": "54.2", "title": "Timer implementation", "description": "Elapsed time counter", "status": "pending"},
+        {"id": "54.3", "title": "Stop button", "description": "Generation durdurma butonu", "status": "pending"}
+      ],
+      "acceptance": ["Streaming indicator gorunuyor"],
+      "tests": ["Streaming state testi"]
+    },
+    {
+      "id": 55,
+      "name": "ECC Dosya Yapisi",
+      "description": ".task klasor yapisi olusturma",
+      "status": "pending",
+      "tasks": [
+        {"id": "55.1", "title": ".task/ klasoru", "description": "Root .task klasoru olustur", "status": "pending"},
+        {"id": "55.2", "title": ".task/agents/", "description": "Agent dosyalari klasoru", "status": "pending"},
+        {"id": "55.3", "title": ".task/skills/", "description": "Skill dosyalari klasoru", "status": "pending"},
+        {"id": "55.4", "title": ".task/commands/", "description": "Slash command dosyalari klasoru", "status": "pending"}
+      ],
+      "acceptance": [".task yapisi olusturuldu"],
+      "tests": ["ls -la .task/"]
+    },
+    {
+      "id": 56,
+      "name": "Agent Dosyalari - Part 1",
+      "description": "Temel agent tanimlari",
+      "status": "pending",
+      "tasks": [
+        {"id": "56.1", "title": ".task/agents/orchestrator.md", "description": "Ana yonetici agent", "status": "pending"},
+        {"id": "56.2", "title": ".task/agents/planner.md", "description": "Implementasyon planlama", "status": "pending"},
+        {"id": "56.3", "title": ".task/agents/architect.md", "description": "Sistem tasarimi", "status": "pending"},
+        {"id": "56.4", "title": ".task/agents/implementer.md", "description": "Kod yazma agent", "status": "pending"}
+      ],
+      "acceptance": ["Agent dosyalari olusturuldu"],
+      "tests": ["cat .task/agents/orchestrator.md"]
+    },
+    {
+      "id": 57,
+      "name": "Agent Dosyalari - Part 2",
+      "description": "Diger agent tanimlari",
+      "status": "pending",
+      "tasks": [
+        {"id": "57.1", "title": ".task/agents/reviewer.md", "description": "Kod inceleme agent", "status": "pending"},
+        {"id": "57.2", "title": ".task/agents/tester.md", "description": "Test yazma agent", "status": "pending"},
+        {"id": "57.3", "title": ".task/agents/debugger.md", "description": "Hata ayiklama agent", "status": "pending"},
+        {"id": "57.4", "title": ".task/agents/security.md", "description": "Guvenlik tarama agent", "status": "pending"}
+      ],
+      "acceptance": ["Tum agent dosyalari tamam"],
+      "tests": ["ls .task/agents/"]
+    },
+    {
+      "id": 58,
+      "name": "Skill & Command Dosyalari",
+      "description": "Skill ve slash command tanimlari",
+      "status": "pending",
+      "tasks": [
+        {"id": "58.1", "title": ".task/skills/tdd-workflow.md", "description": "TDD workflow skill", "status": "pending"},
+        {"id": "58.2", "title": ".task/skills/code-review.md", "description": "Code review skill", "status": "pending"},
+        {"id": "58.3", "title": ".task/commands/plan.md", "description": "/plan slash command", "status": "pending"},
+        {"id": "58.4", "title": ".task/commands/review.md", "description": "/review slash command", "status": "pending"}
+      ],
+      "acceptance": ["Skill ve command dosyalari tamam"],
+      "tests": ["ls .task/skills/ .task/commands/"]
+    },
+    {
+      "id": 59,
+      "name": "CLAUDE.md Yonetimi",
+      "description": "CLAUDE.md okuma/yazma servisi",
+      "status": "pending",
+      "tasks": [
+        {"id": "59.1", "title": "backend/src/services/claudeMd.ts", "description": "readClaudeMd, writeClaudeMd fonksiyonlari", "status": "pending"},
+        {"id": "59.2", "title": "Platform CLAUDE.md template", "description": "task.filewas platform kurallari", "status": "pending"},
+        {"id": "59.3", "title": "Project CLAUDE.md template", "description": "Proje ozel kurallar template", "status": "pending"}
+      ],
+      "acceptance": ["CLAUDE.md yonetimi calisiyor"],
+      "tests": ["CLAUDE.md okuma testi"]
+    },
+    {
+      "id": 60,
+      "name": "ECC API Endpoints",
+      "description": "Agent, skill, command API'lari",
+      "status": "pending",
+      "tasks": [
+        {"id": "60.1", "title": "backend/src/routes/agents.ts", "description": "GET /api/agents - list agents", "status": "pending"},
+        {"id": "60.2", "title": "backend/src/routes/skills.ts", "description": "GET /api/skills - list skills", "status": "pending"},
+        {"id": "60.3", "title": "backend/src/routes/commands.ts", "description": "GET /api/commands - list commands", "status": "pending"}
+      ],
+      "acceptance": ["ECC API'lari calisiyor"],
+      "tests": ["curl /api/agents"]
+    },
+    {
+      "id": 61,
+      "name": "CLI Subprocess - Base",
+      "description": "Claude/GLM CLI subprocess yonetimi",
+      "status": "pending",
+      "tasks": [
+        {"id": "61.1", "title": "backend/src/services/cli.ts", "description": "CLI spawn fonksiyonu", "status": "pending"},
+        {"id": "61.2", "title": "stdin/stdout handling", "description": "Process input/output yonetimi", "status": "pending"},
+        {"id": "61.3", "title": "Process kill", "description": "Graceful shutdown, timeout kill", "status": "pending"}
+      ],
+      "acceptance": ["CLI subprocess baslatiliyor"],
+      "tests": ["CLI spawn testi"]
+    },
+    {
+      "id": 62,
+      "name": "CLI Stream Parsing",
+      "description": "CLI output stream parse",
+      "status": "pending",
+      "tasks": [
+        {"id": "62.1", "title": "Stream JSON parsing", "description": "--output-format stream-json parse et", "status": "pending"},
+        {"id": "62.2", "title": "Tool call extraction", "description": "Tool calls'i parse et", "status": "pending"},
+        {"id": "62.3", "title": "Response extraction", "description": "Text response'u parse et", "status": "pending"},
+        {"id": "62.4", "title": "Error handling", "description": "CLI hata durumlarini yakala", "status": "pending"}
+      ],
+      "acceptance": ["Stream parsing calisiyor"],
+      "tests": ["Stream parse testi"]
+    },
+    {
+      "id": 63,
+      "name": "Agent Spawn Sistemi",
+      "description": "Agent'lari CLI ile calistirma",
+      "status": "pending",
+      "tasks": [
+        {"id": "63.1", "title": "backend/src/orchestrator/agent-runner.ts", "description": "AgentRunner class - spawn, run, stop", "status": "pending"},
+        {"id": "63.2", "title": "System prompt injection", "description": "--system-prompt ile agent md inject", "status": "pending"},
+        {"id": "63.3", "title": "Model selection", "description": "claude vs glm command secimi", "status": "pending"}
+      ],
+      "acceptance": ["Agent spawn calisiyor"],
+      "tests": ["Agent spawn testi"]
+    },
+    {
+      "id": 64,
+      "name": "Prompt Builder",
+      "description": "Agent icin prompt olusturma",
+      "status": "pending",
+      "tasks": [
+        {"id": "64.1", "title": "backend/src/orchestrator/prompt-builder.ts", "description": "PromptBuilder class", "status": "pending"},
+        {"id": "64.2", "title": "CLAUDE.md injection", "description": "Proje kurallarini inject et", "status": "pending"},
+        {"id": "64.3", "title": "Context injection", "description": "overview.md, roadmap.jsonl inject", "status": "pending"},
+        {"id": "64.4", "title": "Handoff injection", "description": "Onceki agent sonucunu inject", "status": "pending"}
+      ],
+      "acceptance": ["Prompt builder calisiyor"],
+      "tests": ["Prompt generation testi"]
+    },
+    {
+      "id": 65,
+      "name": "Agent WebSocket Events",
+      "description": "Agent event'lerini client'a gonder",
+      "status": "pending",
+      "tasks": [
+        {"id": "65.1", "title": "agent:started event", "description": "Agent basladiginda emit", "status": "pending"},
+        {"id": "65.2", "title": "agent:progress event", "description": "Progress update emit", "status": "pending"},
+        {"id": "65.3", "title": "tool:called, tool:result events", "description": "Tool call event'leri", "status": "pending"},
+        {"id": "65.4", "title": "agent:completed event", "description": "Agent bittiginde emit", "status": "pending"}
+      ],
+      "acceptance": ["Agent events client'a ulasıyor"],
+      "tests": ["WebSocket event testi"]
+    },
+    {
+      "id": 66,
+      "name": "Task Queue",
+      "description": "Task siralama sistemi",
+      "status": "pending",
+      "tasks": [
+        {"id": "66.1", "title": "backend/src/orchestrator/task-queue.ts", "description": "TaskQueue class", "status": "pending"},
+        {"id": "66.2", "title": "add, getNext methods", "description": "Task ekleme ve siradaki alma", "status": "pending"},
+        {"id": "66.3", "title": "Priority handling", "description": "critical > high > normal > low", "status": "pending"},
+        {"id": "66.4", "title": "Dependency graph", "description": "Task dependencies, blocking", "status": "pending"}
+      ],
+      "acceptance": ["Task queue calisiyor"],
+      "tests": ["Queue unit testleri"]
+    },
+    {
+      "id": 67,
+      "name": "Paralel Agent Execution",
+      "description": "Birden fazla agent paralel calistirma",
+      "status": "pending",
+      "tasks": [
+        {"id": "67.1", "title": "backend/src/orchestrator/parallel-executor.ts", "description": "ParallelExecutor class", "status": "pending"},
+        {"id": "67.2", "title": "Semaphore implementation", "description": "MAX_PARALLEL_AGENTS = 3 limit", "status": "pending"},
+        {"id": "67.3", "title": "Independent task grouping", "description": "Bagimsiz task'lari grupla", "status": "pending"}
+      ],
+      "acceptance": ["Paralel execution calisiyor"],
+      "tests": ["Paralel execution testi"]
+    },
+    {
+      "id": 68,
+      "name": "CEO Fallback Pattern",
+      "description": "Agent basarisizliginda orchestrator devir",
+      "status": "pending",
+      "tasks": [
+        {"id": "68.1", "title": "backend/src/orchestrator/fallback.ts", "description": "FallbackHandler class", "status": "pending"},
+        {"id": "68.2", "title": "Retry logic", "description": "2 fail sonrasi escalate", "status": "pending"},
+        {"id": "68.3", "title": "Error context passing", "description": "Hata bilgisini CEO'ya ilet", "status": "pending"}
+      ],
+      "acceptance": ["Fallback calisiyor"],
+      "tests": ["Fallback pattern testi"]
+    },
+    {
+      "id": 69,
+      "name": "Roadmap Execution Engine",
+      "description": "Otonom roadmap calistirma",
+      "status": "pending",
+      "tasks": [
+        {"id": "69.1", "title": "backend/src/orchestrator/roadmap-executor.ts", "description": "RoadmapExecutor class", "status": "pending"},
+        {"id": "69.2", "title": "start, pause, resume, stop methods", "description": "Execution kontrol metodlari", "status": "pending"},
+        {"id": "69.3", "title": "Phase state machine", "description": "pending → running → testing → completed", "status": "pending"}
+      ],
+      "acceptance": ["Roadmap execution basliyor"],
+      "tests": ["Execution baslat testi"]
+    },
+    {
+      "id": 70,
+      "name": "Phase Execution",
+      "description": "Tek faz calistirma",
+      "status": "pending",
+      "tasks": [
+        {"id": "70.1", "title": "backend/src/orchestrator/phase-executor.ts", "description": "PhaseExecutor class", "status": "pending"},
+        {"id": "70.2", "title": "Task → Agent mapping", "description": "Task type'a gore agent sec", "status": "pending"},
+        {"id": "70.3", "title": "Acceptance criteria check", "description": "Faz kabul kriterlerini kontrol", "status": "pending"},
+        {"id": "70.4", "title": "phase:completed event", "description": "Faz tamamlaninca emit", "status": "pending"}
+      ],
+      "acceptance": ["Phase execution calisiyor"],
+      "tests": ["Phase execution testi"]
+    },
+    {
+      "id": 71,
+      "name": "Self-Healing Sistemi",
+      "description": "Test basarisizliginda otomatik duzeltme",
+      "status": "pending",
+      "tasks": [
+        {"id": "71.1", "title": "backend/src/orchestrator/self-healing.ts", "description": "SelfHealing class", "status": "pending"},
+        {"id": "71.2", "title": "Error analysis", "description": "Hatayi Claude ile analiz", "status": "pending"},
+        {"id": "71.3", "title": "Fix generation & application", "description": "Fix olustur ve uygula", "status": "pending"},
+        {"id": "71.4", "title": "Max attempts (3)", "description": "3 deneme sonrasi dur", "status": "pending"}
+      ],
+      "acceptance": ["Self-healing calisiyor"],
+      "tests": ["Self-healing testi"]
+    },
+    {
+      "id": 72,
+      "name": "Agent Status UI",
+      "description": "Agent calisirken UI gosterimi",
+      "status": "pending",
+      "tasks": [
+        {"id": "72.1", "title": "frontend/src/components/chat/AgentStatusCard.tsx", "description": "Agent status card", "status": "pending"},
+        {"id": "72.2", "title": "Progress bar", "description": "Agent ilerleme cubugu", "status": "pending"},
+        {"id": "72.3", "title": "frontend/src/hooks/useAgentStatus.ts", "description": "Agent status hook", "status": "pending"}
+      ],
+      "acceptance": ["Agent status gorunuyor"],
+      "tests": ["Agent status UI testi"]
+    },
+    {
+      "id": 73,
+      "name": "Workflow Diagram",
+      "description": "Multi-agent workflow gorseli",
+      "status": "pending",
+      "tasks": [
+        {"id": "73.1", "title": "frontend/src/components/chat/WorkflowDiagram.tsx", "description": "Agent chain visualization", "status": "pending"},
+        {"id": "73.2", "title": "Agent states", "description": "pending/running/completed/error states", "status": "pending"},
+        {"id": "73.3", "title": "Progress indicator", "description": "Overall workflow progress", "status": "pending"}
+      ],
+      "acceptance": ["Workflow diagram gorunuyor"],
+      "tests": ["Workflow UI testi"]
+    },
+    {
+      "id": 74,
+      "name": "Settings Page",
+      "description": "Ayarlar sayfasi",
+      "status": "pending",
+      "tasks": [
+        {"id": "74.1", "title": "frontend/src/pages/Settings.tsx", "description": "Settings sayfasi layout", "status": "pending"},
+        {"id": "74.2", "title": "Model settings", "description": "Default model secimi", "status": "pending"},
+        {"id": "74.3", "title": "Permission settings", "description": "Default permission mode", "status": "pending"},
+        {"id": "74.4", "title": "backend/src/routes/settings.ts", "description": "GET/PATCH /api/settings", "status": "pending"}
+      ],
+      "acceptance": ["Settings sayfasi calisiyor"],
+      "tests": ["Settings page testi"]
+    },
+    {
+      "id": 75,
+      "name": "Dashboard Page",
+      "description": "Ana sayfa dashboard",
+      "status": "pending",
+      "tasks": [
+        {"id": "75.1", "title": "frontend/src/pages/Dashboard.tsx", "description": "Dashboard layout", "status": "pending"},
+        {"id": "75.2", "title": "frontend/src/components/dashboard/StatsCards.tsx", "description": "Istatistik kartlari", "status": "pending"},
+        {"id": "75.3", "title": "frontend/src/components/dashboard/RecentProjects.tsx", "description": "Son projeler", "status": "pending"},
+        {"id": "75.4", "title": "frontend/src/components/dashboard/ActivityFeed.tsx", "description": "Aktivite akisi", "status": "pending"}
+      ],
+      "acceptance": ["Dashboard gorunuyor"],
+      "tests": ["Dashboard page testi"]
+    },
+    {
+      "id": 76,
+      "name": "Toast Notifications",
+      "description": "In-app bildirimler",
+      "status": "pending",
+      "tasks": [
+        {"id": "76.1", "title": "sonner install", "description": "npm install sonner", "status": "pending"},
+        {"id": "76.2", "title": "frontend/src/components/ui/toast.tsx", "description": "Toast wrapper", "status": "pending"},
+        {"id": "76.3", "title": "Toast styling", "description": "Craft Agents tarzi styling", "status": "pending"},
+        {"id": "76.4", "title": "frontend/src/hooks/useToast.ts", "description": "Toast hook", "status": "pending"}
+      ],
+      "acceptance": ["Toast calisiyor"],
+      "tests": ["Toast render testi"]
+    },
+    {
+      "id": 77,
+      "name": "Keyboard Shortcuts",
+      "description": "Klavye kisayollari",
+      "status": "pending",
+      "tasks": [
+        {"id": "77.1", "title": "frontend/src/hooks/useKeyboardShortcuts.ts", "description": "Global keyboard handler", "status": "pending"},
+        {"id": "77.2", "title": "Cmd+Enter gonder", "description": "Mesaj gonder shortcut", "status": "pending"},
+        {"id": "77.3", "title": "Cmd+K palette", "description": "Command palette ac", "status": "pending"},
+        {"id": "77.4", "title": "Escape iptal", "description": "Modal kapat shortcut", "status": "pending"}
+      ],
+      "acceptance": ["Shortcuts calisiyor"],
+      "tests": ["Keyboard shortcut testi"]
+    },
+    {
+      "id": 78,
+      "name": "Command Palette",
+      "description": "Hizli komut arama",
+      "status": "pending",
+      "tasks": [
+        {"id": "78.1", "title": "frontend/src/components/ui/command-palette.tsx", "description": "Command palette modal", "status": "pending"},
+        {"id": "78.2", "title": "Search functionality", "description": "Komut arama", "status": "pending"},
+        {"id": "78.3", "title": "Action execution", "description": "Secilen komutu calistir", "status": "pending"}
+      ],
+      "acceptance": ["Command palette calisiyor"],
+      "tests": ["Palette render testi"]
+    },
+    {
+      "id": 79,
+      "name": "Proje Secim Ekrani",
+      "description": "Login sonrasi proje secim sayfasi",
+      "status": "pending",
+      "tasks": [
+        {"id": "79.1", "title": "frontend/src/pages/ProjectSelect.tsx", "description": "Proje secim sayfasi layout", "status": "pending"},
+        {"id": "79.2", "title": "Proje kartlari", "description": "Mevcut projeleri listele", "status": "pending"},
+        {"id": "79.3", "title": "Yeni Repo Olustur butonu", "description": "GitHub'da yeni repo acma aksiyonu", "status": "pending"},
+        {"id": "79.4", "title": "Mevcut Repoyu Cek butonu", "description": "GitHub URL ile import aksiyonu", "status": "pending"}
+      ],
+      "acceptance": ["Proje secim ekrani gorunuyor", "Aksiyonlar calisiyor"],
+      "tests": ["Proje secim UI testi"]
+    },
+    {
+      "id": 80,
+      "name": "GitHub Repo Olusturma",
+      "description": "Sifirdan GitHub repo olusturma",
+      "status": "pending",
+      "tasks": [
+        {"id": "80.1", "title": "backend/src/services/github.ts", "description": "GitHub API service - createRepo fonksiyonu", "status": "pending"},
+        {"id": "80.2", "title": "POST /api/projects/create-repo", "description": "Yeni repo olusturma endpoint", "status": "pending"},
+        {"id": "80.3", "title": "NewRepoDialog.tsx", "description": "Repo ismi, aciklama, private/public secimi", "status": "pending"},
+        {"id": "80.4", "title": "Proje klasoru olustur", "description": "projects/ altinda klasor olustur, .task/ kopyala", "status": "pending"}
+      ],
+      "acceptance": ["GitHub'da repo olusturuluyor", "Lokal proje yapisi hazir"],
+      "tests": ["GitHub repo olusturma testi"]
+    },
+    {
+      "id": 81,
+      "name": "GitHub Import",
+      "description": "Mevcut GitHub repo'yu import etme",
+      "status": "pending",
+      "tasks": [
+        {"id": "81.1", "title": "backend/src/services/github.ts", "description": "cloneRepo fonksiyonu (gh CLI kullan)", "status": "pending"},
+        {"id": "81.2", "title": "POST /api/projects/import", "description": "GitHub URL ile import endpoint", "status": "pending"},
+        {"id": "81.3", "title": "ImportRepoDialog.tsx", "description": "GitHub URL input modal", "status": "pending"},
+        {"id": "81.4", "title": "Tech stack analizi", "description": "Import sonrasi AI ile proje analizi", "status": "pending"}
+      ],
+      "acceptance": ["GitHub'dan repo clone ediliyor", "Proje analizi yapiliyor"],
+      "tests": ["GitHub import testi"]
+    },
+    {
+      "id": 82,
+      "name": "GitHub Sync",
+      "description": "Otomatik commit ve push",
+      "status": "pending",
+      "tasks": [
+        {"id": "82.1", "title": "backend/src/services/git.ts", "description": "Git operations service - commit, push, pull", "status": "pending"},
+        {"id": "82.2", "title": "Auto-commit on phase complete", "description": "Faz tamamlandiginda otomatik commit", "status": "pending"},
+        {"id": "82.3", "title": "Commit message format", "description": "[Faz N] Baslik + Co-Authored-By", "status": "pending"},
+        {"id": "82.4", "title": "Push settings", "description": "Auto-push enable/disable ayari", "status": "pending"}
+      ],
+      "acceptance": ["Git commit/push calisiyor", "Ayarlar uygulanıyor"],
+      "tests": ["Git sync testi"]
+    },
+    {
+      "id": 83,
+      "name": "Diff Viewer Component",
+      "description": "Multi-file diff gorunumu",
+      "status": "pending",
+      "tasks": [
+        {"id": "83.1", "title": "react-diff-viewer-continued install", "description": "npm install react-diff-viewer-continued", "status": "pending"},
+        {"id": "83.2", "title": "frontend/src/components/diff/DiffViewer.tsx", "description": "Diff viewer container", "status": "pending"},
+        {"id": "83.3", "title": "frontend/src/components/diff/FileList.tsx", "description": "Degisen dosya listesi", "status": "pending"},
+        {"id": "83.4", "title": "frontend/src/components/diff/DiffContent.tsx", "description": "Tek dosya diff gorunumu", "status": "pending"}
+      ],
+      "acceptance": ["Diff viewer gorunuyor", "Multi-file destegi var"],
+      "tests": ["Diff viewer testi"]
+    },
+    {
+      "id": 84,
+      "name": "File Browser/Explorer",
+      "description": "Proje dosya tarayicisi",
+      "status": "pending",
+      "tasks": [
+        {"id": "84.1", "title": "backend/src/routes/files.ts", "description": "GET /api/projects/:id/files - dosya listesi", "status": "pending"},
+        {"id": "84.2", "title": "GET /api/projects/:id/files/:path", "description": "Dosya icerigi oku", "status": "pending"},
+        {"id": "84.3", "title": "frontend/src/components/files/FileBrowser.tsx", "description": "Dosya agaci componenti", "status": "pending"},
+        {"id": "84.4", "title": "frontend/src/components/files/FileViewer.tsx", "description": "Dosya icerik gorunumu (syntax highlight)", "status": "pending"}
+      ],
+      "acceptance": ["Dosya agaci gorunuyor", "Dosya icerigi okunabiliyor"],
+      "tests": ["File browser testi"]
+    },
+    {
+      "id": 85,
+      "name": "Drag & Drop Upload",
+      "description": "Dosya yukleme destegi",
+      "status": "pending",
+      "tasks": [
+        {"id": "85.1", "title": "frontend/src/hooks/useDragDrop.ts", "description": "Drag & drop event handler hook", "status": "pending"},
+        {"id": "85.2", "title": "frontend/src/components/chat/DropZone.tsx", "description": "Drop zone overlay", "status": "pending"},
+        {"id": "85.3", "title": "POST /api/projects/:id/uploads", "description": "Dosya yukleme endpoint", "status": "pending"},
+        {"id": "85.4", "title": "File type handling", "description": "Resim, PDF, kod dosyasi destegi", "status": "pending"}
+      ],
+      "acceptance": ["Drag & drop calisiyor", "Dosyalar yukleniyor"],
+      "tests": ["Upload testi"]
+    },
+    {
+      "id": 86,
+      "name": "Background Tasks UI",
+      "description": "Arka plan islem takibi",
+      "status": "pending",
+      "tasks": [
+        {"id": "86.1", "title": "frontend/src/components/tasks/BackgroundTaskList.tsx", "description": "Arka plan task listesi", "status": "pending"},
+        {"id": "86.2", "title": "frontend/src/components/tasks/TaskProgress.tsx", "description": "Task ilerleme gostergesi", "status": "pending"},
+        {"id": "86.3", "title": "WebSocket task events", "description": "task:started, task:progress, task:completed", "status": "pending"},
+        {"id": "86.4", "title": "Notification on complete", "description": "Task tamamlaninca toast", "status": "pending"}
+      ],
+      "acceptance": ["Background tasks gorunuyor", "Progress takip ediliyor"],
+      "tests": ["Background tasks UI testi"]
+    },
+    {
+      "id": 87,
+      "name": "Model Selector Dropdown",
+      "description": "Chat input'ta model secimi",
+      "status": "pending",
+      "tasks": [
+        {"id": "87.1", "title": "frontend/src/components/chat/ModelDropdown.tsx", "description": "Auto/Claude/GLM model secimi dropdown", "status": "pending"},
+        {"id": "87.2", "title": "Model icons", "description": "Her model icin icon", "status": "pending"},
+        {"id": "87.3", "title": "Session model override", "description": "Session bazli model degistirme", "status": "pending"},
+        {"id": "87.4", "title": "Force model toggle", "description": "Tum agent'lar secili modeli kullansin checkbox", "status": "pending"}
+      ],
+      "acceptance": ["Model selector calisiyor", "Override uygulanıyor"],
+      "tests": ["Model selector testi"]
+    },
+    {
+      "id": 88,
+      "name": "Project Tabs UI",
+      "description": "Proje detay tab yapisi",
+      "status": "pending",
+      "tasks": [
+        {"id": "88.1", "title": "frontend/src/components/project/ProjectTabs.tsx", "description": "Tab navigation component", "status": "pending"},
+        {"id": "88.2", "title": "Sessions tab", "description": "3 panel session inbox", "status": "pending"},
+        {"id": "88.3", "title": "Roadmap tab placeholder", "description": "Roadmap gorunumu icin placeholder", "status": "pending"},
+        {"id": "88.4", "title": "Files tab", "description": "File browser entegrasyonu", "status": "pending"},
+        {"id": "88.5", "title": "Settings tab", "description": "Proje ayarlari", "status": "pending"}
+      ],
+      "acceptance": ["Tab navigation calisiyor", "Tum tablar gorunuyor"],
+      "tests": ["Project tabs testi"]
+    },
+    {
+      "id": 89,
+      "name": "Sources API",
+      "description": "MCP, API, Local kaynak yonetimi",
+      "status": "pending",
+      "tasks": [
+        {"id": "89.1", "title": "backend/src/routes/sources.ts", "description": "GET/POST/DELETE /api/sources", "status": "pending"},
+        {"id": "89.2", "title": "MCP source type", "description": "Memory, Context7, Playwright MCP tanimlari", "status": "pending"},
+        {"id": "89.3", "title": "API source type", "description": "REST API kaynak tanimlari", "status": "pending"},
+        {"id": "89.4", "title": "Local source type", "description": "Yerel klasor kaynak tanimlari", "status": "pending"}
+      ],
+      "acceptance": ["Sources CRUD calisiyor"],
+      "tests": ["curl /api/sources"]
+    },
+    {
+      "id": 90,
+      "name": "Sources Sayfasi UI",
+      "description": "Kaynak yonetimi sayfasi",
+      "status": "pending",
+      "tasks": [
+        {"id": "90.1", "title": "frontend/src/pages/Sources.tsx", "description": "Sources sayfasi layout", "status": "pending"},
+        {"id": "90.2", "title": "frontend/src/components/sources/SourceList.tsx", "description": "Kaynak listesi", "status": "pending"},
+        {"id": "90.3", "title": "frontend/src/components/sources/AddSourceDialog.tsx", "description": "Yeni kaynak ekleme modal", "status": "pending"},
+        {"id": "90.4", "title": "Source status indicator", "description": "Baglanti durumu gostergesi", "status": "pending"}
+      ],
+      "acceptance": ["Sources sayfasi gorunuyor", "Kaynak ekleme calisiyor"],
+      "tests": ["Sources page testi"]
+    },
+    {
+      "id": 91,
+      "name": "Agents Sayfasi UI",
+      "description": "Agent listesi ve ayarlari sayfasi",
+      "status": "pending",
+      "tasks": [
+        {"id": "91.1", "title": "frontend/src/pages/Agents.tsx", "description": "Agents sayfasi layout", "status": "pending"},
+        {"id": "91.2", "title": "frontend/src/components/agents/AgentList.tsx", "description": "Agent listesi (orchestrator, planner, etc.)", "status": "pending"},
+        {"id": "91.3", "title": "frontend/src/components/agents/AgentCard.tsx", "description": "Agent kart - isim, model, tools", "status": "pending"},
+        {"id": "91.4", "title": "Model override ayari", "description": "Her agent icin default model degistirme", "status": "pending"}
+      ],
+      "acceptance": ["Agents sayfasi gorunuyor", "Agent ayarlari yapilabiliyor"],
+      "tests": ["Agents page testi"]
+    },
+    {
+      "id": 92,
+      "name": "Skills Sayfasi UI",
+      "description": "Skill listesi ve ayarlari sayfasi",
+      "status": "pending",
+      "tasks": [
+        {"id": "92.1", "title": "frontend/src/pages/Skills.tsx", "description": "Skills sayfasi layout", "status": "pending"},
+        {"id": "92.2", "title": "frontend/src/components/skills/SkillList.tsx", "description": "Skill listesi", "status": "pending"},
+        {"id": "92.3", "title": "frontend/src/components/skills/SkillCard.tsx", "description": "Skill kart - isim, aciklama", "status": "pending"},
+        {"id": "92.4", "title": "Skill preview", "description": "Skill icerigini goster", "status": "pending"}
+      ],
+      "acceptance": ["Skills sayfasi gorunuyor"],
+      "tests": ["Skills page testi"]
+    },
+    {
+      "id": 93,
+      "name": "Logs Sayfasi UI",
+      "description": "Sistem loglari sayfasi",
+      "status": "pending",
+      "tasks": [
+        {"id": "93.1", "title": "frontend/src/pages/Logs.tsx", "description": "Logs sayfasi layout", "status": "pending"},
+        {"id": "93.2", "title": "backend/src/routes/logs.ts", "description": "GET /api/logs - log okuma endpoint", "status": "pending"},
+        {"id": "93.3", "title": "frontend/src/components/logs/LogViewer.tsx", "description": "Log stream gorunumu", "status": "pending"},
+        {"id": "93.4", "title": "Log filtering", "description": "Type (api, agent, error) filtreleme", "status": "pending"}
+      ],
+      "acceptance": ["Logs sayfasi gorunuyor", "Loglar okunabiliyor"],
+      "tests": ["Logs page testi"]
+    },
+    {
+      "id": 94,
+      "name": "Changelog Tab UI",
+      "description": "Proje degisiklik gecmisi gorunumu",
+      "status": "pending",
+      "tasks": [
+        {"id": "94.1", "title": "frontend/src/components/project/ChangelogTab.tsx", "description": "Changelog tab container", "status": "pending"},
+        {"id": "94.2", "title": "frontend/src/components/changelog/ChangelogList.tsx", "description": "Degisiklik listesi", "status": "pending"},
+        {"id": "94.3", "title": "frontend/src/components/changelog/ChangelogEntry.tsx", "description": "Tek degisiklik karti", "status": "pending"},
+        {"id": "94.4", "title": "backend/src/routes/changelog.ts", "description": "GET /api/projects/:id/changelog", "status": "pending"}
+      ],
+      "acceptance": ["Changelog tab gorunuyor", "Degisiklikler listeleniyor"],
+      "tests": ["Changelog UI testi"]
+    },
+    {
+      "id": 95,
+      "name": "Context Summarization Service",
+      "description": "Context ozet servisi",
+      "status": "pending",
+      "tasks": [
+        {"id": "95.1", "title": "backend/src/orchestrator/context-manager.ts", "description": "ContextManager class", "status": "pending"},
+        {"id": "95.2", "title": "Token counting", "description": "Yaklasik token sayimi", "status": "pending"},
+        {"id": "95.3", "title": "Summarization trigger", "description": "%80'de ozet olustur", "status": "pending"},
+        {"id": "95.4", "title": "GLM ile ozetleme", "description": "Maliyet tasarrufu icin GLM kullan", "status": "pending"},
+        {"id": "95.5", "title": "Sliding window", "description": "Son 30-50 mesaji koru", "status": "pending"}
+      ],
+      "acceptance": ["Context management calisiyor", "Ozetleme yapiliyor"],
+      "tests": ["Context summarization testi"]
+    },
+    {
+      "id": 96,
+      "name": "Memory MCP Entegrasyonu",
+      "description": "Memory MCP ile proje bilgi saklama",
+      "status": "pending",
+      "tasks": [
+        {"id": "96.1", "title": "backend/src/services/memory-mcp.ts", "description": "Memory MCP client wrapper", "status": "pending"},
+        {"id": "96.2", "title": "Entity olusturma", "description": "Proje entity'si olustur", "status": "pending"},
+        {"id": "96.3", "title": "Observation ekleme", "description": "Proje kararlari, notlar ekle", "status": "pending"},
+        {"id": "96.4", "title": "Sorgulama", "description": "Agent icin bilgi sorgula", "status": "pending"}
+      ],
+      "acceptance": ["Memory MCP calisiyor", "Proje bilgileri saklanıyor"],
+      "tests": ["Memory MCP entegrasyon testi"]
+    },
+    {
+      "id": 97,
+      "name": "Roadmap Tab UI",
+      "description": "Gorsel roadmap gorunumu",
+      "status": "pending",
+      "tasks": [
+        {"id": "97.1", "title": "frontend/src/components/project/RoadmapTab.tsx", "description": "Roadmap tab container", "status": "pending"},
+        {"id": "97.2", "title": "frontend/src/components/roadmap/MilestoneList.tsx", "description": "Milestone listesi", "status": "pending"},
+        {"id": "97.3", "title": "frontend/src/components/roadmap/PhaseCard.tsx", "description": "Faz karti - status, tasks", "status": "pending"},
+        {"id": "97.4", "title": "Progress visualization", "description": "Milestone ilerleme cubugu", "status": "pending"},
+        {"id": "97.5", "title": "backend/src/routes/roadmap.ts", "description": "GET /api/projects/:id/roadmap", "status": "pending"}
+      ],
+      "acceptance": ["Roadmap tab gorunuyor", "Fazlar listeleniyor"],
+      "tests": ["Roadmap UI testi"]
+    },
+    {
+      "id": 98,
+      "name": "Bug Fixes & Polish",
+      "description": "Hata duzeltmeleri ve iyilestirmeler",
+      "status": "pending",
+      "tasks": [
+        {"id": "98.1", "title": "UI bug fixes", "description": "Gorsel hatalari duzelt", "status": "pending"},
+        {"id": "98.2", "title": "API bug fixes", "description": "Backend hatalari duzelt", "status": "pending"},
+        {"id": "98.3", "title": "Performance improvements", "description": "Performans iyilestirmeleri", "status": "pending"}
+      ],
+      "acceptance": ["Bilinen hatalar duzeltildi"],
+      "tests": ["Manuel test"]
+    },
+    {
+      "id": 99,
+      "name": "Documentation",
+      "description": "Dokumantasyon",
+      "status": "pending",
+      "tasks": [
+        {"id": "99.1", "title": "README.md", "description": "Proje README", "status": "pending"},
+        {"id": "99.2", "title": "API documentation", "description": "API endpoint dokumantasyonu", "status": "pending"},
+        {"id": "99.3", "title": "Deployment guide", "description": "Kurulum ve deploy rehberi", "status": "pending"}
+      ],
+      "acceptance": ["Dokumantasyon tamam"],
+      "tests": ["Docs icerik kontrolu"]
+    },
+    {
+      "id": 100,
+      "name": "Production Build",
+      "description": "Production build ve konfigürasyon",
+      "status": "pending",
+      "tasks": [
+        {"id": "100.1", "title": "npm run build", "description": "Production build", "status": "pending"},
+        {"id": "100.2", "title": "Build optimization", "description": "Bundle size kontrolu", "status": "pending"},
+        {"id": "100.3", "title": "ecosystem.config.cjs", "description": "PM2 config dosyasi", "status": "pending"},
+        {"id": "100.4", "title": "nginx config", "description": "Nginx reverse proxy config", "status": "pending"}
+      ],
+      "acceptance": ["Production build calisiyor"],
+      "tests": ["npm run build && pm2 start"]
+    },
+    {
+      "id": 101,
+      "name": "Unit Tests Setup",
+      "description": "Unit test altyapisi",
+      "status": "pending",
+      "tasks": [
+        {"id": "101.1", "title": "vitest install", "description": "npm install vitest @testing-library/react", "status": "pending"},
+        {"id": "101.2", "title": "vitest.config.ts", "description": "Vitest yapilandirmasi", "status": "pending"},
+        {"id": "101.3", "title": "Test scripts", "description": "package.json test scripts", "status": "pending"}
+      ],
+      "acceptance": ["Test altyapisi hazir"],
+      "tests": ["npm run test"]
+    },
+    {
+      "id": 102,
+      "name": "Backend Unit Tests",
+      "description": "Backend unit testleri",
+      "status": "pending",
+      "tasks": [
+        {"id": "102.1", "title": "Storage testleri", "description": "JSONL/JSON okuma yazma testleri", "status": "pending"},
+        {"id": "102.2", "title": "Service testleri", "description": "Auth, CLI service testleri", "status": "pending"},
+        {"id": "102.3", "title": "API route testleri", "description": "Endpoint testleri", "status": "pending"}
+      ],
+      "acceptance": ["Backend testleri geciyor"],
+      "tests": ["npm run test -w backend"]
+    },
+    {
+      "id": 103,
+      "name": "Frontend Unit Tests",
+      "description": "Frontend unit testleri",
+      "status": "pending",
+      "tasks": [
+        {"id": "103.1", "title": "Component testleri", "description": "UI component render testleri", "status": "pending"},
+        {"id": "103.2", "title": "Hook testleri", "description": "Custom hook testleri", "status": "pending"},
+        {"id": "103.3", "title": "Store testleri", "description": "Zustand store testleri", "status": "pending"}
+      ],
+      "acceptance": ["Frontend testleri geciyor"],
+      "tests": ["npm run test -w frontend"]
+    },
+    {
+      "id": 104,
+      "name": "E2E Test Setup",
+      "description": "Playwright E2E altyapisi",
+      "status": "pending",
+      "tasks": [
+        {"id": "104.1", "title": "playwright install", "description": "npm install @playwright/test", "status": "pending"},
+        {"id": "104.2", "title": "playwright.config.ts", "description": "Playwright yapilandirmasi", "status": "pending"},
+        {"id": "104.3", "title": "e2e/ klasoru", "description": "E2E test klasoru olustur", "status": "pending"}
+      ],
+      "acceptance": ["Playwright hazir"],
+      "tests": ["npx playwright test --list"]
+    },
+    {
+      "id": 105,
+      "name": "E2E Critical Flows",
+      "description": "Kritik kullanici akislari E2E",
+      "status": "pending",
+      "tasks": [
+        {"id": "105.1", "title": "Login flow test", "description": "Giris yapma testi", "status": "pending"},
+        {"id": "105.2", "title": "Create project test", "description": "Proje olusturma testi", "status": "pending"},
+        {"id": "105.3", "title": "Create session test", "description": "Session olusturma testi", "status": "pending"},
+        {"id": "105.4", "title": "Send message test", "description": "Mesaj gonderme testi", "status": "pending"}
+      ],
+      "acceptance": ["E2E testleri geciyor"],
+      "tests": ["npm run e2e"]
+    },
+    {
+      "id": 106,
+      "name": "E2E Advanced Flows",
+      "description": "Gelismis E2E testleri",
+      "status": "pending",
+      "tasks": [
+        {"id": "106.1", "title": "GitHub import test", "description": "Repo import E2E", "status": "pending"},
+        {"id": "106.2", "title": "File browser test", "description": "Dosya tarama E2E", "status": "pending"},
+        {"id": "106.3", "title": "Settings test", "description": "Ayarlar degistirme E2E", "status": "pending"},
+        {"id": "106.4", "title": "Agent workflow test", "description": "Agent calisma E2E", "status": "pending"}
+      ],
+      "acceptance": ["Gelismis E2E testleri geciyor"],
+      "tests": ["npm run e2e"]
+    },
+    {
+      "id": 107,
+      "name": "Security Review",
+      "description": "Guvenlik taramasi",
+      "status": "pending",
+      "tasks": [
+        {"id": "107.1", "title": "Dependency audit", "description": "npm audit calistir", "status": "pending"},
+        {"id": "107.2", "title": "OWASP checklist", "description": "Top 10 vulnerability check", "status": "pending"},
+        {"id": "107.3", "title": "Secret scanning", "description": "Hardcoded secret kontrolu", "status": "pending"},
+        {"id": "107.4", "title": "Input validation review", "description": "Tum input'lari kontrol", "status": "pending"}
+      ],
+      "acceptance": ["Guvenlik sorunlari cozuldu"],
+      "tests": ["npm audit"]
+    },
+    {
+      "id": 108,
+      "name": "Final QA & Release",
+      "description": "Son test ve release",
+      "status": "pending",
+      "tasks": [
+        {"id": "108.1", "title": "Full regression test", "description": "Tum testleri calistir", "status": "pending"},
+        {"id": "108.2", "title": "Performance test", "description": "Lighthouse, load test", "status": "pending"},
+        {"id": "108.3", "title": "Manual QA", "description": "Manuel test senaryolari", "status": "pending"},
+        {"id": "108.4", "title": "Release tag", "description": "v0.1.0 git tag olustur", "status": "pending"}
+      ],
+      "acceptance": ["Tum testler geciyor", "v0.1.0 release hazir"],
+      "tests": ["npm run test && npm run e2e && git tag v0.1.0"]
+    }
+  ]
+}

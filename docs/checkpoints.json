@@ -1,0 +1,21 @@
+{
+  "projectName": "task.filewas",
+  "currentVersion": "0.1.0",
+  "versions": [
+    {
+      "version": "0.1.0",
+      "name": "Otonom AI Proje Gelistirme Platformu",
+      "status": "active",
+      "startDate": null,
+      "completedDate": null,
+      "totalPhases": 65,
+      "completedPhases": 0,
+      "files": {
+        "overview": "overviews/v0.1.0-overview.md",
+        "roadmap": "roadmaps/v0.1.0.json",
+        "changelog": "changelogs/v0.1.0-changelog.json",
+        "memory": "memories/v0.1.0-memory.json"
+      }
+    }
+  ]
+}
