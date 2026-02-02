@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 22,
+  "currentPhase": 23,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -1046,31 +1046,31 @@
       "id": 22,
       "name": "Radix UI - Tooltip, Select, ScrollArea",
       "description": "Diger Radix componentleri",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "22.1",
           "title": "frontend/src/components/ui/tooltip.tsx",
           "description": "Tooltip wrapper - @radix-ui/react-tooltip",
-          "status": "pending"
+          "status": "completed"
         },
         {
           "id": "22.2",
           "title": "frontend/src/components/ui/select.tsx",
           "description": "Select wrapper - @radix-ui/react-select",
-          "status": "pending"
+          "status": "completed"
         },
         {
           "id": "22.3",
           "title": "frontend/src/components/ui/scroll-area.tsx",
           "description": "ScrollArea wrapper - @radix-ui/react-scroll-area",
-          "status": "pending"
+          "status": "completed"
         },
         {
           "id": "22.4",
           "title": "frontend/src/components/ui/separator.tsx",
           "description": "Separator - @radix-ui/react-separator",
-          "status": "pending"
+          "status": "completed"
         }
       ],
       "acceptance": [

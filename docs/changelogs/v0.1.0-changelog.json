@@ -714,6 +714,40 @@
         "frontend/src/components/ui/dialog.tsx",
         "frontend/src/components/ui/dropdown-menu.tsx"
       ]
+    },
+    {
+      "phase": 22,
+      "date": "2026-02-02",
+      "title": "Radix UI - Tooltip, Select, ScrollArea",
+      "changes": [
+        "@radix-ui/react-tooltip zaten kurulu (v1.1.6) - dogrulandi",
+        "@radix-ui/react-select zaten kurulu (v2.1.4) - dogrulandi",
+        "@radix-ui/react-scroll-area zaten kurulu (v1.2.2) - dogrulandi",
+        "@radix-ui/react-separator zaten kurulu (v1.1.1) - dogrulandi",
+        "frontend/src/components/ui/tooltip.tsx olusturuldu - Tooltip component",
+        "Tooltip, TooltipTrigger, TooltipContent, TooltipProvider export edildi",
+        "TooltipContent Portal ile render ediliyor (z-50, animate-in/out)",
+        "Craft Agents tarzi stiller: rounded-[6px], border-foreground/10, shadow-modal-small",
+        "frontend/src/components/ui/select.tsx olusturuldu - Select component",
+        "Select, SelectGroup, SelectValue, SelectTrigger, SelectContent export edildi",
+        "SelectItem olusturuldu (Check ikonu ile secili item gostergesi)",
+        "SelectLabel, SelectSeparator, SelectScrollUpButton, SelectScrollDownButton eklendi",
+        "Popper position destegi ile otomatik konum ayarlamasi",
+        "frontend/src/components/ui/scroll-area.tsx olusturuldu - ScrollArea component",
+        "ScrollArea, ScrollBar export edildi",
+        "Vertical ve horizontal scrollbar destegi",
+        "ScrollAreaThumb hover efekti (bg-foreground/10 -> bg-foreground/20)",
+        "frontend/src/components/ui/separator.tsx olusturuldu - Separator component",
+        "Horizontal ve vertical orientation destegi",
+        "Decorative prop ile accessibility kontrolu",
+        "npm run build basariyla test edildi"
+      ],
+      "files": [
+        "frontend/src/components/ui/tooltip.tsx",
+        "frontend/src/components/ui/select.tsx",
+        "frontend/src/components/ui/scroll-area.tsx",
+        "frontend/src/components/ui/separator.tsx"
+      ]
     }
   ]
 }
