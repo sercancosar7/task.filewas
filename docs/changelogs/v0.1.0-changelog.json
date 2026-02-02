@@ -835,6 +835,39 @@
         "frontend/src/pages/index.ts",
         "frontend/src/App.tsx"
       ]
+    },
+    {
+      "phase": 25,
+      "date": "2026-02-02",
+      "title": "Zustand State Management",
+      "changes": [
+        "zustand (v5.0.3) zaten kurulu - dogrulandi",
+        "frontend/src/stores/ klasoru olusturuldu - Zustand store modulleri icin",
+        "frontend/src/stores/app.ts olusturuldu - App store (global uygulama state)",
+        "AppState interface tanimlandi: sidebarWidth, inboxWidth, isSidebarCollapsed, currentProjectId, theme, overlay states (commandPalette, settings, shortcutsHelp), breadcrumb",
+        "AppActions interface tanimlandi: setSidebarWidth, setInboxWidth, toggleSidebar, setSidebarCollapsed, setCurrentProjectId, overlay toggle fonksiyonlari, setBreadcrumb, reset",
+        "PANEL_CONSTRAINTS sabitleri tanimlandi: sidebar (min: 180, default: 220, max: 320), inbox (min: 240, default: 300, max: 480), rightSidebar (default: 300), windowEdge (6), panelSpacing (5)",
+        "clamp() utility fonksiyonu eklendi - panel boyutlarini min/max arasinda tutma",
+        "persist middleware entegre edildi - panel boyutlari ve collapsed state localStorage'a kaydediliyor",
+        "Selector hooks eklendi: useSidebarWidth, useInboxWidth, useIsSidebarCollapsed, useCurrentProjectId, useIsCommandPaletteOpen, useIsSettingsOpen, useIsShortcutsHelpOpen, useBreadcrumb",
+        "frontend/src/stores/session.ts olusturuldu - Session store (session ve mesaj state)",
+        "SessionState interface tanimlandi: currentSessionId, currentSession, messages, turns, isStreaming, streamingMessage, processingState, tokenUsage, todoItems, activePlan, sessions, filters, sort",
+        "SessionActions interface tanimlandi: session CRUD, message CRUD, turn CRUD, streaming yonetimi, token usage, todo list, plan, session list, filters, sort",
+        "StreamingMessage interface tanimlandi: id, content, isComplete, activities (canli stream icin)",
+        "useFilteredSessions computed selector eklendi - status, mode, search, flagged, unread filtreleri ve siralama ile",
+        "useSessionCounts computed selector eklendi - status bazinda session sayilari",
+        "persist middleware entegre edildi - filter ve sort preferences localStorage'a kaydediliyor",
+        "Selector hooks eklendi: useCurrentSessionId, useCurrentSession, useMessages, useTurns, useIsStreaming, useStreamingMessage, useProcessingState, useTokenUsage, useTodoItems, useActivePlan, useSessions, useSessionsLoading, useSessionsError",
+        "frontend/src/stores/index.ts olusturuldu - barrel export dosyasi",
+        "Tum store'lar, state/action interface'leri, selector hook'lari ve sabitler export edildi",
+        "@task-filewas/shared types'lari kullanildi: Session, SessionSummary, SessionStatus, SessionMode, SessionProcessingState, TokenUsage, Message, Turn, Activity, TodoItem, Plan",
+        "npm run build basariyla test edildi - hata yok"
+      ],
+      "files": [
+        "frontend/src/stores/app.ts",
+        "frontend/src/stores/session.ts",
+        "frontend/src/stores/index.ts"
+      ]
     }
   ]
 }
