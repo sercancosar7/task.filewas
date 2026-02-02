@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 20,
+  "currentPhase": 21,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -970,31 +970,31 @@
       "id": 20,
       "name": "Radix UI - Button & Input",
       "description": "Temel UI componentleri",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "20.1",
           "title": "Radix packages install",
           "description": "@radix-ui/react-slot, class-variance-authority, clsx, tailwind-merge",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "20.2",
           "title": "frontend/src/lib/utils.ts",
           "description": "cn() utility - clsx + tailwind-merge",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "20.3",
           "title": "frontend/src/components/ui/button.tsx",
           "description": "Button variants: default, ghost, outline, destructive. Sizes: sm, md, lg",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "20.4",
           "title": "frontend/src/components/ui/input.tsx",
           "description": "Input component with forwardRef",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [

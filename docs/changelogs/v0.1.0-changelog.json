@@ -662,6 +662,30 @@
         "frontend/src/styles/globals.css",
         "frontend/tailwind.config.ts"
       ]
+    },
+    {
+      "phase": 20,
+      "date": "2026-02-02",
+      "title": "Radix UI - Button & Input",
+      "changes": [
+        "Radix UI paketleri zaten kurulu: @radix-ui/react-slot@1.1.1, class-variance-authority@0.7.1, clsx@2.1.1, tailwind-merge@2.6.0",
+        "frontend/src/lib/utils.ts olusturuldu - cn() utility fonksiyonu (clsx + tailwind-merge)",
+        "frontend/src/components/ui/button.tsx olusturuldu - Button component (React.forwardRef ile)",
+        "Button variants eklendi: default, destructive, outline, ghost, link, accent",
+        "Button sizes eklendi: default (h-9), sm (h-8), lg (h-10), icon (h-9 w-9)",
+        "buttonVariants export edildi (cva fonksiyonu ile)",
+        "asChild prop destegi eklendi (Radix Slot ile)",
+        "frontend/src/components/ui/input.tsx olusturuldu - Input component (React.forwardRef ile)",
+        "Input Craft Agents tarzi stiller eklendi: border-foreground/10, rounded-lg, text-[13px]",
+        "Input focus states eklendi: focus-visible:ring-2 focus-visible:ring-ring",
+        "Input placeholder stili eklendi: placeholder:text-foreground/40",
+        "npm run build basariyla test edildi"
+      ],
+      "files": [
+        "frontend/src/lib/utils.ts",
+        "frontend/src/components/ui/button.tsx",
+        "frontend/src/components/ui/input.tsx"
+      ]
     }
   ]
 }
