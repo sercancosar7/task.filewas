@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 11,
+  "currentPhase": 12,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -636,25 +636,25 @@
       "id": 11,
       "name": "Backend Express Kurulumu",
       "description": "Express server temel kurulum",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "11.1",
           "title": "backend/src/index.ts",
           "description": "Express app olustur, listen on PORT",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "11.2",
           "title": "backend/src/config/env.ts",
           "description": "dotenv ile PORT, JWT_SECRET, DATA_PATH oku",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "11.3",
           "title": "backend/.env",
           "description": "PORT=3001, JWT_SECRET=dev-secret-change-in-prod, DATA_PATH=./data",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [
