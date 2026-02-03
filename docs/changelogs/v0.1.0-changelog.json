@@ -5,6 +5,31 @@
   "lastUpdated": "2026-02-03T22:30:00.000Z",
   "entries": [
     {
+      "phase": 97,
+      "date": "2026-02-03",
+      "title": "Roadmap Tab UI",
+      "changes": [
+        "frontend/src/components/roadmap/MilestoneList.tsx - Milestone listesi component (progress bar, genişletilebilir)",
+        "frontend/src/components/roadmap/PhaseCard.tsx - Faz kartı component (status badge, tasks, ilerleme çubuğu)",
+        "frontend/src/components/project/tabs/ProjectRoadmapTab.tsx - API entegrasyonu ile roadmap tab (view mode filter)",
+        "backend/src/routes/roadmap.ts - GET /api/projects/:id/roadmap endpoint (progress, milestones, phases)",
+        "shared/src/types/roadmap.ts - Roadmap, RoadmapProgress, Phase, Milestone types",
+        "Roadmap endpoints - /progress, /milestones, /phases/:phaseId sub-endpointler",
+        "Progress visualization - Toplam ilerleme barı ve milestone ilerleme çubukları",
+        "View mode filter - Tümü, Bekleyen, Devam Eden, Tamamlanan filtreleri"
+      ],
+      "files": [
+        "frontend/src/components/roadmap/MilestoneList.tsx",
+        "frontend/src/components/roadmap/PhaseCard.tsx",
+        "frontend/src/components/project/tabs/ProjectRoadmapTab.tsx",
+        "backend/src/routes/roadmap.ts",
+        "shared/src/types/roadmap.ts",
+        "shared/src/types/index.ts",
+        "backend/src/routes/index.ts",
+        "backend/src/index.ts"
+      ]
+    },
+    {
       "phase": 95,
       "date": "2026-02-03",
       "title": "Context Summarization Service",

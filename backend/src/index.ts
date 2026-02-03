@@ -26,6 +26,7 @@ import {
   logsRouter,
   changelogRouter,
   memoryRouter,
+  roadmapRouter,
 } from './routes/index.js'
 import { initStorage } from './storage/index.js'
 import { createSocketServer, closeAllConnections, getClientCount } from './socket/index.js'
@@ -86,6 +87,9 @@ app.use('/api/projects', uploadsRouter)
 
 // Changelog routes (nested under /api/projects/:id/changelog/*)
 app.use('/api/projects', changelogRouter)
+
+// Roadmap routes (nested under /api/projects/:id/roadmap/*)
+app.use('/api/projects', roadmapRouter)
 
 // Memory MCP routes - Knowledge graph operations
 app.use('/api/memory', memoryRouter)

@@ -290,3 +290,15 @@ export type {
   ChangelogFileEntry,
   ChangelogFilterOptions,
 } from './changelog';
+
+// Roadmap types
+export type {
+  PhaseTask,
+  TaskStatus,
+  Phase,
+  Milestone,
+  RoadmapHeader,
+  Roadmap,
+  RoadmapProgress,
+  RoadmapFilterOptions,
+} from './roadmap';

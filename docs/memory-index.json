@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-03T20:45:00.000Z",
+  "lastUpdated": "2026-02-03T20:53:50.274Z",
   "documents": [],
   "healthMetrics": {
     "totalDocuments": 0,
@@ -35,6 +35,25 @@
         "POST /api/memory/note",
         "POST /api/memory/pattern",
         "GET /api/memory/graph"
+      ]
+    },
+    "97": {
+      "name": "Roadmap Tab UI",
+      "status": "completed",
+      "keyDecisions": [
+        "Roadmap tab UI - milestone listesi ve faz kartları component yapıları",
+        "MilestoneList component - progress bar ve genişletilebilir milestone gösterimi",
+        "PhaseCard component - faz durumları, görevler ve ilerleme çubuğu",
+        "Roadmap API - GET /api/projects/:id/roadmap endpoint ile veri servisi",
+        "View mode filter - Tümü/Bekleyen/Devam Eden/Tamamlanan filtreleri",
+        "shared/types/roadmap.ts - Roadmap, RoadmapProgress, Phase, Milestone types"
+      ],
+      "apiEndpoints": [
+        "GET /api/projects/:id/roadmap",
+        "GET /api/projects/:id/roadmap/version/:version",
+        "GET /api/projects/:id/roadmap/progress",
+        "GET /api/projects/:id/roadmap/milestones",
+        "GET /api/projects/:id/roadmap/phases/:phaseId"
       ]
     }
   }
