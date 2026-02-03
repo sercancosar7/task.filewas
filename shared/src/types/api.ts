@@ -265,8 +265,8 @@ export interface VerifyTokenResponse {
     /** Issued at timestamp */
     iat: number;
     /** Expiration timestamp */
-    exp?: number;
-  };
+    exp?: number | undefined;
+  } | undefined;
 }
 
 // =============================================================================

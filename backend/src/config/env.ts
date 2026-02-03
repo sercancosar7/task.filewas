@@ -18,6 +18,7 @@ dotenv.config({
 interface EnvConfig {
   PORT: number
   JWT_SECRET: string
+  AUTH_PASSWORD: string
   DATA_PATH: string
   NODE_ENV: 'development' | 'production' | 'test'
   CORS_ORIGIN: string
@@ -72,6 +73,7 @@ function validateLogLevel(value: string): 'debug' | 'info' | 'warn' | 'error' {
 export const env: EnvConfig = {
   PORT: getEnvNumber('PORT', defaults.PORT),
   JWT_SECRET: getEnvString('JWT_SECRET'),
+  AUTH_PASSWORD: getEnvString('AUTH_PASSWORD', 'admin'),
   DATA_PATH: getEnvString('DATA_PATH', defaults.DATA_PATH),
   NODE_ENV: validateNodeEnv(getEnvString('NODE_ENV', defaults.NODE_ENV)),
   CORS_ORIGIN: getEnvString('CORS_ORIGIN', defaults.CORS_ORIGIN),

@@ -11,7 +11,7 @@ import {
   errorMiddleware,
   notFoundMiddleware,
 } from './middleware/index.js'
-import { healthRouter } from './routes/index.js'
+import { healthRouter, authRouter } from './routes/index.js'
 import { initStorage } from './storage/index.js'
 import { createSocketServer, closeAllConnections, getClientCount } from './socket/index.js'
 
@@ -38,6 +38,9 @@ app.use(express.urlencoded({ extended: true, limit: '50mb' }))
 
 // Health check routes
 app.use('/api/health', healthRouter)
+
+// Auth routes
+app.use('/api/auth', authRouter)
 
 // API root endpoint
 app.get('/api', (_req: Request, res: Response) => {

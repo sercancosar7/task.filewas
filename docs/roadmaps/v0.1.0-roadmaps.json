@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 36,
+  "currentPhase": 37,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -1563,31 +1563,31 @@
       "id": 36,
       "name": "JWT Authentication",
       "description": "Token based auth sistemi",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "36.1",
           "title": "backend/src/services/auth.ts",
           "description": "generateToken, verifyToken fonksiyonlari",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "36.2",
           "title": "backend/src/middleware/auth.ts",
           "description": "authMiddleware - Bearer token check",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "36.3",
           "title": "backend/src/routes/auth.ts",
           "description": "POST /api/auth/login - password check, token dondur",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "36.4",
           "title": "Settings password",
           "description": "Ilk kurulumda default password hash'i kaydet",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [

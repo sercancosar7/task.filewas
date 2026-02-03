@@ -1276,6 +1276,56 @@
         "frontend/src/hooks/useSocketEvent.ts",
         "frontend/src/hooks/index.ts"
       ]
+    },
+    {
+      "phase": 36,
+      "date": "2026-02-03",
+      "title": "JWT Authentication",
+      "changes": [
+        "backend/src/services/auth.ts olusturuldu - JWT token yonetimi servisi",
+        "TokenPayload interface tanimlandi (iat, exp, type)",
+        "GenerateTokenOptions interface tanimlandi (expiresIn: number)",
+        "VerifyTokenResult interface tanimlandi (valid, payload, error)",
+        "generateToken fonksiyonu eklendi - JWT token uretimi (varsayilan 7 gun)",
+        "verifyToken fonksiyonu eklendi - JWT token dogrulama (TokenExpiredError, JsonWebTokenError handling)",
+        "decodeToken fonksiyonu eklendi - Token decode (dogrulama olmadan)",
+        "hashPassword fonksiyonu eklendi - bcrypt ile sifre hashleme (10 salt rounds)",
+        "verifyPassword fonksiyonu eklendi - bcrypt ile hash dogrulama",
+        "verifyEnvPassword fonksiyonu eklendi - AUTH_PASSWORD env degiskeniyle dogrudan karsilastirma",
+        "extractBearerToken fonksiyonu eklendi - Authorization header'dan Bearer token cikarma",
+        "calculateExpirationDate fonksiyonu eklendi - Token bitis tarihini hesaplama",
+        "backend/src/middleware/auth.ts olusturuldu - Auth middleware",
+        "AuthenticatedRequest interface tanimlandi (Request + auth payload)",
+        "authMiddleware eklendi - Bearer token dogrulama, 401 Unauthorized handling",
+        "optionalAuthMiddleware eklendi - Opsiyonel auth (token varsa dogrula, yoksa devam et)",
+        "requireAuth helper eklendi - optionalAuthMiddleware sonrasi zorunlu auth kontrolu",
+        "backend/src/routes/auth.ts olusturuldu - Auth API endpoint'leri",
+        "POST /api/auth/login endpoint eklendi - Sifre kontrolu ve JWT token dondurme",
+        "GET /api/auth/verify endpoint eklendi - Token gecerliligi kontrolu (auth gerekli)",
+        "POST /api/auth/refresh endpoint eklendi - Yeni token uretme (auth gerekli)",
+        "POST /api/auth/validate endpoint eklendi - Herhangi bir token'i dogrulama",
+        "Zod validation eklendi (loginSchema)",
+        "backend/src/config/env.ts guncellendi - AUTH_PASSWORD env degiskeni eklendi (varsayilan: admin)",
+        "backend/.env guncellendi - AUTH_PASSWORD=admin eklendi",
+        "backend/src/index.ts guncellendi - authRouter entegrasyonu (/api/auth)",
+        "backend/src/middleware/index.ts guncellendi - auth middleware export'lari eklendi",
+        "backend/src/services/index.ts guncellendi - auth service export'lari eklendi",
+        "backend/src/routes/index.ts guncellendi - authRouter export eklendi",
+        "shared/src/types/api.ts guncellendi - VerifyTokenResponse payload icin undefined union type eklendi",
+        "npm run build basariyla test edildi"
+      ],
+      "files": [
+        "backend/src/services/auth.ts",
+        "backend/src/middleware/auth.ts",
+        "backend/src/routes/auth.ts",
+        "backend/src/config/env.ts",
+        "backend/src/index.ts",
+        "backend/src/middleware/index.ts",
+        "backend/src/services/index.ts",
+        "backend/src/routes/index.ts",
+        "backend/.env",
+        "shared/src/types/api.ts"
+      ]
     }
   ]
 }

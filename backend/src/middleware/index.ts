@@ -16,3 +16,9 @@ export {
   wrapMiddlewares,
   type AsyncRequestHandler,
 } from './asyncHandler.js'
+export {
+  authMiddleware,
+  optionalAuthMiddleware,
+  requireAuth,
+  type AuthenticatedRequest,
+} from './auth.js'

@@ -33,3 +33,21 @@ export {
   SessionStorageService,
   sessionStorage,
 } from './session-storage.js'
+
+// Auth Service
+export {
+  generateToken,
+  verifyToken,
+  decodeToken,
+  hashPassword,
+  verifyPassword,
+  verifyEnvPassword,
+  extractBearerToken,
+  calculateExpirationDate,
+} from './auth.js'
+
+export type {
+  TokenPayload,
+  GenerateTokenOptions,
+  VerifyTokenResult,
+} from './auth.js'
