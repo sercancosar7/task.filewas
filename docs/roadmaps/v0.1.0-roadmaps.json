@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 95,
+  "currentPhase": 96,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -3726,37 +3726,37 @@
       "id": 95,
       "name": "Context Summarization Service",
       "description": "Context ozet servisi",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "95.1",
           "title": "backend/src/orchestrator/context-manager.ts",
           "description": "ContextManager class",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "95.2",
           "title": "Token counting",
           "description": "Yaklasik token sayimi",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "95.3",
           "title": "Summarization trigger",
           "description": "%80'de ozet olustur",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "95.4",
           "title": "GLM ile ozetleme",
           "description": "Maliyet tasarrufu icin GLM kullan",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "95.5",
           "title": "Sliding window",
           "description": "Son 30-50 mesaji koru",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [

@@ -69,26 +69,26 @@ async function readChangelogFile(projectPath: string, version: string): Promise<
 
     for (const line of lines) {
       try {
-        const parsed: ChangelogJsonlEntry = JSON.parse(line)
+        const parsed = JSON.parse(line) as ChangelogJsonlEntry
 
         // Skip non-entry lines
         if (parsed.type !== 'entry') continue
         if (parsed.phase === undefined) continue
 
-        const dateStr: string = parsed.date || new Date().toISOString().split('T')[0]
-        const phaseNum: number = parsed.phase
-        const titleStr: string = parsed.title || `Faz ${phaseNum}`
-        const changesArr: string[] = parsed.changes || []
-        const filesArr: string[] = parsed.files || []
+        const phaseNum = parsed.phase ?? 0
+        // Use fallback values for optional fields with type assertions
+        const dateValue = (parsed.date || new Date().toISOString().split('T')[0]) as string
+        const titleValue = (parsed.title || `Faz ${phaseNum}`) as string
+        const changesArr = (parsed.changes || []) as string[]
+        const filesArr = (parsed.files || []) as string[]
 
         entries.push({
           id: `phase-${phaseNum}`,
           phase: phaseNum,
-          date: dateStr,
-          title: titleStr,
+          date: dateValue,
+          title: titleValue,
           changes: changesArr,
           files: filesArr,
-          createdAt: dateStr,
         })
       } catch {
         // Skip invalid JSON lines

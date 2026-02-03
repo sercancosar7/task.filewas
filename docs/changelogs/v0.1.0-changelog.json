@@ -2,8 +2,28 @@
   "version": "0.1.0",
   "name": "Otonom AI Proje Gelistirme Platformu",
   "startDate": "2026-02-02",
-  "lastUpdated": "2026-02-03T20:25:47.114Z",
+  "lastUpdated": "2026-02-03T22:30:00.000Z",
   "entries": [
+    {
+      "phase": 95,
+      "date": "2026-02-03",
+      "title": "Context Summarization Service",
+      "changes": [
+        "backend/src/orchestrator/context-manager.ts - Context summarization servisi",
+        "Token counting - estimateTokens() fonksiyonu ile ~4 karakter/token hesabi",
+        "Context window management - getContextWindow(), updateContextWindow(), isContextWarning(), needsContextRefresh()",
+        "Sliding window - applySlidingWindow() ile son 30-50 mesaji koruma (MIN_MESSAGES_TO_KEEP: 30, MAX_MESSAGES_TO_KEEP: 50)",
+        "GLM ile ozetleme - Maliyet tasarrufu icin varsayilan model olarak GLM kullan",
+        "Summarization trigger - %80 (WARNING_THRESHOLD) esiginde ozet olusturma",
+        "ContextRefreshPlan - buildContextRefreshPlan() ile refresh oncesi planlama",
+        "Constants - MAX_CONTEXT_TOKENS (200k), WARNING_THRESHOLD (0.8), REFRESH_THRESHOLD (0.9)",
+        "Orchestrator exports - context-manager modulu tum fonksiyonlari export ediyor"
+      ],
+      "files": [
+        "backend/src/orchestrator/context-manager.ts",
+        "backend/src/orchestrator/index.ts"
+      ]
+    },
     {
       "phase": 94,
       "date": "2026-02-03",

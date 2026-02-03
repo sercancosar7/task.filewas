@@ -165,3 +165,43 @@ export type {
   SelfHealingConfig,
   SelfHealingSession,
 } from './self-healing.js'
+
+// Context Manager
+export {
+  // Token counting
+  estimateTokens,
+  countMessageTokens,
+  countTokens,
+  calculateTokenUsage,
+  // Context window
+  getContextWindow,
+  updateContextWindow,
+  isContextWarning,
+  needsContextRefresh,
+  removeContextWindow,
+  getAllContextWindows,
+  // Sliding window
+  applySlidingWindow,
+  getSlidingWindowSummary,
+  // Summarization
+  generateSummary,
+  shouldSummarize,
+  createSummaryEntry,
+  // Context refresh
+  buildContextRefreshPlan,
+  formatRefreshedContext,
+  // Cleanup
+  stopSummarization,
+  clearAllContextWindows,
+} from './context-manager.js'
+
+export type {
+  ContextSummary,
+  MessageEntry,
+  TokenCountResult,
+  SummarizationOptions,
+  SummarizationResult,
+  ContextWindowState,
+  ContextRefreshPlan,
+  CliTokenUsage,
+} from './context-manager.js'
