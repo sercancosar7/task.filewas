@@ -6,11 +6,23 @@
 
 import { Router, type Request, type Response, type Router as RouterType } from 'express'
 import { z } from 'zod'
+import { promises as fs } from 'node:fs'
+import { join } from 'node:path'
 import { authMiddleware } from '../middleware/auth.js'
 import { ApiError, asyncHandler } from '../middleware/index.js'
 import { paginated, created, success, parsePaginationParams } from '../utils/apiResponse.js'
 import { projectStorage } from '../services/project-storage.js'
 import { projectCreateSchema, projectUpdateSchema } from '@task-filewas/shared'
+import {
+  analyzeTechStack,
+  cloneRepo,
+  createRepo,
+  initGitRepo,
+  addRemote,
+  parseGitHubUrl,
+  type CreateRepoOptions,
+  type GitHubRepoVisibility,
+} from '../services/github.js'
 import type {
   ProjectSummary,
   ProjectStatus,
@@ -656,3 +668,364 @@ router.post(
 
 export { router as projectsRouter }
 export default router
+
+// =============================================================================
+// GitHub Integration Routes
+// =============================================================================
+
+/**
+ * Validation schema for create-repo endpoint
+ */
+const createRepoSchema = z.object({
+  name: z.string().min(1).max(100),
+  description: z.string().max(500).optional(),
+  visibility: z.enum(['public', 'private']).optional(),
+  type: z.enum(['web', 'backend', 'fullstack', 'mobile', 'cli', 'library', 'monorepo', 'other']).optional(),
+  icon: z.string().optional(),
+  color: z.string().optional(),
+  tags: z.array(z.string()).optional(),
+})
+
+/**
+ * POST /api/projects/create-repo
+ * Create a new GitHub repository and local project
+ *
+ * Request Body:
+ * - name: Repository name (required)
+ * - description: Repository description (optional)
+ * - visibility: 'public' or 'private' (default: private)
+ * - type: Project type (optional)
+ * - icon: Project icon (optional)
+ * - color: Project color (optional)
+ * - tags: Project tags (optional)
+ *
+ * Returns: Created project with GitHub info
+ */
+router.post(
+  '/create-repo',
+  authMiddleware,
+  asyncHandler(async (req: Request, res: Response): Promise<void> => {
+    // Validate request body
+    const parseResult = createRepoSchema.safeParse(req.body)
+
+    if (!parseResult.success) {
+      throw ApiError.badRequest(
+        'Invalid request body',
+        parseResult.error.errors.map((e) => ({
+          field: e.path.join('.'),
+          message: e.message,
+        }))
+      )
+    }
+
+    const data = parseResult.data
+
+    // Check if project with same name already exists
+    const existingResult = await projectStorage.findByName(data.name)
+    if (existingResult.success && existingResult.data) {
+      throw ApiError.conflict(`Project with name "${data.name}" already exists`)
+    }
+
+    // Create GitHub repository
+    const repoOptions: CreateRepoOptions = {
+      name: data.name,
+      visibility: (data.visibility as GitHubRepoVisibility) || 'private',
+      autoInit: true,
+      gitignoreTemplate: 'Node',
+    }
+
+    // Add description if provided
+    if (data.description) {
+      repoOptions.description = data.description
+    }
+
+    const repoResult = await createRepo(repoOptions)
+
+    if (!repoResult.success) {
+      throw ApiError.internal(repoResult.error ?? 'Failed to create GitHub repository')
+    }
+
+    const repo = repoResult.data
+
+    // Create project directory
+    const projectsDir = join(process.cwd(), 'projects')
+    await fs.mkdir(projectsDir, { recursive: true })
+
+    const projectPath = join(projectsDir, repo.name)
+    await fs.mkdir(projectPath, { recursive: true })
+
+    // Initialize git repository
+    const initResult = await initGitRepo(projectPath)
+    if (!initResult.success) {
+      throw ApiError.internal(initResult.error ?? 'Failed to initialize git repository')
+    }
+
+    // Add GitHub remote
+    const remoteResult = await addRemote(projectPath, 'origin', repo.sshUrl)
+    if (!remoteResult.success) {
+      throw ApiError.internal(remoteResult.error ?? 'Failed to add git remote')
+    }
+
+    // Copy .task directory from platform root
+    const taskSourceDir = join(process.cwd(), '.task')
+    const taskTargetDir = join(projectPath, '.task')
+
+    try {
+      await fs.mkdir(taskTargetDir, { recursive: true })
+
+      // Copy all files from .task to project
+      const entries = await fs.readdir(taskSourceDir, { withFileTypes: true })
+      for (const entry of entries) {
+        const srcPath = join(taskSourceDir, entry.name)
+        const destPath = join(taskTargetDir, entry.name)
+
+        if (entry.isDirectory()) {
+          await fs.mkdir(destPath, { recursive: true })
+          const subEntries = await fs.readdir(srcPath)
+          for (const subEntry of subEntries) {
+            const subSrcPath = join(srcPath, subEntry)
+            const subDestPath = join(destPath, subEntry)
+            await fs.copyFile(subSrcPath, subDestPath)
+          }
+        } else {
+          await fs.copyFile(srcPath, destPath)
+        }
+      }
+    } catch (error) {
+      // Non-fatal: log error but continue
+      console.error('Failed to copy .task directory:', error)
+    }
+
+    // Create project in storage
+    const projectCreateData: ProjectCreate = {
+      name: repo.name,
+      type: data.type || 'other',
+      path: projectPath,
+      githubUrl: repo.htmlUrl,
+    }
+
+    if (data.description) {
+      projectCreateData.description = data.description
+    }
+
+    if (data.icon) {
+      projectCreateData.icon = data.icon
+    }
+
+    if (data.color) {
+      projectCreateData.color = data.color
+    }
+
+    if (data.tags && data.tags.length > 0) {
+      projectCreateData.tags = data.tags
+    }
+
+    const createResult = await projectStorage.createProject(projectCreateData)
+
+    if (!createResult.success) {
+      throw ApiError.internal(createResult.error ?? 'Failed to create project')
+    }
+
+    // Add GitHub info to the created project
+    const project = createResult.data
+    project.github = {
+      owner: repo.owner.login,
+      repo: repo.name,
+      url: repo.htmlUrl,
+      defaultBranch: repo.defaultBranch ?? 'main',
+      autoPush: false,
+    }
+
+    // Return created project with GitHub info
+    res.status(201).json(created(project))
+  })
+)
+
+/**
+ * Validation schema for import-repo endpoint
+ */
+const importRepoSchema = z.object({
+  url: z.string().url('Invalid GitHub URL'),
+  name: z.string().min(1).max(100).optional(),
+  description: z.string().max(500).optional(),
+  type: z.enum(['web', 'backend', 'fullstack', 'mobile', 'cli', 'library', 'monorepo', 'other']).optional(),
+  icon: z.string().optional(),
+  color: z.string().optional(),
+  tags: z.array(z.string()).optional(),
+})
+
+/**
+ * POST /api/projects/import
+ * Import an existing GitHub repository
+ *
+ * Request Body:
+ * - url: GitHub repository URL (required)
+ * - name: Project name (optional, defaults to repo name)
+ * - description: Project description (optional)
+ * - type: Project type (optional)
+ * - icon: Project icon (optional)
+ * - color: Project color (optional)
+ * - tags: Project tags (optional)
+ *
+ * Returns: Created project with imported repo info
+ */
+router.post(
+  '/import',
+  authMiddleware,
+  asyncHandler(async (req: Request, res: Response): Promise<void> => {
+    // Validate request body
+    const parseResult = importRepoSchema.safeParse(req.body)
+
+    if (!parseResult.success) {
+      throw ApiError.badRequest(
+        'Invalid request body',
+        parseResult.error.errors.map((e) => ({
+          field: e.path.join('.'),
+          message: e.message,
+        }))
+      )
+    }
+
+    const data = parseResult.data
+
+    // Parse GitHub URL to extract owner/repo
+    const parsed = parseGitHubUrl(data.url)
+    if (!parsed) {
+      throw ApiError.badRequest('Invalid GitHub URL. Expected format: https://github.com/owner/repo')
+    }
+
+    const { owner, repo } = parsed
+    const projectName = data.name || repo
+
+    // Check if project with same name already exists
+    const existingResult = await projectStorage.findByName(projectName)
+    if (existingResult.success && existingResult.data) {
+      throw ApiError.conflict(`Project with name "${projectName}" already exists`)
+    }
+
+    // Create project directory
+    const projectsDir = join(process.cwd(), 'projects')
+    await fs.mkdir(projectsDir, { recursive: true })
+
+    const projectPath = join(projectsDir, projectName)
+
+    // Check if directory already exists
+    try {
+      await fs.access(projectPath)
+      throw ApiError.conflict(`Project directory already exists: ${projectName}`)
+    } catch {
+      // Directory doesn't exist, continue
+    }
+
+    // Clone the repository
+    const cloneUrl = `https://github.com/${owner}/${repo}.git`
+    const cloneResult = await cloneRepo(cloneUrl, projectPath)
+
+    if (!cloneResult.success) {
+      throw ApiError.internal(cloneResult.error ?? 'Failed to clone repository')
+    }
+
+    // Copy .task directory from platform root
+    const taskSourceDir = join(process.cwd(), '.task')
+    const taskTargetDir = join(projectPath, '.task')
+
+    try {
+      await fs.mkdir(taskTargetDir, { recursive: true })
+
+      // Copy all files from .task to project
+      const entries = await fs.readdir(taskSourceDir, { withFileTypes: true })
+      for (const entry of entries) {
+        const srcPath = join(taskSourceDir, entry.name)
+        const destPath = join(taskTargetDir, entry.name)
+
+        if (entry.isDirectory()) {
+          await fs.mkdir(destPath, { recursive: true })
+          const subEntries = await fs.readdir(srcPath)
+          for (const subEntry of subEntries) {
+            const subSrcPath = join(srcPath, subEntry)
+            const subDestPath = join(destPath, subEntry)
+            await fs.copyFile(subSrcPath, subDestPath)
+          }
+        } else {
+          await fs.copyFile(srcPath, destPath)
+        }
+      }
+    } catch (error) {
+      // Non-fatal: log error but continue
+      console.error('Failed to copy .task directory:', error)
+    }
+
+    // Analyze tech stack (optional, non-fatal)
+    let detectedProjectType: ProjectType | undefined = data.type
+    let detectedTechStack: ProjectCreate['techStack'] | undefined = undefined
+
+    const analysisResult = await analyzeTechStack(projectPath)
+    if (analysisResult.success && analysisResult.data) {
+      const analysis = analysisResult.data
+
+      // Use detected project type if not provided
+      if (!data.type && analysis.projectType) {
+        detectedProjectType = analysis.projectType
+      }
+
+      // Build tech stack from analysis
+      const techStack: Record<string, string[]> = {}
+      if (analysis.languages) techStack['languages'] = analysis.languages
+      if (analysis.frameworks) techStack['frameworks'] = analysis.frameworks
+      if (analysis.buildTools) techStack['buildTools'] = analysis.buildTools
+      if (analysis.packageManagers) techStack['packageManagers'] = analysis.packageManagers
+
+      if (Object.keys(techStack).length > 0) {
+        detectedTechStack = techStack as ProjectCreate['techStack']
+      }
+    }
+
+    // Create project in storage
+    const projectCreateData: ProjectCreate = {
+      name: projectName,
+      type: detectedProjectType || 'other',
+      path: projectPath,
+      githubUrl: data.url,
+    }
+
+    // Add detected tech stack
+    if (detectedTechStack) {
+      projectCreateData.techStack = detectedTechStack
+    }
+
+    if (data.description) {
+      projectCreateData.description = data.description
+    }
+
+    if (data.icon) {
+      projectCreateData.icon = data.icon
+    }
+
+    if (data.color) {
+      projectCreateData.color = data.color
+    }
+
+    if (data.tags && data.tags.length > 0) {
+      projectCreateData.tags = data.tags
+    }
+
+    const createResult = await projectStorage.createProject(projectCreateData)
+
+    if (!createResult.success) {
+      throw ApiError.internal(createResult.error ?? 'Failed to create project')
+    }
+
+    // Add GitHub info to the created project
+    const project = createResult.data
+    project.github = {
+      owner,
+      repo: projectName,
+      url: data.url,
+      defaultBranch: 'main',
+      autoPush: false,
+    }
+
+    // Return created project with GitHub info
+    res.status(201).json(created(project))
+  })
+)

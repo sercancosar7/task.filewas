@@ -2659,6 +2659,68 @@
         "frontend/src/router/routes.ts",
         "docs/roadmaps/v0.1.0-roadmaps.json"
       ]
+    },
+    {
+      "phase": 80,
+      "date": "2026-02-03",
+      "title": "GitHub Repo Olusturma",
+      "changes": [
+        "backend/src/services/github.ts olusturuldu - GitHub API entegrasyonu",
+        "getGitHubToken, getGitHubUser fonksiyonlari - GitHub API authentication",
+        "createRepo fonksiyonu - GitHub repo olusturma (user/repos endpoint)",
+        "cloneRepo fonksiyonu - Git clone ile repo kopyalama",
+        "initGitRepo fonksiyonu - Local directory'de git init",
+        "addRemote fonksiyonu - Git remote ekleme",
+        "initialCommit fonksiyonu - Ilk commit olusturma",
+        "isGitAvailable fonksiyonu - Git yuklulu kontrolu",
+        "parseGitHubUrl fonksiyonu - GitHub URL parse (owner/repo extract)",
+        "analyzeTechStack fonksiyonu - Proje dizininden tech stack analizi",
+        "TechStackAnalysis interface - languages, frameworks, buildTools, packageManagers, projectType",
+        "POST /api/projects/create-repo endpoint olusturuldu",
+        "createRepoSchema validation - Zod schema ile request validation",
+        "GitHub repo olusturma flow - API call -> local project -> git init -> remote -> .task copy",
+        "NewRepoDialog.tsx olusturuldu - Yeni repo olusturma dialog component",
+        "Form state management - name, description, visibility, type, icon, color, tags",
+        "Loading state - Spinner ile repo olusturma gostergesi",
+        "Error handling - API error mesajlari gosterimi",
+        "Build basarili test edildi"
+      ],
+      "files": [
+        "backend/src/services/github.ts",
+        "backend/src/routes/projects.ts",
+        "frontend/src/components/project/NewRepoDialog.tsx",
+        "docs/roadmaps/v0.1.0-roadmaps.json"
+      ]
+    },
+    {
+      "phase": 81,
+      "date": "2026-02-03",
+      "title": "GitHub Import",
+      "changes": [
+        "POST /api/projects/import endpoint tamamlandi",
+        "importRepoSchema validation - GitHub URL ve proje ayarlari",
+        "GitHub URL parsing - parseGitHubUrl ile owner/repo extract",
+        "Repo clone islemi - cloneRepo fonksiyonu ile git clone",
+        "Proje dizini kontrolu - Mevcut dizini kontrol et ve conflict hatasi",
+        "Tech stack analizi - analyzeTechStack ile otomatik proje tipi ve framework tespiti",
+        ".task dizini kopyalama - Platform root'tan projeye ECC dosyalari kopyalama",
+        "ProjectCreate data build - Tespit edilen tech stack ile proje olusturma",
+        "GitHub info ekleme - project.github = {owner, repo, url, defaultBranch, autoPush}",
+        "ImportRepoDialog component - GitHub URL input ile proje import dialog",
+        "URL validation - Regex ile GitHub URL format kontrolu",
+        "Auto-detect repo name - URL'den repo name extract",
+        "Auto-detect project type - Repo isminden proje tipi tahmini",
+        "Icon picker - 12 emoji preset'i ile proje ikonu secimi",
+        "Color picker - 12 renk preset'i ile proje rengi secimi",
+        "Submit handler - POST /api/projects/import API call",
+        "Build basarili test edildi"
+      ],
+      "files": [
+        "backend/src/routes/projects.ts",
+        "backend/src/services/github.ts",
+        "frontend/src/components/project/ImportRepoDialog.tsx",
+        "docs/roadmaps/v0.1.0-roadmaps.json"
+      ]
     }
   ]
 }

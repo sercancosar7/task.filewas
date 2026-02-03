@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 80,
+  "currentPhase": 82,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -3104,25 +3104,25 @@
           "id": "79.1",
           "title": "frontend/src/pages/ProjectSelect.tsx",
           "description": "Proje secim sayfasi layout",
-          "status": "done"
+          "status": "completed"
         },
         {
           "id": "79.2",
           "title": "Proje kartlari",
           "description": "Mevcut projeleri listele",
-          "status": "done"
+          "status": "completed"
         },
         {
           "id": "79.3",
           "title": "Yeni Repo Olustur butonu",
           "description": "GitHub'da yeni repo acma aksiyonu",
-          "status": "done"
+          "status": "completed"
         },
         {
           "id": "79.4",
           "title": "Mevcut Repoyu Cek butonu",
           "description": "GitHub URL ile import aksiyonu",
-          "status": "done"
+          "status": "completed"
         }
       ],
       "acceptance": [
@@ -3137,31 +3137,31 @@
       "id": 80,
       "name": "GitHub Repo Olusturma",
       "description": "Sifirdan GitHub repo olusturma",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "80.1",
           "title": "backend/src/services/github.ts",
           "description": "GitHub API service - createRepo fonksiyonu",
-          "status": "pending"
+          "status": "completed"
         },
         {
           "id": "80.2",
           "title": "POST /api/projects/create-repo",
           "description": "Yeni repo olusturma endpoint",
-          "status": "pending"
+          "status": "completed"
         },
         {
           "id": "80.3",
           "title": "NewRepoDialog.tsx",
           "description": "Repo ismi, aciklama, private/public secimi",
-          "status": "pending"
+          "status": "completed"
         },
         {
           "id": "80.4",
           "title": "Proje klasoru olustur",
           "description": "projects/ altinda klasor olustur, .task/ kopyala",
-          "status": "pending"
+          "status": "completed"
         }
       ],
       "acceptance": [
@@ -3176,7 +3176,7 @@
       "id": 81,
       "name": "GitHub Import",
       "description": "Mevcut GitHub repo'yu import etme",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "81.1",

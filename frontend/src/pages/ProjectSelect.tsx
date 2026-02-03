@@ -18,6 +18,7 @@ import { cn } from '@/lib/utils'
 import { useProjects } from '@/hooks/useProjects'
 import { ProjectCard } from '@/components/project/ProjectCard'
 import { NewProjectDialog } from '@/components/project/NewProjectDialog'
+import { NewRepoDialog } from '@/components/project/NewRepoDialog'
 import { ImportRepoDialog } from '@/components/project/ImportRepoDialog'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -28,7 +29,7 @@ import {
   AlertCircle,
   RefreshCw,
   FolderOpen,
-  GithubIcon,
+  Github,
   ArrowRight,
   X,
 } from 'lucide-react'
@@ -55,7 +56,15 @@ interface QuickAction {
 /**
  * Empty state when no projects exist
  */
-function EmptyState({ onCreateClick, onImportClick }: { onCreateClick: () => void; onImportClick: () => void }) {
+function EmptyState({
+  onCreateClick,
+  onNewRepoClick,
+  onImportClick,
+}: {
+  onCreateClick: () => void
+  onNewRepoClick: () => void
+  onImportClick: () => void
+}) {
   return (
     <div className="flex flex-col items-center justify-center py-16 text-center">
       <div className="h-20 w-20 rounded-full bg-gradient-to-br from-accent/20 to-accent/5 flex items-center justify-center mb-6">
@@ -70,13 +79,17 @@ function EmptyState({ onCreateClick, onImportClick }: { onCreateClick: () => voi
 
       {/* Quick actions for empty state */}
       <div className="flex items-center gap-4">
-        <Button size="lg" onClick={onCreateClick}>
+        <Button size="lg" onClick={onNewRepoClick}>
+          <Github className="h-5 w-5 mr-2" />
+          GitHub Repo Olustur
+        </Button>
+        <Button size="lg" variant="outline" onClick={onCreateClick}>
           <Plus className="h-5 w-5 mr-2" />
-          Yeni Proje Olustur
+          Yerel Proje
         </Button>
         <Button size="lg" variant="outline" onClick={onImportClick}>
-          <GithubIcon className="h-5 w-5 mr-2" />
-          GitHub'dan Import Et
+          <Github className="h-5 w-5 mr-2" />
+          Import Et
         </Button>
       </div>
     </div>
@@ -184,6 +197,7 @@ export default function ProjectSelect() {
   const navigate = useNavigate()
   const [searchQuery, setSearchQuery] = useState('')
   const [isNewDialogOpen, setIsNewDialogOpen] = useState(false)
+  const [isNewRepoDialogOpen, setIsNewRepoDialogOpen] = useState(false)
   const [isImportDialogOpen, setIsImportDialogOpen] = useState(false)
 
   const {
@@ -243,18 +257,26 @@ export default function ProjectSelect() {
   // Quick actions
   const quickActions: QuickAction[] = [
     {
-      id: 'new',
-      title: 'Yeni Repo Olustur',
+      id: 'new-repo',
+      title: 'Yeni GitHub Repo',
       description: 'GitHub\'da yeni bir repository olusturun',
+      icon: Github,
+      action: () => setIsNewRepoDialogOpen(true),
+      variant: 'primary',
+    },
+    {
+      id: 'new-project',
+      title: 'Yeni Yerel Proje',
+      description: 'Yerel bir proje olusturun',
       icon: Plus,
       action: () => setIsNewDialogOpen(true),
-      variant: 'primary',
+      variant: 'secondary',
     },
     {
       id: 'import',
       title: 'Repo Import Et',
       description: 'Mevcut GitHub reposunu import edin',
-      icon: GithubIcon,
+      icon: Github,
       action: () => setIsImportDialogOpen(true),
       variant: 'secondary',
     },
@@ -275,6 +297,7 @@ export default function ProjectSelect() {
       return (
         <EmptyState
           onCreateClick={() => setIsNewDialogOpen(true)}
+          onNewRepoClick={() => setIsNewRepoDialogOpen(true)}
           onImportClick={() => setIsImportDialogOpen(true)}
         />
       )
@@ -411,6 +434,12 @@ export default function ProjectSelect() {
         onOpenChange={setIsNewDialogOpen}
         onSubmit={handleCreateProject}
         isLoading={isCreating}
+      />
+
+      {/* New GitHub Repo Dialog */}
+      <NewRepoDialog
+        open={isNewRepoDialogOpen}
+        onOpenChange={setIsNewRepoDialogOpen}
       />
 
       {/* Import Repo Dialog */}
