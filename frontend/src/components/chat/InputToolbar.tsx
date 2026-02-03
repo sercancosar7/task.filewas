@@ -4,23 +4,23 @@
  *
  * Layout:
  * ┌────────────────────────────────────────────────────────────────────────┐
- * │ 📎  💬 Quick Chat ▼  📁 my-project              Claude ▼  ☐ Think │
+ * │ 📎  💬 Quick Chat ▼  📁 my-project      Safe ▼  ☐ Think             │
  * └────────────────────────────────────────────────────────────────────────┘
  *
  * Features:
  * - Attach button (file upload placeholder)
  * - Chat mode dropdown (Quick Chat, Planning, TDD, Debug, Code Review)
  * - Project selector (placeholder)
- * - Model selector (placeholder)
- * - Thinking toggle (placeholder)
+ * - Permission mode dropdown (Safe, Ask, Auto)
+ * - Thinking toggle (Off, Think, Max - Shift+click for Max)
  */
 
-import * as React from 'react'
 import { Paperclip, FolderOpen } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { PermissionDropdown, type PermissionMode } from './PermissionDropdown'
 import { ModeDropdown, type ChatMode } from './ModeDropdown'
+import { ThinkingToggle, type ThinkingLevel } from './ThinkingToggle'
 
 // =============================================================================
 // Types
@@ -35,6 +35,10 @@ export interface InputToolbarProps {
   chatMode: ChatMode
   /** Callback when chat mode changes */
   onChatModeChange: (mode: ChatMode) => void
+  /** Current thinking level */
+  thinkingLevel: ThinkingLevel
+  /** Callback when thinking level changes */
+  onThinkingLevelChange: (level: ThinkingLevel) => void
   /** Current project name */
   projectName?: string
   /** Callback when attach button is clicked */
@@ -59,6 +63,8 @@ export interface InputToolbarProps {
  *   onPermissionModeChange={setPermissionMode}
  *   chatMode="quick"
  *   onChatModeChange={setChatMode}
+ *   thinkingLevel="off"
+ *   onThinkingLevelChange={setThinkingLevel}
  *   projectName="task.filewas"
  *   onAttach={() => fileInputRef.current?.click()}
  * />
@@ -69,6 +75,8 @@ export function InputToolbar({
   onPermissionModeChange,
   chatMode,
   onChatModeChange,
+  thinkingLevel,
+  onThinkingLevelChange,
   projectName = 'Proje sec...',
   onAttach,
   disabled = false,
@@ -137,11 +145,18 @@ export function InputToolbar({
         </Button>
       </div>
 
-      {/* Right Section - Permission Mode */}
+      {/* Right Section - Permission Mode & Thinking Toggle */}
       <div className="flex items-center gap-2">
         <PermissionDropdown
           value={permissionMode}
           onChange={onPermissionModeChange}
+          disabled={disabled}
+        />
+
+        {/* Thinking Toggle */}
+        <ThinkingToggle
+          value={thinkingLevel}
+          onChange={onThinkingLevelChange}
           disabled={disabled}
         />
       </div>

@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 53,
+  "currentPhase": 54,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -2182,25 +2182,25 @@
       "id": 53,
       "name": "Thinking Toggle",
       "description": "Thinking level secimi",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "53.1",
           "title": "frontend/src/components/chat/ThinkingToggle.tsx",
           "description": "Off/Think/Max toggle button",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "53.2",
           "title": "Shift+click for Max",
           "description": "Shift ile Max thinking sec",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "53.3",
           "title": "Visual indicator",
           "description": "Aktif level gostergesi",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [
