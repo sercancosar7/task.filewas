@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 41,
+  "currentPhase": 42,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -1754,31 +1754,31 @@
       "id": 41,
       "name": "Session Badges",
       "description": "Session kart badge'leri",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "41.1",
           "title": "Processing spinner",
           "description": "isProcessing durumunda animated spinner",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "41.2",
           "title": "Permission mode badge",
           "description": "Safe: accent, Ask: info, Auto: success",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "41.3",
           "title": "Flag indicator",
           "description": "Flag icon when isFlagged",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "41.4",
           "title": "Model badge",
           "description": "claude/glm model badge",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [

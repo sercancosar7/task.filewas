@@ -5,11 +5,12 @@
  * Features:
  * - Horizontal scrollable badge container
  * - Fade mask on right edge for overflow indication
- * - Processing spinner
+ * - Processing spinner (animated)
  * - Unread badge
  * - Flag indicator
  * - Plan badge
- * - Permission mode badge
+ * - Permission mode badge (Safe: accent, Ask: info, Auto: success)
+ * - Model provider badge (claude/glm/auto)
  * - Custom labels with colors
  *
  * Design Reference: Craft Agents badge row pattern
@@ -54,6 +55,15 @@ const MODE_CONFIG: Record<string, { label: string; emoji: string }> = {
   tdd: { label: 'TDD', emoji: '\uD83E\uDDEA' },
   debug: { label: 'Debug', emoji: '\uD83D\uDC1B' },
   'code-review': { label: 'Review', emoji: '\uD83D\uDC41' },
+}
+
+/**
+ * Model provider badge configuration
+ */
+const MODEL_CONFIG: Record<string, { label: string; variant: 'accent' | 'info' | 'secondary' }> = {
+  claude: { label: 'Claude', variant: 'accent' },
+  glm: { label: 'GLM', variant: 'info' },
+  auto: { label: 'Auto', variant: 'secondary' },
 }
 
 // =============================================================================
@@ -178,6 +188,32 @@ function PhaseBadge({
 }
 
 /**
+ * Model provider badge
+ */
+function ModelBadge({ model }: { model: string }) {
+  const config = MODEL_CONFIG[model]
+  if (!config) return null
+
+  const variantClasses = {
+    accent: 'bg-accent/10 text-accent',
+    info: 'bg-info/10 text-info',
+    secondary: 'bg-foreground/5 text-foreground/60',
+  }
+
+  return (
+    <Badge
+      size="sm"
+      className={cn(
+        'h-[18px] px-1.5',
+        variantClasses[config.variant]
+      )}
+    >
+      {config.label}
+    </Badge>
+  )
+}
+
+/**
  * Custom label badge
  */
 function LabelBadge({ label }: { label: SessionLabel }) {
@@ -207,8 +243,9 @@ function LabelBadge({ label }: { label: SessionLabel }) {
  * 4. Plan (if has plan)
  * 5. Permission mode
  * 6. Session mode
- * 7. Phase progress (if autonomous)
- * 8. Custom labels
+ * 7. Model provider (claude/glm/auto)
+ * 8. Phase progress (if autonomous)
+ * 9. Custom labels
  *
  * @example
  * ```tsx
@@ -253,6 +290,9 @@ export function BadgeRow({ session, className }: BadgeRowProps) {
 
       {/* Session mode (optional, only show non-default) */}
       {session.mode !== 'quick-chat' && <ModeBadge mode={session.mode} />}
+
+      {/* Model provider */}
+      <ModelBadge model={session.modelProvider} />
 
       {/* Phase progress (for autonomous mode) */}
       {session.phaseProgress && (

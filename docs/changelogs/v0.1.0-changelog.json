@@ -1480,6 +1480,25 @@
         "frontend/src/components/session/index.ts",
         "frontend/src/styles/globals.css"
       ]
+    },
+    {
+      "phase": 41,
+      "date": "2026-02-03",
+      "title": "Session Badges",
+      "changes": [
+        "frontend/src/components/session/BadgeRow.tsx guncellendi",
+        "MODEL_CONFIG eklendi - claude/glm/auto model provider tanimlari",
+        "ModelBadge component eklendi - Model provider gosterimi (claude: accent, glm: info, auto: secondary)",
+        "Badge siralama guncellendi - Model provider badge eklendi (7. sirada)",
+        "ProcessingBadge zaten mevcut - isProcessing durumunda animated spinner gosteriyor",
+        "PermissionBadge zaten mevcut - Safe: accent, Ask: info, Auto: success renkleri",
+        "FlagBadge zaten mevcut - Flag icon ile isFlagged gosterimi",
+        "JSDoc comment guncellendi - Model provider badge dokumantasyonu eklendi",
+        "npm run build basariyla test edildi"
+      ],
+      "files": [
+        "frontend/src/components/session/BadgeRow.tsx"
+      ]
     }
   ]
 }
