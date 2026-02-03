@@ -92,3 +92,19 @@ export type {
   IndependentTaskGroup,
   ParallelExecutionResult,
 } from './parallel-executor.js'
+
+// CEO Fallback
+export {
+  FallbackHandler,
+  createFallbackHandler,
+  getFallbackHandler,
+  removeFallbackHandler,
+  clearAllFallbackHandlers,
+} from './fallback.js'
+
+export type {
+  FallbackConfig,
+  FallbackContext,
+  FallbackResult,
+  FallbackDecision,
+} from './fallback.js'
