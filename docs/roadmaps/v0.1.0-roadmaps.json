@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 37,
+  "currentPhase": 38,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -1602,31 +1602,31 @@
       "id": 37,
       "name": "Session API - List & Create",
       "description": "Session listeleme ve olusturma",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "37.1",
           "title": "backend/src/routes/sessions.ts",
           "description": "Router dosyasi olustur",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "37.2",
           "title": "GET /api/sessions",
           "description": "List sessions with filters (status, projectId), pagination",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "37.3",
           "title": "POST /api/sessions",
           "description": "Create new session, validation with zod",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "37.4",
           "title": "Route'u app'e ekle",
           "description": "index.ts'de /api/sessions mount et",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [

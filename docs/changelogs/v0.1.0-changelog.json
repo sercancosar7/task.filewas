@@ -1326,6 +1326,34 @@
         "backend/.env",
         "shared/src/types/api.ts"
       ]
+    },
+    {
+      "phase": 37,
+      "date": "2026-02-03",
+      "title": "Session API - List & Create",
+      "changes": [
+        "backend/src/routes/sessions.ts olusturuldu - Session API route dosyasi",
+        "GET /api/sessions endpoint eklendi - Session listeleme",
+        "Pagination destegi eklendi (page, limit, offset query params)",
+        "SessionFilter destegi eklendi (projectId, status, mode, labelIds, isFlagged, hasUnread, version, search, fromDate, toDate)",
+        "SessionSort destegi eklendi (sortBy: createdAt|updatedAt|title|status|messageCount, sortOrder: asc|desc)",
+        "Comma-separated array filter parsing eklendi (status=todo,in-progress gibi)",
+        "parseFilter helper fonksiyonu eklendi - Query params'tan SessionFilter olusturma",
+        "parseSort helper fonksiyonu eklendi - Query params'tan SessionSort olusturma",
+        "POST /api/sessions endpoint eklendi - Yeni session olusturma",
+        "sessionCreateSchema ile Zod validation eklendi",
+        "exactOptionalPropertyTypes uyumlu typing yapildi (summary mapping, sessionCreate)",
+        "SessionSummary donusumu yapildi (lighter payload for list response)",
+        "authMiddleware ile tum endpoint'ler koruma altina alindi",
+        "backend/src/routes/index.ts guncellendi - sessionsRouter export eklendi",
+        "backend/src/index.ts guncellendi - /api/sessions route'u mount edildi",
+        "npm run build basariyla test edildi"
+      ],
+      "files": [
+        "backend/src/routes/sessions.ts",
+        "backend/src/routes/index.ts",
+        "backend/src/index.ts"
+      ]
     }
   ]
 }
