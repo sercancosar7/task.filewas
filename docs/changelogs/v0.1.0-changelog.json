@@ -2,8 +2,32 @@
   "version": "0.1.0",
   "name": "Otonom AI Proje Gelistirme Platformu",
   "startDate": "2026-02-02",
-  "lastUpdated": "2026-02-03T20:15:00.000000",
+  "lastUpdated": "2026-02-03T20:25:47.114Z",
   "entries": [
+    {
+      "phase": 94,
+      "date": "2026-02-03",
+      "title": "Changelog Tab UI",
+      "changes": [
+        "ChangelogEntry.tsx - Tek changelog karti component (faz badge, baslik, tarih)",
+        "ChangelogList.tsx - Liste component (loading, error, empty states, expand/collapse)",
+        "ProjectChangelogTab.tsx - API entegrasyonu ile changelog tab container",
+        "backend/src/routes/changelog.ts - GET /api/projects/:id/changelog endpoint",
+        "shared/src/types/changelog.ts - ChangelogEntry, ChangelogFilterOptions types",
+        "Version selector support - GET /api/projects/:id/changelog/versions",
+        "File icons - Dosya uzantisina gore emoji ikonlar (ts, tsx, js, json, md, css, etc.)"
+      ],
+      "files": [
+        "frontend/src/components/changelog/ChangelogEntry.tsx",
+        "frontend/src/components/changelog/ChangelogList.tsx",
+        "frontend/src/components/project/tabs/ProjectChangelogTab.tsx",
+        "backend/src/routes/changelog.ts",
+        "shared/src/types/changelog.ts",
+        "shared/src/types/index.ts",
+        "backend/src/routes/index.ts",
+        "backend/src/index.ts"
+      ]
+    },
     {
       "phase": 93,
       "date": "2026-02-03",

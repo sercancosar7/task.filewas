@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 94,
+  "currentPhase": 95,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -3687,7 +3687,7 @@
       "id": 94,
       "name": "Changelog Tab UI",
       "description": "Proje degisiklik gecmisi gorunumu",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "94.1",

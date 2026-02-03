@@ -283,3 +283,10 @@ export type {
   LogFilterOptions,
   LogStats,
 } from './logs';
+
+// Changelog types
+export type {
+  ChangelogEntry,
+  ChangelogFileEntry,
+  ChangelogFilterOptions,
+} from './changelog';
