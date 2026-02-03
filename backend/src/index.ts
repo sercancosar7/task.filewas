@@ -23,6 +23,7 @@ import {
   filesRouter,
   uploadsRouter,
   sourcesRouter,
+  logsRouter,
 } from './routes/index.js'
 import { initStorage } from './storage/index.js'
 import { createSocketServer, closeAllConnections, getClientCount } from './socket/index.js'
@@ -70,6 +71,9 @@ app.use('/api/settings', settingsRouter)
 
 // Sources routes - MCP, API, Local sources
 app.use('/api/sources', sourcesRouter)
+
+// Logs routes - System logs
+app.use('/api/logs', logsRouter)
 
 // File browser routes (nested under /api/projects/:id/files/*)
 // Note: filesRouter registers its own path with :id parameter

@@ -274,3 +274,12 @@ export type {
 } from './skill';
 
 export { BUILT_IN_SKILLS } from './skill';
+
+// Log types
+export type {
+  LogEntry,
+  LogType,
+  LogLevel,
+  LogFilterOptions,
+  LogStats,
+} from './logs';

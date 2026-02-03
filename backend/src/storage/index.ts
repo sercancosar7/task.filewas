@@ -134,3 +134,26 @@ export {
 } from './settings.js'
 
 export type { DefaultModel, DefaultPermissionMode, DefaultThinkingLevel } from './settings.js'
+
+// Logs storage
+export {
+  getLogs,
+  getLogsByType,
+  getRecentLogs,
+  getLogById,
+  addLog,
+  addApiLog,
+  addAgentLog,
+  addErrorLog,
+  addSessionLog,
+  cleanOldLogs,
+  getLogStats,
+} from './logs.js'
+
+export type {
+  LogEntry,
+  LogType,
+  LogLevel,
+  LogsData,
+  LogFilterOptions,
+} from './logs.js'

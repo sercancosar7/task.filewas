@@ -2,8 +2,37 @@
   "version": "0.1.0",
   "name": "Otonom AI Proje Gelistirme Platformu",
   "startDate": "2026-02-02",
-  "lastUpdated": "2026-02-03T19:54:10.372162",
+  "lastUpdated": "2026-02-03T20:15:00.000000",
   "entries": [
+    {
+      "phase": 93,
+      "date": "2026-02-03",
+      "title": "Logs Sayfasi UI",
+      "changes": [
+        "Logs.tsx sayfasi - Sistem loglari goruntuleme ve filtreleme",
+        "Log type icons - API (🌐), Agent (🤖), Error (❌), System (⚙️), Session (💬)",
+        "Stats cards - Toplam, API, Agent, Error, Session sayilari",
+        "Type-based filtering (Tumü, API, Agent, Error, Session, System tabs)",
+        "Level filtering (Tumü, Info, Warn, Error)",
+        "Search functionality - baslik ve mesajda arama",
+        "Collapsible log entries - detayli gorus (mesaj, error stack, metadata, entity IDs)",
+        "Date grouping - Bugün, Dün, veya tam tarih",
+        "Backend API - GET /api/logs, /stats, /recent, /by-type, /:id",
+        "Backend storage - logs.json dosya tabanli depolama",
+        "WebSocket real-time updates - log:new eventi",
+        "Log navigation - log.navigateTo ile ilgili sayfaya gitme butonu"
+      ],
+      "files": [
+        "frontend/src/pages/Logs.tsx",
+        "backend/src/routes/logs.ts",
+        "backend/src/storage/logs.ts",
+        "shared/src/types/logs.ts",
+        "backend/src/storage/index.ts",
+        "backend/src/routes/index.ts",
+        "backend/src/index.ts",
+        "shared/src/types/index.ts"
+      ]
+    },
     {
       "phase": 91,
       "date": "2026-02-03",
