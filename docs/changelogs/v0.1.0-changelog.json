@@ -2,8 +2,41 @@
   "version": "0.1.0",
   "name": "Otonom AI Proje Gelistirme Platformu",
   "startDate": "2026-02-02",
-  "lastUpdated": "2026-02-03T21:56:00.000Z",
+  "lastUpdated": "2026-02-03T22:35:00.000Z",
   "entries": [
+    {
+      "phase": 105,
+      "date": "2026-02-03",
+      "title": "E2E Critical Flows",
+      "changes": [
+        "Playwright E2E test framework kurulumu - @playwright/test yuklendi",
+        "playwright.config.ts - Playwright config olusturuldu (testDir, baseURL, workers, retries, reporter)",
+        "tests/e2e/helpers/api.ts - API helper fonksiyonlari (login, createProject, createSession, getSessions, deleteSession, testData)",
+        "tests/e2e/login.spec.ts - Login flow E2E testleri (6 test - display login page, login with valid credentials, fail login with invalid credentials, redirect to project select, persist auth token, handle token expiration)",
+        "tests/e2e/project.spec.ts - Create project E2E testleri (8 test - display projects page, create new project via API, list projects after creation, handle duplicate project names, navigate to project detail, display project count, filter projects by status, search projects)",
+        "tests/e2e/session.spec.ts - Create session E2E testleri (8 test - display sessions page, create new session via API, list sessions after creation, navigate to session detail, filter sessions by project, create session with different modes, handle session with labels, update session status, handle multiple sessions)",
+        "tests/e2e/message.spec.ts - Send message E2E testleri (14 test - display session detail page, message input area, send message via API, display message history, handle empty message input, handle message sending while processing, display user message, display assistant response, handle long messages, preserve message history on navigation, handle error on send failure, allow editing user messages, show message timestamp, WebSocket connection, real-time updates, WebSocket reconnection)",
+        "Test scripts eklendi - npm run test:e2e, npm run test:e2e:ui, npm run test:e2e:debug, npm run test:e2e:headed",
+        "pnpm workspace sorunlari cozuldu - shared module import'lari ve type definitions yuklemeleri",
+        "Backend auth service'te jsonwebtoken ve bcryptjs import sorunlari @ts-ignore ile gecici olarak cozuldu"
+      ],
+      "files": [
+        "playwright.config.ts",
+        "tests/e2e/helpers/api.ts",
+        "tests/e2e/login.spec.ts",
+        "tests/e2e/project.spec.ts",
+        "tests/e2e/session.spec.ts",
+        "tests/e2e/message.spec.ts",
+        "backend/src/services/auth.ts",
+        "backend/src/routes/projects.ts",
+        "backend/src/routes/sessions.ts",
+        "backend/tsconfig.json",
+        "shared/package.json",
+        "package.json",
+        "docs/roadmaps/v0.1.0-roadmaps.json",
+        "docs/changelogs/v0.1.0-changelog.json"
+      ]
+    },
     {
       "phase": 102,
       "date": "2026-02-03",

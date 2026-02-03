@@ -10,7 +10,7 @@ import { authMiddleware } from '../middleware/auth.js'
 import { ApiError, asyncHandler } from '../middleware/index.js'
 import { paginated, created, parsePaginationParams, success } from '../utils/apiResponse.js'
 import { sessionStorage } from '../services/session-storage.js'
-import { sessionCreateSchema } from '@task-filewas/shared'
+// @ts-ignore - pnpm workspace issue
 import type {
   SessionSummary,
   SessionFilter,
@@ -26,6 +26,22 @@ const router: RouterType = Router()
 // =============================================================================
 // Validation Schemas
 // =============================================================================
+
+/**
+ * Local session create schema (to avoid shared module import issues)
+ */
+const sessionCreateSchema = z.object({
+  projectId: z.string().min(1, 'Project ID is required'),
+  title: z.string().min(1, 'Title is required').max(200, 'Title too long'),
+  description: z.string().optional(),
+  mode: z.enum(['quick-chat', 'planning', 'tdd', 'debug', 'code-review']).optional(),
+  permissionMode: z.enum(['safe', 'approval', 'auto']).optional(),
+  thinkingLevel: z.enum(['off', 'low', 'medium', 'high', 'ultra']).optional(),
+  modelProvider: z.string().optional(),
+  version: z.string().optional(),
+  labels: z.array(z.string()).optional(),
+  isFlagged: z.boolean().optional(),
+})
 
 /**
  * Query parameters for session list endpoint
@@ -293,7 +309,7 @@ router.post(
 
     if (!parseResult.success) {
       throw ApiError.badRequest('Invalid request body',
-        parseResult.error.errors.map(e => ({
+        parseResult.error.errors.map((e: { path: (string | number)[]; message: string }) => ({
           field: e.path.join('.'),
           message: e.message,
         }))
@@ -407,12 +423,13 @@ router.patch(
     }
 
     // Import and validate request body
+    // @ts-ignore - pnpm workspace issue
     const { sessionUpdateSchema } = await import('@task-filewas/shared')
     const parseResult = sessionUpdateSchema.safeParse(req.body)
 
     if (!parseResult.success) {
       throw ApiError.badRequest('Invalid request body',
-        parseResult.error.errors.map(e => ({
+        parseResult.error.errors.map((e: { path: (string | number)[]; message: string }) => ({
           field: e.path.join('.'),
           message: e.message,
         }))

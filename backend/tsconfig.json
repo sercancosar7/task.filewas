@@ -15,9 +15,11 @@
     "verbatimModuleSyntax": false,
     "baseUrl": ".",
     "paths": {
-      "@task-filewas/shared": ["../shared/src/index.ts"],
-      "@shared/*": ["../shared/src/*"]
+      "@task-filewas/shared": ["../shared/dist/index.js"],
+      "@shared/*": ["../shared/dist/*"],
+      "@types/*": ["../node_modules/@types/*"]
     },
+    "typeRoots": ["./node_modules/@types", "../node_modules/@types", "./node_modules"],
     "types": ["node"]
   },
   "include": ["src/**/*"],

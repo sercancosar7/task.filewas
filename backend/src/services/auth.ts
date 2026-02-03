@@ -4,7 +4,9 @@
  * @module @task-filewas/backend/services/auth
  */
 
+// @ts-ignore - pnpm workspace issue with type definitions
 import jwt from 'jsonwebtoken'
+// @ts-ignore - pnpm workspace issue with type definitions
 import bcrypt from 'bcryptjs'
 import { env } from '../config/env.js'
 

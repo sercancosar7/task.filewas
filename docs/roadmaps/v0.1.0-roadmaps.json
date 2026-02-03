@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 104,
+  "currentPhase": 106,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -4085,31 +4085,31 @@
       "id": 105,
       "name": "E2E Critical Flows",
       "description": "Kritik kullanici akislari E2E",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "105.1",
           "title": "Login flow test",
           "description": "Giris yapma testi",
-          "status": "pending"
+          "status": "completed"
         },
         {
           "id": "105.2",
           "title": "Create project test",
           "description": "Proje olusturma testi",
-          "status": "pending"
+          "status": "completed"
         },
         {
           "id": "105.3",
           "title": "Create session test",
           "description": "Session olusturma testi",
-          "status": "pending"
+          "status": "completed"
         },
         {
           "id": "105.4",
           "title": "Send message test",
           "description": "Mesaj gonderme testi",
-          "status": "pending"
+          "status": "completed"
         }
       ],
       "acceptance": [

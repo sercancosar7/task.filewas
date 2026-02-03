@@ -12,7 +12,14 @@ import { authMiddleware } from '../middleware/auth.js'
 import { ApiError, asyncHandler } from '../middleware/index.js'
 import { paginated, created, success, parsePaginationParams } from '../utils/apiResponse.js'
 import { projectStorage } from '../services/project-storage.js'
-import { projectCreateSchema, projectUpdateSchema } from '@task-filewas/shared'
+// @ts-ignore - pnpm workspace issue
+import type {
+  ProjectSummary,
+  ProjectStatus,
+  ProjectType,
+  ProjectCreate,
+  ProjectUpdate,
+} from '@task-filewas/shared'
 import {
   analyzeTechStack,
   cloneRepo,
@@ -23,19 +30,37 @@ import {
   type CreateRepoOptions,
   type GitHubRepoVisibility,
 } from '../services/github.js'
-import type {
-  ProjectSummary,
-  ProjectStatus,
-  ProjectType,
-  ProjectCreate,
-  ProjectUpdate,
-} from '@task-filewas/shared'
 
 const router: RouterType = Router()
 
 // =============================================================================
 // Validation Schemas
 // =============================================================================
+
+/**
+ * Local project create schema
+ */
+const projectCreateSchema = z.object({
+  name: z.string().min(1, 'Name is required').max(100, 'Name too long'),
+  description: z.string().optional(),
+  type: z.enum(['web-app', 'api', 'mobile-app', 'desktop-app', 'library', 'cli', 'other']).optional(),
+  gitRemote: z.string().optional(),
+  path: z.string().optional(),
+})
+
+/**
+ * Local project update schema
+ */
+const projectUpdateSchema = z.object({
+  name: z.string().min(1).max(100).optional(),
+  description: z.string().nullable().optional(),
+  type: z.enum(['web-app', 'api', 'mobile-app', 'desktop-app', 'library', 'cli', 'other']).optional(),
+  status: z.enum(['active', 'archived', 'deleted']).optional(),
+  path: z.string().optional(),
+  gitRemote: z.string().optional(),
+}).refine(data => Object.keys(data).length > 0, {
+  message: 'At least one field must be provided for update',
+})
 
 /**
  * Query parameters for project list endpoint

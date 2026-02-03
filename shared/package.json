@@ -5,6 +5,12 @@
   "description": "Task.filewas Shared Types and Utilities",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
@@ -21,6 +27,7 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@playwright/test": "^1.58.1",
     "@types/node": "^22.19.8",
     "typescript": "^5.7.3",
     "vitest": "^3.2.4"
