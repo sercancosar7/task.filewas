@@ -122,3 +122,15 @@ export type {
   ProjectCreateInput,
   ProjectUpdateInput,
 } from './projects.js'
+
+// Settings storage
+export {
+  getSettings,
+  updateSettings,
+  resetSettings,
+  getSetting,
+  setSetting,
+  DEFAULT_SETTINGS,
+} from './settings.js'
+
+export type { DefaultModel, DefaultPermissionMode, DefaultThinkingLevel } from './settings.js'

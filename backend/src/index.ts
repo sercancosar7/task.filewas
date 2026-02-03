@@ -19,6 +19,7 @@ import {
   agentsRouter,
   skillsRouter,
   commandsRouter,
+  settingsRouter,
 } from './routes/index.js'
 import { initStorage } from './storage/index.js'
 import { createSocketServer, closeAllConnections, getClientCount } from './socket/index.js'
@@ -60,6 +61,9 @@ app.use('/api/projects', projectsRouter)
 app.use('/api/agents', agentsRouter)
 app.use('/api/skills', skillsRouter)
 app.use('/api/commands', commandsRouter)
+
+// Settings routes
+app.use('/api/settings', settingsRouter)
 
 // API root endpoint
 app.get('/api', (_req: Request, res: Response) => {

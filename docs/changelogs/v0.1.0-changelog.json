@@ -2,7 +2,7 @@
   "version": "0.1.0",
   "name": "Otonom AI Proje Gelistirme Platformu",
   "startDate": "2026-02-02",
-  "lastUpdated": "2026-02-03T12:00:00Z",
+  "lastUpdated": "2026-02-03T12:15:00Z",
   "entries": [
     {
       "phase": 1,
@@ -2473,6 +2473,33 @@
       "files": [
         "frontend/src/components/chat/WorkflowDiagram.tsx",
         "frontend/src/components/chat/index.ts"
+      ]
+    },
+    {
+      "phase": 74,
+      "date": "2026-02-03",
+      "title": "Settings Page",
+      "changes": [
+        "Settings.tsx sayfası oluşturuldu (Model, Permission, Automation ayarları)",
+        "Model settings: Default model seçimi (auto/claude/glm), Thinking level (off/think/max)",
+        "Permission settings: Default permission mode (safe/ask/auto)",
+        "Automation settings: Auto commit, Auto push, Auto next phase toggle'ları",
+        "Backend storage/settings.ts oluşturuldu (PlatformSettings interface)",
+        "Backend routes/settings.ts oluşturuldu (GET /api/settings, PATCH /api/settings, POST /api/settings/reset)",
+        "Card component oluşturuldu (shadcn/ui)",
+        "Label component oluşturuldu (shadcn/ui)",
+        "Switch component oluşturuldu (shadcn/ui)",
+        "API integration ile settings localStorage'dan backend'e taşındı",
+        "TypeScript hatası düzeltildi (resetSettings return type)",
+        "Build başarılı test edildi"
+      ],
+      "files": [
+        "frontend/src/pages/Settings.tsx",
+        "frontend/src/components/ui/card.tsx",
+        "frontend/src/components/ui/label.tsx",
+        "frontend/src/components/ui/switch.tsx",
+        "backend/src/storage/settings.ts",
+        "backend/src/routes/settings.ts"
       ]
     }
   ]
