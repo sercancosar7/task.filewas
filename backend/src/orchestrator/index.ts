@@ -40,3 +40,25 @@ export type {
   AgentEventType,
   AgentEventData,
 } from './agent-runner.js'
+
+// Prompt Builder
+export {
+  buildPrompt,
+  buildSimplePrompt,
+  buildResumePrompt,
+  buildClaudeMdSection,
+  buildContextSection,
+  buildHandoffSection,
+  buildPhaseInstruction,
+  loadProjectOverview,
+  loadProjectRoadmap,
+  loadProjectChangelog,
+  loadProjectClaudeMd,
+  paths,
+} from './prompt-builder.js'
+
+export type {
+  PromptBuilderContext,
+  BuiltPrompt,
+  DocumentLoadResult,
+} from './prompt-builder.js'

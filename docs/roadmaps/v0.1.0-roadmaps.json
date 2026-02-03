@@ -2564,7 +2564,7 @@
       "id": 64,
       "name": "Prompt Builder",
       "description": "Agent icin prompt olusturma",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "64.1",

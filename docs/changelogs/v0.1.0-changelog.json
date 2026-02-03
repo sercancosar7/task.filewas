@@ -2194,3 +2194,36 @@
     }
   ]
 }
+    },
+    {
+      "phase": 64,
+      "date": "2026-02-03",
+      "title": "Prompt Builder",
+      "changes": [
+        "backend/src/orchestrator/prompt-builder.ts olusturuldu",
+        "buildPrompt() - Tam prompt builder fonksiyonu (CLAUDE.md + context + handoff)",
+        "buildSimplePrompt() - Hizli gorevler icin basit prompt builder",
+        "buildResumePrompt() - Duraklatilmis session'a devam icin prompt builder",
+        "buildClaudeMdSection() - Platform ve proje CLAUDE.md inject etme",
+        "buildContextSection() - Overview, roadmap, changelog yukleme ve formatlama",
+        "buildHandoffSection() - Onceki agent'ten gelen handoff data inject etme",
+        "buildPhaseInstruction() - Faz ozel talimatlar olusturma",
+        "loadProjectOverview() - Proje overview.md okuma",
+        "loadProjectRoadmap() - Proje roadmap.jsonl okuma ve filtreleme",
+        "loadProjectChangelog() - Proje changelog.jsonl okuma",
+        "loadProjectClaudeMd() - Proje CLAUDE.md okuma",
+        "getProjectCurrentVersion() - Projenin aktif versiyonunu getirme",
+        "Path utilities - Platform ve proje dokuman pathleri",
+        "DocumentLoadResult interface - Dokuman yukleme sonuc tipi",
+        "PromptBuilderContext interface - Prompt builder context tipi",
+        "BuiltPrompt interface - Olusturulan prompt sonuc tipi",
+        "backend/src/orchestrator/index.ts guncellendi - Prompt builder exports eklendi",
+        "npm run build basarili - TypeScript derleme tamamlandi"
+      ],
+      "files": [
+        "backend/src/orchestrator/prompt-builder.ts",
+        "backend/src/orchestrator/index.ts"
+      ]
+    }
+  ]
+}
