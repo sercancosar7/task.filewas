@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 90,
+  "currentPhase": 91,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -3532,31 +3532,31 @@
       "id": 90,
       "name": "Sources Sayfasi UI",
       "description": "Kaynak yonetimi sayfasi",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "90.1",
           "title": "frontend/src/pages/Sources.tsx",
           "description": "Sources sayfasi layout",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "90.2",
           "title": "frontend/src/components/sources/SourceList.tsx",
           "description": "Kaynak listesi",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "90.3",
           "title": "frontend/src/components/sources/AddSourceDialog.tsx",
           "description": "Yeni kaynak ekleme modal",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "90.4",
           "title": "Source status indicator",
           "description": "Baglanti durumu gostergesi",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [

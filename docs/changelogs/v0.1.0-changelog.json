@@ -2,8 +2,28 @@
   "version": "0.1.0",
   "name": "Otonom AI Proje Gelistirme Platformu",
   "startDate": "2026-02-02",
-  "lastUpdated": "2026-02-03T19:30:00.000Z",
+  "lastUpdated": "2026-02-03T20:00:00.000Z",
   "entries": [
+    {
+      "phase": 90,
+      "date": "2026-02-03",
+      "title": "Sources Sayfasi UI",
+      "changes": [
+        "Sources.tsx sayfasi - kaynak yonetimi ana sayfasi",
+        "SourceList component - kaynak kartlari listesi",
+        "AddSourceDialog component - yeni kaynak ekleme modal (MCP, API, Local)",
+        "Source status indicator - baglanti durumu gostergesi (connected/disconnected/error/connecting)",
+        "Type-based filtering (MCP, API, Local tabs)",
+        "Search functionality for sources",
+        "Toggle enabled/disable, test connection, delete actions",
+        "Grouped view (when 'all' selected) and filtered view (when type selected)"
+      ],
+      "files": [
+        "frontend/src/pages/Sources.tsx",
+        "frontend/src/components/sources/SourceList.tsx",
+        "frontend/src/components/sources/AddSourceDialog.tsx"
+      ]
+    },
     {
       "phase": 88,
       "date": "2026-02-03",
