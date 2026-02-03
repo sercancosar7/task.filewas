@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 51,
+  "currentPhase": 52,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -2105,31 +2105,31 @@
       "id": 51,
       "name": "Chat Input Area",
       "description": "Mesaj gonderme alani",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "51.1",
           "title": "frontend/src/components/chat/ChatInput.tsx",
           "description": "Input container - textarea, send button",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "51.2",
           "title": "Auto-resize textarea",
           "description": "min-h-[44px] max-h-[200px] auto resize",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "51.3",
           "title": "Send button",
           "description": "Disabled when empty, accent color",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "51.4",
           "title": "Cmd+Enter shortcut",
           "description": "Keyboard shortcut ile gonder",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [
