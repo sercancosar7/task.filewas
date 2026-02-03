@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 34,
+  "currentPhase": 35,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -1487,31 +1487,31 @@
       "id": 34,
       "name": "WebSocket Server Setup",
       "description": "Socket.io server kurulumu",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "34.1",
           "title": "backend/src/socket/index.ts",
           "description": "Socket.io server, cors ayarlari",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "34.2",
           "title": "HTTP server entegrasyonu",
           "description": "Express app'i HTTP server ile wrap et",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "34.3",
           "title": "Connection handling",
           "description": "connection, disconnect event handlers",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "34.4",
           "title": "Room management",
           "description": "Session bazli room'lar",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [

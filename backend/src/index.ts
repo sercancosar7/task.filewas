@@ -1,6 +1,6 @@
 /**
  * Task.filewas Backend Server
- * Express application entry point
+ * Express application entry point with Socket.io integration
  */
 
 import express, { type Express, type Request, type Response } from 'express'
@@ -13,6 +13,7 @@ import {
 } from './middleware/index.js'
 import { healthRouter } from './routes/index.js'
 import { initStorage } from './storage/index.js'
+import { createSocketServer, closeAllConnections, getClientCount } from './socket/index.js'
 
 // Create Express application
 const app: Express = express()
@@ -66,8 +67,11 @@ async function bootstrap(): Promise<void> {
     // Initialize storage (creates data/ directories and default files)
     await initStorage()
 
+    // Create HTTP server with Socket.io
+    const httpServer = createSocketServer(app)
+
     // Start server
-    const server = app.listen(env.PORT, () => {
+    httpServer.listen(env.PORT, () => {
       console.log(`
 ╔══════════════════════════════════════════════════════╗
 ║          Task.filewas Backend Server                 ║
@@ -76,6 +80,7 @@ async function bootstrap(): Promise<void> {
 ║  Environment: ${env.NODE_ENV.padEnd(40)}║
 ║  Data Path:   ${env.DATA_PATH.padEnd(40)}║
 ║  CORS Origin: ${env.CORS_ORIGIN.padEnd(40)}║
+║  WebSocket:   Enabled (Socket.io)${' '.repeat(22)}║
 ╚══════════════════════════════════════════════════════╝
       `)
     })
@@ -83,7 +88,13 @@ async function bootstrap(): Promise<void> {
     // Graceful shutdown
     const gracefulShutdown = (signal: string) => {
       console.log(`\n[${signal}] Shutting down gracefully...`)
-      server.close(() => {
+      console.log(`[Socket.io] Connected clients: ${getClientCount()}`)
+
+      // Close WebSocket connections first
+      closeAllConnections()
+
+      // Then close HTTP server
+      httpServer.close(() => {
         console.log('[Server] Closed')
         process.exit(0)
       })
