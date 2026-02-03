@@ -2,8 +2,33 @@
   "version": "0.1.0",
   "name": "Otonom AI Proje Gelistirme Platformu",
   "startDate": "2026-02-02",
-  "lastUpdated": "2026-02-03T23:45:00.000Z",
+  "lastUpdated": "2026-02-03T21:40:00.000Z",
   "entries": [
+    {
+      "phase": 102,
+      "date": "2026-02-03",
+      "title": "Backend Unit Tests",
+      "changes": [
+        "JSONL storage testleri - 35 test (readJsonl, writeJsonl, appendJsonl, updateJsonl, deleteFromJsonl, findInJsonl, filterJsonl)",
+        "JSON storage testleri - 26 test (readJson, writeJson, updateJson, mergeJson, deleteJsonKey, hasJsonKey, getJsonKey, setJsonKey)",
+        "Auth service testleri - 35 test (generateToken, verifyToken, decodeToken, hashPassword, verifyPassword, verifyEnvPassword, extractBearerToken, calculateExpirationDate)",
+        "Health route testleri - 10 test (GET /api/health, GET /api/health/detailed)",
+        "Auth route testleri - 17 test (POST /api/auth/login, GET /api/auth/verify, POST /api/auth/refresh, POST /api/auth/validate)",
+        "Toplam 125 test basariyla geciyor - npm run test calisiyor",
+        "Backend build basariyla tamamlaniyor - pnpm run build:backend"
+      ],
+      "files": [
+        "backend/src/storage/jsonl.test.ts",
+        "backend/src/storage/json.test.ts",
+        "backend/src/services/auth.test.ts",
+        "backend/src/routes/health.test.ts",
+        "backend/src/routes/auth.test.ts",
+        "backend/tsconfig.json",
+        "shared/tsconfig.json",
+        "docs/roadmaps/v0.1.0-roadmaps.json",
+        "docs/changelogs/v0.1.0-changelog.json"
+      ]
+    },
     {
       "phase": 101,
       "date": "2026-02-03",
