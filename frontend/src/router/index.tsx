@@ -5,6 +5,7 @@ import {
   Navigate,
   Outlet,
 } from 'react-router-dom'
+import { Toaster } from 'sonner'
 import { ROUTES } from './routes'
 import { Spinner } from '@/components/ui/spinner'
 
@@ -137,7 +138,30 @@ export const router = createBrowserRouter([
 
 // Router Provider wrapper component
 export function AppRouter() {
-  return <RouterProvider router={router} />
+  return (
+    <>
+      <RouterProvider router={router} />
+      <Toaster
+        position="bottom-right"
+        duration={5000}
+        closeButton
+        toastOptions={{
+          classNames: {
+            toast: 'rounded-[8px] shadow-modal-small border-foreground/10 bg-background',
+            title: 'text-sm font-semibold text-foreground',
+            description: 'text-sm text-foreground/90',
+            actionButton: 'rounded-[6px] bg-accent text-white hover:bg-accent/90',
+            cancelButton: 'rounded-[6px] bg-foreground/5 text-foreground hover:bg-foreground/10',
+            closeButton: 'bg-transparent border-foreground/10 text-foreground/50 hover:text-foreground hover:bg-foreground/5 rounded-md p-1',
+            success: 'border-l-4 border-l-success',
+            error: 'border-l-4 border-l-destructive',
+            info: 'border-l-4 border-l-accent',
+            warning: 'border-l-4 border-l-info',
+          },
+        }}
+      />
+    </>
+  )
 }
 
 export { ROUTES } from './routes'

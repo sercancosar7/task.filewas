@@ -2529,6 +2529,35 @@
         "frontend/src/components/dashboard/ActivityFeed.tsx",
         "frontend/src/components/dashboard/index.ts"
       ]
+    },
+    {
+      "phase": 76,
+      "date": "2026-02-03",
+      "title": "Toast Notifications",
+      "changes": [
+        "sonner v1.7.2 paketi zaten mevcut (ek kurulum gerekmedi)",
+        "Toast component oluşturuldu (frontend/src/components/ui/toast.tsx) - Radix UI Toast primitives tabanı",
+        "ToastViewport - bottom-right position, z-index 600, mobile responsive",
+        "toastVariants - default, success, error, info, warning variant'ları",
+        "Craft Agents tarzi styling - border-left-4 color coding (success, destructive, accent, info)",
+        "ToastAction ve ToastClose component'leri oluşturuldu",
+        "ToastTitle ve ToastDescription component'leri oluşturuldu",
+        "useToast hook oluşturuldu (frontend/src/hooks/useToast.ts)",
+        "ToastAPI interface - success(), error(), info(), warning(), default(), promise(), dismiss() metodları",
+        "ToastIcons constant - ✓, ✗, ℹ, ⚠ simgeleri",
+        "toExternalToast() helper - ToastOptions → ExternalToast dönüşümü",
+        "toast convenience export - Hook kullanmadan toast gösterimi (servislerde kullanım için)",
+        "hooks/index.ts'ye useToast ve toast export'ları eklendi",
+        "Router'a Toaster component'i eklendi (position: bottom-right, duration: 5000)",
+        "Sonner classNames - Craft Agents theme uyumlu stiller (rounded-[8px], shadow-modal-small)",
+        "Build başarılı test edildi"
+      ],
+      "files": [
+        "frontend/src/components/ui/toast.tsx",
+        "frontend/src/hooks/useToast.ts",
+        "frontend/src/hooks/index.ts",
+        "frontend/src/router/index.tsx"
+      ]
     }
   ]
 }

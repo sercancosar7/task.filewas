@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 76,
+  "currentPhase": 77,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -2990,31 +2990,31 @@
       "id": 76,
       "name": "Toast Notifications",
       "description": "In-app bildirimler",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "76.1",
           "title": "sonner install",
           "description": "npm install sonner",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "76.2",
           "title": "frontend/src/components/ui/toast.tsx",
           "description": "Toast wrapper",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "76.3",
           "title": "Toast styling",
           "description": "Craft Agents tarzi styling",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "76.4",
           "title": "frontend/src/hooks/useToast.ts",
           "description": "Toast hook",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [
