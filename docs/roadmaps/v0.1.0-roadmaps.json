@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 89,
+  "currentPhase": 90,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -3494,31 +3494,31 @@
       "id": 89,
       "name": "Sources API",
       "description": "MCP, API, Local kaynak yonetimi",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "89.1",
           "title": "backend/src/routes/sources.ts",
           "description": "GET/POST/DELETE /api/sources",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "89.2",
           "title": "MCP source type",
           "description": "Memory, Context7, Playwright MCP tanimlari",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "89.3",
           "title": "API source type",
           "description": "REST API kaynak tanimlari",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "89.4",
           "title": "Local source type",
           "description": "Yerel klasor kaynak tanimlari",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [

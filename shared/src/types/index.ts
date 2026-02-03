@@ -242,3 +242,23 @@ export {
   isToolEvent,
   isPhaseEvent,
 } from './websocket';
+
+// Source types
+export type {
+  SourceType,
+  MCPServerType,
+  APIAuthType,
+  LocalFolderType,
+  MCPSourceConfig,
+  APISourceConfig,
+  APIAuthConfig,
+  LocalSourceConfig,
+  SourceConfig,
+  Source,
+  SourceCreate,
+  SourceUpdate,
+  SourceSummary,
+  SourceConnectionTest,
+} from './source';
+
+export { MCP_PRESETS } from './source';

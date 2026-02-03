@@ -2883,6 +2883,27 @@
         "frontend/src/hooks/useTaskEvents.ts",
         "frontend/src/hooks/index.ts"
       ]
+    },
+    {
+      "phase": 89,
+      "date": "2026-02-03",
+      "title": "Sources API",
+      "changes": [
+        "backend/src/routes/sources.ts oluşturuldu (GET/POST/PATCH/DELETE /api/sources)",
+        "backend/src/storage/sources.ts oluşturuldu (CRUD operasyonları)",
+        "shared/src/types/source.ts oluşturuldu (SourceType, MCP/API/Local tipleri)",
+        "MCP source type tanımları (Memory, Context7, Playwright, Puppeteer, Sequential Thinking)",
+        "API source type tanımları (REST API, authType: none/bearer/basic/api-key/oauth2)",
+        "Local source type tanımları (project/docs/tests/config/custom)",
+        "Source summaries, toggle, test connection endpoint'leri"
+      ],
+      "files": [
+        "backend/src/routes/sources.ts",
+        "backend/src/storage/sources.ts",
+        "shared/src/types/source.ts",
+        "backend/src/index.ts",
+        "backend/src/routes/index.ts"
+      ]
     }
   ]
 }
