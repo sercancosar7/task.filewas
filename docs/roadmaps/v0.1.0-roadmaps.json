@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 47,
+  "currentPhase": 48,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -1965,31 +1965,31 @@
       "id": 47,
       "name": "Activity Row & Tool Icons",
       "description": "Tool call visualizasyonu",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "47.1",
           "title": "frontend/src/components/chat/ActivityRow.tsx",
           "description": "Tool row - icon, name, path, duration",
-          "status": "pending"
+          "status": "completed"
         },
         {
           "id": "47.2",
           "title": "frontend/src/components/chat/ToolIcon.tsx",
           "description": "Tool'a gore icon mapping",
-          "status": "pending"
+          "status": "completed"
         },
         {
           "id": "47.3",
           "title": "Tool colors",
           "description": "Read: accent, Write: success, Edit: info, Bash: accent",
-          "status": "pending"
+          "status": "completed"
         },
         {
           "id": "47.4",
           "title": "Stagger animation",
           "description": "Activity items 30ms stagger",
-          "status": "pending"
+          "status": "completed"
         }
       ],
       "acceptance": [

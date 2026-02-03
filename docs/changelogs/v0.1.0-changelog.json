@@ -1682,6 +1682,37 @@
         "frontend/src/components/chat/MessageList.tsx",
         "frontend/src/components/chat/index.ts"
       ]
+    },
+    {
+      "phase": 47,
+      "date": "2026-02-03",
+      "title": "Activity Row & Tool Icons",
+      "changes": [
+        "frontend/src/components/chat/ToolIcon.tsx olusturuldu - Tool icon mapping component",
+        "ToolIcon: TOOL_ICONS constant - 15 tool icin Lucide icon mapping (Read, Write, Edit, Bash, Glob, Grep, Task, WebFetch, TodoWrite, AskUserQuestion, EnterPlanMode, ExitPlanMode, Skill, WebSearch, NotebookEdit)",
+        "ToolIcon: TOOL_COLORS constant - Tool tiplerine gore renk atamalari (Read: accent, Write: success, Edit: info, Bash: accent, TodoWrite: success, vb.)",
+        "ToolIcon: TOOL_LABELS constant - Turkce erisilebilirlik etiketleri",
+        "ToolIcon: getToolConfig, getToolIcon, getToolColor helper fonksiyonlari",
+        "ToolIcon: Reusable component - name, size, className, colored props",
+        "frontend/src/components/chat/ActivityRow.tsx olusturuldu - Activity row component",
+        "ActivityRow: SystemActivityRow sub-component - System/text aktivite satiri gosterimi",
+        "ActivityRow: ToolActivityRow sub-component - Tool aktivite satiri (ikon, isim, path, duration)",
+        "ActivityRow: formatDuration helper - ms'yi okunaklı formata cevirir",
+        "ActivityRow: extractFilePath helper - Tool input'tan file_path, path, pattern, notebook_path cikarma",
+        "ActivityRow: Stagger animation - 30ms (STAGGER_DELAY = 0.03) delay ile siralı Framer Motion animasyonu",
+        "ActivityRow: Keyboard navigation - Enter/Space ile file click destegi",
+        "ActivityRow: System message variant renkleri - info (muted), warning (info), error (destructive)",
+        "ActivitySection.tsx guncellendi - Yeni ActivityRow component import edildi",
+        "ActivitySection: Inline ActivityRow ve TOOL_ICONS/TOOL_COLORS kaldirildi, modularize edildi",
+        "ActivitySection: Sadece ChevronRight icon import kaldi (diger ikonlar ToolIcon'a tasindi)",
+        "Kod modularizasyonu - Tool icon ve activity row mantigi ayri dosyalara cikarildi",
+        "npm run build basariyla test edildi"
+      ],
+      "files": [
+        "frontend/src/components/chat/ToolIcon.tsx",
+        "frontend/src/components/chat/ActivityRow.tsx",
+        "frontend/src/components/chat/ActivitySection.tsx"
+      ]
     }
   ]
 }

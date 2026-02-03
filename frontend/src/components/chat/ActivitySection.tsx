@@ -28,28 +28,11 @@
 
 import * as React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import {
-  ChevronRight,
-  FileText,
-  FilePlus,
-  Pencil,
-  Terminal,
-  Search,
-  FileSearch,
-  Bot,
-  Globe,
-  CheckSquare,
-  HelpCircle,
-  ListTodo,
-  LogOut,
-  Zap,
-  Sparkles,
-  BookOpen,
-  type LucideIcon,
-} from 'lucide-react'
+import { ChevronRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Badge } from '@/components/ui/badge'
-import type { Activity, ToolName } from '@task-filewas/shared'
+import { ActivityRow } from './ActivityRow'
+import type { Activity } from '@task-filewas/shared'
 
 // =============================================================================
 // Types
@@ -76,150 +59,6 @@ const SIZE_CONFIG = {
   typography: 'text-[13px]',
   iconSize: 'w-3 h-3',
   maxVisibleActivities: 14,
-}
-
-/**
- * Tool icons mapping
- */
-const TOOL_ICONS: Record<ToolName, LucideIcon> = {
-  Read: FileText,
-  Write: FilePlus,
-  Edit: Pencil,
-  Bash: Terminal,
-  Glob: Search,
-  Grep: FileSearch,
-  Task: Bot,
-  WebFetch: Globe,
-  TodoWrite: CheckSquare,
-  AskUserQuestion: HelpCircle,
-  EnterPlanMode: ListTodo,
-  ExitPlanMode: LogOut,
-  Skill: Zap,
-  WebSearch: Sparkles,
-  NotebookEdit: BookOpen,
-}
-
-/**
- * Tool color classes
- */
-const TOOL_COLORS: Record<ToolName, string> = {
-  Read: 'text-accent',
-  Write: 'text-success',
-  Edit: 'text-info',
-  Bash: 'text-accent',
-  Glob: 'text-muted-foreground',
-  Grep: 'text-muted-foreground',
-  Task: 'text-accent',
-  WebFetch: 'text-accent',
-  TodoWrite: 'text-success',
-  AskUserQuestion: 'text-info',
-  EnterPlanMode: 'text-accent',
-  ExitPlanMode: 'text-success',
-  Skill: 'text-accent',
-  WebSearch: 'text-accent',
-  NotebookEdit: 'text-accent',
-}
-
-// =============================================================================
-// Sub-Components
-// =============================================================================
-
-/**
- * Single activity row
- */
-interface ActivityRowProps {
-  activity: Activity
-  onFileClick?: ((filePath: string) => void) | undefined
-  index: number
-}
-
-function ActivityRow({ activity, onFileClick, index }: ActivityRowProps) {
-  if (activity.type !== 'tool' || !activity.tool) {
-    // System or text activity
-    return (
-      <motion.div
-        initial={{ opacity: 0, x: -10 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: index * 0.03, duration: 0.15 }}
-        className={cn(
-          'flex items-center gap-2 py-0.5',
-          SIZE_CONFIG.typography
-        )}
-      >
-        <span className="text-muted-foreground">
-          {activity.text || activity.system?.message}
-        </span>
-      </motion.div>
-    )
-  }
-
-  const { name, summary, input } = activity.tool
-  const Icon = TOOL_ICONS[name] || FileText
-  const colorClass = TOOL_COLORS[name] || 'text-muted-foreground'
-
-  // Extract file path from input
-  const filePath = (input?.['file_path'] || input?.['path'] || input?.['pattern']) as string | undefined
-
-  // Handle file click
-  const handleFileClick = () => {
-    if (filePath && onFileClick) {
-      onFileClick(filePath)
-    }
-  }
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, x: -10 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ delay: index * 0.03, duration: 0.15 }}
-      className={cn(
-        'flex items-center gap-2 py-0.5',
-        SIZE_CONFIG.typography
-      )}
-    >
-      {/* Tool icon */}
-      <Icon className={cn(SIZE_CONFIG.iconSize, 'shrink-0', colorClass)} />
-
-      {/* Tool name */}
-      <span className="font-medium shrink-0">{name}</span>
-
-      {/* File path or summary */}
-      {filePath ? (
-        <button
-          onClick={handleFileClick}
-          className={cn(
-            'text-accent truncate cursor-pointer hover:underline',
-            'focus:outline-none focus:ring-1 focus:ring-accent focus:ring-offset-1 focus:ring-offset-background',
-            'rounded px-0.5'
-          )}
-          title={filePath}
-          type="button"
-        >
-          {filePath}
-        </button>
-      ) : (
-        <span className="text-muted-foreground truncate" title={summary}>
-          {summary}
-        </span>
-      )}
-
-      {/* Duration (if available) */}
-      {activity.tool.duration && (
-        <span className="text-muted-foreground text-[11px] ml-auto shrink-0">
-          {formatDuration(activity.tool.duration)}
-        </span>
-      )}
-    </motion.div>
-  )
-}
-
-/**
- * Format duration in milliseconds to human readable
- */
-function formatDuration(ms: number): string {
-  if (ms < 1000) return `${ms}ms`
-  if (ms < 60000) return `${(ms / 1000).toFixed(1)}s`
-  return `${Math.floor(ms / 60000)}m ${Math.round((ms % 60000) / 1000)}s`
 }
 
 /**
