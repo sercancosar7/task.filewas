@@ -108,3 +108,22 @@ export type {
   FallbackResult,
   FallbackDecision,
 } from './fallback.js'
+
+// Roadmap Executor
+export {
+  RoadmapExecutor,
+  createRoadmapExecutor,
+  getRoadmapExecutor,
+  removeRoadmapExecutor,
+  getAllExecutors,
+} from './roadmap-executor.js'
+
+export type {
+  PhaseState,
+  RoadmapPhase,
+  PhaseTask,
+  RoadmapExecutorConfig,
+  ExecutionStatus,
+  PhaseExecutionResult,
+  StateTransitionResult,
+} from './roadmap-executor.js'
