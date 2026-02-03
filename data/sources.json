@@ -1,0 +1,21 @@
+{
+  "version": "0.1.0",
+  "mcp": [
+    {
+      "id": "memory",
+      "name": "Memory MCP",
+      "type": "mcp",
+      "enabled": true,
+      "config": {}
+    },
+    {
+      "id": "context7",
+      "name": "Context7",
+      "type": "mcp",
+      "enabled": true,
+      "config": {}
+    }
+  ],
+  "api": [],
+  "local": []
+}

@@ -4199,7 +4199,7 @@
       "id": 108,
       "name": "Final QA & Release",
       "description": "Son test ve release",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "108.1",

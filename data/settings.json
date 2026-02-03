@@ -1,0 +1,21 @@
+{
+  "version": "0.1.0",
+  "models": {
+    "default": "auto",
+    "fallbackEnabled": true,
+    "fallbackOrder": [
+      "claude",
+      "glm"
+    ]
+  },
+  "permissions": {
+    "defaultMode": "ask"
+  },
+  "thinking": {
+    "defaultLevel": "off"
+  },
+  "ui": {
+    "theme": "dark",
+    "language": "tr"
+  }
+}

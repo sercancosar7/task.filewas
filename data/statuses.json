@@ -1,0 +1,41 @@
+{
+  "version": "0.1.0",
+  "builtIn": [
+    {
+      "id": "todo",
+      "name": "Todo",
+      "icon": "Circle",
+      "color": "#6b7280",
+      "order": 1
+    },
+    {
+      "id": "in-progress",
+      "name": "In Progress",
+      "icon": "CircleDot",
+      "color": "#a78bfa",
+      "order": 2
+    },
+    {
+      "id": "needs-review",
+      "name": "Needs Review",
+      "icon": "CircleDashed",
+      "color": "#fbbf24",
+      "order": 3
+    },
+    {
+      "id": "done",
+      "name": "Done",
+      "icon": "CheckCircle2",
+      "color": "#22c55e",
+      "order": 4
+    },
+    {
+      "id": "cancelled",
+      "name": "Cancelled",
+      "icon": "XCircle",
+      "color": "#6b7280",
+      "order": 5
+    }
+  ],
+  "custom": []
+}
