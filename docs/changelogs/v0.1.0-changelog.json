@@ -2066,6 +2066,44 @@
         "backend/src/routes/index.ts",
         "backend/src/index.ts"
       ]
+    },
+    {
+      "phase": 61,
+      "date": "2026-02-03",
+      "title": "CLI Subprocess - Base",
+      "changes": [
+        "backend/src/services/cli.ts olusturuldu - Claude/GLM CLI subprocess yonetimi",
+        "CliProcessStatus type tanimlandi (idle, starting, running, paused, stopping, stopped, error)",
+        "CliSpawnOptions interface tanimlandi (cwd, model, prompt, systemPrompt, resumeSessionId, maxTurns, dangerouslySkipPermissions, env, timeout)",
+        "CliProcess interface tanimlandi (id, process, status, model, cwd, startedAt, endedAt, sessionId, cliSessionId, timeoutHandle, outputBuffer, stderrBuffer)",
+        "CliOutputEvent, CliExitEvent, CliErrorEvent event interface'leri tanimlandi",
+        "CLI_EVENTS sabitleri tanimlandi (OUTPUT, EXIT, ERROR, TIMEOUT)",
+        "cliEvents EventEmitter olusturuldu - process event'leri icin",
+        "spawnCli() fonksiyonu - CLI process spawn eder (claude veya glm)",
+        "buildCliArgs() fonksiyonu - CLI argumanlari olusturur (-p, --output-format stream-json, -r, --max-turns, --system-prompt, --dangerously-skip-permissions)",
+        "buildProcessEnv() fonksiyonu - FORCE_COLOR=0, NO_COLOR=1 ile temiz output",
+        "writeToProcess() fonksiyonu - stdin'e veri yazar",
+        "endStdin() fonksiyonu - stdin stream'i kapatir",
+        "killProcess() fonksiyonu - SIGTERM ile graceful shutdown, timeout sonrasi SIGKILL",
+        "forceKillProcess() fonksiyonu - SIGKILL ile zorla sonlandirma",
+        "killAllProcesses() fonksiyonu - Tum aktif process'leri sonlandirir",
+        "getProcess(), getProcessStatus(), isProcessRunning() query fonksiyonlari",
+        "getAllProcesses(), getRunningProcessCount() liste fonksiyonlari",
+        "getProcessBySessionId() - Session ID ile process bulma",
+        "setProcessSessionId(), setProcessCliSessionId() - Process metadata guncelleme",
+        "cleanupFinishedProcesses(), removeProcess(), clearAllProcesses() temizlik fonksiyonlari",
+        "getOutputBuffer(), getStderrBuffer(), clearOutputBuffer() buffer fonksiyonlari",
+        "DEFAULT_TIMEOUT_MS = 10 dakika, FORCE_KILL_TIMEOUT_MS = 5 saniye",
+        "stdout/stderr handler'lari - CliOutputEvent emit eder",
+        "exit handler - CliExitEvent emit eder, status gunceller",
+        "error handler - CliErrorEvent emit eder",
+        "backend/src/services/index.ts guncellendi - cli.ts exportlari eklendi",
+        "npm run build basarili - TypeScript derleme tamamlandi"
+      ],
+      "files": [
+        "backend/src/services/cli.ts",
+        "backend/src/services/index.ts"
+      ]
     }
   ]
 }

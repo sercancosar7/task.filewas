@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 61,
+  "currentPhase": 62,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -2462,25 +2462,25 @@
       "id": 61,
       "name": "CLI Subprocess - Base",
       "description": "Claude/GLM CLI subprocess yonetimi",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "61.1",
           "title": "backend/src/services/cli.ts",
           "description": "CLI spawn fonksiyonu",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "61.2",
           "title": "stdin/stdout handling",
           "description": "Process input/output yonetimi",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "61.3",
           "title": "Process kill",
           "description": "Graceful shutdown, timeout kill",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [

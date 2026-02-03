@@ -86,3 +86,47 @@ export type {
   ReadClaudeMdOptions,
   WriteClaudeMdOptions,
 } from './claudeMd.js'
+
+// CLI Service
+export {
+  // Constants
+  CLI_EVENTS,
+  DEFAULT_TIMEOUT_MS,
+  // Events
+  cliEvents,
+  // Spawn
+  spawnCli,
+  writeToProcess,
+  endStdin,
+  // Kill
+  killProcess,
+  forceKillProcess,
+  killAllProcesses,
+  // Query
+  getProcess,
+  getProcessStatus,
+  isProcessRunning,
+  getAllProcesses,
+  getRunningProcessCount,
+  getProcessBySessionId,
+  // Session
+  setProcessSessionId,
+  setProcessCliSessionId,
+  // Cleanup
+  cleanupFinishedProcesses,
+  removeProcess,
+  clearAllProcesses,
+  // Buffer
+  getOutputBuffer,
+  getStderrBuffer,
+  clearOutputBuffer,
+} from './cli.js'
+
+export type {
+  CliProcessStatus,
+  CliSpawnOptions,
+  CliProcess,
+  CliOutputEvent,
+  CliExitEvent,
+  CliErrorEvent,
+} from './cli.js'
