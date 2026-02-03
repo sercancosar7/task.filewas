@@ -709,6 +709,10 @@ export class RoadmapExecutor {
       if (result.allSuccess) {
         this.transitionTo('testing')
         await this.runPhaseTests(phase)
+
+        // Auto-commit before marking as completed
+        await this.autoCommitPhase(phase)
+
         this.transitionTo('completed')
 
         // Auto-advance to next phase if enabled
@@ -852,6 +856,67 @@ export class RoadmapExecutor {
     // TODO: Implement actual test execution
     // For now, mark as tested
     this.addOutput(`Tests completed for Phase ${phase.id}`)
+  }
+
+  /**
+   * Auto-commit after phase completion
+   */
+  private async autoCommitPhase(phase: RoadmapPhase): Promise<void> {
+    try {
+      // Import settings and git service
+      const { getSettings } = await import('../storage/settings.js')
+      const { autoCommitPhase: gitAutoCommit, isGitRepo } = await import('../services/git.js')
+
+      // Check if git repo exists
+      const isRepo = await isGitRepo(this._cwd)
+      if (!isRepo) {
+        this.addOutput(`Not a git repository, skipping auto-commit`)
+        return
+      }
+
+      // Get settings
+      const settingsResult = await getSettings()
+      if (!settingsResult.success || !settingsResult.data) {
+        this.addOutput(`Failed to read settings, skipping auto-commit`)
+        return
+      }
+
+      const settings = settingsResult.data
+
+      // Check if auto-commit is enabled
+      if (!settings.autoCommit) {
+        this.addOutput(`Auto-commit is disabled in settings`)
+        return
+      }
+
+      this.addOutput(`Auto-committing Phase ${phase.id}: ${phase.name}...`)
+
+      // Perform commit
+      const commitResult = await gitAutoCommit(this._cwd, phase.id, phase.name)
+
+      if (commitResult.success) {
+        this.addOutput(`Commit successful: ${commitResult.commitHash ? commitResult.commitHash.substring(0, 8) : 'done'}`)
+
+        // Auto-push if enabled
+        if (settings.autoPush) {
+          this.addOutput(`Auto-pushing to remote...`)
+          const { autoPush: gitAutoPush } = await import('../services/git.js')
+          const pushResult = await gitAutoPush(this._cwd)
+
+          if (pushResult.success) {
+            this.addOutput(`Push successful`)
+          } else {
+            this.addOutput(`Push failed: ${pushResult.error}`)
+          }
+        } else {
+          this.addOutput(`Auto-push is disabled in settings`)
+        }
+      } else {
+        this.addOutput(`Commit failed: ${commitResult.error}`)
+      }
+    } catch (error) {
+      this.addOutput(`Auto-commit error: ${error instanceof Error ? error.message : String(error)}`)
+    }
   }
 
   /**

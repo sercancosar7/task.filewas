@@ -2721,6 +2721,52 @@
         "frontend/src/components/project/ImportRepoDialog.tsx",
         "docs/roadmaps/v0.1.0-roadmaps.json"
       ]
+    },
+    {
+      "phase": 82,
+      "date": "2026-02-03",
+      "title": "GitHub Sync - Otomatik commit ve push",
+      "changes": [
+        "backend/src/services/git.ts olusturuldu - Git operations service",
+        "getGitStatus, createCommit, pushChanges, pullChanges fonksiyonlari eklendi",
+        "buildCommitMessage ile Co-Authored-By formati eklendi",
+        "autoCommitPhase ve autoPush fonksiyonlari eklendi",
+        "RoadmapExecutor'a phase tamamlandiginda auto-commit entegrasyonu eklendi",
+        "PhaseExecutor'a phase tamamlandiginda auto-commit entegrasyonu eklendi",
+        "Settings'ten autoCommit ve autoPush ayarlari okunuyor"
+      ],
+      "files": [
+        "backend/src/services/git.ts",
+        "backend/src/services/index.ts",
+        "backend/src/orchestrator/roadmap-executor.ts",
+        "backend/src/orchestrator/phase-executor.ts"
+      ]
+    },
+    {
+      "phase": 83,
+      "date": "2026-02-03",
+      "title": "Diff Viewer Component - Multi-file diff gorunumu",
+      "changes": [
+        "react-diff-viewer-continued paketi kuruldu",
+        "frontend/src/components/diff/types.ts olusturuldu - FileChange, DiffData, DiffViewerProps tipleri",
+        "frontend/src/components/diff/DiffViewer.tsx olusturuldu - Ana diff viewer container component",
+        "frontend/src/components/diff/FileList.tsx olusturuldu - Degisen dosyalar listesi component",
+        "frontend/src/components/diff/DiffContent.tsx olusturuldu - Tek dosya diff gorunumu component",
+        "frontend/src/components/diff/index.ts olusturuldu - Export'lar",
+        "FileChange status tipleri: added, modified, deleted, renamed",
+        "Dark theme destekli diff viewer",
+        "Split view ile eski/yeni karsilastirma",
+        "Dosya statusuna gore icon ve renklandirma"
+      ],
+      "files": [
+        "frontend/src/components/diff/types.ts",
+        "frontend/src/components/diff/DiffViewer.tsx",
+        "frontend/src/components/diff/FileList.tsx",
+        "frontend/src/components/diff/DiffContent.tsx",
+        "frontend/src/components/diff/index.ts",
+        "frontend/package.json",
+        "pnpm-workspace.yaml"
+      ]
     }
   ]
 }

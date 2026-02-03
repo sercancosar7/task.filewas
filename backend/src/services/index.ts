@@ -130,3 +130,28 @@ export type {
   CliExitEvent,
   CliErrorEvent,
 } from './cli.js'
+
+// Git Service
+export {
+  getGitStatus,
+  buildCommitMessage,
+  createCommit,
+  pushChanges,
+  pullChanges,
+  autoCommitPhase,
+  autoPush,
+  isGitRepo,
+  getCurrentBranch,
+  getCommitHistory,
+  getFileDiff,
+  DEFAULT_CO_AUTHOR,
+} from './git.js'
+
+export type {
+  GitStatus,
+  CommitOptions,
+  PushOptions,
+  PullOptions,
+  GitResult,
+  CommitResult,
+} from './git.js'
