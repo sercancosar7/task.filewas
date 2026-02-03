@@ -2,7 +2,7 @@
   "version": "0.1.0",
   "name": "Otonom AI Proje Gelistirme Platformu",
   "startDate": "2026-02-02",
-  "lastUpdated": "2026-02-03T04:41:48Z",
+  "lastUpdated": "2026-02-03T13:15:00Z",
   "entries": [
     {
       "phase": 1,
@@ -1130,6 +1130,64 @@
         "backend/src/storage/json.ts",
         "backend/src/config/env.ts",
         "backend/package.json"
+      ]
+    },
+    {
+      "phase": 33,
+      "date": "2026-02-03",
+      "title": "Backend Storage Service - Project & Session",
+      "changes": [
+        "backend/src/services/project-storage.ts olusturuldu - ProjectStorageService extends BaseStorageService",
+        "ProjectFilterOptions interface tanimlandi (status, type, tags, search)",
+        "buildTechStack helper fonksiyonu eklendi - TechStack optional property handling",
+        "buildSettings helper fonksiyonu eklendi - ProjectSettings optional property handling",
+        "toSummary helper fonksiyonu eklendi - Project to ProjectSummary donusumu",
+        "findActive metodu eklendi - Aktif projeyi en son aktiviteye gore getir",
+        "findAllActive metodu eklendi - Tum aktif projeleri getir",
+        "findByName metodu eklendi - Case-insensitive isim araması",
+        "findByPath metodu eklendi - Dosya yolu ile arama",
+        "findByFilter metodu eklendi - Coklu filtre destegi (status, type, tags, search)",
+        "createProject metodu eklendi - Otomatik slug, varsayilan versiyon ve ayarlar",
+        "updateProject metodu eklendi - Kismi guncelleme destegi",
+        "archiveProject metodu eklendi - Projeyi arsivleme",
+        "incrementSessionCount metodu eklendi - Session sayisini artir",
+        "touchActivity metodu eklendi - Son aktivite zamanini guncelle",
+        "getSummaries metodu eklendi - Liste gorunumu icin ozet getir",
+        "projectStorage singleton export eklendi",
+        "backend/src/services/session-storage.ts olusturuldu - SessionStorageService extends BaseStorageService",
+        "SESSION_DEFAULTS sabitleri tanimlandi (mode, status, processingState, permissionMode, thinkingLevel, modelProvider)",
+        "toSummary helper fonksiyonu eklendi - Session to SessionSummary donusumu",
+        "matchesFilter helper fonksiyonu eklendi - SessionFilter eslestirme",
+        "findByProject metodu eklendi - Proje ID ile session listesi, opsiyonel siralama",
+        "findByFilter metodu eklendi - Coklu filtre destegi (project, status, mode, labels, flagged, unread, version, search, date range)",
+        "findActive metodu eklendi - Running veya starting durumundaki sessionlar",
+        "findFlagged metodu eklendi - Isaretli sessionlar",
+        "findUnread metodu eklendi - Okunmamis mesaji olan sessionlar",
+        "findByCliSessionId metodu eklendi - CLI session ID ile arama",
+        "countByProject metodu eklendi - Proje bazli sayim",
+        "countByStatus metodu eklendi - Status bazli sayim",
+        "createSession metodu eklendi - Varsayilan degerler ve label donusumu",
+        "updateSession metodu eklendi - Kismi guncelleme destegi",
+        "updateStatus metodu eklendi - Sadece status guncelleme",
+        "updateProcessingState metodu eklendi - State ve timestamp guncelleme",
+        "toggleFlag metodu eklendi - Flag durumunu degistir",
+        "markAsRead metodu eklendi - Okundu olarak isaretle",
+        "incrementMessageCount metodu eklendi - Mesaj sayisini artir ve unread yap",
+        "setCliSessionId metodu eklendi - CLI session ID baglama",
+        "setError metodu eklendi - Hata durumu ayarlama",
+        "deleteByProject metodu eklendi - Proje sessionlarini toplu silme",
+        "getSummaries metodu eklendi - Proje icin session ozetleri",
+        "getSummariesByFilter metodu eklendi - Filtreli session ozetleri",
+        "sortSessions private metodu eklendi - SessionSort destegi (createdAt, updatedAt, title, status, messageCount)",
+        "sessionStorage singleton export eklendi",
+        "backend/src/services/index.ts guncellendi - Project ve Session storage export'lari eklendi",
+        "exactOptionalPropertyTypes TypeScript hatalari duzeltildi (helper fonksiyonlar ile)",
+        "npm run build basariyla test edildi"
+      ],
+      "files": [
+        "backend/src/services/project-storage.ts",
+        "backend/src/services/session-storage.ts",
+        "backend/src/services/index.ts"
       ]
     }
   ]
