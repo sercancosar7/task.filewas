@@ -14,3 +14,9 @@ export type { MessageListProps } from './MessageList'
 
 export { UserMessage } from './UserMessage'
 export type { UserMessageProps } from './UserMessage'
+
+export { TurnCard } from './TurnCard'
+export type { TurnCardProps } from './TurnCard'
+
+export { ActivitySection } from './ActivitySection'
+export type { ActivitySectionProps } from './ActivitySection'

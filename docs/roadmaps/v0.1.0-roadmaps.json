@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 46,
+  "currentPhase": 47,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -1933,25 +1933,25 @@
       "id": 46,
       "name": "TurnCard Component",
       "description": "Assistant turn kart yapisi",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "46.1",
           "title": "frontend/src/components/chat/TurnCard.tsx",
           "description": "Turn container - activity + response sections",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "46.2",
           "title": "frontend/src/components/chat/ActivitySection.tsx",
           "description": "Collapsible activity list header",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "46.3",
           "title": "Collapse animation",
           "description": "Framer motion collapse/expand",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [

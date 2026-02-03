@@ -1640,6 +1640,48 @@
         "frontend/src/components/chat/MessageList.tsx",
         "frontend/src/components/chat/index.ts"
       ]
+    },
+    {
+      "phase": 46,
+      "date": "2026-02-03",
+      "title": "TurnCard Component",
+      "changes": [
+        "frontend/src/components/chat/TurnCard.tsx olusturuldu - Assistant turn kart yapisi",
+        "TurnCard: Turn prop ile turn verisi alir (userMessage, assistantMessage, activities)",
+        "TurnCard: ActivitySection entegrasyonu - collapsible tool aktiviteleri",
+        "TurnCard: ResponseCard sub-component - markdown render, streaming state",
+        "TurnCard: ResponseFooter sub-component - Copy, ThumbsUp, ThumbsDown butonlari, timestamp",
+        "TurnCard: ProcessingIndicator sub-component - agent calisiyor durumu (Loader2 animate-spin)",
+        "TurnCard: Framer Motion animasyonlari - fade-in, slide-up efektleri",
+        "TurnCard: UserMessage component entegrasyonu - editable, onEdit props",
+        "TurnCard: Clipboard API ile copy fonksiyonu",
+        "TurnCard: Feedback state yonetimi (positive/negative)",
+        "frontend/src/components/chat/ActivitySection.tsx olusturuldu - Collapsible aktivite listesi",
+        "ActivitySection: Framer Motion AnimatePresence ile collapse/expand animasyonu",
+        "ActivitySection: TOOL_ICONS mapping - Read, Write, Edit, Bash, Glob, Grep, Task, WebFetch, TodoWrite, AskUserQuestion, EnterPlanMode, ExitPlanMode, Skill, WebSearch, NotebookEdit (Lucide)",
+        "ActivitySection: TOOL_COLORS mapping - Tool tipine gore renk atamalari (text-accent, text-success, text-info, text-muted-foreground)",
+        "ActivitySection: ActivityRow sub-component - Tool ikonu, ismi, file path (tiklanabilir), duration",
+        "ActivitySection: Badge component - adim sayisi gostergesi (X steps badge)",
+        "ActivitySection: getPreviewText helper - kapali durumda tool isimlerinin onizlemesi",
+        "ActivitySection: formatDuration helper - ms'yi okunaklı formata cevirir (45ms, 1.2s, 2m 30s)",
+        "ActivitySection: maxVisibleActivities config - 14 adimdan fazlaysa scroll aktif",
+        "ActivitySection: Chevron rotasyon animasyonu - 0 derece (kapali) / 90 derece (acik) (Framer Motion)",
+        "ActivitySection: Staggered animation - aktivite satirlari icin 30ms delay ile siralı animasyon",
+        "ActivitySection: Border-left styling - gorsel hiyerarsi icin ml-[13px] pl-4 border-l-2 border-muted",
+        "MessageList.tsx guncellendi - Yeni TurnCard component import edildi",
+        "MessageList: onFileClick, onCopy, onFeedback callback props eklendi",
+        "MessageList: Placeholder inline TurnCard kaldirildi, TurnCard.tsx import edildi",
+        "index.ts guncellendi - TurnCard, TurnCardProps, ActivitySection, ActivitySectionProps export eklendi",
+        "exactOptionalPropertyTypes uyumu icin tum interface'lerde | undefined eklendi",
+        "LucideIcon type import ile tip uyumlulugu saglandi",
+        "npm run build basariyla test edildi"
+      ],
+      "files": [
+        "frontend/src/components/chat/TurnCard.tsx",
+        "frontend/src/components/chat/ActivitySection.tsx",
+        "frontend/src/components/chat/MessageList.tsx",
+        "frontend/src/components/chat/index.ts"
+      ]
     }
   ]
 }

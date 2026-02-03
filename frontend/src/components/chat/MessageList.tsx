@@ -8,13 +8,12 @@
  * - Empty state
  * - Error state
  * - Processing indicator for active turns
- *
- * Note: Individual TurnCard components will be created in Phase 45
+ * - TurnCard with collapsible activities
  */
 
 import { MessageSquare, AlertCircle, Loader2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { UserMessage } from './UserMessage'
+import { TurnCard } from './TurnCard'
 import type { Turn, Message } from '@task-filewas/shared'
 
 // =============================================================================
@@ -36,6 +35,12 @@ export interface MessageListProps {
   editable?: boolean
   /** Callback when a message is edited */
   onMessageEdit?: (message: Message) => void
+  /** Callback when a file path is clicked */
+  onFileClick?: (filePath: string) => void
+  /** Callback when response content is copied */
+  onCopy?: (content: string) => void
+  /** Callback when feedback is given */
+  onFeedback?: (turnId: string, type: 'positive' | 'negative') => void
   /** Additional CSS classes */
   className?: string
 }
@@ -117,82 +122,6 @@ function ProcessingIndicator() {
   )
 }
 
-/**
- * TurnCard - Displays a turn (user message + assistant response)
- */
-interface TurnCardProps {
-  turn: Turn
-  /** Whether user message is editable */
-  editable?: boolean | undefined
-  /** Callback when user message is edited */
-  onMessageEdit?: ((message: Message) => void) | undefined
-  /** Whether this is the last turn */
-  isLast?: boolean | undefined
-}
-
-function TurnCard({ turn, editable = false, onMessageEdit, isLast = false }: TurnCardProps) {
-  const isProcessing = turn.status === 'processing'
-
-  return (
-    <div
-      className={cn(
-        'space-y-3 py-4',
-        // Border between turns
-        'border-b border-foreground/5 last:border-0'
-      )}
-    >
-      {/* User message - now using UserMessage component */}
-      <UserMessage
-        message={turn.userMessage}
-        editable={editable}
-        onEdit={onMessageEdit}
-        isLatest={isLast}
-      />
-
-      {/* Assistant response (if exists) */}
-      {turn.assistantMessage && (
-        <div className="space-y-2">
-          {/* Activity summary */}
-          {turn.activities.length > 0 && (
-            <div className="text-[11px] text-muted-foreground">
-              {turn.activities.length} aktivite
-            </div>
-          )}
-
-          {/* Response */}
-          <div
-            className={cn(
-              'px-4 py-3',
-              'bg-foreground/[0.02] rounded-[8px]',
-              'text-[13px]',
-              isProcessing && 'animate-pulse'
-            )}
-          >
-            <p className="whitespace-pre-wrap break-words">
-              {turn.assistantMessage.content || (
-                <span className="text-muted-foreground italic">
-                  Yanit bekleniyor...
-                </span>
-              )}
-            </p>
-            {turn.assistantMessage.timestamp && (
-              <span className="block mt-1 text-[10px] text-muted-foreground">
-                {new Date(turn.assistantMessage.timestamp).toLocaleTimeString('tr-TR', {
-                  hour: '2-digit',
-                  minute: '2-digit',
-                })}
-              </span>
-            )}
-          </div>
-        </div>
-      )}
-
-      {/* Processing indicator for incomplete turns */}
-      {isProcessing && !turn.assistantMessage && <ProcessingIndicator />}
-    </div>
-  )
-}
-
 // =============================================================================
 // Component
 // =============================================================================
@@ -208,6 +137,7 @@ function TurnCard({ turn, editable = false, onMessageEdit, isLast = false }: Tur
  *   isProcessing={isAgentRunning}
  *   error={sessionError}
  *   emptyMessage="Sohbete baslamak icin bir mesaj gonderin."
+ *   onFileClick={handleFileClick}
  * />
  * ```
  */
@@ -219,6 +149,9 @@ export function MessageList({
   emptyMessage = 'Henuz mesaj yok.',
   editable = false,
   onMessageEdit,
+  onFileClick,
+  onCopy,
+  onFeedback,
   className,
 }: MessageListProps) {
   // Error state
@@ -265,6 +198,9 @@ export function MessageList({
           turn={turn}
           editable={editable}
           onMessageEdit={onMessageEdit}
+          onFileClick={onFileClick}
+          onCopy={onCopy}
+          onFeedback={onFeedback}
           isLast={index === turns.length - 1}
         />
       ))}
