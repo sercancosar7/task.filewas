@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 52,
+  "currentPhase": 53,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -2144,31 +2144,31 @@
       "id": 52,
       "name": "Input Toolbar",
       "description": "Chat input toolbar",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "52.1",
           "title": "frontend/src/components/chat/InputToolbar.tsx",
           "description": "Toolbar container",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "52.2",
           "title": "frontend/src/components/chat/PermissionDropdown.tsx",
           "description": "Safe/Ask/Auto mode secimi",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "52.3",
           "title": "frontend/src/components/chat/ModeDropdown.tsx",
           "description": "Quick Chat, Planning, TDD, Debug dropdown",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "52.4",
           "title": "Attach button",
           "description": "Dosya ekleme butonu (placeholder)",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [

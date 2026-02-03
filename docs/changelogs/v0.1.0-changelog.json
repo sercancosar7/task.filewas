@@ -1823,6 +1823,39 @@
       "files": [
         "frontend/src/components/chat/ChatInput.tsx"
       ]
+    },
+    {
+      "phase": 52,
+      "date": "2026-02-03",
+      "title": "Input Toolbar",
+      "changes": [
+        "frontend/src/components/chat/InputToolbar.tsx olusturuldu - Chat input toolbar container component",
+        "InputToolbar: Attach button - Paperclip ikonu, ghost variant, dosya ekleme placeholder",
+        "InputToolbar: ModeDropdown entegrasyonu - Quick Chat, Planning, TDD, Debug, Code Review modlari",
+        "InputToolbar: PermissionDropdown entegrasyonu - Safe, Ask, Auto izin modlari",
+        "InputToolbar: Project selector placeholder - FolderOpen ikonu, projectName gosterimi",
+        "InputToolbar: Flex layout - left section (attach+mode), center (project), right (permission)",
+        "frontend/src/components/chat/PermissionDropdown.tsx olusturuldu - Izin modu secici",
+        "PermissionDropdown: Safe mode - Search ikonu, bg-accent/10 text-accent, salt okunur mod",
+        "PermissionDropdown: Ask mode - HelpCircle ikonu, bg-info/10 text-info, onay gerektirir",
+        "PermissionDropdown: Auto mode - Unlock ikonu, bg-success/10 text-success, tam otonom",
+        "PermissionDropdown: Badge style trigger button - renge gore arkaplan, 7x7 ikon container",
+        "PermissionDropdown: Dropdown menu - w-56, align end, Check ikonu ile secili mode",
+        "frontend/src/components/chat/ModeDropdown.tsx olusturuldu - Chat modu secici",
+        "ModeDropdown: Quick Chat - MessageSquare ikonu, tek seferlik gorev",
+        "ModeDropdown: Planning - Bot ikonu, karmasik proje planlama",
+        "ModeDropdown: TDD - TestTube2 ikonu, test-driven development",
+        "ModeDropdown: Debug - Bug ikonu, hata ayiklama",
+        "ModeDropdown: Code Review - Eye ikonu, kod inceleme",
+        "ModeDropdown: ChevronDown ile dropdown trigger, label + icon gosterimi",
+        "LucideIcon type kullanimi - TypeScript strict mode uyumlulugu",
+        "npm run build basariyla test edildi"
+      ],
+      "files": [
+        "frontend/src/components/chat/InputToolbar.tsx",
+        "frontend/src/components/chat/PermissionDropdown.tsx",
+        "frontend/src/components/chat/ModeDropdown.tsx"
+      ]
     }
   ]
 }
