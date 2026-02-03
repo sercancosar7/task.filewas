@@ -946,6 +946,36 @@
         "frontend/src/components/layout/AppLayout.tsx",
         "frontend/src/components/layout/index.ts"
       ]
+    },
+    {
+      "phase": 28,
+      "date": "2026-02-03",
+      "title": "Spacing & Layout Constants",
+      "changes": [
+        "frontend/src/lib/constants.ts olusturuldu - Craft Agents design system layout sabitleri",
+        "PANEL_WINDOW_EDGE_SPACING: 6 - Window kenarlarindan panel padding (px)",
+        "PANEL_PANEL_SPACING: 5 - Paneller arasi gap (px)",
+        "TITLE_BAR_OFFSET: 50 - macOS title bar offset (px)",
+        "SIDEBAR_WIDTH objesi tanimlandi (MIN: 180, DEFAULT: 220, MAX: 320)",
+        "NAVIGATOR_WIDTH objesi tanimlandi (MIN: 240, DEFAULT: 300, MAX: 480)",
+        "RIGHT_SIDEBAR_OVERLAY_THRESHOLD: 600 - Overlay gecis esigi",
+        "RIGHT_SIDEBAR_WIDTH: 300 - Sag sidebar genisligi",
+        "Z_INDEX objesi tanimlandi - Layer hiyerarsisi (BASE: 0, PANEL: 50, MODAL: 200, OVERLAY: 300, FLOATING_MENU: 400, SPLASH: 600)",
+        "SHADOWS objesi tanimlandi - Box shadow degerleri (THIN, MINIMAL, MIDDLE, STRONG, MODAL_SMALL)",
+        "BREAKPOINTS objesi tanimlandi - Responsive breakpoint'ler (SM: 640, MD: 768, LG: 1024, XL: 1280, 2XL: 1536)",
+        "MOBILE_BREAKPOINT: 768 - Mobil layout threshold",
+        "ANIMATION_DURATION objesi tanimlandi (FAST: 150, DEFAULT: 200, MEDIUM: 300, SLOW: 500)",
+        "MAX_VISIBLE_ACTIVITIES: 14 - TurnCard activity section max visible items",
+        "ICON_SIZES objesi tanimlandi (XS, SM, DEFAULT, MD, LG)",
+        "STAGGER_DELAY objesi tanimlandi - Stagger animation delays (FAST: 0.03, DEFAULT: 0.05, SLOW: 0.1)",
+        "Type exports eklendi: ZIndexLevel, ShadowLevel, BreakpointKey, IconSize",
+        "CSS variables ile senkronizasyon dokumantasyonu eklendi",
+        "Tailwind config ile senkronizasyon dokumantasyonu eklendi",
+        "npm run build basariyla test edildi"
+      ],
+      "files": [
+        "frontend/src/lib/constants.ts"
+      ]
     }
   ]
 }

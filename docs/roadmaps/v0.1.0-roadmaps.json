@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 28,
+  "currentPhase": 29,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -1276,25 +1276,25 @@
       "id": 28,
       "name": "Spacing & Layout Constants",
       "description": "Layout sabitleri ve responsive",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "28.1",
           "title": "frontend/src/lib/constants.ts",
           "description": "PANEL_WINDOW_EDGE_SPACING: 6, PANEL_PANEL_SPACING: 5",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "28.2",
           "title": "Z-index scale",
           "description": "z-base: 0, z-panel: 50, z-modal: 200, z-overlay: 300",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "28.3",
           "title": "Shadow variables",
           "description": "--shadow-thin, --shadow-minimal, --shadow-modal-small",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [
