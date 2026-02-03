@@ -2,8 +2,27 @@
   "version": "0.1.0",
   "name": "Otonom AI Proje Gelistirme Platformu",
   "startDate": "2026-02-02",
-  "lastUpdated": "2026-02-03T22:35:00.000Z",
+  "lastUpdated": "2026-02-03T22:45:35.388971",
   "entries": [
+    {
+      "phase": 106,
+      "date": "2026-02-03",
+      "title": "E2E Advanced Flows",
+      "changes": [
+        "tests/e2e/github-import.spec.ts - GitHub import flow E2E testleri (11 test - import button display, dialog acilmasi, invalid URL validation, private repo validation, URL parsing, .git suffix handling, dialog close, loading state, import options, GitHub authentication input)",
+        "tests/e2e/file-browser.spec.ts - File browser flow E2E testleri (11 test - files tab navigasyonu, file tree structure, folder expand/collapse, file content display, search functionality, file metadata, breadcrumb navigation, context menu, syntax highlighting, keyboard navigation, empty state)",
+        "tests/e2e/settings.spec.ts - Settings flow E2E testleri (18 test - settings page display, model settings section, change default model, permission settings, change permission mode, automation settings, auto-commit toggle, auto-push toggle, save button, loading state, success message, reset button, confirmation dialog, thinking level settings, change thinking level, logout button, logout action, persist settings, fallback settings, fallback toggle)",
+        "tests/e2e/agent-workflow.spec.ts - Agent workflow E2E testleri (18 test - agents page display, agent listesi, agent detaylari, model assignment gosterimi, model degistirme, capability gosterimi, refresh button, refresh action, istatistikler, renk kodlamasi, info banner, error handling, system prompt preview, detail view, thinking level, override indicator, search/filter, loading state, empty state)"
+      ],
+      "files": [
+        "tests/e2e/github-import.spec.ts",
+        "tests/e2e/file-browser.spec.ts",
+        "tests/e2e/settings.spec.ts",
+        "tests/e2e/agent-workflow.spec.ts",
+        "docs/roadmaps/v0.1.0-roadmaps.json",
+        "docs/changelogs/v0.1.0-changelog.json"
+      ]
+    },
     {
       "phase": 105,
       "date": "2026-02-03",

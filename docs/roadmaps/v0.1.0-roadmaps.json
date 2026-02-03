@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 106,
+  "currentPhase": 107,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -4123,31 +4123,31 @@
       "id": 106,
       "name": "E2E Advanced Flows",
       "description": "Gelismis E2E testleri",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "106.1",
           "title": "GitHub import test",
           "description": "Repo import E2E",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "106.2",
           "title": "File browser test",
           "description": "Dosya tarama E2E",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "106.3",
           "title": "Settings test",
           "description": "Ayarlar degistirme E2E",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "106.4",
           "title": "Agent workflow test",
           "description": "Agent calisma E2E",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [
