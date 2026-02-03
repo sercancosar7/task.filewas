@@ -1426,6 +1426,60 @@
         "frontend/src/components/session/SessionSearch.tsx",
         "frontend/src/components/session/index.ts"
       ]
+    },
+    {
+      "phase": 40,
+      "date": "2026-02-03",
+      "title": "Session Item Card",
+      "changes": [
+        "frontend/src/components/session/SessionItem.tsx olusturuldu - Session card component",
+        "SessionItemProps interface tanimlandi (session, isSelected, onClick, className)",
+        "StatusIcon component eklendi - Unicode ikonlar (todo, in-progress, needs-review, done, cancelled)",
+        "Status renk kodlamasi eklendi (accent, info, success, muted)",
+        "ProcessingIndicator component eklendi - Spinner ile processing gosterimi",
+        "formatRelativeTime helper fonksiyonu eklendi (Az once, Xdk, Xsa, Dun, Xg, d MMM)",
+        "data-selected attribute ile selection state destegi",
+        "Craft Agents tarzi hover ve selected state stilleri",
+        "animate-shimmer-text class'i processing durumunda title'a eklendi",
+        "React.forwardRef ile ref destegi eklendi",
+        "frontend/src/components/session/BadgeRow.tsx olusturuldu - Scrollable badge container",
+        "BadgeRowProps interface tanimlandi (session, className)",
+        "ProcessingBadge component eklendi - Spinner ile Calisiyor gosterimi",
+        "UnreadBadge component eklendi - Yeni badge (accent renk, beyaz text)",
+        "FlagBadge component eklendi - Flag ikonu (info renk)",
+        "PlanBadge component eklendi - Plan badge (success renk)",
+        "PermissionBadge component eklendi - Safe/Ask/Auto badge'leri (mode'a gore renk)",
+        "ModeBadge component eklendi - quick-chat, planning, tdd, debug, code-review",
+        "PhaseBadge component eklendi - Faz X/Y gosterimi",
+        "LabelBadge component eklendi - Custom label renkleri ile",
+        "CSS mask ile sag kenarda fade efekti eklendi",
+        "scrollbar-hide class'i ile scrollbar gizleme",
+        "frontend/src/components/session/DateGroup.tsx olusturuldu - Date group headers",
+        "DateGroupHeaderProps interface tanimlandi (label, count, className)",
+        "SessionGroup interface tanimlandi (label, sessions)",
+        "getDateGroupLabel fonksiyonu eklendi (BUGUN, DUN, BU HAFTA, BU AY, AY YYYY)",
+        "groupSessionsByDate fonksiyonu eklendi - Session'lari tarihe gore gruplama",
+        "useSessionGroups hook eklendi - Memoized session gruplama",
+        "DateGroupHeader component eklendi - Uppercase, tracking-wider styling",
+        "DateGroupDivider component eklendi - Ince cizgi ayirici",
+        "frontend/src/components/session/SessionList.tsx guncellendi - Yeni component'leri kullanacak sekilde",
+        "Inline SessionItem, StatusIcon, DateGroupHeader component'leri kaldirildi",
+        "useSessionGroups hook entegrasyonu yapildi",
+        "frontend/src/components/session/index.ts guncellendi - Yeni exportlar eklendi",
+        "SessionItem, StatusIcon, BadgeRow, DateGroup exports eklendi",
+        "frontend/src/styles/globals.css guncellendi - Keyframe animasyonlari eklendi",
+        "shimmer keyframe animasyonu eklendi (processing text icin)",
+        "spinner-grid keyframe animasyonu eklendi",
+        "npm run build basariyla test edildi"
+      ],
+      "files": [
+        "frontend/src/components/session/SessionItem.tsx",
+        "frontend/src/components/session/BadgeRow.tsx",
+        "frontend/src/components/session/DateGroup.tsx",
+        "frontend/src/components/session/SessionList.tsx",
+        "frontend/src/components/session/index.ts",
+        "frontend/src/styles/globals.css"
+      ]
     }
   ]
 }
