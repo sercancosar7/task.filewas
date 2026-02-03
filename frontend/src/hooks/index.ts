@@ -62,3 +62,20 @@ export {
   type ToastOptions,
   type ToastVariant,
 } from './useToast'
+
+export {
+  useKeyboardShortcuts,
+  useHotkey,
+  KeyboardShortcutsHelp,
+  BUILTIN_SHORTCUTS,
+  formatShortcutKey,
+  isMacOS,
+  type ShortcutKey,
+  type ShortcutHandler,
+  type ShortcutConfig,
+  type KeyboardShortcuts,
+  type UseKeyboardShortcutsOptions,
+  type UseKeyboardShortcutsReturn,
+  type UseHotkeyOptions,
+  type KeyboardShortcutsHelpProps,
+} from './useKeyboardShortcuts'

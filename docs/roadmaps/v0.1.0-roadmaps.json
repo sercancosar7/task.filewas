@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 77,
+  "currentPhase": 78,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -3028,31 +3028,31 @@
       "id": 77,
       "name": "Keyboard Shortcuts",
       "description": "Klavye kisayollari",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "77.1",
-          "title": "frontend/src/hooks/useKeyboardShortcuts.ts",
+          "title": "frontend/src/hooks/useKeyboardShortcuts.tsx",
           "description": "Global keyboard handler",
-          "status": "pending"
+          "status": "completed"
         },
         {
           "id": "77.2",
           "title": "Cmd+Enter gonder",
           "description": "Mesaj gonder shortcut",
-          "status": "pending"
+          "status": "completed"
         },
         {
           "id": "77.3",
           "title": "Cmd+K palette",
           "description": "Command palette ac",
-          "status": "pending"
+          "status": "completed"
         },
         {
           "id": "77.4",
           "title": "Escape iptal",
           "description": "Modal kapat shortcut",
-          "status": "pending"
+          "status": "completed"
         }
       ],
       "acceptance": [

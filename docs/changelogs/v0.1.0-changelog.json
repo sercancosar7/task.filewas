@@ -2558,6 +2558,33 @@
         "frontend/src/hooks/index.ts",
         "frontend/src/router/index.tsx"
       ]
+    },
+    {
+      "phase": 77,
+      "date": "2026-02-03",
+      "title": "Keyboard Shortcuts",
+      "changes": [
+        "useKeyboardShortcuts hook oluşturuldu (frontend/src/hooks/useKeyboardShortcuts.tsx)",
+        "ShortcutKey, ShortcutHandler, ShortcutConfig tipleri tanımlandı",
+        "KeyboardShortcuts interface - sendMessage, openCommandPalette, newSession, toggleSidebar, showHelp, stopGeneration, focusSearch",
+        "UseKeyboardShortcutsOptions ve UseKeyboardShortcutsReturn interface'leri oluşturuldu",
+        "BUILTIN_SHORTCUTS - 10 built-in shortcut tanımı (mod+enter, mod+k, mod+n, mod+b, mod+/, mod+., escape, mod+p, mod+shift+s, mod+f)",
+        "isMacOS() - Platform tespiti (Mac vs Windows/Linux)",
+        "formatShortcutKey() - Shortcut key display formatlama (⌘ vs Ctrl)",
+        "parseShortcutKey() - Shortcut string parsing (mod, ctrl, alt, shift, key)",
+        "matchesShortcut() - Keyboard event matching",
+        "useHotkey() - Tek keyboard shortcut kaydetme hook'u",
+        "useKeyboardShortcuts() - Global shortcuts yönetimi hook'u",
+        "KeyboardShortcutsHelp component - Klavye kısayolları yardım dialog'u",
+        "Form elementlerinde (input/textarea) shortcut engelleme",
+        "Escape tuşu input'ta da çalışır",
+        "hooks/index.ts'ye exportlar eklendi",
+        "Build başarılı test edildi"
+      ],
+      "files": [
+        "frontend/src/hooks/useKeyboardShortcuts.tsx",
+        "frontend/src/hooks/index.ts"
+      ]
     }
   ]
 }
