@@ -1609,6 +1609,37 @@
         "frontend/src/components/chat/MessageList.tsx",
         "frontend/src/components/chat/index.ts"
       ]
+    },
+    {
+      "phase": 45,
+      "date": "2026-02-03",
+      "title": "User Message Component",
+      "changes": [
+        "frontend/src/components/chat/UserMessage.tsx olusturuldu - Kullanici mesaj karti",
+        "UserMessage: Message prop ile mesaj verisi alir (shared types)",
+        "UserMessage: Craft Agents stili - bg-foreground/5 rounded-[8px] max-w-[80%]",
+        "UserMessage: Edit button - hover durumunda gorunur (Pencil icon)",
+        "UserMessage: isLatest prop - son mesaj icin edit butonu daha belirgin",
+        "UserMessage: onEdit callback - mesaj duzenleme icin callback fonksiyonu",
+        "UserMessage: Timestamp gosterimi - HH:MM formati, tooltip ile tam tarih",
+        "UserMessage: formatTime utility fonksiyonu - ISO string'i yerel saate cevirir",
+        "UserMessage: Accessibility - aria-label, role='article', keyboard navigation",
+        "UserMessage: Button ghost variant, size='icon' h-6 w-6",
+        "MessageList.tsx guncellendi - TurnCardPlaceholder yerine TurnCard kullanimi",
+        "MessageList: TurnCard interface - turn, editable, onMessageEdit, isLast props",
+        "MessageList: UserMessage entegrasyonu - TurnCard icinde user mesaji icin",
+        "MessageList: editable ve onMessageEdit props eklendi (MessageListProps)",
+        "MessageList: exactOptionalPropertyTypes uyumu icin tip guncellemeleri",
+        "index.ts guncellendi - UserMessage ve UserMessageProps export eklendi",
+        "Hover state yonetimi icin useState kullanimi",
+        "useCallback ile performans optimizasyonu (handleEditClick, handleKeyDown)",
+        "npm run build basariyla test edildi"
+      ],
+      "files": [
+        "frontend/src/components/chat/UserMessage.tsx",
+        "frontend/src/components/chat/MessageList.tsx",
+        "frontend/src/components/chat/index.ts"
+      ]
     }
   ]
 }

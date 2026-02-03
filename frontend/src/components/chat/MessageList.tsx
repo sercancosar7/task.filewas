@@ -14,7 +14,8 @@
 
 import { MessageSquare, AlertCircle, Loader2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import type { Turn } from '@task-filewas/shared'
+import { UserMessage } from './UserMessage'
+import type { Turn, Message } from '@task-filewas/shared'
 
 // =============================================================================
 // Types
@@ -31,6 +32,10 @@ export interface MessageListProps {
   error?: string | null
   /** Empty state message */
   emptyMessage?: string
+  /** Whether messages are editable */
+  editable?: boolean
+  /** Callback when a message is edited */
+  onMessageEdit?: (message: Message) => void
   /** Additional CSS classes */
   className?: string
 }
@@ -113,10 +118,19 @@ function ProcessingIndicator() {
 }
 
 /**
- * Temporary TurnCard placeholder (will be replaced in Phase 45)
- * Displays basic turn information
+ * TurnCard - Displays a turn (user message + assistant response)
  */
-function TurnCardPlaceholder({ turn }: { turn: Turn }) {
+interface TurnCardProps {
+  turn: Turn
+  /** Whether user message is editable */
+  editable?: boolean | undefined
+  /** Callback when user message is edited */
+  onMessageEdit?: ((message: Message) => void) | undefined
+  /** Whether this is the last turn */
+  isLast?: boolean | undefined
+}
+
+function TurnCard({ turn, editable = false, onMessageEdit, isLast = false }: TurnCardProps) {
   const isProcessing = turn.status === 'processing'
 
   return (
@@ -127,26 +141,13 @@ function TurnCardPlaceholder({ turn }: { turn: Turn }) {
         'border-b border-foreground/5 last:border-0'
       )}
     >
-      {/* User message */}
-      <div className="flex justify-end">
-        <div
-          className={cn(
-            'max-w-[80%] px-4 py-3',
-            'bg-foreground/5 rounded-[8px]',
-            'text-[13px]'
-          )}
-        >
-          <p className="whitespace-pre-wrap break-words">
-            {turn.userMessage.content}
-          </p>
-          <span className="block mt-1 text-[10px] text-muted-foreground text-right">
-            {new Date(turn.userMessage.timestamp).toLocaleTimeString('tr-TR', {
-              hour: '2-digit',
-              minute: '2-digit',
-            })}
-          </span>
-        </div>
-      </div>
+      {/* User message - now using UserMessage component */}
+      <UserMessage
+        message={turn.userMessage}
+        editable={editable}
+        onEdit={onMessageEdit}
+        isLatest={isLast}
+      />
 
       {/* Assistant response (if exists) */}
       {turn.assistantMessage && (
@@ -216,6 +217,8 @@ export function MessageList({
   isProcessing = false,
   error = null,
   emptyMessage = 'Henuz mesaj yok.',
+  editable = false,
+  onMessageEdit,
   className,
 }: MessageListProps) {
   // Error state
@@ -256,8 +259,14 @@ export function MessageList({
       aria-label="Mesaj listesi"
       aria-live="polite"
     >
-      {turns.map((turn) => (
-        <TurnCardPlaceholder key={turn.id} turn={turn} />
+      {turns.map((turn, index) => (
+        <TurnCard
+          key={turn.id}
+          turn={turn}
+          editable={editable}
+          onMessageEdit={onMessageEdit}
+          isLast={index === turns.length - 1}
+        />
       ))}
 
       {/* Processing indicator at the end */}
