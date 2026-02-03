@@ -1,0 +1,65 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "name": "git-push-review",
+        "description": "Push öncesi review hatırlatması",
+        "tools": ["Bash"],
+        "condition": "command.includes('git push')",
+        "action": "warn",
+        "message": "Push yapmadan önce değişiklikleri review ettiniz mi?"
+      },
+      {
+        "name": "destructive-git-warning",
+        "description": "Tehlikeli git komutlarını engelle",
+        "tools": ["Bash"],
+        "condition": "command.includes('--force') || command.includes('reset --hard')",
+        "action": "block",
+        "message": "Bu komut veri kaybına neden olabilir. Lütfen dikkatli olun."
+      }
+    ],
+    "PostToolUse": [
+      {
+        "name": "console-log-warning",
+        "description": "Düzenlenen dosyada console.log kontrolü",
+        "tools": ["Edit", "Write"],
+        "condition": "fileContent.includes('console.log')",
+        "action": "warn",
+        "message": "Dosyada console.log bulunuyor, production öncesi kaldırın."
+      },
+      {
+        "name": "typescript-check",
+        "description": "TypeScript dosyası düzenlendikten sonra tsc kontrolü",
+        "tools": ["Edit"],
+        "condition": "filePath.endsWith('.ts') || filePath.endsWith('.tsx')",
+        "action": "run",
+        "command": "npx tsc --noEmit"
+      }
+    ],
+    "SessionStart": [
+      {
+        "name": "load-context",
+        "description": "Session başında önceki context'i yükle",
+        "action": "inject",
+        "source": "memory"
+      }
+    ],
+    "SessionEnd": [
+      {
+        "name": "save-state",
+        "description": "Session sonunda state kaydet",
+        "action": "save",
+        "target": "memory"
+      }
+    ],
+    "Stop": [
+      {
+        "name": "console-log-audit",
+        "description": "Session sonunda tüm değişen dosyalarda console.log kontrolü",
+        "action": "audit",
+        "pattern": "console.log",
+        "severity": "warning"
+      }
+    ]
+  }
+}
