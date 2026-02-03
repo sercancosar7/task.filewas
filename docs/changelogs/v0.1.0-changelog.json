@@ -2585,6 +2585,41 @@
         "frontend/src/hooks/useKeyboardShortcuts.tsx",
         "frontend/src/hooks/index.ts"
       ]
+    },
+    {
+      "phase": 78,
+      "date": "2026-02-03",
+      "title": "Command Palette",
+      "changes": [
+        "Command Palette component oluşturuldu (frontend/src/components/ui/command-palette.tsx)",
+        "CommandAction, Command, CommandCategory, CommandCategoryConfig interface'leri tanımlandı",
+        "Komut kategorileri: navigation, projects, sessions, ecc, settings, system",
+        "Craft Agents tarzi modal dialog - Search input, komut listesi, footer shortcuts",
+        "Fuzzy search algoritması - exact match (100), startsWith (80), contains (60), description match (40), keywords match (30)",
+        "Klavye navigasyonu - ArrowDown/ArrowUp ile seçim, Enter ile çalıştırma, Escape ile kapatma",
+        "Cmd/Ctrl+K global keyboard shortcut - useCommandPalette hook",
+        "useCommandPalette() hook - open, setOpen, toggle metodları",
+        "CommandPaletteProvider - Context provider ile global command palette yönetimi",
+        "useCommandPaletteContext() - Context'e erişim hook'u",
+        "registerCommand/unregisterCommand - Dinamik komut kaydetme",
+        "Command icon'ları - LayoutDashboard, FolderOpen, MessageSquare, Bot, Zap, Plug, FileText, Settings, LogOut, Plus, GitBranch, Loader2, ChevronRight",
+        "Komut item'ları - Icon, label, description, shortcut hint, executing spinner",
+        "Category gruplaması - Kategori başlığı ve altında komutlar",
+        "Empty state - Sonuc bulunamadığında mesaj ve ikon",
+        "Footer - Keyboard shortcuts hint (↑↓ navigasyon, Enter seç, Esc kapat)",
+        "handleExecute - Navigate, function, external, settings-toggle aksiyonları",
+        "handleLogout - Basit logout fonksiyonu (localStorage token sil, login sayfasına yönlendir)",
+        "AppLayout'a CommandPalette entegrasyonu - useCommandPalette hook ile global state",
+        "ScrollArea ile komut listesi scroll edilebilir",
+        "AnimatePresence ile empty/command animasyon geçişleri",
+        "Framer Motion ile command item animasyonları (stagger delay)",
+        "Build başarılı test edildi"
+      ],
+      "files": [
+        "frontend/src/components/ui/command-palette.tsx",
+        "frontend/src/components/layout/AppLayout.tsx",
+        "docs/roadmaps/v0.1.0-roadmaps.json"
+      ]
     }
   ]
 }

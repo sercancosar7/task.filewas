@@ -19,6 +19,7 @@ import { LeftSidebar } from './LeftSidebar'
 import { SessionInbox } from './SessionInbox'
 import { MainContent } from './MainContent'
 import { ResizeHandle } from './ResizeHandle'
+import { CommandPalette, useCommandPalette } from '@/components/ui/command-palette'
 
 export interface AppLayoutProps {
   children?: React.ReactNode
@@ -34,6 +35,9 @@ export interface AppLayoutProps {
  * - Inbox: min 240px, default 300px, max 480px
  */
 export function AppLayout({ children, className }: AppLayoutProps) {
+  // Command palette state
+  const commandPalette = useCommandPalette()
+
   const sidebarWidth = useAppStore((state) => state.sidebarWidth)
   const inboxWidth = useAppStore((state) => state.inboxWidth)
   const isSidebarCollapsed = useAppStore((state) => state.isSidebarCollapsed)
@@ -67,50 +71,57 @@ export function AppLayout({ children, className }: AppLayoutProps) {
   const actualInboxWidth = inboxResize.size
 
   return (
-    <div
-      className={cn(
-        // Full viewport container
-        'flex h-screen w-screen overflow-hidden',
-        // Background color from theme
-        'bg-background',
-        // Panel edge spacing
-        'p-[var(--panel-window-edge-spacing)]',
-        className
-      )}
-      style={{
-        gap: `${PANEL_CONSTRAINTS.panelSpacing}px`,
-      }}
-    >
-      {/* Left Sidebar Panel */}
-      <LeftSidebar
-        width={actualSidebarWidth}
-        isCollapsed={isSidebarCollapsed}
+    <>
+      {/* Command Palette */}
+      <CommandPalette
+        open={commandPalette.open}
+        onOpenChange={commandPalette.setOpen}
       />
+      <div
+        className={cn(
+          // Full viewport container
+          'flex h-screen w-screen overflow-hidden',
+          // Background color from theme
+          'bg-background',
+          // Panel edge spacing
+          'p-[var(--panel-window-edge-spacing)]',
+          className
+        )}
+        style={{
+          gap: `${PANEL_CONSTRAINTS.panelSpacing}px`,
+        }}
+      >
+        {/* Left Sidebar Panel */}
+        <LeftSidebar
+          width={actualSidebarWidth}
+          isCollapsed={isSidebarCollapsed}
+        />
 
-      {/* Sidebar Resize Handle (hidden when collapsed) */}
-      {!isSidebarCollapsed && (
+        {/* Sidebar Resize Handle (hidden when collapsed) */}
+        {!isSidebarCollapsed && (
+          <ResizeHandle
+            direction="horizontal"
+            isResizing={sidebarResize.isResizing}
+            onMouseDown={sidebarResize.startResize}
+            aria-label="Sidebar genisligini ayarla"
+          />
+        )}
+
+        {/* Session Inbox Panel (Middle) */}
+        <SessionInbox width={actualInboxWidth} />
+
+        {/* Inbox Resize Handle */}
         <ResizeHandle
           direction="horizontal"
-          isResizing={sidebarResize.isResizing}
-          onMouseDown={sidebarResize.startResize}
-          aria-label="Sidebar genisligini ayarla"
+          isResizing={inboxResize.isResizing}
+          onMouseDown={inboxResize.startResize}
+          aria-label="Inbox genisligini ayarla"
         />
-      )}
 
-      {/* Session Inbox Panel (Middle) */}
-      <SessionInbox width={actualInboxWidth} />
-
-      {/* Inbox Resize Handle */}
-      <ResizeHandle
-        direction="horizontal"
-        isResizing={inboxResize.isResizing}
-        onMouseDown={inboxResize.startResize}
-        aria-label="Inbox genisligini ayarla"
-      />
-
-      {/* Main Content Panel (Right - flex-1) */}
-      <MainContent>{children}</MainContent>
-    </div>
+        {/* Main Content Panel (Right - flex-1) */}
+        <MainContent>{children}</MainContent>
+      </div>
+    </>
   )
 }
 
