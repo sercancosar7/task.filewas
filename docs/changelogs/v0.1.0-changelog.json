@@ -2149,6 +2149,48 @@
         "backend/src/utils/stream-parser.ts",
         "backend/src/utils/index.ts"
       ]
+    },
+    {
+      "phase": 63,
+      "date": "2026-02-03",
+      "title": "Agent Spawn Sistemi",
+      "changes": [
+        "backend/src/orchestrator/ klasoru olusturuldu",
+        "backend/src/orchestrator/agent-runner.ts olusturuldu - Agent spawn ve lifecycle yonetimi",
+        "AgentSpawnOptions interface tanimlandi (agentType, sessionId, cwd, prompt, modelOverride, thinkingLevelOverride, parentAgentId, dangerouslySkipPermissions, maxTurns, timeout, env)",
+        "AgentRunResult interface tanimlandi (success, agent, tokenUsage, output, error, exitCode, duration)",
+        "AgentEventType type tanimlandi (agent:spawned, agent:started, agent:output, agent:progress, agent:completed, agent:error, agent:stopped)",
+        "AgentEventData interface tanimlandi (agentId, sessionId, agentType, model, timestamp)",
+        "AGENT_EVENTS sabitleri tanimlandi - Event isimleri",
+        "DEFAULT_AGENT_MODELS mapping - orchestrator/planner/architect/security: claude, implementer/reviewer/tester/debugger: glm",
+        "DEFAULT_THINKING_LEVELS mapping - orchestrator: max, planner/architect/security: think, diger: off",
+        "parseFrontmatter() - Agent MD dosyalarindan YAML frontmatter parse etme",
+        "loadAgentConfig() - .task/agents/*.md dosyalarindan AgentConfig yukleme",
+        "getAvailableAgentTypes() - Mevcut agent tiplerini listeleme",
+        "selectModel() - Agent config ve override'lara gore model secimi (max thinking -> claude zorunlu)",
+        "getModelCommand() - ModelProvider'dan CLI komutuna donusum (claude | glm)",
+        "spawnAgent() - Yeni agent instance olusturma ve CLI spawn etme",
+        "setupAgentCliHandlers() - CLI event handler'lari kurma (output, exit, error)",
+        "convertTokenUsage() - ParsedTokenUsage'dan AgentTokenUsage'a donusum",
+        "emitAgentEvent() - Agent event'lerini emit etme",
+        "stopAgent() - Agent'i durdurma (CLI process kill)",
+        "updateAgentProgress() - Agent progress guncelleme ve event emit",
+        "getAgent(), getAgentStatus(), isAgentRunning() - Agent query fonksiyonlari",
+        "getSessionAgents() - Session'a ait tum agent'lari getirme",
+        "getRunningAgentCount(), getAllAgents() - Agent liste fonksiyonlari",
+        "cleanupFinishedAgents(), removeAgent() - Agent temizleme",
+        "stopSessionAgents() - Session'daki tum agent'lari durdurma",
+        "clearAllAgents() - Tum agent'lari temizleme (shutdown)",
+        "agentEvents EventEmitter - Agent lifecycle event'leri",
+        "CLI process ↔ Agent mapping ile state yonetimi",
+        "StreamParser entegrasyonu - CLI output parse ve token usage extraction",
+        "backend/src/orchestrator/index.ts olusturuldu - Module exports",
+        "npm run build basarili - TypeScript derleme tamamlandi"
+      ],
+      "files": [
+        "backend/src/orchestrator/agent-runner.ts",
+        "backend/src/orchestrator/index.ts"
+      ]
     }
   ]
 }

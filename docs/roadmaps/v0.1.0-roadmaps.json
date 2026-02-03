@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 63,
+  "currentPhase": 64,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -2532,25 +2532,25 @@
       "id": 63,
       "name": "Agent Spawn Sistemi",
       "description": "Agent'lari CLI ile calistirma",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "63.1",
           "title": "backend/src/orchestrator/agent-runner.ts",
           "description": "AgentRunner class - spawn, run, stop",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "63.2",
           "title": "System prompt injection",
           "description": "--system-prompt ile agent md inject",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "63.3",
           "title": "Model selection",
           "description": "claude vs glm command secimi",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [
