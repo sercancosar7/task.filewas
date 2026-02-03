@@ -2,8 +2,30 @@
   "version": "0.1.0",
   "name": "Otonom AI Proje Gelistirme Platformu",
   "startDate": "2026-02-02",
-  "lastUpdated": "2026-02-03T23:30:00.000Z",
+  "lastUpdated": "2026-02-03T23:45:00.000Z",
   "entries": [
+    {
+      "phase": 101,
+      "date": "2026-02-03",
+      "title": "Unit Tests Setup",
+      "changes": [
+        "vitest zaten kurulu - Backend ve Frontend package.json kontrol edildi",
+        "backend/vitest.config.ts - Vitest config olusturuldu (coverage, alias, test timeout)",
+        "frontend/vitest.config.ts - Vitest config olusturuldu (jsdom, react plugin, coverage)",
+        "frontend/src/test/setup.ts - Test setup dosyasi olusturuldu (@testing-library/jest-dom, mocks)",
+        "Ornek test dosyalari - backend/src/utils.test.ts ve frontend/src/utils.test.ts",
+        "Test scripts dogrulandi - npm run test calisiyor"
+      ],
+      "files": [
+        "backend/vitest.config.ts",
+        "frontend/vitest.config.ts",
+        "frontend/src/test/setup.ts",
+        "backend/src/utils.test.ts",
+        "frontend/src/utils.test.ts",
+        "docs/roadmaps/v0.1.0-roadmaps.json",
+        "docs/changelogs/v0.1.0-changelog.json"
+      ]
+    },
     {
       "phase": 100,
       "date": "2026-02-03",
