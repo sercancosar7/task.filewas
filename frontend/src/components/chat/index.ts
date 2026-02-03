@@ -32,3 +32,7 @@ export type { AgentStatusCardProps } from './AgentStatusCard'
 
 export { ProgressBar, Spinner } from './ProgressBar'
 export type { ProgressBarProps, SpinnerProps } from './ProgressBar'
+
+export { WorkflowDiagram } from './WorkflowDiagram'
+export type { WorkflowDiagramProps } from './WorkflowDiagram'
+export { calculateWorkflowProgress, getWorkflowStatusText } from './WorkflowDiagram'

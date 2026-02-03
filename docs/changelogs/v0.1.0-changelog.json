@@ -1000,13 +1000,13 @@
         "frontend/src/components/sidebar/NavSection.tsx olusturuldu - Collapsible section",
         "NavSectionProps interface tanimlandi (title, icon, children, defaultOpen, isCollapsed)",
         "Radix Collapsible kullanildi (accessibility)",
-        "Chevron rotation animation (0 \u2192 90\u00b0)",
+        "Chevron rotation animation (0 → 90°)",
         "Vertical connector line (bg-foreground/10)",
         "Smooth height transition (slideDown/slideUp animations)",
         "frontend/src/components/sidebar/index.ts olusturuldu - Barrel export",
         "frontend/tailwind.config.ts guncellendi - slideDown ve slideUp keyframes eklendi",
-        "slideDown animation: height 0\u2192full + opacity 0\u21921 (0.2s ease-out)",
-        "slideUp animation: height full\u21920 + opacity 1\u21920 (0.2s ease-out)",
+        "slideDown animation: height 0→full + opacity 0→1 (0.2s ease-out)",
+        "slideUp animation: height full→0 + opacity 1→0 (0.2s ease-out)",
         "npm run build basariyla test edildi"
       ],
       "files": [
@@ -1078,7 +1078,7 @@
         "  - done: success (text-success)",
         "  - cancelled: muted (text-foreground/40)",
         "  - flagged: info (text-info)",
-        "Craft Agents design pattern'leri uyguland\u0131 (h-[18px] px-1.5 text-[10px] badge styling)",
+        "Craft Agents design pattern'leri uygulandı (h-[18px] px-1.5 text-[10px] badge styling)",
         "npm run build basariyla test edildi"
       ],
       "files": [
@@ -1098,8 +1098,8 @@
         "FindAllOptions<T> interface tanimlandi (filter, limit, offset, sortDirection, sortBy)",
         "StorageConfig interface tanimlandi (relativePath, format, defaultValue, timestamps)",
         "findAll metodu eklendi - JSONL ve JSON formatlarinda tum kayitlari getirme",
-        "findAllJsonl private metodu - JSONL dosyas\u0131ndan okuma, filter/limit/offset/reverse destegi",
-        "findAllJson private metodu - JSON dosyas\u0131ndan array okuma, filter/sort/pagination destegi",
+        "findAllJsonl private metodu - JSONL dosyasından okuma, filter/limit/offset/reverse destegi",
+        "findAllJson private metodu - JSON dosyasından array okuma, filter/sort/pagination destegi",
         "findById metodu eklendi - ID ile kayit bulma",
         "findOne metodu eklendi - Predicate ile ilk eslesen kaydi bulma",
         "findWhere metodu eklendi - Predicate ile tum eslesen kayitlari bulma",
@@ -1110,7 +1110,7 @@
         "delete metodu eklendi - ID ile kayit silme",
         "deleteWhere metodu eklendi - Predicate ile toplu silme",
         "createMany metodu eklendi - Bulk kayit olusturma",
-        "generateId protected metodu eklendi - Ozelle\u015ftirilebilir ID uretimi",
+        "generateId protected metodu eklendi - Ozelleştirilebilir ID uretimi",
         "sortItems private metodu eklendi - Field bazli siralama (string/number destegi)",
         "storageExists metodu eklendi - Dosya varligi kontrolu",
         "getFilePath metodu eklendi - Absolute dosya yolu dondurme",
@@ -1144,7 +1144,7 @@
         "toSummary helper fonksiyonu eklendi - Project to ProjectSummary donusumu",
         "findActive metodu eklendi - Aktif projeyi en son aktiviteye gore getir",
         "findAllActive metodu eklendi - Tum aktif projeleri getir",
-        "findByName metodu eklendi - Case-insensitive isim aramas\u0131",
+        "findByName metodu eklendi - Case-insensitive isim araması",
         "findByPath metodu eklendi - Dosya yolu ile arama",
         "findByFilter metodu eklendi - Coklu filtre destegi (status, type, tags, search)",
         "createProject metodu eklendi - Otomatik slug, varsayilan versiyon ve ayarlar",
@@ -1224,7 +1224,7 @@
         "isClientConnected fonksiyonu eklendi - Client baglanti kontrolu",
         "getSocketServer fonksiyonu eklendi - Socket.io instance'i dondurme",
         "getHttpServer fonksiyonu eklendi - HTTP server instance'i dondurme",
-        "closeAllConnections fonksiyonu eklendi - Graceful shutdown icin tum baglantilar\u0131 kapatma",
+        "closeAllConnections fonksiyonu eklendi - Graceful shutdown icin tum baglantiları kapatma",
         "backend/src/index.ts guncellendi - HTTP server entegrasyonu",
         "createSocketServer import edildi ve bootstrap icinde kullanildi",
         "app.listen yerine httpServer.listen kullanildi",
@@ -1663,10 +1663,10 @@
         "ActivitySection: ActivityRow sub-component - Tool ikonu, ismi, file path (tiklanabilir), duration",
         "ActivitySection: Badge component - adim sayisi gostergesi (X steps badge)",
         "ActivitySection: getPreviewText helper - kapali durumda tool isimlerinin onizlemesi",
-        "ActivitySection: formatDuration helper - ms'yi okunakl\u0131 formata cevirir (45ms, 1.2s, 2m 30s)",
+        "ActivitySection: formatDuration helper - ms'yi okunaklı formata cevirir (45ms, 1.2s, 2m 30s)",
         "ActivitySection: maxVisibleActivities config - 14 adimdan fazlaysa scroll aktif",
         "ActivitySection: Chevron rotasyon animasyonu - 0 derece (kapali) / 90 derece (acik) (Framer Motion)",
-        "ActivitySection: Staggered animation - aktivite satirlari icin 30ms delay ile siral\u0131 animasyon",
+        "ActivitySection: Staggered animation - aktivite satirlari icin 30ms delay ile siralı animasyon",
         "ActivitySection: Border-left styling - gorsel hiyerarsi icin ml-[13px] pl-4 border-l-2 border-muted",
         "MessageList.tsx guncellendi - Yeni TurnCard component import edildi",
         "MessageList: onFileClick, onCopy, onFeedback callback props eklendi",
@@ -1697,9 +1697,9 @@
         "frontend/src/components/chat/ActivityRow.tsx olusturuldu - Activity row component",
         "ActivityRow: SystemActivityRow sub-component - System/text aktivite satiri gosterimi",
         "ActivityRow: ToolActivityRow sub-component - Tool aktivite satiri (ikon, isim, path, duration)",
-        "ActivityRow: formatDuration helper - ms'yi okunakl\u0131 formata cevirir",
+        "ActivityRow: formatDuration helper - ms'yi okunaklı formata cevirir",
         "ActivityRow: extractFilePath helper - Tool input'tan file_path, path, pattern, notebook_path cikarma",
-        "ActivityRow: Stagger animation - 30ms (STAGGER_DELAY = 0.03) delay ile siral\u0131 Framer Motion animasyonu",
+        "ActivityRow: Stagger animation - 30ms (STAGGER_DELAY = 0.03) delay ile siralı Framer Motion animasyonu",
         "ActivityRow: Keyboard navigation - Enter/Space ile file click destegi",
         "ActivityRow: System message variant renkleri - info (muted), warning (info), error (destructive)",
         "ActivitySection.tsx guncellendi - Yeni ActivityRow component import edildi",
@@ -1753,7 +1753,7 @@
         "frontend/src/components/chat/CodeBlock.tsx olusturuldu - Shiki syntax highlighting component",
         "CodeBlock: Shiki highlighter singleton pattern - createHighlighter ile tek instance, lazy initialization",
         "CodeBlock: 30+ dil destegi - javascript, typescript, tsx, jsx, json, html, css, python, bash, go, rust, java, c, cpp, etc.",
-        "CodeBlock: Dil alias mapping - js\u2192javascript, ts\u2192typescript, py\u2192python, sh\u2192bash, yml\u2192yaml, md\u2192markdown, etc.",
+        "CodeBlock: Dil alias mapping - js→javascript, ts→typescript, py→python, sh→bash, yml→yaml, md→markdown, etc.",
         "CodeBlock: Language badge - Dil gostergesi (uppercase display name mapping, ornegin: TypeScript, JavaScript)",
         "CodeBlock: Filename badge - Opsiyonel dosya adi gosterimi",
         "CodeBlock: Copy button - Clipboard API ile kod kopyalama, 2sn success feedback, hover reveal",
@@ -1998,7 +1998,7 @@
         "Skill format: YAML frontmatter (name, category, description) + Markdown icerik",
         "Command format: YAML frontmatter (name, description, aliases, category) + Markdown icerik",
         "tdd-workflow.md: Test-first yaklasimi, Vitest/Playwright ornekleri, mock pattern'leri",
-        "code-review.md: Guvenlik kontrolleri, performans analizi, yapici geri bildirim kurallar\u0131",
+        "code-review.md: Guvenlik kontrolleri, performans analizi, yapici geri bildirim kuralları",
         "plan.md: Planner agent cagirma, onay bekleme, faz template'i",
         "review.md: Reviewer agent cagirma, skor kriterleri, otomatik tetikleme"
       ],
@@ -2182,7 +2182,7 @@
         "stopSessionAgents() - Session'daki tum agent'lari durdurma",
         "clearAllAgents() - Tum agent'lari temizleme (shutdown)",
         "agentEvents EventEmitter - Agent lifecycle event'leri",
-        "CLI process \u2194 Agent mapping ile state yonetimi",
+        "CLI process ↔ Agent mapping ile state yonetimi",
         "StreamParser entegrasyonu - CLI output parse ve token usage extraction",
         "backend/src/orchestrator/index.ts olusturuldu - Module exports",
         "npm run build basarili - TypeScript derleme tamamlandi"
@@ -2232,7 +2232,7 @@
         "tool:called event - Tool cagrimi WebSocket'e broadcast",
         "tool:result event - Tool sonucu WebSocket'e broadcast",
         "agent:completed event - Agent tamamlandiginda WebSocket'e broadcast",
-        "agent:error event - Agent hata verdi\u011finde WebSocket'e broadcast"
+        "agent:error event - Agent hata verdiğinde WebSocket'e broadcast"
       ],
       "files": [
         "backend/src/orchestrator/agent-runner.ts"
@@ -2456,6 +2456,23 @@
         "frontend/src/hooks/index.ts",
         "frontend/src/components/chat/index.ts",
         "shared/src/types/session.ts"
+      ]
+    },
+    {
+      "phase": 73,
+      "date": "2026-02-03",
+      "title": "Workflow Diagram",
+      "changes": [
+        "WorkflowDiagram.tsx component oluşturuldu (agent chain visualization)",
+        "Agent durumları görselleştirildi (pending, running, completed, error)",
+        "3 display variant eklendi (full, compact, minimal)",
+        "Progress bar ve agent connecting arrows eklendi",
+        "Agent duration display eklendi",
+        "calculateWorkflowProgress ve getWorkflowStatusText utility fonksiyonları eklendi"
+      ],
+      "files": [
+        "frontend/src/components/chat/WorkflowDiagram.tsx",
+        "frontend/src/components/chat/index.ts"
       ]
     }
   ]
