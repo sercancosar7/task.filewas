@@ -162,7 +162,10 @@ export class PhaseExecutor {
   private readonly _projectId: string
   private readonly _cwd: string
   private readonly _phase: RoadmapPhase
-  private readonly _config: Required<Omit<PhaseExecutorConfig, 'phase'>>
+  private readonly _config: Omit<Required<Omit<PhaseExecutorConfig, 'phase'>>, 'modelOverride' | 'thinkingLevelOverride'> & {
+    modelOverride?: ModelProvider
+    thinkingLevelOverride?: ThinkingLevel
+  }
   private readonly _taskToAgentMapper: TaskToAgentMapper
   private readonly _acceptanceCriteriaChecker: AcceptanceCriteriaChecker
   private _outputs: string[]
@@ -191,8 +194,8 @@ export class PhaseExecutor {
       dangerouslySkipPermissions: config.dangerouslySkipPermissions ?? DEFAULT_CONFIG.dangerouslySkipPermissions,
       maxTurns: config.maxTurns ?? DEFAULT_CONFIG.maxTurns,
       agentTimeout: config.agentTimeout ?? DEFAULT_CONFIG.agentTimeout,
-      modelOverride: config.modelOverride,
-      thinkingLevelOverride: config.thinkingLevelOverride,
+      modelOverride: config.modelOverride ?? undefined,
+      thinkingLevelOverride: config.thinkingLevelOverride ?? undefined,
     }
     this._taskToAgentMapper = taskToAgentMapper ?? this.defaultTaskToAgentMapper.bind(this)
     this._acceptanceCriteriaChecker = acceptanceCriteriaChecker ?? this.defaultAcceptanceCriteriaChecker.bind(this)

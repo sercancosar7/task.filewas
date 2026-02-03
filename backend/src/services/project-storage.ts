@@ -304,24 +304,24 @@ export class ProjectStorageService extends BaseStorageService<Project> {
 
     // Add optional properties only if defined
     if (data.description) {
-      projectData.description = data.description
+      projectData['description'] = data.description
     }
 
     const techStack = buildTechStack(data.techStack)
     if (techStack) {
-      projectData.techStack = techStack
+      projectData['techStack'] = techStack
     }
 
     if (data.icon) {
-      projectData.icon = data.icon
+      projectData['icon'] = data.icon
     }
 
     if (data.color) {
-      projectData.color = data.color
+      projectData['color'] = data.color
     }
 
     if (data.tags && data.tags.length > 0) {
-      projectData.tags = data.tags
+      projectData['tags'] = data.tags
     }
 
     return this.create(projectData)
@@ -341,19 +341,19 @@ export class ProjectStorageService extends BaseStorageService<Project> {
       lastActivityAt: now,
     }
 
-    if (updates.name !== undefined) updateData.name = updates.name
+    if (updates.name !== undefined) updateData['name'] = updates.name
     if (updates.description !== undefined) {
-      updateData.description = updates.description ?? undefined
+      updateData['description'] = updates.description ?? undefined
     }
-    if (updates.type !== undefined) updateData.type = updates.type
-    if (updates.status !== undefined) updateData.status = updates.status
+    if (updates.type !== undefined) updateData['type'] = updates.type
+    if (updates.status !== undefined) updateData['status'] = updates.status
     if (updates.icon !== undefined) {
-      updateData.icon = updates.icon ?? undefined
+      updateData['icon'] = updates.icon ?? undefined
     }
     if (updates.color !== undefined) {
-      updateData.color = updates.color ?? undefined
+      updateData['color'] = updates.color ?? undefined
     }
-    if (updates.tags !== undefined) updateData.tags = updates.tags
+    if (updates.tags !== undefined) updateData['tags'] = updates.tags
 
     return this.update(id, updateData)
   }

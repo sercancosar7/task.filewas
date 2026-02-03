@@ -369,7 +369,7 @@ export class SessionStorageService extends BaseStorageService<Session> {
 
     // Add optional properties
     if (data.description) {
-      sessionData.description = data.description
+      sessionData['description'] = data.description
     }
 
     return this.create(sessionData)
@@ -384,18 +384,18 @@ export class SessionStorageService extends BaseStorageService<Session> {
   async updateSession(id: string, updates: SessionUpdate): Promise<StorageResult<Session>> {
     const updateData: Partial<Omit<Session, 'id' | 'createdAt'>> = {}
 
-    if (updates.title !== undefined) updateData.title = updates.title
+    if (updates.title !== undefined) updateData['title'] = updates.title
     if (updates.description !== undefined) {
-      updateData.description = updates.description ?? undefined
+      updateData['description'] = updates.description ?? undefined
     }
-    if (updates.status !== undefined) updateData.status = updates.status
-    if (updates.mode !== undefined) updateData.mode = updates.mode
-    if (updates.permissionMode !== undefined) updateData.permissionMode = updates.permissionMode
-    if (updates.thinkingLevel !== undefined) updateData.thinkingLevel = updates.thinkingLevel
-    if (updates.modelProvider !== undefined) updateData.modelProvider = updates.modelProvider
-    if (updates.labels !== undefined) updateData.labels = updates.labels
-    if (updates.isFlagged !== undefined) updateData.isFlagged = updates.isFlagged
-    if (updates.hasUnread !== undefined) updateData.hasUnread = updates.hasUnread
+    if (updates.status !== undefined) updateData['status'] = updates.status
+    if (updates.mode !== undefined) updateData['mode'] = updates.mode
+    if (updates.permissionMode !== undefined) updateData['permissionMode'] = updates.permissionMode
+    if (updates.thinkingLevel !== undefined) updateData['thinkingLevel'] = updates.thinkingLevel
+    if (updates.modelProvider !== undefined) updateData['modelProvider'] = updates.modelProvider
+    if (updates.labels !== undefined) updateData['labels'] = updates.labels
+    if (updates.isFlagged !== undefined) updateData['isFlagged'] = updates.isFlagged
+    if (updates.hasUnread !== undefined) updateData['hasUnread'] = updates.hasUnread
 
     return this.update(id, updateData)
   }

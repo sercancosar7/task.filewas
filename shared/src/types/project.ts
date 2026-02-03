@@ -176,6 +176,12 @@ export interface ProjectUpdate {
   type?: ProjectType;
   /** Updated status */
   status?: ProjectStatus;
+  /** Updated file system path */
+  path?: string;
+  /** Updated GitHub URL */
+  githubUrl?: string;
+  /** Updated git remote */
+  gitRemote?: string;
   /** Updated settings */
   settings?: Partial<ProjectSettings>;
   /** Updated GitHub info */

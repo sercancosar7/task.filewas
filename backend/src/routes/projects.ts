@@ -40,12 +40,43 @@ const router: RouterType = Router()
 /**
  * Local project create schema
  */
+const techStackSchema = z.object({
+  languages: z.array(z.string()).optional(),
+  frameworks: z.array(z.string()).optional(),
+  databases: z.array(z.string()).optional(),
+  uiLibraries: z.array(z.string()).optional(),
+  buildTools: z.array(z.string()).optional(),
+  testingFrameworks: z.array(z.string()).optional(),
+  other: z.array(z.string()).optional(),
+}).optional()
+
+const settingsSchema = z.object({
+  defaultModel: z.enum(['claude', 'glm', 'auto']).optional(),
+  defaultPermissionMode: z.enum(['safe', 'ask', 'auto']).optional(),
+  defaultThinkingLevel: z.enum(['off', 'think', 'max']).optional(),
+  autoCommit: z.boolean().optional(),
+  autoPush: z.boolean().optional(),
+  customLabels: z.array(z.string()).optional(),
+  customStatuses: z.array(z.object({
+    id: z.string(),
+    name: z.string(),
+    icon: z.string(),
+    color: z.string(),
+  })).optional(),
+}).optional()
+
 const projectCreateSchema = z.object({
   name: z.string().min(1, 'Name is required').max(100, 'Name too long'),
   description: z.string().optional(),
-  type: z.enum(['web-app', 'api', 'mobile-app', 'desktop-app', 'library', 'cli', 'other']).optional(),
+  type: z.enum(['web', 'backend', 'fullstack', 'mobile', 'cli', 'library', 'monorepo', 'other']).optional(),
   gitRemote: z.string().optional(),
   path: z.string().optional(),
+  githubUrl: z.string().optional(),
+  techStack: techStackSchema,
+  settings: settingsSchema,
+  icon: z.string().optional(),
+  color: z.string().optional(),
+  tags: z.array(z.string()).optional(),
 })
 
 /**
@@ -54,10 +85,16 @@ const projectCreateSchema = z.object({
 const projectUpdateSchema = z.object({
   name: z.string().min(1).max(100).optional(),
   description: z.string().nullable().optional(),
-  type: z.enum(['web-app', 'api', 'mobile-app', 'desktop-app', 'library', 'cli', 'other']).optional(),
+  type: z.enum(['web', 'backend', 'fullstack', 'mobile', 'cli', 'library', 'monorepo', 'other']).optional(),
   status: z.enum(['active', 'archived', 'deleted']).optional(),
   path: z.string().optional(),
   gitRemote: z.string().optional(),
+  githubUrl: z.string().optional(),
+  techStack: techStackSchema,
+  settings: settingsSchema,
+  icon: z.string().optional(),
+  color: z.string().optional(),
+  tags: z.array(z.string()).optional(),
 }).refine(data => Object.keys(data).length > 0, {
   message: 'At least one field must be provided for update',
 })
