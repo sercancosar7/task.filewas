@@ -35,3 +35,11 @@ export {
   type UseSessionsOptions,
   type UseSessionsReturn,
 } from './useSessions'
+
+export {
+  useProjects,
+  type UseProjectsOptions,
+  type UseProjectsReturn,
+  type ProjectFilter,
+  type ProjectSort,
+} from './useProjects'
