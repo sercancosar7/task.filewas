@@ -76,3 +76,19 @@ export type {
   DependencyNode,
   QueueStats,
 } from './task-queue.js'
+
+// Parallel Executor
+export {
+  ParallelExecutor,
+  Semaphore,
+  createParallelExecutor,
+  executeIndependentTasks,
+  canRunInParallel,
+} from './parallel-executor.js'
+
+export type {
+  ParallelExecutorConfig,
+  TaskExecutionResult,
+  IndependentTaskGroup,
+  ParallelExecutionResult,
+} from './parallel-executor.js'
