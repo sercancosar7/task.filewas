@@ -1,3 +1,6 @@
+// React'i development mode'a zorla
+process.env['NODE_ENV'] = 'development';
+
 import '@testing-library/jest-dom';
 import { cleanup } from '@testing-library/react';
 import { afterEach, vi } from 'vitest';
