@@ -6,3 +6,4 @@
 export { healthRouter } from './health.js'
 export { authRouter } from './auth.js'
 export { sessionsRouter } from './sessions.js'
+export { projectsRouter } from './projects.js'

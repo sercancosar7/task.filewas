@@ -11,7 +11,7 @@ import {
   errorMiddleware,
   notFoundMiddleware,
 } from './middleware/index.js'
-import { healthRouter, authRouter, sessionsRouter } from './routes/index.js'
+import { healthRouter, authRouter, sessionsRouter, projectsRouter } from './routes/index.js'
 import { initStorage } from './storage/index.js'
 import { createSocketServer, closeAllConnections, getClientCount } from './socket/index.js'
 
@@ -44,6 +44,9 @@ app.use('/api/auth', authRouter)
 
 // Session routes
 app.use('/api/sessions', sessionsRouter)
+
+// Project routes
+app.use('/api/projects', projectsRouter)
 
 // API root endpoint
 app.get('/api', (_req: Request, res: Response) => {

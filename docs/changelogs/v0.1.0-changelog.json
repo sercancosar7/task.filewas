@@ -1499,6 +1499,34 @@
       "files": [
         "frontend/src/components/session/BadgeRow.tsx"
       ]
+    },
+    {
+      "phase": 42,
+      "date": "2026-02-03",
+      "title": "Project API",
+      "changes": [
+        "backend/src/routes/projects.ts olusturuldu - Project CRUD API endpoint'leri",
+        "GET /api/projects endpoint eklendi - Proje listesi, filtreleme, pagination, siralama",
+        "POST /api/projects endpoint eklendi - Yeni proje olusturma, name conflict kontrolu",
+        "GET /api/projects/:id endpoint eklendi - Proje detayi",
+        "PATCH /api/projects/:id endpoint eklendi - Proje guncelleme, name conflict kontrolu",
+        "DELETE /api/projects/:id endpoint eklendi - Soft delete (status: deleted) ve hard delete destegi",
+        "POST /api/projects/:id/archive endpoint eklendi - Proje arsivleme",
+        "POST /api/projects/:id/restore endpoint eklendi - Arsivlenmis/silinmis projeyi geri getirme",
+        "projectListQuerySchema eklendi - Query parameter validasyonu (status, type, tags, search, sortBy, sortOrder)",
+        "parseFilter helper fonksiyonu eklendi - Query'den ProjectFilterOptions olusturma",
+        "sortProjects helper fonksiyonu eklendi - Proje siralama (name, createdAt, updatedAt, lastActivityAt, sessionCount)",
+        "ProjectSummary donusum fonksiyonu eklendi - Liste icin hafif payload",
+        "exactOptionalPropertyTypes uyumlulugu icin Record pattern kullanildi",
+        "backend/src/routes/index.ts guncellendi - projectsRouter export eklendi",
+        "backend/src/index.ts guncellendi - /api/projects route kaydedildi",
+        "npm run build basariyla test edildi"
+      ],
+      "files": [
+        "backend/src/routes/projects.ts",
+        "backend/src/routes/index.ts",
+        "backend/src/index.ts"
+      ]
     }
   ]
 }
