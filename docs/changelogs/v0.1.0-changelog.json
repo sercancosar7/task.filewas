@@ -1744,6 +1744,35 @@
         "frontend/src/components/chat/TurnCard.tsx",
         "frontend/src/components/chat/index.ts"
       ]
+    },
+    {
+      "phase": 49,
+      "date": "2026-02-03",
+      "title": "Code Block & Syntax Highlighting",
+      "changes": [
+        "frontend/src/components/chat/CodeBlock.tsx olusturuldu - Shiki syntax highlighting component",
+        "CodeBlock: Shiki highlighter singleton pattern - createHighlighter ile tek instance, lazy initialization",
+        "CodeBlock: 30+ dil destegi - javascript, typescript, tsx, jsx, json, html, css, python, bash, go, rust, java, c, cpp, etc.",
+        "CodeBlock: Dil alias mapping - js→javascript, ts→typescript, py→python, sh→bash, yml→yaml, md→markdown, etc.",
+        "CodeBlock: Language badge - Dil gostergesi (uppercase display name mapping, ornegin: TypeScript, JavaScript)",
+        "CodeBlock: Filename badge - Opsiyonel dosya adi gosterimi",
+        "CodeBlock: Copy button - Clipboard API ile kod kopyalama, 2sn success feedback, hover reveal",
+        "CodeBlock: useHighlightedCode hook - Async highlighting, loading state, error fallback",
+        "CodeBlock: GitHub Dark tema - #0d1117 background, shiki github-dark theme",
+        "CodeBlock: Line numbers - Opsiyonel satir numarasi gosterimi (showLineNumbers prop)",
+        "CodeBlock: Responsive tasarim - overflow-x-auto, rounded-[8px] container",
+        "CodeBlock: Loading state - animate-pulse efekti, code preview",
+        "CodeBlock: Error fallback - HTML escape edilmis plain text gosterimi",
+        "MarkdownRenderer.tsx guncellendi - Yeni CodeBlock component entegrasyonu",
+        "MarkdownRenderer: code component artik CodeBlock kullanyor (code prop ile)",
+        "MarkdownRenderer: Inline code vs block code ayrimi korundu (InlineCode component)",
+        "MarkdownRenderer: React.Children.toArray ile children'dan code string cikarimi",
+        "npm run build basariyla test edildi"
+      ],
+      "files": [
+        "frontend/src/components/chat/CodeBlock.tsx",
+        "frontend/src/components/chat/MarkdownRenderer.tsx"
+      ]
     }
   ]
 }

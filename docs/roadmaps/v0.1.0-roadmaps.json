@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 49,
+  "currentPhase": 50,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -2035,31 +2035,31 @@
       "id": 49,
       "name": "Code Block & Syntax Highlighting",
       "description": "Kod bloklari ve syntax highlight",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "49.1",
           "title": "shiki install",
           "description": "npm install shiki",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "49.2",
           "title": "frontend/src/components/chat/CodeBlock.tsx",
           "description": "Shiki highlighted code block",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "49.3",
           "title": "Copy button",
           "description": "Kod kopyalama butonu",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "49.4",
           "title": "Language badge",
           "description": "Dil gostergesi badge",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [

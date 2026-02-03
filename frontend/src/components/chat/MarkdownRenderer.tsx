@@ -4,7 +4,7 @@
  *
  * Features:
  * - GitHub Flavored Markdown support (tables, task lists, strikethrough)
- * - Syntax highlighting for code blocks (Shiki)
+ * - Syntax highlighting for code blocks (Shiki via CodeBlock)
  * - Custom styling for dark theme
  * - Copy button for code blocks
  * - External links open in new tab
@@ -14,9 +14,9 @@
 import * as React from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import { Check, Copy, ExternalLink } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { Button } from '@/components/ui/button'
+import { CodeBlock } from './CodeBlock'
 
 // =============================================================================
 // Types
@@ -34,74 +34,6 @@ export interface MarkdownRendererProps {
 // =============================================================================
 // Sub-Components
 // =============================================================================
-
-/**
- * Code block with copy functionality
- */
-interface CodeBlockProps {
-  language?: string | undefined
-  children: string
-}
-
-function CodeBlock({ language, children }: CodeBlockProps) {
-  const [copied, setCopied] = React.useState(false)
-
-  const handleCopy = React.useCallback(async () => {
-    try {
-      await navigator.clipboard.writeText(children)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    } catch (err) {
-      console.error('Failed to copy code:', err)
-    }
-  }, [children])
-
-  return (
-    <div className="relative group">
-      {/* Language badge */}
-      {language && (
-        <div className="absolute top-2 left-3 text-[10px] text-muted-foreground font-mono uppercase">
-          {language}
-        </div>
-      )}
-
-      {/* Copy button */}
-      <Button
-        variant="ghost"
-        size="icon"
-        onClick={handleCopy}
-        className={cn(
-          'absolute top-2 right-2',
-          'h-6 w-6 rounded-[4px]',
-          'text-muted-foreground hover:text-foreground',
-          'hover:bg-foreground/10',
-          'opacity-0 group-hover:opacity-100 transition-opacity'
-        )}
-        title={copied ? 'Kopyalandi!' : 'Kodu kopyala'}
-        aria-label={copied ? 'Kopyalandi' : 'Kodu kopyala'}
-      >
-        {copied ? (
-          <Check className="h-3 w-3 text-success" />
-        ) : (
-          <Copy className="h-3 w-3" />
-        )}
-      </Button>
-
-      {/* Code content */}
-      <pre
-        className={cn(
-          'bg-background border border-foreground/10 rounded-lg',
-          'p-4 pt-8 overflow-x-auto',
-          'text-[13px] font-mono leading-relaxed'
-        )}
-      >
-        <code className={language ? `language-${language}` : undefined}>
-          {children}
-        </code>
-      </pre>
-    </div>
-  )
-}
 
 /**
  * Inline code styling
@@ -216,7 +148,6 @@ const markdownComponents = {
     inline,
     className,
     children,
-    ...props
   }: {
     inline?: boolean | undefined
     className?: string | undefined
@@ -226,9 +157,15 @@ const markdownComponents = {
     const match = /language-(\w+)/.exec(className || '')
     const language = match ? match[1] : undefined
 
-    // If it's a block code (inside pre), render with copy button
-    if (!inline && typeof children === 'string') {
-      return <CodeBlock language={language}>{children}</CodeBlock>
+    // Get code content as string
+    const codeContent = React.Children.toArray(children)
+      .map((child) => (typeof child === 'string' ? child : ''))
+      .join('')
+      .replace(/\n$/, '') // Remove trailing newline
+
+    // If it's a block code (inside pre), render with CodeBlock
+    if (!inline && codeContent) {
+      return <CodeBlock code={codeContent} language={language} />
     }
 
     // Inline code
