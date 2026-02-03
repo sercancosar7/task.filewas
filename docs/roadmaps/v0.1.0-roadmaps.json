@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 60,
+  "currentPhase": 61,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -2430,25 +2430,25 @@
       "id": 60,
       "name": "ECC API Endpoints",
       "description": "Agent, skill, command API'lari",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "60.1",
           "title": "backend/src/routes/agents.ts",
           "description": "GET /api/agents - list agents",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "60.2",
           "title": "backend/src/routes/skills.ts",
           "description": "GET /api/skills - list skills",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "60.3",
           "title": "backend/src/routes/commands.ts",
           "description": "GET /api/commands - list commands",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [

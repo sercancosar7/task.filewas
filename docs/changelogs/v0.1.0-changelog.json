@@ -2,7 +2,7 @@
   "version": "0.1.0",
   "name": "Otonom AI Proje Gelistirme Platformu",
   "startDate": "2026-02-02",
-  "lastUpdated": "2026-02-03T09:37:27Z",
+  "lastUpdated": "2026-02-03T09:56:04Z",
   "entries": [
     {
       "phase": 1,
@@ -2031,6 +2031,40 @@
       "files": [
         "backend/src/services/claudeMd.ts",
         "backend/src/services/index.ts"
+      ]
+    },
+    {
+      "phase": 60,
+      "date": "2026-02-03",
+      "title": "ECC API Endpoints",
+      "changes": [
+        "backend/src/routes/agents.ts olusturuldu - Agent listeleme ve detay API'si",
+        "GET /api/agents endpoint - Tum agent'lari listeler (.task/agents/*.md)",
+        "GET /api/agents/:id endpoint - Agent detayini getirir (frontmatter + content)",
+        "AgentSummary, AgentDetail interface'leri tanimlandi",
+        "parseFrontmatter() - YAML frontmatter parser (external dependency olmadan)",
+        "backend/src/routes/skills.ts olusturuldu - Skill listeleme ve detay API'si",
+        "GET /api/skills endpoint - Tum skill'leri listeler (.task/skills/**/*.md recursive)",
+        "GET /api/skills/:id endpoint - Skill detayini getirir",
+        "GET /api/skills/categories/list endpoint - Skill kategorilerini listeler",
+        "SkillSummary, SkillDetail interface'leri tanimlandi",
+        "backend/src/routes/commands.ts olusturuldu - Command listeleme ve detay API'si",
+        "GET /api/commands endpoint - Tum command'lari listeler (.task/commands/*.md)",
+        "GET /api/commands/:id endpoint - Command detayini getirir (alias ile de aranabilir)",
+        "GET /api/commands/categories/list endpoint - Command kategorilerini listeler",
+        "CommandSummary, CommandDetail interface'leri tanimlandi",
+        "backend/src/routes/index.ts guncellendi - agentsRouter, skillsRouter, commandsRouter exportlari",
+        "backend/src/index.ts guncellendi - /api/agents, /api/skills, /api/commands route'lari eklendi",
+        "Tum endpoint'ler authMiddleware ile korunuyor",
+        "Directory traversal guvenlik kontrolu eklendi",
+        "npm run build basarili - TypeScript derleme tamamlandi"
+      ],
+      "files": [
+        "backend/src/routes/agents.ts",
+        "backend/src/routes/skills.ts",
+        "backend/src/routes/commands.ts",
+        "backend/src/routes/index.ts",
+        "backend/src/index.ts"
       ]
     }
   ]

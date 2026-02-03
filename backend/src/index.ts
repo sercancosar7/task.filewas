@@ -11,7 +11,15 @@ import {
   errorMiddleware,
   notFoundMiddleware,
 } from './middleware/index.js'
-import { healthRouter, authRouter, sessionsRouter, projectsRouter } from './routes/index.js'
+import {
+  healthRouter,
+  authRouter,
+  sessionsRouter,
+  projectsRouter,
+  agentsRouter,
+  skillsRouter,
+  commandsRouter,
+} from './routes/index.js'
 import { initStorage } from './storage/index.js'
 import { createSocketServer, closeAllConnections, getClientCount } from './socket/index.js'
 
@@ -47,6 +55,11 @@ app.use('/api/sessions', sessionsRouter)
 
 // Project routes
 app.use('/api/projects', projectsRouter)
+
+// ECC routes - Agents, Skills, Commands
+app.use('/api/agents', agentsRouter)
+app.use('/api/skills', skillsRouter)
+app.use('/api/commands', commandsRouter)
 
 // API root endpoint
 app.get('/api', (_req: Request, res: Response) => {
