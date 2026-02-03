@@ -30,10 +30,18 @@ import {
   type CliErrorEvent,
 } from '../services/cli.js'
 import {
+  broadcastToSession,
+  type WSMessage,
+} from '../socket/index.js'
+import {
   StreamParser,
   isInitMessage,
   isResultMessage,
+  isToolUseMessage,
+  isToolResultMessage,
   calculateTokenUsage,
+  parseToolCall,
+  parseToolResult,
   type ParsedTokenUsage,
 } from '../utils/stream-parser.js'
 
@@ -465,6 +473,8 @@ function setupAgentCliHandlers(
         agentType: agent.type,
         model: agent.model,
       })
+      // Broadcast to WebSocket
+      broadcastAgentStarted(agentId, agent)
     }
 
     // Parse output chunks
@@ -474,16 +484,30 @@ function setupAgentCliHandlers(
       for (const result of results) {
         if (!result.success || !result.message) continue
 
+        const message = result.message
+
         // Handle init message - extract CLI session ID
-        if (isInitMessage(result.message)) {
-          agent.cliSessionId = result.message.session_id
-          setProcessCliSessionId(processId, result.message.session_id)
+        if (isInitMessage(message)) {
+          agent.cliSessionId = message.session_id
+          setProcessCliSessionId(processId, message.session_id)
         }
 
         // Handle result message - extract token usage
-        if (isResultMessage(result.message) && result.message.usage) {
-          const tokenUsage = calculateTokenUsage(result.message.usage)
+        if (isResultMessage(message) && message.usage) {
+          const tokenUsage = calculateTokenUsage(message.usage)
           agent.tokenUsage = convertTokenUsage(tokenUsage)
+        }
+
+        // Handle tool_use message - emit tool:called event
+        if (isToolUseMessage(message)) {
+          const toolCall = parseToolCall(message)
+          broadcastAgentToolCall(agent.sessionId, agentId, agent, toolCall)
+        }
+
+        // Handle tool_result message - emit tool:result event
+        if (isToolResultMessage(message)) {
+          const toolResult = parseToolResult(message)
+          broadcastAgentToolResult(agent.sessionId, agentId, agent, toolResult)
         }
       }
 
@@ -522,6 +546,8 @@ function setupAgentCliHandlers(
         tokenUsage: agent.tokenUsage,
         exitCode: event.code,
       })
+      // Broadcast to WebSocket
+      broadcastAgentCompleted(agentId, agent, duration, agent.tokenUsage)
     } else {
       agent.status = 'error'
       agent.errorMessage = `Process exited with code ${event.code}`
@@ -533,6 +559,8 @@ function setupAgentCliHandlers(
         error: agent.errorMessage,
         exitCode: event.code,
       })
+      // Broadcast to WebSocket
+      broadcastAgentError(agentId, agent, agent.errorMessage, event.code ?? undefined)
     }
 
     // Cleanup handlers
@@ -557,6 +585,8 @@ function setupAgentCliHandlers(
       model: agent.model,
       error: event.error.message,
     })
+    // Broadcast to WebSocket
+    broadcastAgentError(agentId, agent, event.error.message)
 
     // Cleanup handlers
     cliEvents.removeListener(CLI_EVENTS.OUTPUT, outputHandler)
@@ -606,6 +636,131 @@ function emitAgentEvent(
     timestamp: new Date().toISOString(),
   }
   agentEvents.emit(eventType, eventData)
+}
+
+/**
+ * Broadcast agent event to WebSocket clients in the session
+ */
+function broadcastAgentEvent(
+  sessionId: string,
+  eventType: string,
+  payload: Record<string, unknown>
+): void {
+  const wsMessage: WSMessage = {
+    type: 'status',
+    event: eventType,
+    payload,
+    timestamp: new Date().toISOString(),
+  }
+  broadcastToSession(sessionId, wsMessage)
+}
+
+/**
+ * Broadcast agent:started event
+ */
+function broadcastAgentStarted(agentId: string, agent: Agent): void {
+  broadcastAgentEvent(agent.sessionId, 'agent:started', {
+    agentId,
+    agentType: agent.type,
+    agentName: agent.name,
+    model: agent.model,
+    startedAt: agent.startedAt,
+    parentAgentId: agent.parentAgentId,
+  })
+}
+
+/**
+ * Broadcast agent:progress event
+ */
+function broadcastAgentProgress(
+  agentId: string,
+  agent: Agent,
+  progress: number,
+  currentAction?: string
+): void {
+  broadcastAgentEvent(agent.sessionId, 'agent:progress', {
+    agentId,
+    agentType: agent.type,
+    progress,
+    currentAction: currentAction || agent.currentAction,
+    timestamp: new Date().toISOString(),
+  })
+}
+
+/**
+ * Broadcast agent:completed event
+ */
+function broadcastAgentCompleted(
+  agentId: string,
+  agent: Agent,
+  duration: number,
+  tokenUsage?: AgentTokenUsage
+): void {
+  broadcastAgentEvent(agent.sessionId, 'agent:completed', {
+    agentId,
+    agentType: agent.type,
+    duration,
+    tokenUsage,
+    completedAt: agent.completedAt,
+  })
+}
+
+/**
+ * Broadcast agent:error event
+ */
+function broadcastAgentError(
+  agentId: string,
+  agent: Agent,
+  error: string,
+  exitCode?: number
+): void {
+  broadcastAgentEvent(agent.sessionId, 'agent:error', {
+    agentId,
+    agentType: agent.type,
+    error,
+    exitCode,
+    timestamp: new Date().toISOString(),
+  })
+}
+
+/**
+ * Broadcast tool:called event
+ */
+function broadcastAgentToolCall(
+  sessionId: string,
+  agentId: string,
+  agent: Agent,
+  toolCall: ReturnType<typeof parseToolCall>
+): void {
+  broadcastAgentEvent(sessionId, 'tool:called', {
+    agentId,
+    agentType: agent.type,
+    toolName: toolCall.name,
+    toolId: toolCall.id,
+    toolInput: toolCall.input,
+    summary: toolCall.summary,
+    timestamp: toolCall.timestamp,
+  })
+}
+
+/**
+ * Broadcast tool:result event
+ */
+function broadcastAgentToolResult(
+  sessionId: string,
+  agentId: string,
+  agent: Agent,
+  toolResult: ReturnType<typeof parseToolResult>
+): void {
+  broadcastAgentEvent(sessionId, 'tool:result', {
+    agentId,
+    agentType: agent.type,
+    toolUseId: toolResult.toolUseId,
+    output: toolResult.output,
+    isError: toolResult.isError,
+    truncated: toolResult.truncated,
+    timestamp: toolResult.timestamp,
+  })
 }
 
 // =============================================================================
@@ -668,6 +823,9 @@ export function updateAgentProgress(
     progress: agent.progress,
     currentAction: agent.currentAction,
   })
+
+  // Broadcast to WebSocket
+  broadcastAgentProgress(agentId, agent, agent.progress, agent.currentAction)
 
   return true
 }
