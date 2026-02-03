@@ -1,0 +1,6 @@
+export { ProjectTabs, type ProjectTabsProps, type ProjectTabValue } from './ProjectTabs'
+export { ProjectSessionsTab } from './tabs/ProjectSessionsTab'
+export { ProjectRoadmapTab } from './tabs/ProjectRoadmapTab'
+export { ProjectFilesTab } from './tabs/ProjectFilesTab'
+export { ProjectChangelogTab } from './tabs/ProjectChangelogTab'
+export { ProjectSettingsTab } from './tabs/ProjectSettingsTab'

@@ -90,7 +90,7 @@ export interface FileViewerProps {
   /** Project ID */
   projectId: string
   /** File path to view */
-  filePath: string
+  filePath: string | null
   /** Additional class names */
   className?: string
   /** Callback when close is requested */

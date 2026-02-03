@@ -5,6 +5,32 @@
   "lastUpdated": "2026-02-03T19:30:00.000Z",
   "entries": [
     {
+      "phase": 88,
+      "date": "2026-02-03",
+      "title": "Project Tabs UI",
+      "changes": [
+        "ProjectTabs component olusturuldu (tab navigation)",
+        "Sessions tab - 3 panel session inbox placeholder",
+        "Roadmap tab - faz listesi ve milestone gorunumu",
+        "Files tab - FileBrowser ve FileViewer entegrasyonu",
+        "Changelog tab - degisiklik gecmisi gorunumu",
+        "Settings tab - proje ayarlari (genel bilgiler, otomasyon, entegrasyonlar)",
+        "UI tabs component (Radix UI based)",
+        "ProjectDetail sayfasi guncellendi - ProjectTabs entegrasyonu"
+      ],
+      "files": [
+        "frontend/src/components/ui/tabs.tsx",
+        "frontend/src/components/project/ProjectTabs.tsx",
+        "frontend/src/components/project/tabs/ProjectSessionsTab.tsx",
+        "frontend/src/components/project/tabs/ProjectRoadmapTab.tsx",
+        "frontend/src/components/project/tabs/ProjectFilesTab.tsx",
+        "frontend/src/components/project/tabs/ProjectChangelogTab.tsx",
+        "frontend/src/components/project/tabs/ProjectSettingsTab.tsx",
+        "frontend/src/pages/ProjectDetail.tsx",
+        "frontend/src/components/project/index.ts"
+      ]
+    },
+    {
       "phase": 87,
       "date": "2026-02-03",
       "title": "Model Selector Dropdown",
