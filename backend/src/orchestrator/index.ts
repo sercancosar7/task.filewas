@@ -127,3 +127,21 @@ export type {
   PhaseExecutionResult,
   StateTransitionResult,
 } from './roadmap-executor.js'
+
+// Phase Executor
+export {
+  PhaseExecutor,
+  createPhaseExecutor,
+  getPhaseExecutor,
+  removePhaseExecutor,
+  executePhase,
+} from './phase-executor.js'
+
+export type {
+  PhaseExecutorConfig,
+  PhaseExecutionResult as SinglePhaseExecutionResult,
+  AcceptanceCriteriaResult,
+  AgentTaskResult,
+  TaskToAgentMapper,
+  AcceptanceCriteriaChecker,
+} from './phase-executor.js'
