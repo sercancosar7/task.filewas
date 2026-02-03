@@ -1964,6 +1964,27 @@
         ".task/agents/implementer.md",
         ".task/agents/README.md"
       ]
+    },
+    {
+      "phase": 57,
+      "date": "2026-02-03",
+      "title": "Agent Dosyalari - Part 2",
+      "changes": [
+        ".task/agents/reviewer.md olusturuldu - Kod inceleme, kalite kontrolu, CRITICAL/HIGH/MEDIUM/LOW kategorizasyonu",
+        ".task/agents/tester.md olusturuldu - TDD workflow, unit/integration/E2E test, %80+ coverage hedefi",
+        ".task/agents/debugger.md olusturuldu - Hata ayiklama, root cause analizi, stack trace parsing",
+        ".task/agents/security.md olusturuldu - Guvenlik taramasi, OWASP Top 10 kontrolu, secret detection",
+        "reviewer.md: model=glm, thinking=think, tools=[Read,Glob,Grep]",
+        "tester.md: model=glm, thinking=off, tools=[Read,Write,Edit,Bash,Glob,Grep]",
+        "debugger.md: model=glm, thinking=think, tools=[Read,Edit,Bash,Glob,Grep]",
+        "security.md: model=claude (override_allowed=false), thinking=max, tools=[Read,Grep,Glob,Bash]"
+      ],
+      "files": [
+        ".task/agents/reviewer.md",
+        ".task/agents/tester.md",
+        ".task/agents/debugger.md",
+        ".task/agents/security.md"
+      ]
     }
   ]
 }
