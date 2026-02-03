@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 35,
+  "currentPhase": 36,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -1525,31 +1525,31 @@
       "id": 35,
       "name": "WebSocket Client Setup",
       "description": "Frontend socket.io client",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "35.1",
           "title": "socket.io-client install",
           "description": "npm install socket.io-client -w frontend",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "35.2",
           "title": "frontend/src/lib/socket.ts",
           "description": "Socket singleton, connect(), disconnect()",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "35.3",
           "title": "frontend/src/hooks/useSocket.ts",
           "description": "useSocket hook - auto connect on mount",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "35.4",
           "title": "frontend/src/hooks/useSocketEvent.ts",
           "description": "Event listener hook with cleanup",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [

@@ -1236,6 +1236,46 @@
         "backend/src/socket/index.ts",
         "backend/src/index.ts"
       ]
+    },
+    {
+      "phase": 35,
+      "date": "2026-02-03",
+      "title": "WebSocket Client Setup",
+      "changes": [
+        "socket.io-client paketi zaten yuklu oldugu dogrulandi (package.json:58)",
+        "frontend/src/lib/socket.ts olusturuldu - Socket singleton modulu",
+        "WSMessageType ve WSMessage interface'leri tanimlandi (backend ile uyumlu)",
+        "SocketStatus type eklendi (disconnected, connecting, connected, reconnecting)",
+        "SocketOptions interface eklendi (autoConnect, reconnection, reconnectionAttempts, etc.)",
+        "getSocketUrl fonksiyonu eklendi - VITE_WS_URL veya VITE_API_URL'den URL cekme",
+        "connect fonksiyonu eklendi - Socket.io baglantisi olusturma",
+        "disconnect fonksiyonu eklendi - Baglanti kapatma",
+        "isConnected, getStatus, getClientId utility fonksiyonlari eklendi",
+        "emit ve sendMessage fonksiyonlari eklendi - Mesaj gonderme",
+        "joinSession, leaveSession, joinProject, leaveProject fonksiyonlari eklendi - Room yonetimi",
+        "onStatusChange, onMessage, onEvent, onNamedEvent listener fonksiyonlari eklendi",
+        "Ping/pong handling eklendi - Server ping'ine otomatik pong cevabi",
+        "frontend/src/hooks/useSocket.ts olusturuldu - React hook for socket connection",
+        "UseSocketOptions interface eklendi (autoConnect, callbacks)",
+        "UseSocketReturn interface eklendi (status, isConnected, clientId, lastMessage, etc.)",
+        "Auto connect on mount ozelligi eklendi",
+        "Status ve message listener subscription'lari useEffect ile yonetiliyor",
+        "frontend/src/hooks/useSocketEvent.ts olusturuldu - Event listener hook",
+        "useSocketEvent hook eklendi - Filtrelemeli mesaj dinleme (type, event, custom filter)",
+        "useSocketStatus hook eklendi - Connection status dinleme",
+        "useSocketOutput hook eklendi - Output mesajlari dinleme",
+        "useSocketError hook eklendi - Error mesajlari dinleme",
+        "useSessionEvents hook eklendi - Birden fazla session event'i dinleme",
+        "SessionEventCallbacks interface eklendi (onSessionStarted, onSessionEnded, etc.)",
+        "frontend/src/hooks/index.ts guncellendi - Yeni hook'lar export edildi",
+        "npm run build basariyla test edildi"
+      ],
+      "files": [
+        "frontend/src/lib/socket.ts",
+        "frontend/src/hooks/useSocket.ts",
+        "frontend/src/hooks/useSocketEvent.ts",
+        "frontend/src/hooks/index.ts"
+      ]
     }
   ]
 }

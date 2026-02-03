@@ -10,3 +10,22 @@ export {
   type ResizeConstraints,
   type ResizeDirection,
 } from './useResizable'
+
+export {
+  useSocket,
+  type UseSocketOptions,
+  type UseSocketReturn,
+  type SocketStatus,
+  type WSMessage,
+  type SocketOptions,
+} from './useSocket'
+
+export {
+  useSocketEvent,
+  useSocketStatus,
+  useSocketOutput,
+  useSocketError,
+  useSessionEvents,
+  type EventFilterOptions,
+  type SessionEventCallbacks,
+} from './useSocketEvent'
