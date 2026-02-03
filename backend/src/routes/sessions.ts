@@ -8,7 +8,7 @@ import { Router, type Request, type Response, type Router as RouterType } from '
 import { z } from 'zod'
 import { authMiddleware } from '../middleware/auth.js'
 import { ApiError, asyncHandler } from '../middleware/index.js'
-import { paginated, created, parsePaginationParams } from '../utils/apiResponse.js'
+import { paginated, created, parsePaginationParams, success } from '../utils/apiResponse.js'
 import { sessionStorage } from '../services/session-storage.js'
 import { sessionCreateSchema } from '@task-filewas/shared'
 import type {
@@ -18,6 +18,7 @@ import type {
   SessionStatus,
   SessionMode,
   SessionCreate,
+  SessionUpdate,
 } from '@task-filewas/shared'
 
 const router: RouterType = Router()
@@ -332,6 +333,218 @@ router.post(
 
     // Return created session
     res.status(201).json(created(result.data))
+  })
+)
+
+// =============================================================================
+// Session Detail Routes (CRUD)
+// =============================================================================
+
+/**
+ * GET /api/sessions/:id
+ * Get a single session by ID with full details
+ *
+ * Path Parameters:
+ * - id: Session ID
+ *
+ * Returns: Session with full details
+ */
+router.get(
+  '/:id',
+  authMiddleware,
+  asyncHandler(async (req: Request, res: Response): Promise<void> => {
+    const id = req.params['id'] as string | undefined
+
+    if (!id || typeof id !== 'string') {
+      throw ApiError.badRequest('Session ID is required')
+    }
+
+    // Get session from storage
+    const result = await sessionStorage.findById(id)
+
+    if (!result.success) {
+      throw ApiError.internal(result.error ?? 'Failed to fetch session')
+    }
+
+    if (!result.data) {
+      throw ApiError.notFound(`Session not found: ${id}`)
+    }
+
+    // Return session
+    res.json(success(result.data))
+  })
+)
+
+/**
+ * PATCH /api/sessions/:id
+ * Update a session
+ *
+ * Path Parameters:
+ * - id: Session ID
+ *
+ * Request Body (all optional):
+ * - title: Updated title
+ * - description: Updated description (null to clear)
+ * - status: Updated status
+ * - mode: Updated mode
+ * - permissionMode: Updated permission mode
+ * - thinkingLevel: Updated thinking level
+ * - modelProvider: Updated model provider
+ * - labels: Updated labels array
+ * - isFlagged: Updated flag status
+ * - hasUnread: Mark as read/unread
+ *
+ * Returns: Updated session
+ */
+router.patch(
+  '/:id',
+  authMiddleware,
+  asyncHandler(async (req: Request, res: Response): Promise<void> => {
+    const id = req.params['id'] as string | undefined
+
+    if (!id || typeof id !== 'string') {
+      throw ApiError.badRequest('Session ID is required')
+    }
+
+    // Import and validate request body
+    const { sessionUpdateSchema } = await import('@task-filewas/shared')
+    const parseResult = sessionUpdateSchema.safeParse(req.body)
+
+    if (!parseResult.success) {
+      throw ApiError.badRequest('Invalid request body',
+        parseResult.error.errors.map(e => ({
+          field: e.path.join('.'),
+          message: e.message,
+        }))
+      )
+    }
+
+    const updateData = parseResult.data
+
+    // Check if session exists
+    const existsResult = await sessionStorage.findById(id)
+    if (!existsResult.success) {
+      throw ApiError.internal(existsResult.error ?? 'Failed to check session')
+    }
+    if (!existsResult.data) {
+      throw ApiError.notFound(`Session not found: ${id}`)
+    }
+
+    // Build update object with proper typing
+    const sessionUpdate: SessionUpdate = {}
+
+    if (updateData.title !== undefined) sessionUpdate.title = updateData.title
+    if (updateData.description !== undefined && updateData.description !== null) {
+      sessionUpdate.description = updateData.description
+    }
+    if (updateData.status !== undefined) sessionUpdate.status = updateData.status
+    if (updateData.mode !== undefined) sessionUpdate.mode = updateData.mode
+    if (updateData.permissionMode !== undefined) sessionUpdate.permissionMode = updateData.permissionMode
+    if (updateData.thinkingLevel !== undefined) sessionUpdate.thinkingLevel = updateData.thinkingLevel
+    if (updateData.modelProvider !== undefined) sessionUpdate.modelProvider = updateData.modelProvider
+    if (updateData.labels !== undefined) sessionUpdate.labels = updateData.labels
+    if (updateData.isFlagged !== undefined) sessionUpdate.isFlagged = updateData.isFlagged
+    if (updateData.hasUnread !== undefined) sessionUpdate.hasUnread = updateData.hasUnread
+
+    // Update session
+    const result = await sessionStorage.updateSession(id, sessionUpdate)
+
+    if (!result.success) {
+      throw ApiError.internal(result.error ?? 'Failed to update session')
+    }
+
+    // Return updated session
+    res.json(success(result.data))
+  })
+)
+
+/**
+ * DELETE /api/sessions/:id
+ * Soft delete a session (sets status to cancelled)
+ * Hard delete is not recommended - data may be needed for recovery
+ *
+ * Path Parameters:
+ * - id: Session ID
+ *
+ * Query Parameters:
+ * - hard: Set to 'true' for permanent deletion (optional)
+ *
+ * Returns: Success response
+ */
+router.delete(
+  '/:id',
+  authMiddleware,
+  asyncHandler(async (req: Request, res: Response): Promise<void> => {
+    const id = req.params['id'] as string | undefined
+    const hardDelete = req.query['hard'] === 'true'
+
+    if (!id || typeof id !== 'string') {
+      throw ApiError.badRequest('Session ID is required')
+    }
+
+    // Check if session exists
+    const existsResult = await sessionStorage.findById(id)
+    if (!existsResult.success) {
+      throw ApiError.internal(existsResult.error ?? 'Failed to check session')
+    }
+    if (!existsResult.data) {
+      throw ApiError.notFound(`Session not found: ${id}`)
+    }
+
+    if (hardDelete) {
+      // Permanent deletion
+      const deleteResult = await sessionStorage.delete(id)
+
+      if (!deleteResult.success) {
+        throw ApiError.internal(deleteResult.error ?? 'Failed to delete session')
+      }
+
+      res.status(204).send()
+    } else {
+      // Soft delete - set status to cancelled
+      const updateResult = await sessionStorage.updateStatus(id, 'cancelled')
+
+      if (!updateResult.success) {
+        throw ApiError.internal(updateResult.error ?? 'Failed to cancel session')
+      }
+
+      res.json(success({ message: 'Session cancelled', session: updateResult.data }))
+    }
+  })
+)
+
+/**
+ * POST /api/sessions/:id/flag
+ * Toggle the flagged status of a session
+ *
+ * Path Parameters:
+ * - id: Session ID
+ *
+ * Returns: Updated session with new flag status
+ */
+router.post(
+  '/:id/flag',
+  authMiddleware,
+  asyncHandler(async (req: Request, res: Response): Promise<void> => {
+    const id = req.params['id'] as string | undefined
+
+    if (!id || typeof id !== 'string') {
+      throw ApiError.badRequest('Session ID is required')
+    }
+
+    // Toggle flag
+    const result = await sessionStorage.toggleFlag(id)
+
+    if (!result.success) {
+      // Check if it's a not found error
+      if (result.error?.includes('not found')) {
+        throw ApiError.notFound(`Session not found: ${id}`)
+      }
+      throw ApiError.internal(result.error ?? 'Failed to toggle flag')
+    }
+
+    // Return updated session
+    res.json(success(result.data))
   })
 )
 

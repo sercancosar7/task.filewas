@@ -1354,6 +1354,30 @@
         "backend/src/routes/index.ts",
         "backend/src/index.ts"
       ]
+    },
+    {
+      "phase": 38,
+      "date": "2026-02-03",
+      "title": "Session API - CRUD Complete",
+      "changes": [
+        "GET /api/sessions/:id endpoint eklendi - Tek session detay getirme",
+        "PATCH /api/sessions/:id endpoint eklendi - Session guncelleme (title, description, status, mode, permissionMode, thinkingLevel, modelProvider, labels, isFlagged, hasUnread)",
+        "sessionUpdateSchema ile Zod validation eklendi",
+        "DELETE /api/sessions/:id endpoint eklendi - Soft delete (status: cancelled)",
+        "Hard delete destegi eklendi (query param: hard=true)",
+        "POST /api/sessions/:id/flag endpoint eklendi - Flag toggle",
+        "sessionStorage.toggleFlag kullanildi",
+        "Type-safe req.params handling eklendi (string | string[] type casting)",
+        "exactOptionalPropertyTypes uyumlu description handling",
+        "SessionUpdate type import eklendi",
+        "success helper import eklendi (apiResponse)",
+        "Tum endpoint'ler authMiddleware ile korunuyor",
+        "Hata durumunda uygun HTTP status code'lar donuyor (400, 404, 500)",
+        "npm run build basariyla test edildi"
+      ],
+      "files": [
+        "backend/src/routes/sessions.ts"
+      ]
     }
   ]
 }
