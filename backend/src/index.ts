@@ -21,6 +21,7 @@ import {
   commandsRouter,
   settingsRouter,
   filesRouter,
+  uploadsRouter,
 } from './routes/index.js'
 import { initStorage } from './storage/index.js'
 import { createSocketServer, closeAllConnections, getClientCount } from './socket/index.js'
@@ -69,6 +70,9 @@ app.use('/api/settings', settingsRouter)
 // File browser routes (nested under /api/projects/:id/files/*)
 // Note: filesRouter registers its own path with :id parameter
 app.use('/api/projects', filesRouter)
+
+// Upload routes (nested under /api/projects/:id/uploads/*)
+app.use('/api/projects', uploadsRouter)
 
 // API root endpoint
 app.get('/api', (_req: Request, res: Response) => {

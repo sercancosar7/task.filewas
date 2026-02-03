@@ -2,8 +2,29 @@
   "version": "0.1.0",
   "name": "Otonom AI Proje Gelistirme Platformu",
   "startDate": "2026-02-02",
-  "lastUpdated": "2026-02-03T15:00:00Z",
+  "lastUpdated": "2026-02-03T19:05:53.829Z",
   "entries": [
+    {
+      "phase": 85,
+      "date": "2026-02-03",
+      "title": "Drag & Drop Upload",
+      "changes": [
+        "useDragDrop hook olusturuldu (drag & drop event handler)",
+        "DropZone component olusturuldu (overlay UI)",
+        "POST /api/projects/:id/uploads endpoint eklendi",
+        "File type handling destegi (image, PDF, code, text, archive)",
+        "Multer entegrasyonu ile dosya yukleme",
+        "Dosya kategorizasyonu ve validation",
+        "Upload progress ve status UI",
+        "File preview component'i"
+      ],
+      "files": [
+        "frontend/src/hooks/useDragDrop.ts",
+        "frontend/src/components/chat/DropZone.tsx",
+        "frontend/src/types/upload.ts",
+        "backend/src/routes/uploads.ts"
+      ]
+    },
     {
       "phase": 1,
       "date": "2026-02-02",
