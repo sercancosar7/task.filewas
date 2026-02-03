@@ -1985,6 +1985,29 @@
         ".task/agents/debugger.md",
         ".task/agents/security.md"
       ]
+    },
+    {
+      "phase": 58,
+      "date": "2026-02-03",
+      "title": "Skill & Command Dosyalari",
+      "changes": [
+        ".task/skills/tdd-workflow.md olusturuldu - TDD workflow skill (Red-Green-Refactor dongusu, %80+ coverage, test katmanlari)",
+        ".task/skills/code-review.md olusturuldu - Kod inceleme skill (guvenlik tarama, kalite metrikleri, review template)",
+        ".task/commands/plan.md olusturuldu - /plan slash command (implementasyon planlama, faz bolumlemesi, risk analizi)",
+        ".task/commands/review.md olusturuldu - /review slash command (kapsamli kod inceleme, CRITICAL/HIGH/MEDIUM/LOW kategorileri)",
+        "Skill format: YAML frontmatter (name, category, description) + Markdown icerik",
+        "Command format: YAML frontmatter (name, description, aliases, category) + Markdown icerik",
+        "tdd-workflow.md: Test-first yaklasimi, Vitest/Playwright ornekleri, mock pattern'leri",
+        "code-review.md: Guvenlik kontrolleri, performans analizi, yapici geri bildirim kuralları",
+        "plan.md: Planner agent cagirma, onay bekleme, faz template'i",
+        "review.md: Reviewer agent cagirma, skor kriterleri, otomatik tetikleme"
+      ],
+      "files": [
+        ".task/skills/tdd-workflow.md",
+        ".task/skills/code-review.md",
+        ".task/commands/plan.md",
+        ".task/commands/review.md"
+      ]
     }
   ]
 }
