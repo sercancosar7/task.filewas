@@ -20,3 +20,6 @@ export type { TurnCardProps } from './TurnCard'
 
 export { ActivitySection } from './ActivitySection'
 export type { ActivitySectionProps } from './ActivitySection'
+
+export { MarkdownRenderer } from './MarkdownRenderer'
+export type { MarkdownRendererProps } from './MarkdownRenderer'

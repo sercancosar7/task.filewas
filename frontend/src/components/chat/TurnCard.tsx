@@ -39,6 +39,7 @@ import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { UserMessage } from './UserMessage'
 import { ActivitySection } from './ActivitySection'
+import { MarkdownRenderer } from './MarkdownRenderer'
 import type { Turn, Message } from '@task-filewas/shared'
 
 // =============================================================================
@@ -242,18 +243,11 @@ function ResponseCard({
       <div
         className={cn(
           SIZE_CONFIG.typography,
-          'prose prose-sm prose-invert max-w-none',
-          'prose-headings:text-foreground',
-          'prose-p:text-foreground/90',
-          'prose-code:bg-foreground/10 prose-code:rounded prose-code:px-1',
-          'prose-pre:bg-background prose-pre:border prose-pre:border-foreground/10',
           isStreaming && 'animate-pulse'
         )}
       >
         {hasContent ? (
-          <p className="whitespace-pre-wrap break-words leading-relaxed m-0">
-            {message.content}
-          </p>
+          <MarkdownRenderer content={message.content} />
         ) : (
           <span className="text-muted-foreground italic flex items-center gap-2">
             <Loader2 className="h-3 w-3 animate-spin" />
