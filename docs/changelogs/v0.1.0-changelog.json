@@ -2,7 +2,7 @@
   "version": "0.1.0",
   "name": "Otonom AI Proje Gelistirme Platformu",
   "startDate": "2026-02-02",
-  "lastUpdated": "2026-02-03T09:56:04Z",
+  "lastUpdated": "2026-02-03T11:45:00Z",
   "entries": [
     {
       "phase": 1,
@@ -2103,6 +2103,51 @@
       "files": [
         "backend/src/services/cli.ts",
         "backend/src/services/index.ts"
+      ]
+    },
+    {
+      "phase": 62,
+      "date": "2026-02-03",
+      "title": "CLI Stream Parsing",
+      "changes": [
+        "backend/src/utils/stream-parser.ts olusturuldu - NDJSON streaming output parser",
+        "StreamMessageType type tanimlandi (init, message, tool_use, tool_result, result)",
+        "ContentItem interface - text/tool_use icerikleri icin",
+        "InitMessage interface - session_id, tools, mcp_servers",
+        "TextMessage interface - role, content (ContentItem[] | string)",
+        "ToolUseMessage interface - name, id, input",
+        "ToolResultMessage interface - tool_use_id, output, is_error",
+        "ResultMessage interface - status, duration_ms, num_turns, usage",
+        "ParseResult interface - success, message, error, errorType, rawLine",
+        "ParsedToolCall interface - name, id, input, summary, timestamp",
+        "ParsedToolResult interface - toolUseId, output, isError, truncated",
+        "ParsedTextResponse interface - role, content, timestamp",
+        "ParsedTokenUsage interface - inputTokens, outputTokens, cacheTokens, totalContext, percentUsed",
+        "StreamParser class - stateful parser with buffer management",
+        "parseChunk() - chunk bazli parse, parcali satir yonetimi",
+        "parseLine() - tek satir JSON parse",
+        "flush() - buffer'daki kalan veriyi isle",
+        "parseStreamLine() - stateless utility fonksiyonu",
+        "isMessageType(), isInitMessage(), isTextMessage(), isToolUseMessage(), isToolResultMessage(), isResultMessage() - type guards",
+        "extractTextContent() - TextMessage'dan metin cikarma",
+        "extractToolUsesFromContent() - content array'den tool uses cikarma",
+        "parseToolCall() - ToolUseMessage'i structured ParsedToolCall'a cevirme",
+        "parseToolResult() - ToolResultMessage'i structured ParsedToolResult'a cevirme (5000 karakter siniri)",
+        "parseTextResponse() - TextMessage'i structured ParsedTextResponse'a cevirme",
+        "normalizeToolName() - Tool ismini ToolName type'a normalize etme",
+        "summarizeToolUse() - Her tool tipi icin human-readable ozet (Write, Edit, Read, Bash, Grep, Glob, Task, WebFetch, TodoWrite, AskUserQuestion, EnterPlanMode, ExitPlanMode, Skill, WebSearch, NotebookEdit)",
+        "calculateTokenUsage() - result.usage'dan ParsedTokenUsage hesaplama",
+        "isContextWarning() - %80 esik kontrolu",
+        "needsContextRefresh() - %90 esik kontrolu",
+        "parseCliError() - stderr'den hata tipi cikarma (rate_limit, auth, network, timeout, unknown)",
+        "isErrorResult(), extractResultError() - result message hata kontrolu",
+        "toSharedTokenUsage() - shared TokenUsage type'a donusum",
+        "backend/src/utils/index.ts guncellendi - stream-parser exportlari eklendi",
+        "npm run build basarili - TypeScript derleme tamamlandi"
+      ],
+      "files": [
+        "backend/src/utils/stream-parser.ts",
+        "backend/src/utils/index.ts"
       ]
     }
   ]
