@@ -104,6 +104,8 @@ export interface SessionAgent {
   completedAt?: string;
   /** Duration in milliseconds */
   duration?: number;
+  /** Error message if status is error */
+  errorMessage?: string;
 }
 
 /**

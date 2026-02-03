@@ -43,3 +43,14 @@ export {
   type ProjectFilter,
   type ProjectSort,
 } from './useProjects'
+
+export {
+  useAgentStatus,
+  type UseAgentStatusOptions,
+  type UseAgentStatusReturn,
+  type AgentStatusEvent,
+  type AgentStartedData,
+  type AgentProgressData,
+  type AgentCompletedData,
+  type AgentErrorData,
+} from './useAgentStatus'

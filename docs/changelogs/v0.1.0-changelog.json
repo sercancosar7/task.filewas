@@ -2421,6 +2421,42 @@
         "backend/src/orchestrator/self-healing.ts",
         "backend/src/orchestrator/index.ts"
       ]
+    },
+    {
+      "phase": 72,
+      "date": "2026-02-03",
+      "title": "Agent Status UI",
+      "changes": [
+        "frontend/src/components/chat/AgentStatusCard.tsx olusturuldu - Agent durumu karti",
+        "AgentStatusCardProps interface - agent, phase, compact props",
+        "StatusIcon component - Durum ikonu (pending/running/completed/error) ile animasyon",
+        "ModelBadge component - Model bilgisi gosterimi (Opus, Sonnet, Haiku, GLM, Claude)",
+        "ProgressBar component ile entegrasyon - Faz ilerlemesi gosterimi",
+        "Tam kart ve compact gosterim modlari",
+        "frontend/src/components/chat/ProgressBar.tsx olusturuldu - Progress bar component",
+        "ProgressBarProps interface - progress, showPercentage, size, variant, animate",
+        "Framer Motion ile animasyonlu progress bar (width transition)",
+        "Variant destekleri - default (accent), success (green), warning (yellow), error (red)",
+        "Spinner component - Dairesel yukleniyor indicator (xs/sm/md/lg boyutlar)",
+        "frontend/src/hooks/useAgentStatus.ts olusturuldu - Agent status tracking hook",
+        "UseAgentStatusOptions interface - sessionId, onAgentChange, onAgentComplete, onAgentError",
+        "UseAgentStatusReturn interface - agents, runningAgent, isRunning, overallProgress, phaseProgress",
+        "AgentStartedData, AgentProgressData, AgentCompletedData, AgentErrorData interface'leri",
+        "WebSocket event listener'lari - agent:started, agent:progress, agent:completed, agent:error, phase_progress",
+        "toSessionAgent() helper - Event data'yi SessionAgent tipine cevirme",
+        "calculateOverallProgress() - Tum agent'larin genel ilerlemesini hesaplama",
+        "shared/src/types/session.ts guncellendi - SessionAgent'a errorMessage field eklendi",
+        "frontend/src/hooks/index.ts'e useAgentStatus export eklendi",
+        "frontend/src/components/chat/index.ts'e AgentStatusCard ve ProgressBar export eklendi"
+      ],
+      "files": [
+        "frontend/src/components/chat/AgentStatusCard.tsx",
+        "frontend/src/components/chat/ProgressBar.tsx",
+        "frontend/src/hooks/useAgentStatus.ts",
+        "frontend/src/hooks/index.ts",
+        "frontend/src/components/chat/index.ts",
+        "shared/src/types/session.ts"
+      ]
     }
   ]
 }
