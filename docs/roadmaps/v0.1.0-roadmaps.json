@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 31,
+  "currentPhase": 32,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -1379,25 +1379,25 @@
       "id": 31,
       "name": "Status Icons & Badge Component",
       "description": "Session status gorselleri",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "31.1",
           "title": "frontend/src/components/ui/status-icon.tsx",
           "description": "StatusIcon: status prop'a gore icon ve renk",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "31.2",
           "title": "frontend/src/components/ui/badge.tsx",
           "description": "Badge component: variants (default, success, destructive, info)",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "31.3",
           "title": "Status color mapping",
           "description": "backlog: muted, todo: secondary, in-progress: accent, done: success",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [

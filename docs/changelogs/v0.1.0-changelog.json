@@ -1050,6 +1050,41 @@
         "frontend/src/components/sidebar/index.ts",
         "frontend/src/components/layout/LeftSidebar.tsx"
       ]
+    },
+    {
+      "phase": 31,
+      "date": "2026-02-03",
+      "title": "Status Icons & Badge Component",
+      "changes": [
+        "frontend/src/components/ui/status-icon.tsx olusturuldu - StatusIcon component",
+        "SessionStatus type tanimlandi (backlog, todo, in-progress, needs-review, done, cancelled, flagged)",
+        "STATUS_CONFIG sabiti tanimlandi - her status icin icon, color, label mapping",
+        "StatusIcon component olusturuldu - status prop'a gore Lucide icon ve renk gosterimi",
+        "statusIconVariants olusturuldu (size: xs, sm, default, md, lg)",
+        "getStatusConfig, getAllStatuses, isValidStatus helper fonksiyonlari eklendi",
+        "Accessibility ozellikleri eklendi (aria-label, title for tooltip)",
+        "frontend/src/components/ui/badge.tsx olusturuldu - Badge component",
+        "badgeVariants olusturuldu (variant: default, success, destructive, info, accent, outline, secondary, muted)",
+        "Badge size variants eklendi (xs, sm, default, md, lg)",
+        "BadgeProps interface tanimlandi (bgColor, textColor, leftIcon, rightIcon, maxWidth)",
+        "StatusBadge component olusturuldu - Session status icin pre-configured badge",
+        "PermissionBadge component olusturuldu - Permission mode icin pre-configured badge (safe, ask, auto)",
+        "CountBadge component olusturuldu - Unread count gosterimi icin",
+        "Status color mapping tamamlandi:",
+        "  - backlog: muted (text-foreground/40)",
+        "  - todo: secondary (text-foreground/60)",
+        "  - in-progress: accent (text-accent)",
+        "  - needs-review: info (text-info)",
+        "  - done: success (text-success)",
+        "  - cancelled: muted (text-foreground/40)",
+        "  - flagged: info (text-info)",
+        "Craft Agents design pattern'leri uygulandı (h-[18px] px-1.5 text-[10px] badge styling)",
+        "npm run build basariyla test edildi"
+      ],
+      "files": [
+        "frontend/src/components/ui/status-icon.tsx",
+        "frontend/src/components/ui/badge.tsx"
+      ]
     }
   ]
 }
