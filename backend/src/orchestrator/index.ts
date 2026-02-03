@@ -62,3 +62,17 @@ export type {
   BuiltPrompt,
   DocumentLoadResult,
 } from './prompt-builder.js'
+
+// Task Queue
+export {
+  TaskQueue,
+  getQueueStats,
+} from './task-queue.js'
+
+export type {
+  TaskCreateOptions,
+  TaskUpdateOptions,
+  NextTaskResult,
+  DependencyNode,
+  QueueStats,
+} from './task-queue.js'

@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 66,
+  "currentPhase": 67,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -2640,25 +2640,25 @@
       "id": 66,
       "name": "Task Queue",
       "description": "Task siralama sistemi",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "66.1",
           "title": "backend/src/orchestrator/task-queue.ts",
           "description": "TaskQueue class",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "66.2",
           "title": "add, getNext methods",
           "description": "Task ekleme ve siradaki alma",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "66.3",
           "title": "Priority handling",
           "description": "critical > high > normal > low",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "66.4",

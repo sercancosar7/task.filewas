@@ -2237,6 +2237,33 @@
       "files": [
         "backend/src/orchestrator/agent-runner.ts"
       ]
+    },
+    {
+      "phase": 66,
+      "date": "2026-02-03",
+      "title": "Task Queue",
+      "changes": [
+        "TaskQueue class olusturuldu - Agent gorevlerini yonetmek icin",
+        "add() metodu - Gorev ekleme (task ID, type, title, description, priority, dependencies)",
+        "addMany() metodu - Coklu gorev ekleme",
+        "get(), has(), delete() metotlari - CRUD islemleri",
+        "getNext() metodu - Siradaki gorevi getir (priority sirasina gore)",
+        "startNext() metodu - Siradaki gorevi running yap ve baslat",
+        "Priority handling - critical > high > normal > low siralamasi",
+        "Dependency graph - areDependenciesSatisfied(), getBlockingTasks() metotlari",
+        "isExecutable() - Gorevin calistirilabilir olup olmadigini kontrol",
+        "getExecutableTasks() - Dependency'si tamamlanmis gorevleri getir",
+        "hasCircularDependency() - Dairesel bagimlilik kontrolu",
+        "getDependencyTree() - Gorev bagimlilik agacini getir",
+        "getStatusCounts() - Duruma gore gorev sayilari",
+        "toState()/fromState() - Serialize/deserialize metotlari",
+        "getQueueStats() - Queue istatistikleri (completion, blocked, ready)",
+        "orchestrator/index.ts'e export eklendi"
+      ],
+      "files": [
+        "backend/src/orchestrator/task-queue.ts",
+        "backend/src/orchestrator/index.ts"
+      ]
     }
   ]
 }
