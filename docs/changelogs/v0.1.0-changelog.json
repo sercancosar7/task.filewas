@@ -2812,6 +2812,33 @@
         "frontend/src/components/files/FileViewer.tsx",
         "frontend/src/components/files/index.ts"
       ]
+    },
+    {
+      "phase": 86,
+      "date": "2026-02-03",
+      "title": "Background Tasks UI",
+      "changes": [
+        "shared/src/types/websocket.ts - TaskStartedEvent, TaskProgressEvent, TaskCompletedEvent, TaskErrorEvent, TaskCancelledEvent type'ları eklendi",
+        "shared/src/types/websocket.ts - ServerEventType'a task:* event'leri eklendi",
+        "frontend/src/stores/tasks.ts - Background task state store oluşturuldu",
+        "frontend/src/components/tasks/TaskProgress.tsx - Tek task progress card componenti",
+        "frontend/src/components/tasks/BackgroundTaskList.tsx - Task listesi bileşeni (expand/collapse desteği)",
+        "frontend/src/hooks/useTaskEvents.ts - WebSocket task event handler hook",
+        "Toast entegrasyonu - Task tamamlandı bildirimi (Sonner)",
+        "TaskStatus: pending, running, completed, error, cancelled",
+        "TaskType: build, test, deploy, git, file, custom",
+        "CollapsibleTaskPanel - Floating panel versiyonu"
+      ],
+      "files": [
+        "shared/src/types/websocket.ts",
+        "shared/src/types/index.ts",
+        "frontend/src/stores/tasks.ts",
+        "frontend/src/stores/index.ts",
+        "frontend/src/components/tasks/TaskProgress.tsx",
+        "frontend/src/components/tasks/BackgroundTaskList.tsx",
+        "frontend/src/hooks/useTaskEvents.ts",
+        "frontend/src/hooks/index.ts"
+      ]
     }
   ]
 }

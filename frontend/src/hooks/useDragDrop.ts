@@ -57,6 +57,21 @@ export interface FileRejection {
 }
 
 /**
+ * Dragged file with metadata
+ */
+export type DragDropFile = FileWithPreview
+
+/**
+ * Drag and drop event handlers
+ */
+export interface DragDropHandlers {
+  onDragEnter: (e: React.DragEvent) => void
+  onDragLeave: (e: React.DragEvent) => void
+  onDragOver: (e: React.DragEvent) => void
+  onDrop: (e: React.DragEvent) => void
+}
+
+/**
  * Hook return type
  */
 export interface UseDragDropReturn {

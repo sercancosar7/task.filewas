@@ -42,3 +42,18 @@ export {
   type SessionActions,
   type StreamingMessage,
 } from './session'
+
+// Task store
+export {
+  useTaskStore,
+  useTasks,
+  useActiveTasks,
+  useCompletedTasks,
+  useTaskCount,
+  useTask,
+  type TaskStoreState,
+  type TaskStoreActions,
+  type BackgroundTask,
+  type TaskStatus,
+  type TaskType,
+} from './tasks'

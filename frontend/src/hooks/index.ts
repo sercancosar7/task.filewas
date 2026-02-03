@@ -79,3 +79,17 @@ export {
   type UseHotkeyOptions,
   type KeyboardShortcutsHelpProps,
 } from './useKeyboardShortcuts'
+
+export {
+  useTaskEvents,
+  useTaskEventsWithSocket,
+  type UseTaskEventsOptions,
+} from './useTaskEvents'
+
+export {
+  useDragDrop,
+  type UseDragDropOptions,
+  type UseDragDropReturn,
+  type DragDropFile,
+  type DragDropHandlers,
+} from './useDragDrop'

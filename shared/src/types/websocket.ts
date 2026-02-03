@@ -87,6 +87,12 @@ export type ServerEventType =
   | 'test:started'
   | 'test:progress'
   | 'test:result'
+  // Task events (background tasks)
+  | 'task:started'
+  | 'task:progress'
+  | 'task:completed'
+  | 'task:error'
+  | 'task:cancelled'
   // Output events
   | 'output';
 
@@ -637,6 +643,77 @@ export interface TestResultEvent extends ServerMessage<'test:result'> {
 }
 
 // =============================================================================
+// Task Events (Background Tasks)
+// =============================================================================
+
+/**
+ * Task started event
+ */
+export interface TaskStartedEvent extends ServerMessage<'task:started'> {
+  sessionId?: string;
+  data: {
+    taskId: string;
+    taskType: 'build' | 'test' | 'deploy' | 'git' | 'file' | 'custom';
+    title: string;
+    description?: string;
+    projectId?: string;
+  };
+}
+
+/**
+ * Task progress event
+ */
+export interface TaskProgressEvent extends ServerMessage<'task:progress'> {
+  sessionId?: string;
+  data: {
+    taskId: string;
+    progress: number;
+    currentStep?: string;
+    statusText?: string;
+  };
+}
+
+/**
+ * Task completed event
+ */
+export interface TaskCompletedEvent extends ServerMessage<'task:completed'> {
+  sessionId?: string;
+  data: {
+    taskId: string;
+    taskType: 'build' | 'test' | 'deploy' | 'git' | 'file' | 'custom';
+    title: string;
+    duration: number;
+    success: boolean;
+    output?: string;
+  };
+}
+
+/**
+ * Task error event
+ */
+export interface TaskErrorEvent extends ServerMessage<'task:error'> {
+  sessionId?: string;
+  data: {
+    taskId: string;
+    title: string;
+    error: string;
+    willRetry: boolean;
+  };
+}
+
+/**
+ * Task cancelled event
+ */
+export interface TaskCancelledEvent extends ServerMessage<'task:cancelled'> {
+  sessionId?: string;
+  data: {
+    taskId: string;
+    title: string;
+    reason: 'user' | 'system' | 'timeout';
+  };
+}
+
+// =============================================================================
 // Output Event (Generic)
 // =============================================================================
 
@@ -783,6 +860,11 @@ export type ServerEvents =
   | TestStartedEvent
   | TestProgressEvent
   | TestResultEvent
+  | TaskStartedEvent
+  | TaskProgressEvent
+  | TaskCompletedEvent
+  | TaskErrorEvent
+  | TaskCancelledEvent
   | OutputEvent;
 
 /**
@@ -852,6 +934,11 @@ export function isServerEvent(msg: WSBaseMessage): msg is ServerEvents {
     'test:started',
     'test:progress',
     'test:result',
+    'task:started',
+    'task:progress',
+    'task:completed',
+    'task:error',
+    'task:cancelled',
     'output',
   ];
   return serverTypes.includes(msg.type as ServerEventType);

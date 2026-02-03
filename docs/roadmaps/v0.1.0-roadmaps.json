@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 86,
+  "currentPhase": 87,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -3371,31 +3371,31 @@
       "id": 86,
       "name": "Background Tasks UI",
       "description": "Arka plan islem takibi",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "86.1",
           "title": "frontend/src/components/tasks/BackgroundTaskList.tsx",
           "description": "Arka plan task listesi",
-          "status": "pending"
+          "status": "completed"
         },
         {
           "id": "86.2",
           "title": "frontend/src/components/tasks/TaskProgress.tsx",
           "description": "Task ilerleme gostergesi",
-          "status": "pending"
+          "status": "completed"
         },
         {
           "id": "86.3",
           "title": "WebSocket task events",
           "description": "task:started, task:progress, task:completed",
-          "status": "pending"
+          "status": "completed"
         },
         {
           "id": "86.4",
           "title": "Notification on complete",
           "description": "Task tamamlaninca toast",
-          "status": "pending"
+          "status": "completed"
         }
       ],
       "acceptance": [
