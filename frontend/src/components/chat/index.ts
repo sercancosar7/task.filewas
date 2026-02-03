@@ -36,3 +36,6 @@ export type { ProgressBarProps, SpinnerProps } from './ProgressBar'
 export { WorkflowDiagram } from './WorkflowDiagram'
 export type { WorkflowDiagramProps } from './WorkflowDiagram'
 export { calculateWorkflowProgress, getWorkflowStatusText } from './WorkflowDiagram'
+
+export { ModelDropdown } from './ModelDropdown'
+export type { ModelDropdownProps, ModelType } from './ModelDropdown'

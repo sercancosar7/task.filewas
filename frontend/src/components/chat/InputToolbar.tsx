@@ -3,14 +3,15 @@
  * @module @task-filewas/frontend/components/chat/InputToolbar
  *
  * Layout:
- * ┌────────────────────────────────────────────────────────────────────────┐
- * │ 📎  💬 Quick Chat ▼  📁 my-project      Safe ▼  ☐ Think             │
- * └────────────────────────────────────────────────────────────────────────┘
+ * ┌────────────────────────────────────────────────────────────────────────────────┐
+ * │ 📎  💬 Quick Chat ▼  📁 my-project    Auto ▼  🔒 Safe ▼  ☐ Think               │
+ * └────────────────────────────────────────────────────────────────────────────────┘
  *
  * Features:
  * - Attach button (file upload placeholder)
  * - Chat mode dropdown (Quick Chat, Planning, TDD, Debug, Code Review)
  * - Project selector (placeholder)
+ * - Model selector (Auto, Claude, GLM) with force toggle
  * - Permission mode dropdown (Safe, Ask, Auto)
  * - Thinking toggle (Off, Think, Max - Shift+click for Max)
  */
@@ -21,6 +22,7 @@ import { Button } from '@/components/ui/button'
 import { PermissionDropdown, type PermissionMode } from './PermissionDropdown'
 import { ModeDropdown, type ChatMode } from './ModeDropdown'
 import { ThinkingToggle, type ThinkingLevel } from './ThinkingToggle'
+import { ModelDropdown, type ModelType } from './ModelDropdown'
 
 // =============================================================================
 // Types
@@ -39,6 +41,14 @@ export interface InputToolbarProps {
   thinkingLevel: ThinkingLevel
   /** Callback when thinking level changes */
   onThinkingLevelChange: (level: ThinkingLevel) => void
+  /** Current selected model */
+  selectedModel: ModelType
+  /** Callback when model changes */
+  onSelectedModelChange: (model: ModelType) => void
+  /** Force mode - all agents use selected model */
+  forceModel?: boolean
+  /** Callback when force mode toggles */
+  onForceModelChange?: (force: boolean) => void
   /** Current project name */
   projectName?: string
   /** Callback when attach button is clicked */
@@ -77,6 +87,10 @@ export function InputToolbar({
   onChatModeChange,
   thinkingLevel,
   onThinkingLevelChange,
+  selectedModel,
+  onSelectedModelChange,
+  forceModel = false,
+  onForceModelChange,
   projectName = 'Proje sec...',
   onAttach,
   disabled = false,
@@ -145,8 +159,17 @@ export function InputToolbar({
         </Button>
       </div>
 
-      {/* Right Section - Permission Mode & Thinking Toggle */}
+      {/* Right Section - Model, Permission Mode & Thinking Toggle */}
       <div className="flex items-center gap-2">
+        {/* AI Model Dropdown */}
+        <ModelDropdown
+          value={selectedModel}
+          onChange={onSelectedModelChange}
+          forceModel={forceModel}
+          onForceChange={onForceModelChange ?? undefined}
+          disabled={disabled}
+        />
+
         <PermissionDropdown
           value={permissionMode}
           onChange={onPermissionModeChange}

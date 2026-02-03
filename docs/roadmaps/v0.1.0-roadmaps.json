@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 87,
+  "currentPhase": 88,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -3410,7 +3410,7 @@
       "id": 87,
       "name": "Model Selector Dropdown",
       "description": "Chat input'ta model secimi",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "87.1",

@@ -2,8 +2,26 @@
   "version": "0.1.0",
   "name": "Otonom AI Proje Gelistirme Platformu",
   "startDate": "2026-02-02",
-  "lastUpdated": "2026-02-03T19:05:53.829Z",
+  "lastUpdated": "2026-02-03T19:30:00.000Z",
   "entries": [
+    {
+      "phase": 87,
+      "date": "2026-02-03",
+      "title": "Model Selector Dropdown",
+      "changes": [
+        "ModelDropdown component olusturuldu (Auto, Claude, GLM secimi)",
+        "Model-specific icons (Bot, Brain, Sparkles)",
+        "Model descriptions and detail text",
+        "Force Model toggle (Switch component) ile tum agent'lar secili modeli kullanir",
+        "InputToolbar'a ModelDropdown entegrasyonu",
+        "ModelType export edildi (index.ts)"
+      ],
+      "files": [
+        "frontend/src/components/chat/ModelDropdown.tsx",
+        "frontend/src/components/chat/InputToolbar.tsx",
+        "frontend/src/components/chat/index.ts"
+      ]
+    },
     {
       "phase": 85,
       "date": "2026-02-03",
