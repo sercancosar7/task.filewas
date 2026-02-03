@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 91,
+  "currentPhase": 92,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -3571,31 +3571,31 @@
       "id": 91,
       "name": "Agents Sayfasi UI",
       "description": "Agent listesi ve ayarlari sayfasi",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "91.1",
           "title": "frontend/src/pages/Agents.tsx",
           "description": "Agents sayfasi layout",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "91.2",
           "title": "frontend/src/components/agents/AgentList.tsx",
           "description": "Agent listesi (orchestrator, planner, etc.)",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "91.3",
           "title": "frontend/src/components/agents/AgentCard.tsx",
           "description": "Agent kart - isim, model, tools",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "91.4",
           "title": "Model override ayari",
           "description": "Her agent icin default model degistirme",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [

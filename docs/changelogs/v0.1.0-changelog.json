@@ -2,8 +2,27 @@
   "version": "0.1.0",
   "name": "Otonom AI Proje Gelistirme Platformu",
   "startDate": "2026-02-02",
-  "lastUpdated": "2026-02-03T20:00:00.000Z",
+  "lastUpdated": "2026-02-03T19:54:10.372162",
   "entries": [
+    {
+      "phase": 91,
+      "date": "2026-02-03",
+      "title": "Agents Sayfasi UI",
+      "changes": [
+        "Agents.tsx sayfasi - Agent listesi ve model yonetimi",
+        "AgentCard component - Agent bilgileri (isim, model, tools, capabilities) genisletilebilir kart",
+        "AgentList component - Filtreleme (type bazli), arama, expand/collapse all",
+        "Model override ayari - Her agent icin default model degistirme (Claude/GLM)",
+        "Mock agents with 8 agent types (orchestrator, planner, architect, implementer, reviewer, tester, security, debugger)",
+        "API entegrasyonu icin hazir fonksiyonlar (fetchAgents, updateAgentModel)"
+      ],
+      "files": [
+        "frontend/src/pages/Agents.tsx",
+        "frontend/src/components/agents/AgentCard.tsx",
+        "frontend/src/components/agents/AgentList.tsx",
+        "frontend/src/components/agents/index.ts"
+      ]
+    },
     {
       "phase": 90,
       "date": "2026-02-03",
