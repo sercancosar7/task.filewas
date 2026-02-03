@@ -50,6 +50,11 @@ Thumbs.db
 # Testing
 coverage/
 .nyc_output/
+tests/e2e-results/
+tests/e2e/screenshots/
+tests/e2e/traces/
+playwright-report/
+playwright/.cache/
 
 # TypeScript
 *.tsbuildinfo
