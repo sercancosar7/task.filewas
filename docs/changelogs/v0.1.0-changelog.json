@@ -2,7 +2,7 @@
   "version": "0.1.0",
   "name": "Otonom AI Proje Gelistirme Platformu",
   "startDate": "2026-02-02",
-  "lastUpdated": "2026-02-03T14:30:00Z",
+  "lastUpdated": "2026-02-03T15:00:00Z",
   "entries": [
     {
       "phase": 1,
@@ -2618,6 +2618,45 @@
       "files": [
         "frontend/src/components/ui/command-palette.tsx",
         "frontend/src/components/layout/AppLayout.tsx",
+        "docs/roadmaps/v0.1.0-roadmaps.json"
+      ]
+    },
+    {
+      "phase": 79,
+      "date": "2026-02-03",
+      "title": "Proje Secim Ekrani",
+      "changes": [
+        "ProjectSelect sayfası oluşturuldu (frontend/src/pages/ProjectSelect.tsx)",
+        "Craft Agents tarzi proje seçim UI - 2 panel layout (quick actions + project list)",
+        "Empty state - Proje yokken yeni proje/import et butonları",
+        "Loading state - Spinner ile yükleme göstergesi",
+        "Error state - Hata mesajı ve tekrar dene butonu",
+        "ProjectCard entegrasyonu - Mevcut proje kartları kullanıldı",
+        "Quick actions - Yeni Repo Olustur (primary) + Repo Import Et (secondary)",
+        "QuickActionCard component - Gradient border, hover efektleri, icon container",
+        "Search input - Proje arama, X butonu ile temizleme",
+        "Son kullanılan projeler - İlk 3 proje özel bölümde gösterilir",
+        "Diger projeler - Kalan projeler ikinci bölümde",
+        "Project count badge - Toplam proje sayısı gösterimi",
+        "ProjectSelect'a route eklendi - /select path'i",
+        "ImportRepoDialog component'i oluşturuldu",
+        "GitHub URL validation - Regex ile URL parse ve repo name extract",
+        "Auto-detect project type - Repo isminden proje tipi tahmini",
+        "URL status indicator - Gecerli/invalid URL görsel feedback",
+        "Icon picker - 12 emoji preset'i ile proje ikonu seçimi",
+        "Color picker - 12 renk preset'i ile proje rengi seçimi",
+        "FormField, ColorPicker, IconPicker sub-component'leri",
+        "Import butonu - Validation check, loading spinner, error handling",
+        "NewProjectDialog reuse - Mevcut dialog component'i kullanıldı",
+        "Github icon deprecation fix - Github -> GithubIcon",
+        "Route tanımları - ROUTES.PROJECT_SELECT eklendi",
+        "Build başarılı test edildi"
+      ],
+      "files": [
+        "frontend/src/pages/ProjectSelect.tsx",
+        "frontend/src/components/project/ImportRepoDialog.tsx",
+        "frontend/src/router/index.tsx",
+        "frontend/src/router/routes.ts",
         "docs/roadmaps/v0.1.0-roadmaps.json"
       ]
     }

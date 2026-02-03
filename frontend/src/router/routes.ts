@@ -8,6 +8,9 @@ export const ROUTES = {
   HOME: '/',
   DASHBOARD: '/dashboard',
 
+  // Proje secim
+  PROJECT_SELECT: '/select',
+
   // Proje yonetimi
   PROJECTS: '/projects',
   PROJECT_DETAIL: '/projects/:id',

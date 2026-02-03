@@ -11,6 +11,7 @@ import { Spinner } from '@/components/ui/spinner'
 
 // Lazy loaded pages
 const Dashboard = lazy(() => import('@/pages/Dashboard'))
+const ProjectSelect = lazy(() => import('@/pages/ProjectSelect'))
 const Projects = lazy(() => import('@/pages/Projects'))
 const ProjectDetail = lazy(() => import('@/pages/ProjectDetail'))
 const Sessions = lazy(() => import('@/pages/Sessions'))
@@ -61,6 +62,11 @@ export const router = createBrowserRouter([
       {
         path: ROUTES.DASHBOARD,
         element: <Dashboard />,
+      },
+      // Project Select (after login)
+      {
+        path: ROUTES.PROJECT_SELECT,
+        element: <ProjectSelect />,
       },
       // Projects
       {
