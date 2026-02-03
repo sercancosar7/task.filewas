@@ -2,7 +2,7 @@
   "version": "0.1.0",
   "name": "Otonom AI Proje Gelistirme Platformu",
   "startDate": "2026-02-02",
-  "lastUpdated": "2026-02-03T12:15:00Z",
+  "lastUpdated": "2026-02-03T14:30:00Z",
   "entries": [
     {
       "phase": 1,
@@ -2500,6 +2500,34 @@
         "frontend/src/components/ui/switch.tsx",
         "backend/src/storage/settings.ts",
         "backend/src/routes/settings.ts"
+      ]
+    },
+    {
+      "phase": 75,
+      "date": "2026-02-03",
+      "title": "Dashboard Page",
+      "changes": [
+        "Dashboard.tsx ana sayfası oluşturuldu (Stats, Projects, Activity Feed, Quick Actions)",
+        "StatsCards.tsx component oluşturuldu - İstatistik kartları (Projects, Sessions, Today, Agent)",
+        "RecentProjects.tsx component oluşturuldu - Son projeler listesi",
+        "ActivityFeed.tsx component oluşturuldu - Aktivite akışı widget'ı",
+        "ActivityType type tanımlandı (phase_completed, phase_started, test_passed, test_failed, session_started, commit, error)",
+        "ActivityItem interface - id, type, title, description, projectName, phaseNumber, timestamp",
+        "formatRelativeTime() helper - Relative time display (Az önce, 5dk önce, 2sa önce, Dün, 3 gün önce)",
+        "Dashboard API entegrasyonu - GET /api/dashboard endpoint'i çağrısı",
+        "Loading, error, ve refresh state'leri eklendi",
+        "Quick Actions section - Yeni Proje, Yeni Session, Projeler, GitHub butonları",
+        "Page header ile Dashboard başlığı ve yenile butonu",
+        "Responsive grid layout - 4 stats card, 2 column main content",
+        "frontend/src/components/dashboard/index.ts barrel export oluşturuldu",
+        "Build başarılı test edildi"
+      ],
+      "files": [
+        "frontend/src/pages/Dashboard.tsx",
+        "frontend/src/components/dashboard/StatsCards.tsx",
+        "frontend/src/components/dashboard/RecentProjects.tsx",
+        "frontend/src/components/dashboard/ActivityFeed.tsx",
+        "frontend/src/components/dashboard/index.ts"
       ]
     }
   ]
