@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 26,
+  "currentPhase": 28,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -1199,31 +1199,31 @@
       "id": 26,
       "name": "3 Panel Layout Base",
       "description": "Ana layout yapisi",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "26.1",
           "title": "frontend/src/components/layout/AppLayout.tsx",
           "description": "Flex container, 3 panel, full height",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "26.2",
           "title": "frontend/src/components/layout/LeftSidebar.tsx",
           "description": "Sol sidebar placeholder - width from store",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "26.3",
           "title": "frontend/src/components/layout/SessionInbox.tsx",
           "description": "Orta panel placeholder - width from store",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "26.4",
           "title": "frontend/src/components/layout/MainContent.tsx",
           "description": "Sag panel placeholder - flex-1",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [
@@ -1237,31 +1237,31 @@
       "id": 27,
       "name": "Resizable Panels",
       "description": "Panel resize fonksiyonalitesi",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "27.1",
           "title": "frontend/src/hooks/useResizable.ts",
           "description": "Mouse event handlers, min/max constraints",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "27.2",
           "title": "frontend/src/components/layout/ResizeHandle.tsx",
           "description": "Vertical resize bar, cursor-col-resize",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "27.3",
           "title": "Sidebar resize limits",
           "description": "min: 180px, default: 220px, max: 320px",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "27.4",
           "title": "Inbox resize limits",
           "description": "min: 240px, default: 300px, max: 480px",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [

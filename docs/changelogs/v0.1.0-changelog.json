@@ -2,7 +2,7 @@
   "version": "0.1.0",
   "name": "Otonom AI Proje Gelistirme Platformu",
   "startDate": "2026-02-02",
-  "lastUpdated": "2026-02-03T00:30:00Z",
+  "lastUpdated": "2026-02-03T04:25:00Z",
   "entries": [
     {
       "phase": 1,
@@ -867,6 +867,84 @@
         "frontend/src/stores/app.ts",
         "frontend/src/stores/session.ts",
         "frontend/src/stores/index.ts"
+      ]
+    },
+    {
+      "phase": 26,
+      "date": "2026-02-03",
+      "title": "3 Panel Layout Base",
+      "changes": [
+        "frontend/src/components/layout/ klasoru olusturuldu - layout componentleri icin",
+        "frontend/src/components/layout/AppLayout.tsx olusturuldu - Ana 3-panel layout container",
+        "AppLayoutProps interface tanimlandi: children, className",
+        "Flex layout yapisi kuruldu (flex h-screen w-screen overflow-hidden)",
+        "Panel spacing CSS variable kullanimi (--panel-window-edge-spacing, gap)",
+        "Sidebar collapsed state destegi (60px kapali, sidebarWidth acik)",
+        "frontend/src/components/layout/LeftSidebar.tsx olusturuldu - Sol navigasyon paneli",
+        "LeftSidebarProps interface tanimlandi: width, isCollapsed, className",
+        "Transition animasyonu eklendi (transition-[width] duration-200 ease-out)",
+        "Scrollable nav alani ve sabit bottom section (ayarlar)",
+        "frontend/src/components/layout/SessionInbox.tsx olusturuldu - Orta session listesi paneli",
+        "SessionInboxProps interface tanimlandi: width, className",
+        "Panel header eklendi (All Chats basligi, filter butonu)",
+        "Arama inputu eklendi (disabled - placeholder)",
+        "Scrollable session listesi alani (placeholder)",
+        "frontend/src/components/layout/MainContent.tsx olusturuldu - Sag ana icerik paneli",
+        "MainContentProps interface tanimlandi: children, className",
+        "flex-1 ile kalan alani doldurma, scroll destegi",
+        "frontend/src/components/layout/index.ts olusturuldu - barrel export",
+        "useAppStore entegrasyonu (sidebarWidth, inboxWidth, isSidebarCollapsed)",
+        "PANEL_CONSTRAINTS sabitleri kullanildi (stores/app.ts'den)",
+        "Craft Agents tarzi panel styling (.panel class globals.css'de)",
+        "npm run build basariyla test edildi"
+      ],
+      "files": [
+        "frontend/src/components/layout/AppLayout.tsx",
+        "frontend/src/components/layout/LeftSidebar.tsx",
+        "frontend/src/components/layout/SessionInbox.tsx",
+        "frontend/src/components/layout/MainContent.tsx",
+        "frontend/src/components/layout/index.ts"
+      ]
+    },
+    {
+      "phase": 27,
+      "date": "2026-02-03",
+      "title": "Resizable Panels",
+      "changes": [
+        "frontend/src/hooks/ klasoru olusturuldu - custom hook modulleri icin",
+        "frontend/src/hooks/useResizable.ts olusturuldu - Panel resize hook",
+        "ResizeDirection type tanimlandi (horizontal, vertical)",
+        "ResizeConstraints interface tanimlandi (min, max)",
+        "UseResizableOptions interface tanimlandi (initialSize, constraints, direction, onSizeChange, onResizeStart, onResizeEnd)",
+        "UseResizableReturn interface tanimlandi (size, isResizing, setSize, startResize, handleProps)",
+        "clamp() utility fonksiyonu eklendi - deger min/max arasinda tutma",
+        "Mouse event handling: startResize, handleMouseMove, handleMouseUp",
+        "Global document mouse listeners eklendi (resize sirasinda takip)",
+        "Body cursor ve user-select degisimi (resize sirasinda)",
+        "handleProps objesi eklendi (onMouseDown ve style icin spread)",
+        "frontend/src/hooks/index.ts olusturuldu - barrel export dosyasi",
+        "frontend/src/components/layout/ResizeHandle.tsx olusturuldu - Resize bar component",
+        "ResizeHandleProps interface tanimlandi: direction, isResizing, onMouseDown, className, aria-label",
+        "Vertical bar stili (horizontal resize icin): w-2, cursor-col-resize",
+        "Horizontal bar stili (vertical resize icin): h-2, cursor-row-resize",
+        "Visual indicator line (hover: bg-accent/50, active: bg-accent)",
+        "Group hover efekti ile gorsel geri bildirim",
+        "Accessibility ozellikleri eklendi (role=separator, aria-orientation, tabIndex)",
+        "frontend/src/components/layout/AppLayout.tsx guncellendi - Resize handle entegrasyonu",
+        "sidebarResize hook kullanimi (min: 180, default: 220, max: 320)",
+        "inboxResize hook kullanimi (min: 240, default: 300, max: 480)",
+        "Sidebar ResizeHandle eklendi (collapsed degilse gosteriliyor)",
+        "Inbox ResizeHandle eklendi (her zaman gosteriliyor)",
+        "setSidebarWidth ve setInboxWidth store action'lari baglandirildi",
+        "frontend/src/components/layout/index.ts guncellendi - ResizeHandle export eklendi",
+        "npm run build basariyla test edildi"
+      ],
+      "files": [
+        "frontend/src/hooks/useResizable.ts",
+        "frontend/src/hooks/index.ts",
+        "frontend/src/components/layout/ResizeHandle.tsx",
+        "frontend/src/components/layout/AppLayout.tsx",
+        "frontend/src/components/layout/index.ts"
       ]
     }
   ]
