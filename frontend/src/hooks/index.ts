@@ -29,3 +29,9 @@ export {
   type EventFilterOptions,
   type SessionEventCallbacks,
 } from './useSocketEvent'
+
+export {
+  useSessions,
+  type UseSessionsOptions,
+  type UseSessionsReturn,
+} from './useSessions'
