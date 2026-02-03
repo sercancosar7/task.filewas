@@ -2,7 +2,7 @@
   "version": "0.1.0",
   "name": "Otonom AI Proje Gelistirme Platformu",
   "startDate": "2026-02-02",
-  "lastUpdated": "2026-02-03T04:32:41Z",
+  "lastUpdated": "2026-02-03T04:41:48Z",
   "entries": [
     {
       "phase": 1,
@@ -1084,6 +1084,52 @@
       "files": [
         "frontend/src/components/ui/status-icon.tsx",
         "frontend/src/components/ui/badge.tsx"
+      ]
+    },
+    {
+      "phase": 32,
+      "date": "2026-02-03",
+      "title": "Backend Storage Service - Base",
+      "changes": [
+        "backend/src/services/ klasoru olusturuldu",
+        "backend/src/services/base-storage.ts olusturuldu - BaseStorageService<T> generic abstract class",
+        "StorageFormat type tanimlandi (json, jsonl)",
+        "BaseEntity interface tanimlandi (id, createdAt?, updatedAt?)",
+        "FindAllOptions<T> interface tanimlandi (filter, limit, offset, sortDirection, sortBy)",
+        "StorageConfig interface tanimlandi (relativePath, format, defaultValue, timestamps)",
+        "findAll metodu eklendi - JSONL ve JSON formatlarinda tum kayitlari getirme",
+        "findAllJsonl private metodu - JSONL dosyasından okuma, filter/limit/offset/reverse destegi",
+        "findAllJson private metodu - JSON dosyasından array okuma, filter/sort/pagination destegi",
+        "findById metodu eklendi - ID ile kayit bulma",
+        "findOne metodu eklendi - Predicate ile ilk eslesen kaydi bulma",
+        "findWhere metodu eklendi - Predicate ile tum eslesen kayitlari bulma",
+        "exists metodu eklendi - ID ile varlik kontrolu",
+        "count metodu eklendi - Opsiyonel filter ile kayit sayma",
+        "create metodu eklendi - JSONL'e append veya JSON'a ekleme, otomatik ID ve timestamp",
+        "update metodu eklendi - ID ile kayit guncelleme, updatedAt otomatik",
+        "delete metodu eklendi - ID ile kayit silme",
+        "deleteWhere metodu eklendi - Predicate ile toplu silme",
+        "createMany metodu eklendi - Bulk kayit olusturma",
+        "generateId protected metodu eklendi - Ozelleştirilebilir ID uretimi",
+        "sortItems private metodu eklendi - Field bazli siralama (string/number destegi)",
+        "storageExists metodu eklendi - Dosya varligi kontrolu",
+        "getFilePath metodu eklendi - Absolute dosya yolu dondurme",
+        "ensureStorage metodu eklendi - Dizin ve bos dosya olusturma",
+        "clear metodu eklendi - Tum kayitlari silme",
+        "getError helper fonksiyonu eklendi - TypeScript exact optional property types uyumlulugu",
+        "backend/src/services/index.ts olusturuldu - BaseStorageService ve tip export'lari",
+        "Mevcut storage dosyalarindaki TypeScript hatalari duzeltildi (json.ts, jsonl.ts)",
+        "backend/src/config/env.ts'de dotenv import duzeltildi (default -> namespace)",
+        "@types/express paketi eklendi (eksik type tanimlari)",
+        "npm run build basariyla test edildi"
+      ],
+      "files": [
+        "backend/src/services/base-storage.ts",
+        "backend/src/services/index.ts",
+        "backend/src/storage/jsonl.ts",
+        "backend/src/storage/json.ts",
+        "backend/src/config/env.ts",
+        "backend/package.json"
       ]
     }
   ]

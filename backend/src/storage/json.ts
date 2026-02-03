@@ -139,13 +139,13 @@ export async function updateJson<T>(
     if (!readResult.success) {
       // If no default provided and file doesn't exist, fail
       if (defaultValue === undefined) {
-        return readResult
+        return { success: false, error: readResult.error }
       }
       // Use default value
       const updated = updater(defaultValue)
       const writeResult = await writeJson(filePath, updated)
       if (!writeResult.success) {
-        return writeResult
+        return { success: false, error: writeResult.error }
       }
       return { success: true, data: updated }
     }
@@ -156,7 +156,7 @@ export async function updateJson<T>(
     // Write back
     const writeResult = await writeJson(filePath, updated)
     if (!writeResult.success) {
-      return writeResult
+      return { success: false, error: writeResult.error }
     }
 
     return { success: true, data: updated }

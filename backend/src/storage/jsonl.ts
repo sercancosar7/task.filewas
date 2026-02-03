@@ -178,7 +178,7 @@ export async function readJsonl<T>(
 export async function readJsonlHeader<T>(filePath: string): Promise<StorageResult<T | null>> {
   const result = await readJsonl<T>(filePath, { limit: 1 })
   if (!result.success) {
-    return result
+    return { success: false, error: result.error }
   }
   return { success: true, data: result.data[0] ?? null }
 }
@@ -347,7 +347,7 @@ export async function updateJsonl<T>(
   try {
     const readResult = await readJsonl<T>(filePath)
     if (!readResult.success) {
-      return readResult
+      return { success: false, error: readResult.error }
     }
 
     const items = readResult.data
@@ -364,7 +364,7 @@ export async function updateJsonl<T>(
     if (updateCount > 0) {
       const writeResult = await writeJsonl(filePath, updatedItems)
       if (!writeResult.success) {
-        return writeResult
+        return { success: false, error: writeResult.error }
       }
     }
 
@@ -388,7 +388,7 @@ export async function deleteFromJsonl<T>(
   try {
     const readResult = await readJsonl<T>(filePath)
     if (!readResult.success) {
-      return readResult
+      return { success: false, error: readResult.error }
     }
 
     const items = readResult.data
@@ -398,7 +398,7 @@ export async function deleteFromJsonl<T>(
     if (deleteCount > 0) {
       const writeResult = await writeJsonl(filePath, filteredItems)
       if (!writeResult.success) {
-        return writeResult
+        return { success: false, error: writeResult.error }
       }
     }
 
@@ -425,7 +425,7 @@ export async function findInJsonl<T>(
 ): Promise<StorageResult<T | null>> {
   const result = await readJsonl<T>(filePath, { filter: predicate, limit: 1 })
   if (!result.success) {
-    return result
+    return { success: false, error: result.error }
   }
   return { success: true, data: result.data[0] ?? null }
 }

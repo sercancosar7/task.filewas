@@ -3,7 +3,7 @@
  * Loads and validates environment variables
  */
 
-import dotenv from 'dotenv'
+import * as dotenv from 'dotenv'
 import { resolve } from 'node:path'
 
 // Load .env file from current working directory (backend root)
