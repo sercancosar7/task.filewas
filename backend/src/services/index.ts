@@ -155,3 +155,18 @@ export type {
   GitResult,
   CommitResult,
 } from './git.js'
+
+// Memory MCP Service
+export {
+  MemoryMcpService,
+  getMemoryMcpService,
+  resetMemoryMcpService,
+} from './memory-mcp.js'
+
+export type {
+  MemoryEntity,
+  MemoryRelation,
+  MemoryObservationDeletion,
+  MemoryNode,
+  MemoryResult,
+} from './memory-mcp.js'

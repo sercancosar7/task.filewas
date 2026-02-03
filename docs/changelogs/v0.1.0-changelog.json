@@ -3040,6 +3040,45 @@
         "shared/src/types/skill.ts",
         "shared/src/types/index.ts"
       ]
+    },
+    {
+      "phase": 96,
+      "date": "2026-02-03",
+      "title": "Memory MCP Entegrasyonu",
+      "changes": [
+        "backend/src/services/memory-mcp.ts oluşturuldu (Memory MCP client wrapper)",
+        "MemoryEntity, MemoryRelation, MemoryNode tipleri tanımlandı",
+        "MemoryMcpService sınıfı oluşturuldu (stdio ile MCP server iletişimi)",
+        "Entity oluşturma (createEntity, createEntities)",
+        "Observation ekleme (addObservations)",
+        "Observation silme (deleteObservations)",
+        "Entity silme (deleteEntities)",
+        "Relation oluşturma (createRelations)",
+        "Relation silme (deleteRelations)",
+        "Node sorgulama (searchNodes, openNodes, openNode)",
+        "Graph okuma (readGraph)",
+        "Proje-spesifik helper metodlar (createProjectEntity, addProjectDecision, addProjectNote, addProjectPattern)",
+        "backend/src/routes/memory.ts oluşturuldu (Memory API endpoint'leri)",
+        "GET /api/memory/search - Node arama",
+        "GET /api/memory/nodes/:name - Tek node getirme",
+        "GET /api/memory/project/:projectId/:version - Proje hafızası",
+        "POST /api/memory/entity - Entity oluşturma",
+        "POST /api/memory/project - Proje entity oluşturma",
+        "POST /api/memory/observations - Observation ekleme",
+        "POST /api/memory/decision - Karar ekleme",
+        "POST /api/memory/note - Not ekleme",
+        "POST /api/memory/pattern - Pattern ekleme",
+        "GET /api/memory/graph - Tüm graph okuma",
+        "backend/src/index.ts'e memoryRouter eklendi",
+        "backend/src/routes/index.ts'e memoryRouter export edildi"
+      ],
+      "files": [
+        "backend/src/services/memory-mcp.ts",
+        "backend/src/routes/memory.ts",
+        "backend/src/services/index.ts",
+        "backend/src/routes/index.ts",
+        "backend/src/index.ts"
+      ]
     }
   ]
 }

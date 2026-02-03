@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-03T20:26:09.783Z",
+  "lastUpdated": "2026-02-03T20:45:00.000Z",
   "documents": [],
   "healthMetrics": {
     "totalDocuments": 0,
@@ -13,5 +13,29 @@
     "healthStatus": "healthy",
     "recommendations": []
   },
-  "compressionHistory": []
+  "compressionHistory": [],
+  "phases": {
+    "96": {
+      "name": "Memory MCP Entegrasyonu",
+      "status": "completed",
+      "keyDecisions": [
+        "Memory MCP (@modelcontextprotocol/server-memory) kullanıldı",
+        "Backend'den child process ile stdio üzerinden MCP server iletişimi",
+        "Knowledge graph yapısı: Entity -> Relations -> Observations",
+        "Proje bilgileri decisions, notes, patterns olarak saklanıyor"
+      ],
+      "apiEndpoints": [
+        "GET /api/memory/search",
+        "GET /api/memory/nodes/:name",
+        "GET /api/memory/project/:projectId/:version",
+        "POST /api/memory/entity",
+        "POST /api/memory/project",
+        "POST /api/memory/observations",
+        "POST /api/memory/decision",
+        "POST /api/memory/note",
+        "POST /api/memory/pattern",
+        "GET /api/memory/graph"
+      ]
+    }
+  }
 }
