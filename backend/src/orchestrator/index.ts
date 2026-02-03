@@ -145,3 +145,23 @@ export type {
   TaskToAgentMapper,
   AcceptanceCriteriaChecker,
 } from './phase-executor.js'
+
+// Self-Healing
+export {
+  SelfHealing,
+  getSelfHealing,
+  removeSelfHealing,
+  clearAllSelfHealing,
+  getAllSelfHealingSessions,
+} from './self-healing.js'
+
+export type {
+  TestFailure,
+  ErrorAnalysis,
+  ErrorRootCause,
+  FixPlan,
+  FixStep,
+  FixResult,
+  SelfHealingConfig,
+  SelfHealingSession,
+} from './self-healing.js'

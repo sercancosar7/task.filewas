@@ -2385,6 +2385,42 @@
         "backend/src/orchestrator/phase-executor.ts",
         "backend/src/orchestrator/index.ts"
       ]
+    },
+    {
+      "phase": 71,
+      "date": "2026-02-03",
+      "title": "Self-Healing Sistemi",
+      "changes": [
+        "backend/src/orchestrator/self-healing.ts olusturuldu - SelfHealing class",
+        "ErrorRootCause type tanimlandi (selector_changed, element_not_rendered, timing_issue, api_error, state_mismatch, missing_data, logic_error, ui_layout_change, network_error, dependency_error, type_error, build_error, unknown)",
+        "TestFailure interface - Test hatasi bilgileri (suiteId, scenarioId, testName, error, expected, actual, stack, screenshotPath, timestamp)",
+        "ErrorAnalysis interface - Kok neden analizi (rootCause, confidence, explanation, suggestedFix, filesInvolved, canAutoFix)",
+        "FixPlan interface - Duzeltme plani (id, failure, analysis, steps, model, complexity)",
+        "FixStep interface - Tek adim (order, type, targetFile, description, command, expectedOutcome)",
+        "FixResult interface - Duzeltme sonucu (fixPlanId, success, agentId, output, error, duration, filesModified)",
+        "SelfHealingConfig interface - Yapilandirma (maxAttempts, analysisModel, fixModel, enabled, fixTimeout, escalateAfterMaxAttempts)",
+        "SelfHealingSession interface - Session durumu (sessionId, config, attempts, history, state)",
+        "processFailure() metodu - Test hatasini self-healing akisina sokma",
+        "analyzeError() metodu - Hatayi Claude ile analiz etme",
+        "generateFixPlan() metodu - Duzeltme plani olusturma",
+        "applyFix() metodu - Duzeltmeyi agent ile uygulama",
+        "verifyFix() metodu - Duzeltme dogrulama (external test runner ile)",
+        "buildAnalysisPrompt() - Error analiz prompt'u olusturma",
+        "buildFixPlanPrompt() - Fix plan prompt'u olusturma",
+        "buildApplyFixPrompt() - Fix uygulama prompt'u olusturma",
+        "parseAnalysisResult() - Agent ciktisindan analiz sonucu parse etme",
+        "parseFixPlan() - Agent ciktisindan fix plan parse etme",
+        "extractModifiedFiles() - Degisen dosyalari cikarma",
+        "fallbackAnalysis() - JSON parse hatasi durumunda heuristik analiz",
+        "getStats() - Self-healing istatistikleri",
+        "Factory functions - getSelfHealing, removeSelfHealing, clearAllSelfHealing, getAllSelfHealingSessions",
+        "WebSocket event'leri - self-healing:analysis_started, self-healing:analysis_complete, self-healing:fix_plan_generated, self-healing:fix_started, self-healing:fix_success, self-healing:fix_failed, self-healing:max_attempts_reached, self-healing:failed",
+        "orchestrator/index.ts'ye export eklendi"
+      ],
+      "files": [
+        "backend/src/orchestrator/self-healing.ts",
+        "backend/src/orchestrator/index.ts"
+      ]
     }
   ]
 }
