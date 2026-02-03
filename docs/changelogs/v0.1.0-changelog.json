@@ -2767,6 +2767,30 @@
         "frontend/package.json",
         "pnpm-workspace.yaml"
       ]
+    },
+    {
+      "phase": 84,
+      "date": "2026-02-03",
+      "title": "File Browser/Explorer",
+      "changes": [
+        "backend/src/routes/files.ts oluşturuldu",
+        "GET /api/projects/:id/files - dosya listesi endpoint",
+        "GET /api/projects/:id/files/:path - dosya içeriği endpoint",
+        "POST /api/projects/:id/files/search - dosya arama endpoint",
+        "frontend/src/components/files/FileBrowser.tsx - dosya ağacı componenti",
+        "frontend/src/components/files/FileViewer.tsx - dosya görüntüleyici",
+        "Path traversal koruması eklendi",
+        "Syntax highlighting için language mapping"
+      ],
+      "files": [
+        "backend/src/routes/files.ts",
+        "backend/src/routes/index.ts",
+        "backend/src/index.ts",
+        "frontend/src/components/files/types.ts",
+        "frontend/src/components/files/FileBrowser.tsx",
+        "frontend/src/components/files/FileViewer.tsx",
+        "frontend/src/components/files/index.ts"
+      ]
     }
   ]
 }
