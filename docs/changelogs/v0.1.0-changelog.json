@@ -3104,6 +3104,27 @@
         "backend/src/routes/index.ts",
         "backend/src/index.ts"
       ]
+    },
+    {
+      "phase": 98,
+      "date": "2026-02-03",
+      "title": "Bug Fixes & Polish",
+      "changes": [
+        "ProjectSettingsTab tam implementasyon - save/delete API entegrasyonu eklendi",
+        "ProjectSettingsTab'de loading state, error handling, success message eklendi",
+        "ProjectSettingsTab'de autoNextPhase yerine autoPush kullanildi (settings type ile uyumlu)",
+        "ProjectSettingsTab'de localPath yerine path kullanildi (Project type ile uyumlu)",
+        "ProjectSessionsTab'de TODO yorumları temizlendi, placeholder bilgilendirmesi eklendi",
+        "Faz 94 task status tutarsizlığı düzeltildi - task'lar completed olarak işaretlendi",
+        "TypeScript hataları düzeltildi",
+        "Build başarıyla test edildi"
+      ],
+      "files": [
+        "frontend/src/components/project/tabs/ProjectSettingsTab.tsx",
+        "frontend/src/components/project/tabs/ProjectSessionsTab.tsx",
+        "docs/roadmaps/v0.1.0-roadmaps.json",
+        "docs/changelogs/v0.1.0-changelog.json"
+      ]
     }
   ]
 }

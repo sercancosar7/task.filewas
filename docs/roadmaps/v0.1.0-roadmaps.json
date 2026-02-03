@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 98,
+  "currentPhase": 99,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -3693,25 +3693,25 @@
           "id": "94.1",
           "title": "frontend/src/components/project/ChangelogTab.tsx",
           "description": "Changelog tab container",
-          "status": "pending"
+          "status": "completed"
         },
         {
           "id": "94.2",
           "title": "frontend/src/components/changelog/ChangelogList.tsx",
           "description": "Degisiklik listesi",
-          "status": "pending"
+          "status": "completed"
         },
         {
           "id": "94.3",
           "title": "frontend/src/components/changelog/ChangelogEntry.tsx",
           "description": "Tek degisiklik karti",
-          "status": "pending"
+          "status": "completed"
         },
         {
           "id": "94.4",
           "title": "backend/src/routes/changelog.ts",
           "description": "GET /api/projects/:id/changelog",
-          "status": "pending"
+          "status": "completed"
         }
       ],
       "acceptance": [
@@ -3855,7 +3855,7 @@
       "id": 98,
       "name": "Bug Fixes & Polish",
       "description": "Hata duzeltmeleri ve iyilestirmeler",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "98.1",
