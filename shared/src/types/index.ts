@@ -262,3 +262,15 @@ export type {
 } from './source';
 
 export { MCP_PRESETS } from './source';
+
+// Skill types
+export type {
+  SkillCategory,
+  SkillSourceType,
+  SkillConfig,
+  SkillSummary,
+  SkillCreate,
+  SkillUpdate,
+} from './skill';
+
+export { BUILT_IN_SKILLS } from './skill';

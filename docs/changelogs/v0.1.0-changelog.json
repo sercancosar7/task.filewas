@@ -2943,6 +2943,30 @@
         "backend/src/index.ts",
         "backend/src/routes/index.ts"
       ]
+    },
+    {
+      "phase": 92,
+      "date": "2026-02-03",
+      "title": "Skills Sayfasi UI",
+      "changes": [
+        "frontend/src/pages/Skills.tsx oluşturuldu (Skills ana sayfası)",
+        "frontend/src/components/skills/SkillList.tsx oluşturuldu (Skill listesi komponenti)",
+        "frontend/src/components/skills/SkillCard.tsx oluşturuldu (Skill kartı komponenti)",
+        "frontend/src/components/skills/SkillPreview.tsx oluşturuldu (Skill önizleme dialog)",
+        "shared/src/types/skill.ts oluşturuldu (SkillConfig, SkillCategory, BUILT_IN_SKILLS)",
+        "Kategori filtreleme (coding, testing, backend, frontend, security, workflow, documentation, architecture, database, custom)",
+        "Aktif/pasif filtreleme",
+        "Skill expand/collapse tümü",
+        "Skill preview dialog ile system prompt görüntüleme"
+      ],
+      "files": [
+        "frontend/src/pages/Skills.tsx",
+        "frontend/src/components/skills/SkillList.tsx",
+        "frontend/src/components/skills/SkillCard.tsx",
+        "frontend/src/components/skills/SkillPreview.tsx",
+        "shared/src/types/skill.ts",
+        "shared/src/types/index.ts"
+      ]
     }
   ]
 }
