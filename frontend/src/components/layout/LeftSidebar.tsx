@@ -1,5 +1,5 @@
 /**
- * LeftSidebar - Left sidebar panel placeholder (Craft Agents style)
+ * LeftSidebar - Left sidebar panel (Craft Agents style)
  * @module @task-filewas/frontend/components/layout/LeftSidebar
  *
  * Layout Structure:
@@ -24,10 +24,24 @@
  */
 
 import { cn } from '@/lib/utils'
+import { SidebarContent, type SessionCounts } from '@/components/sidebar'
 
 export interface LeftSidebarProps {
+  /** Width of the sidebar in pixels */
   width: number
+  /** Whether sidebar is collapsed (60px mode) */
   isCollapsed?: boolean
+  /** Session counts for each status */
+  sessionCounts?: SessionCounts
+  /** Currently active filter */
+  activeFilter?: string
+  /** Callback when New Chat is clicked */
+  onNewChat?: () => void
+  /** Callback when a filter is selected */
+  onFilterSelect?: (filter: string) => void
+  /** Callback when Settings is clicked */
+  onSettingsClick?: () => void
+  /** Additional CSS classes */
   className?: string
 }
 
@@ -36,10 +50,16 @@ export interface LeftSidebarProps {
  * - Dynamic width from store
  * - Collapsed state support (60px)
  * - Full height with flex column
+ * - SidebarContent with nav items
  */
 export function LeftSidebar({
   width,
   isCollapsed = false,
+  sessionCounts,
+  activeFilter,
+  onNewChat,
+  onFilterSelect,
+  onSettingsClick,
   className,
 }: LeftSidebarProps) {
   return (
@@ -59,45 +79,17 @@ export function LeftSidebar({
       }}
       aria-label="Sol menü"
     >
-      {/* Scrollable Navigation Area */}
-      <div className="flex-1 overflow-y-auto overflow-x-hidden">
-        <nav className="flex flex-col gap-0.5 p-2">
-          {/* Placeholder content - will be implemented in Phase 27+ */}
-          <div
-            className={cn(
-              'flex items-center justify-center h-full min-h-[200px]',
-              'text-muted-foreground text-[13px]',
-              isCollapsed && 'px-0',
-              !isCollapsed && 'px-2'
-            )}
-          >
-            {isCollapsed ? (
-              <span className="text-xs">☰</span>
-            ) : (
-              <span>Sol Sidebar</span>
-            )}
-          </div>
-        </nav>
-      </div>
-
-      {/* Fixed Bottom Section - Settings */}
-      <div className="mt-auto border-t border-border p-2">
-        <div
-          className={cn(
-            'nav-item',
-            'text-muted-foreground',
-            isCollapsed && 'justify-center'
-          )}
-        >
-          {isCollapsed ? (
-            <span className="text-xs">⚙️</span>
-          ) : (
-            <span className="text-[13px]">⚙️ Ayarlar</span>
-          )}
-        </div>
-      </div>
+      <SidebarContent
+        {...(sessionCounts !== undefined && { counts: sessionCounts })}
+        {...(activeFilter !== undefined && { activeFilter })}
+        isCollapsed={isCollapsed}
+        {...(onNewChat !== undefined && { onNewChat })}
+        {...(onFilterSelect !== undefined && { onFilterSelect })}
+        {...(onSettingsClick !== undefined && { onSettingsClick })}
+      />
     </aside>
   )
 }
 
 export default LeftSidebar
+export type { SessionCounts }

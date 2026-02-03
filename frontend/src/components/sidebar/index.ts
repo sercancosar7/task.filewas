@@ -12,3 +12,8 @@ export {
   type SessionStatus,
 } from './NavItem'
 export { NavSection, type NavSectionProps } from './NavSection'
+export {
+  SidebarContent,
+  type SidebarContentProps,
+  type SessionCounts,
+} from './SidebarContent'

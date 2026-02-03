@@ -2,7 +2,7 @@
   "version": "0.1.0",
   "name": "Otonom AI Proje Gelistirme Platformu",
   "startDate": "2026-02-02",
-  "lastUpdated": "2026-02-03T04:28:50Z",
+  "lastUpdated": "2026-02-03T04:32:41Z",
   "entries": [
     {
       "phase": 1,
@@ -1015,6 +1015,40 @@
         "frontend/src/components/sidebar/NavSection.tsx",
         "frontend/src/components/sidebar/index.ts",
         "frontend/tailwind.config.ts"
+      ]
+    },
+    {
+      "phase": 30,
+      "date": "2026-02-03",
+      "title": "Sidebar Content",
+      "changes": [
+        "frontend/src/components/sidebar/SidebarContent.tsx olusturuldu - Sidebar icerik component",
+        "SessionCounts interface tanimlandi (all, backlog, todo, inProgress, needsReview, done, cancelled, flagged)",
+        "SidebarContentProps interface tanimlandi (counts, activeFilter, isCollapsed, onNewChat, onFilterSelect, onSettingsClick)",
+        "New Chat button eklendi - Primary action button en ustte (MessageSquarePlus ikonu)",
+        "All Chats nav item eklendi - Ana kategori (MessagesSquare ikonu)",
+        "Status filter nav items eklendi - Nested under All Chats:",
+        "  - Beklemede (Backlog) - Circle ikonu, muted color",
+        "  - Yapilacak (Todo) - Circle ikonu, muted color",
+        "  - Devam Ediyor (In Progress) - CircleDot ikonu, accent color",
+        "  - Inceleme Bekliyor (Needs Review) - CircleDashed ikonu, info color",
+        "  - Tamamlandi (Done) - CheckCircle2 ikonu, success color",
+        "  - Iptal Edildi (Cancelled) - XCircle ikonu, muted color",
+        "Vertical connector line eklendi - Status filters icin (bg-foreground/10)",
+        "Flagged filter eklendi - Ozel filtre (Flag ikonu, info color)",
+        "Sources collapsible section eklendi - API'ler, MCP'ler, Yerel Klasorler",
+        "Skills collapsible section eklendi - Tum Yetenekler",
+        "Settings button eklendi - mt-auto ile alta sabitlenmis (Settings ikonu)",
+        "frontend/src/components/sidebar/index.ts guncellendi - SidebarContent export eklendi",
+        "frontend/src/components/layout/LeftSidebar.tsx guncellendi - SidebarContent entegrasyonu",
+        "LeftSidebarProps genisletildi (sessionCounts, activeFilter, onNewChat, onFilterSelect, onSettingsClick)",
+        "Placeholder content SidebarContent ile degistirildi",
+        "npm run build basariyla test edildi"
+      ],
+      "files": [
+        "frontend/src/components/sidebar/SidebarContent.tsx",
+        "frontend/src/components/sidebar/index.ts",
+        "frontend/src/components/layout/LeftSidebar.tsx"
       ]
     }
   ]

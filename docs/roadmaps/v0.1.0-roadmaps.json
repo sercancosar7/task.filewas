@@ -1,7 +1,7 @@
 {
   "projectName": "Task.filewas v0.1.0 - Otonom AI Proje Gelistirme Platformu",
   "version": "0.1.0",
-  "currentPhase": 30,
+  "currentPhase": 31,
   "totalPhases": 108,
   "startDate": null,
   "estimatedEndDate": null,
@@ -1341,31 +1341,31 @@
       "id": 30,
       "name": "Sidebar Content",
       "description": "Sidebar icerigi - nav items, status filters",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         {
           "id": "30.1",
           "title": "New Chat button",
           "description": "Primary action button en ustte",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "30.2",
           "title": "Status nav items",
           "description": "All Chats, Backlog, Todo, In Progress, Needs Review, Done, Cancelled",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "30.3",
           "title": "Flagged filter",
           "description": "Flagged sessions filter item",
-          "status": "pending"
+          "status": "done"
         },
         {
           "id": "30.4",
           "title": "Settings button",
           "description": "mt-auto ile alta sabitlenmis settings",
-          "status": "pending"
+          "status": "done"
         }
       ],
       "acceptance": [
