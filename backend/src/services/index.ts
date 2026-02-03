@@ -51,3 +51,38 @@ export type {
   GenerateTokenOptions,
   VerifyTokenResult,
 } from './auth.js'
+
+// CLAUDE.md Service
+export {
+  // Path utilities
+  getPlatformClaudeMdPath,
+  getProjectClaudeMdPath,
+  getProjectDirPath,
+  // Template generation
+  generatePlatformClaudeMd,
+  generateProjectClaudeMd,
+  // Read operations
+  readPlatformClaudeMd,
+  readProjectClaudeMd,
+  readClaudeMd,
+  // Write operations
+  writePlatformClaudeMd,
+  writeProjectClaudeMd,
+  writeClaudeMd,
+  // Initialize operations
+  initPlatformClaudeMd,
+  initProjectClaudeMd,
+  // Update operations
+  updateClaudeMdSection,
+  appendToClaudeMd,
+  // Templates
+  PLATFORM_CLAUDE_MD_TEMPLATE,
+  PROJECT_CLAUDE_MD_TEMPLATE,
+} from './claudeMd.js'
+
+export type {
+  ClaudeMdType,
+  ClaudeMdContent,
+  ReadClaudeMdOptions,
+  WriteClaudeMdOptions,
+} from './claudeMd.js'

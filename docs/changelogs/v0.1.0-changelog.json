@@ -2008,6 +2008,30 @@
         ".task/commands/plan.md",
         ".task/commands/review.md"
       ]
+    },
+    {
+      "phase": 59,
+      "date": "2026-02-03",
+      "title": "CLAUDE.md Yonetimi",
+      "changes": [
+        "backend/src/services/claudeMd.ts olusturuldu - CLAUDE.md okuma/yazma servisi",
+        "ClaudeMdType, ClaudeMdContent, ReadClaudeMdOptions, WriteClaudeMdOptions tipleri tanimlandi",
+        "getPlatformClaudeMdPath(), getProjectClaudeMdPath() path utility fonksiyonlari eklendi",
+        "PLATFORM_CLAUDE_MD_TEMPLATE - Platform kurallari icin varsayilan template",
+        "PROJECT_CLAUDE_MD_TEMPLATE - Proje ozel kurallari icin varsayilan template",
+        "generatePlatformClaudeMd(), generateProjectClaudeMd() template generation fonksiyonlari",
+        "readPlatformClaudeMd(), readProjectClaudeMd(), readClaudeMd() okuma fonksiyonlari",
+        "writePlatformClaudeMd(), writeProjectClaudeMd(), writeClaudeMd() yazma fonksiyonlari",
+        "initPlatformClaudeMd(), initProjectClaudeMd() ilk olusturma fonksiyonlari",
+        "updateClaudeMdSection(), appendToClaudeMd() guncelleme fonksiyonlari",
+        "Template degisken degistirme: DATE, PROJECT_ID, PROJECT_NAME, PROJECT_TYPE, TECH_STACK, PROJECT_STRUCTURE",
+        "backend/src/services/index.ts guncellendi - claudeMd exportlari eklendi",
+        "npm run build basarili - TypeScript derleme tamamlandi"
+      ],
+      "files": [
+        "backend/src/services/claudeMd.ts",
+        "backend/src/services/index.ts"
+      ]
     }
   ]
 }
